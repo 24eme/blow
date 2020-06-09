@@ -1,6 +1,7 @@
 @extends('layout')
 @section('content')
 
-  <div style="width:500px;height:500px;"id="calendar"></div>
-
+<div class="container">
+  <div id="calendar"></div>
+</div>
 @endsection

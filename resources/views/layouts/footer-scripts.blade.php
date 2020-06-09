@@ -1,6 +1,4 @@
-<!-- Bootstrap core JavaScript
-================================================= -->
-<!-- Placed at the end of the document so the pages load faster -->
+<!-- Utile pour bootstrap à la fin pour que ca charge plus vite  -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

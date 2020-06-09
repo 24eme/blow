@@ -14,8 +14,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      contentHeight:200,
+    var calendar = new FullCalendar.Calendar(calendarEl, { 
       plugins: [ 'interaction', 'resourceTimeline' ],
       timeZone: 'UTC',
       header: {
@@ -26,7 +25,7 @@
       locale:'fr',
       defaultView: 'resourceTimelineDay',
       scrollTime: '06:00',
-      aspectRatio: 1.5, 
+      aspectRatio: 1.5,
       editable: true,
       resourceLabelText: 'Salles',
       resources: 'https://fullcalendar.io/demo-resources.json?with-nesting&with-colors',
