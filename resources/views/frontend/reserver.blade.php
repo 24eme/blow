@@ -1,7 +1,7 @@
 @extends('layout')
-@section('content')
 
-<div class="container">
-  <div id="calendar"></div>
-</div>
+
+@section('content')
+  <div id="calendar" data-toggle="modal" data-target="#reservation-modal"></div>
+@extends('frontend.components.modal')
 @endsection

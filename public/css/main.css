@@ -1,0 +1,55 @@
+body,html{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0; 
+}
+*{
+  font-family: Quicksand;
+  font-size: 1em;
+}
+i{
+  margin-right: 10px;
+}
+
+input[type="date"]{
+
+}
+.favicon{
+  background-image:url('../favicon.ico');
+}
+.secondnav{
+    height: 30px;
+    border-top: 1px solid grey;
+    background-color: #3a506b;
+}
+.secondnav .navbar-nav  {
+    margin:0 auto;
+    text-align: center;
+}
+.container{
+    margin-left: auto;
+    margin-right: 0;
+    width: 70%;
+}
+.dropdown-menu{
+  width: 20vw;
+  height: 30vh;
+  padding: 10px;
+  font-size: .7em;
+}
+#calendar{
+  font-size: 0.7em;
+}
+.modal-content{
+  color:white;
+  font-size: .8em;
+  background-color: #3a506b;
+}
+.note{
+  padding: 5px 5px 2px 5px;
+  background-color: #5bc0be;
+}
+.nav-link a:hover{
+    color: #3a506b;
+}

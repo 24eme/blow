@@ -10,3 +10,4 @@ picker.addEventListener('input', function(e){
     alert('Le samedi c\'est pas bon.Le dimanche, c\'est sacré !');
   }
 });
+ 
