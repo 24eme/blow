@@ -2,9 +2,9 @@
 
 @section('content')
 <ul class="list-down">
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>Getting Started</li>
+  <li>Creating an Event</li>
+  <li>Creating an Account</li>
   <li></li>
   <li></li>
   <li></li>

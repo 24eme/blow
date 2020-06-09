@@ -29,6 +29,24 @@
       aspectRatio: 1.5,
       editable: true,
       droppable:true,
+      selectable:true,
+      weekends:false,
+      select: function(info) {
+        //On recupere les input à modifier dans le modal
+        var Datedebut = document.getElementById('datededebut');
+        var Heuredebut = document.getElementById('heurededebut');
+        var Datefin = document.getElementById('datedefin');
+        var Heurefin = document.getElementById('heuredefin');
+
+        const dateDebut = (info.startStr).split("T", 2);
+        dateDebut[2] = dateDebut[1].split("Z").join("");
+        const dateFin = (info.endStr).split("T", 2);
+        dateFin[2]= dateFin[1].split("Z").join("");
+        Datedebut.value = dateDebut[0] ;
+        Heuredebut.value = dateDebut[2] ;
+        Datefin.value = dateFin[0] ;
+        Heurefin.value = dateFin[2] ;
+      },
       height:'auto',
       resourceLabelText: 'Salles',
       resources: [
