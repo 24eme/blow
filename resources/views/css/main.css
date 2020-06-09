@@ -6,8 +6,6 @@ body,html{
 
 }
 
-.side-navigation{
-  width: 20%;
+.container{
   background-color: red;
-
 }
