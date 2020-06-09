@@ -8,15 +8,15 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-
+        
         <div class="modal-body">
           <form method="POST" action="makeEvent.php">
             <input type="text" name="nom" placeholder="Nom de l'événement">
             <input type="checkbox" name="visible" placeholder=""><label>Rendre invisible pour les non concernés</label>
-<!-- A faire droit de réserver que 3h de suite-->
+      <!-- A faire droit de réserver que 3h de suite-->
             <label>Organisateur : { $nomutilisateurousociete}}<label>
             <label>Nom de salle : { $nomdesalle}}</label>
-            <label>Surface : { $surface}}</label>
+            <label>Surface : { $nomdesalle}}</label>
             <label>Capacité : { $capacity}}</label>
             <label>Début : </label><input type="date"><input type="time" name="heurededebut" min="06:00" max="20:00" required>
             <label>Fin : </label><input type="date"><input type="time" name="heuredefin"min="06:00" max="20:00" required>
