@@ -7,7 +7,7 @@
   <li>Creating an Account</li>
   <li></li>
   <li></li>
-  <li></li>
+  <li>CGU & RGPD</li>
 </ul>
 @extends('frontend.components.modal')
 @endsection
