@@ -12,18 +12,6 @@
   <script>
 
   document.addEventListener('DOMContentLoaded', function() {
-    var salles = [{
-      id: 'Sa',
-      name: 'New York',
-      capacite: '44',
-      surface: '10'
-    },
-    {
-      id: 'Sb',
-      name: 'Houston',
-      latitude: '45.111111',
-      longitude: '11.111111'
-    }];
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -60,6 +48,7 @@
       ],
       select: function(info) {
               //On recupere les input à modifier dans le modal
+              
               var Datedebut = document.getElementById('datededebut');
               var Heuredebut = document.getElementById('heurededebut');
               var Datefin = document.getElementById('datedefin');
@@ -69,14 +58,13 @@
               var capacite = document.getElementById('capacite');
               var surface = document.getElementById('surface');
               nomdesalle.innerHTML = info.resource.title ;
-              salleID.value = info.resource.id; 
+              salleID.value = info.resource.id;
 
               const dateDebut = (info.startStr).split("T", 2);
               dateDebut[2] = dateDebut[1].split("Z").join("");
 
               const dateFin = (info.endStr).split("T", 2);
               dateFin[2]= dateFin[1].split("Z").join("");
-
 
               Datedebut.value = dateDebut[0] ;
               Heuredebut.value = dateDebut[2] ;

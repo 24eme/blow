@@ -2,7 +2,6 @@
     <div class="modal-dialog " role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <div class="header"><h1></h1></div>
           <div class="header-box"><h5 class="modal-title">Réserver votre salle</h5>
             <label>Organisateur : { $nomutilisateurousociete}}<label>
             <label>Nom de salle : </label><label id="nomdesalle"></label><br>

@@ -2,7 +2,7 @@ body,html{
   height: 100%;
   width: 100%;
   margin: 0;
-  padding: 0; 
+  padding: 0;
 }
 *{
   font-family: Quicksand;
@@ -11,9 +11,63 @@ body,html{
 i{
   margin-right: 10px;
 }
+input[type="text"]{
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: 0;
+  font-size: 1rem;
+  padding: 7px 0;
+  margin-bottom: 10px;
+  background: transparent;
+  transition: border 0.2s;
+}
+input[type="text"]:focus{
+  border-bottom: 1px solid blue;
+}
+select{
+  border: none;
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
 
-input[type="date"]{
 
+
+
+.modal-header, .modal-content{
+  border: none;
+  border-radius: 0;
+}
+.modal-header{
+  height: auto;
+}
+.header-box{
+  height: 120px;
+  display: block;
+}
+
+
+
+
+.btn{
+  border-radius: 0;
+  width: 200px;
+}
+.btn-primary{
+  background-color: #f56c51;
+  border-color: inherit;
+}
+.btn-primary:hover{
+  background-color: #ff5d3d;
+  border-color: inherit;
+}
+
+
+
+
+
+.modal-header{
+  background-color: #f2db44;
 }
 .favicon{
   background-image:url('../favicon.ico');
@@ -42,9 +96,7 @@ input[type="date"]{
   font-size: 0.7em;
 }
 .modal-content{
-  color:white;
   font-size: .8em;
-  background-color: #3a506b;
 }
 .note{
   padding: 5px 5px 2px 5px;

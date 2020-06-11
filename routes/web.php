@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +11,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return view('frontend/modal');
+    return view('index');
 });
+Route::get('/reserver', function() {
+        return view('frontend/reserver');
+});
+Route::get('/aide', function() {
+        return view('frontend/aide');
+});
+Route::post('/addEvent', 'addEvent@InsertEvent');
