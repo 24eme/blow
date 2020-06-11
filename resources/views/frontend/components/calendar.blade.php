@@ -33,22 +33,11 @@
       weekends:false,
       height:'auto',
       resourceLabelText: 'Salles',
-      resources: [
-        { id: 'a', title: 'Salle de Réunion 102',  },
-        { id: 'b', title: 'Salle de Réunion B12', extendedProps:'Sa'},
-        { id: 'c', title: 'Salle de Réunion 295', capacite:'20 personnes',surface:'20m^2'},
-        { id: 'd', title: 'Salle de Réunion C344', capacite:'10 personnes',surface:'20m^2' },
-        { id: 'e', title: 'Salle de Réunion 278', capacite:'32 personnes',surface:'20m^2'},
-        { id: 'f', title: 'Salle de Réunion JH8', capacite:'20 personnes',surface:'20m^2'},
-      ],
-      events: [
-        { title: 'Event 1', start: '2020-06-09', resourceId: 'a' },
-        { title: 'Event 2', start: '2020-06-09', resourceId: 'a' },
-        { title: 'Event 3', start: '2020-06-09', resourceId: 'b' }
-      ],
+      resources:'json-list-resources',
+      eventSources:[{url:'json-list-events',textColor: 'black' }],
       select: function(info) {
               //On recupere les input à modifier dans le modal
-              
+
               var Datedebut = document.getElementById('datededebut');
               var Heuredebut = document.getElementById('heurededebut');
               var Datefin = document.getElementById('datedefin');

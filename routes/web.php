@@ -21,3 +21,7 @@ Route::get('/aide', function() {
         return view('frontend/aide');
 });
 Route::post('/addEvent', 'addEvent@InsertEvent');
+
+Route::get('/', 'EvenementController@list');
+Route::get('json-list-events', 'EvenementController@listTest'); //pour les evenements
+Route::get('json-list-resources', 'SalleController@listTest'); //pour les resources
