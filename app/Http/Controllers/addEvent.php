@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 
 class addEvent extends Controller{
 
+
+
       public function InsertEvent(Request $request){
 
 
@@ -18,13 +20,27 @@ class addEvent extends Controller{
         $end= $request->input('datedefin').'T'.$request->input('heuredefin').'Z';
         $resource = $request->input('salleId');
 
+        $query = DB::table('evenements')                   //select count(*) from evenements where start=$start and end='end'
+             ->where('start','=',$start)
+             ->where('end','=',$end)
+             ->where('resourceId','=',$resource)
+             ->count();
+
+
+        if($query>0){
+          echo"Créneau déjà réservé pour cette salle";
+          return view('frontend/reserver');
+          }
+
         $data=array('title'=>$nom,'start'=>$start,"end"=>$end,"resourceId"=>$resource);
         DB::table('evenements')->insert($data);
-
-
+        
         echo "Inseré avec succès";
         return view('frontend/reserver');
+
       }
+
+
 }
 // selectable: true,
 // selectHelper: true,

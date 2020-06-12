@@ -3,7 +3,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <div class="header-box"><h5 class="modal-title">Réserver votre salle</h5>
-            <label>Organisateur : { $nomutilisateurousociete}}<label>
+            <label>Organisateur : { $nomutilisateurousociete}}</label><br>
             <label>Nom de salle : </label><label id="nomdesalle"></label><br>
             <label>Surface : { $nomdesalle}}</label><label id="capacite"></label><br>
             <label>Capacité : { $capacity}}</label>
@@ -15,7 +15,7 @@
         </div>
         <div class="modal-body">
           <form method="POST" action="{{url('addEvent')}}">
-            <input type="text" id="nom" name="nom" placeholder="Nom de l'événement"><br></br>
+            <input type="text" id="nom" name="nom" placeholder="Nom de l'événement" value=""><br></br>
       <!-- A faire droit de réserver que 3h de suite-->
             <input name="salleId" id="salleId" style="display:none">
             <label>Début : </label>

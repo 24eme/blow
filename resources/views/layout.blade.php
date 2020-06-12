@@ -6,9 +6,7 @@
  </head>
  <body>
     @include('layouts.header')
-    <div class="container">
-      @yield('content')
-    </div>
+      @yield('content') 
     @include('layouts.footer')
     @include('layouts.footer-scripts')
  </body>

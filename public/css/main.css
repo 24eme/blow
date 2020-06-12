@@ -3,13 +3,22 @@ body,html{
   width: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
+
 *{
   font-family: Quicksand;
   font-size: 1em;
 }
+
 i{
   margin-right: 10px;
+}
+li{
+  list-style-type: none;
+}
+h1{
+  font-size: 5em;
 }
 input[type="text"]{
   border: none;
@@ -31,9 +40,30 @@ select{
   outline: none;
 }
 
+.background{
+  width: 100%;
+  height: 100%;
+  background: rgb(255,255,255);
+  background: linear-gradient(31deg, rgba(255,255,255,1) 1%, rgba(255,255,255,1) 65%, rgba(234,241,241,1) 65%, rgba(229,237,238,1) 100%);
 
-
-
+}
+.head{
+  float:left;
+  color: #00848c;
+  padding: 100px;
+}
+.head_subtitle h3{
+  padding: 10px;
+}
+.svg_shapes{
+  right: 0;
+  position: absolute;
+  z-index: 10;
+}
+.one{
+  margin-top: -100px;
+  margin-left: 800px;
+}
 .modal-header, .modal-content{
   border: none;
   border-radius: 0;
@@ -45,8 +75,6 @@ select{
   height: 120px;
   display: block;
 }
-
-
 
 
 .btn{
@@ -64,33 +92,38 @@ select{
 
 
 
-
-
+.help-nav{
+  padding-top: 50px;
+}
+.help-nav li a{
+  color: grey;
+  font-size: 1.3em;
+}
 .modal-header{
   background-color: #f2db44;
 }
-.favicon{
-  background-image:url('../favicon.ico');
+
+.navbar{
+    background-color: #ace6c7;
+    z-index: 100;
 }
 .secondnav{
     height: 30px;
-    border-top: 1px solid grey;
-    background-color: #3a506b;
+    background-color: #F4F4F4;
+    z-index: 20;
 }
-.secondnav .navbar-nav  {
+.secondnav .navbar-nav {
     margin:0 auto;
     text-align: center;
 }
 .container{
-    margin-left: auto;
-    margin-right: 0;
-    width: 70%;
+    margin: auto;
 }
 .dropdown-menu{
-  width: 20vw;
-  height: 30vh;
-  padding: 10px;
-  font-size: .7em;
+    width: 20vw;
+    height: 30vh;
+    padding: 10px;
+    font-size: .7em;
 }
 #calendar{
   font-size: 0.7em;
@@ -104,4 +137,15 @@ select{
 }
 .nav-link a:hover{
     color: #3a506b;
+}
+.business_logo{
+  margin-left: 10px;
+  width: 120px;
+
+}
+.profile_wrapper{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: red;
 }

@@ -18,16 +18,17 @@
       plugins: [ 'interaction', 'resourceTimeline' ],
       timeZone: 'UTC',
       header: {
-        left: '',
+        left: 'today,prev,next',
         center: 'title',
-        right: 'today,prev,next'
+        right: 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth'
       },
+      minTime: "06:00:00",
+      maxTime: "20:00:00",
       locale:'fr',
       schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
       defaultView: 'resourceTimelineDay',
-      scrollTime: '06:00',
       aspectRatio: 1.5,
-      editable: true,
+      //editable: true,
       droppable:true,
       selectable:true,
       weekends:false,
@@ -60,6 +61,54 @@
               Datefin.value = dateFin[0] ;
               Heurefin.value = dateFin[2] ;
       },
+      // eventClick: function(info) {
+      //           var eventObj = info.event;
+      //
+      //           if (eventObj.url) {
+      //             alert(
+      //               'Clicked ' + eventObj.title + '.\n' +
+      //               'Will open ' + eventObj.url + ' in a new tab'
+      //             );
+      //
+      //             window.open(eventObj.url);
+      //
+      //             info.jsEvent.preventDefault(); // prevents browser from following link in current tab.
+      //           } else {
+      //             alert('Clicked ' + eventObj.title);
+      //           }
+      // },
+      eventClick: function(info) {
+              var eventObj = info.event;
+              var startStr = eventObj.start.toISOString();
+              var endStr = eventObj.end.toISOString();
+
+              var Datedebut = document.getElementById('datededebut');
+              var Heuredebut = document.getElementById('heurededebut');
+              var Datefin = document.getElementById('datedefin');
+              var Heurefin = document.getElementById('heuredefin');
+
+
+              var nomdesalle = document.getElementById('nomdesalle');
+              var salleID = document.getElementById('salleId');
+              var capacite = document.getElementById('capacite');
+              var surface = document.getElementById('surface');
+
+              var nom_evenement = document.getElementById('nom');
+              nom_evenement.value = eventObj.title;
+
+              const dateDebutEvent = (startStr).split("T", 2);
+              dateDebutEvent[2] = dateDebutEvent[1].split("Z").join("");
+
+              const dateFinEvent = (endStr).split("T", 2);
+              dateFinEvent[2]= dateFinEvent[1].split("Z").join("");
+
+              Datedebut.value = dateDebutEvent[0] ;
+              Heuredebut.value = dateDebutEvent[2] ;
+              Datefin.value = dateFinEvent[0] ;
+              Heurefin.value = dateFinEvent[2] ;
+
+
+      }
     });
 
     calendar.render();
