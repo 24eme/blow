@@ -11,28 +11,39 @@ class addEvent extends Controller{
 
       public function InsertEvent(Request $request){
         // pour comparer avec d'autres existant
-        $datestart=$request->input('datededebut');
-        $dateend=$request->input('datedefin');
-        $timestart=$request->input('heurededebut');
-        $timeend=$request->input('heuredefin');
+        // $datestart=$request->input('datededebut');
+        // $dateend=$request->input('datedefin');
+        // $timestart=$request->input('heurededebut');
+        // $timeend=$request->input('heuredefin');
         //
         $nom = $request->input('nom');
         $start = $request->input('datededebut').'T'.$request->input('heurededebut').'Z';
         $end= $request->input('datedefin').'T'.$request->input('heuredefin').'Z';
         $resource = $request->input('salleId');
 
-        echo($datestart);
-        echo($timestart);
+        // echo($datestart);
+        // echo($timestart);
+        //
+        // $query0=DB::table('evenements')
+        //         ->(\DB::raw('substr('start', 0, 10)'),'=',$datestart)
+        //         ->count();
+        // echo($query0);
 
-        $=DB::raw('substr(start, 0, 10)');
-        echo($test);
 
+        // $query = DB::table('evenements')
+        //     ->where(\DB::raw('substr(start, 0, 10)'),'=',$datestart)
+        //     ->where(\DB::raw('substr(start, 11, 19)'),'=',$timestart)
+        //     ->where(\DB::raw('substr(end, 0, 10)'),'=',$dateend)
+        //     ->where(\DB::raw('substr(end, 11, 19)'),'=',$timeend)
+        //     ->where('resourceId','=',$resource)
+        //     ->count();
+
+        echo($start);
+        echo ($end);
 
         $query = DB::table('evenements')
-            ->where(\DB::raw('substr(start, 0, 10)'),'=',$datestart)
-            ->where(\DB::raw('substr(start, 11, 19)'),'=',$timestart)
-            ->where(\DB::raw('substr(end, 0, 10)'),'=',$dateend)
-            ->where(\DB::raw('substr(end, 11, 19)'),'=',$timeend)
+            ->where('start','>=',$start)
+            ->where('end','<=',$end)
             ->where('resourceId','=',$resource)
             ->count();
 
