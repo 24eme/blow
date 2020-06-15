@@ -47,6 +47,35 @@ class addEvent extends Controller{
         echo "Inseré avec succès";
         return view('frontend/reserver');
       }
+
+      public function updateEvenement($idEven, $data = array())
+      {
+        $dataToUpdate = [];
+
+        if(isset($data['title']) && !empty($data['title'])){
+          $dataToUpdate['title'] = $data['title'];
+        }
+
+        if(isset($data['start']) && !empty($data['start'])){
+          $dataToUpdate['start'] = $data['start'];
+        }
+
+        if(isset($data['end']) && !empty($data['end'])){
+          $dataToUpdate['end'] = $data['end'];
+        }
+
+        if(isset($data['ressourceId']) && !empty($data['ressourceId'])){
+          $dataToUpdate['end'] = $data['end'];
+        }
+
+
+        $status =  DB::table('evenements')
+        ->where('id', $idEven)
+        ->update($dataToUpdate);
+        return response()->json(array('success' => $status, 'data' => $data, 'message' => 'User has been updated'));
+
+      }
+
 }
 
 
