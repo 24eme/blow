@@ -15,6 +15,6 @@ class Evenement extends Model
   protected $dateFormat = 'Y-m-dTH:i:sZ';
   public function evenements()
   {
-    return $this->belongsTo('App\Salle');
+    return $this->belongsTo('App\Room');
   }
 }

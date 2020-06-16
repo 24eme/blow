@@ -23,7 +23,8 @@ Route::put('/updateEvent/{id}', 'addEvent@updateEvent');
 //Honorine
 Route::get('/', 'EvenementController@list');
 Route::get('json-list-events', 'EvenementController@listTest'); //pour les evenements
-Route::get('json-list-resources', 'SalleController@listTest'); //pour les resources
+
+Route::get('json-list-resources', 'RoomController@listTest'); //pour les resources
 
 // //Rediriger si pas connecté
 // Route::group(['middleware' => ['auth']], function() {
