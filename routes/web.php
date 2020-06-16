@@ -23,7 +23,7 @@ Route::get('/aide', function() {
 });
 Route::post('/EvenementController', 'EvenementController@InsertEvent');
 
-Route::put('/updateEvent/{id}', 'addEvent@updateEvent');
+Route::put('/updateEvent/{id}', 'EvenementController@updateEvent');
 
 
 //Honorine
