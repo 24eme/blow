@@ -14,16 +14,16 @@ Route::get('/', function () {
 });
 Route::get('/home', function () {
     return view('frontend/home');
-}); 
+});
 
-Route::post('/addEvent', 'EvenementController@InsertEvent');
+Route::post('/addEvent', 'EventController@insertEvent');
 
-Route::put('/updateEvent/{id}', 'EvenementController@updateEvent');
+Route::put('/updateEvent/{id}', 'EventController@updateEvent');
 
 
 //Honorine
-Route::get('/', 'EvenementController@list');
-Route::get('json-list-events', 'EvenementController@listTest'); //pour les evenements
+Route::get('/', 'EventController@list');
+Route::get('json-list-events', 'EventController@listTest'); //pour les evenements
 
 Route::get('json-list-resources', 'RoomController@listTest'); //pour les resources
 
