@@ -48,8 +48,6 @@
       resourceLabelText: 'Salles',
       resources:'json-list-resources',
       resourceRender: function(info) {
-        // var numberOfResources = 9;
-        // var imgResources = new Array(numberOfResources);
 
         var popup = document.createElement('div');
         var br = document.createElement('br');
@@ -77,11 +75,6 @@
         popup.appendChild(br2);
         popup.appendChild(surface);
         popup.appendChild(br3);
-        // for (var i = 0; i <= imgResources.length; i++) {
-        //   imgArray[i] = new Image(100, 200);
-        //   imgArray[i].src = 'img/'+ info.resource.id +'.jpg';
-        //
-        // }
         popup.appendChild(img);
 
         info.el.appendChild(popup);
@@ -102,15 +95,14 @@
       },
       eventSources:[{url:'json-list-events',textColor: 'black' }],
       select: function(info) {
-              //On recupere les input à modifier dans le modal
 
-              var Datedebut = document.getElementById('datededebut');
-              var Heuredebut = document.getElementById('heurededebut');
-              var Datefin = document.getElementById('datedefin');
-              var Heurefin = document.getElementById('heuredefin');
-              var nomdesalle = document.getElementById('nomdesalle');
-              var salleID = document.getElementById('salleId');
-              var capacite = document.getElementById('capacite');
+              var Datedebut = document.getElementById('start_date');
+              var Heuredebut = document.getElementById('start_hour');
+              var Datefin = document.getElementById('end_date');
+              var Heurefin = document.getElementById('end_hour');
+              var nomdesalle = document.getElementById('room_name');
+              var salleID = document.getElementById('room_id');
+              var capacite = document.getElementById('capacity');
               var surface = document.getElementById('surface');
               nomdesalle.innerHTML = info.resource.title ;
               salleID.value = info.resource.id;
@@ -126,39 +118,25 @@
               Datefin.value = dateFin[0] ;
               Heurefin.value = dateFin[2] ;
       },
-      // eventClick: function(info) {
-      //           var eventObj = info.event;
-      //
-      //           if (eventObj.url) {
-      //             alert(
-      //               'Clicked ' + eventObj.title + '.\n' +
-      //               'Will open ' + eventObj.url + ' in a new tab'
-      //             );
-      //
-      //             window.open(eventObj.url);
-      //
-      //             info.jsEvent.preventDefault(); // prevents browser from following link in current tab.
-      //           } else {
-      //             alert('Clicked ' + eventObj.title);
-      //           }
-      // },
       eventClick: function(info) {
+
               var eventObj = info.event;
               var startStr = eventObj.start.toISOString();
               var endStr = eventObj.end.toISOString();
-
-              var Datedebut = document.getElementById('datededebut');
-              var Heuredebut = document.getElementById('heurededebut');
-              var Datefin = document.getElementById('datedefin');
-              var Heurefin = document.getElementById('heuredefin');
-
-              var nomdesalle = document.getElementById('nomdesalle');
-              var salleID = document.getElementById('salleId');
-              var capacite = document.getElementById('capacite');
+              var Datedebut = document.getElementById('start_date');
+              var Heuredebut = document.getElementById('start_hour');
+              var Datefin = document.getElementById('end_date');
+              var Heurefin = document.getElementById('end_hour');
+              var eventID = document.getElementById('event_id');
+              eventID.value = eventObj.id ;
+              var nom_evenement = document.getElementById('event_name');
+              nom_evenement.value = eventObj.title;
+              var salleID = document.getElementById('room_id');
+              salleID.value = info.resourceId;
+              var capacite = document.getElementById('capacity');
               var surface = document.getElementById('surface');
 
-              var nom_evenement = document.getElementById('nom');
-              nom_evenement.value = eventObj.title;
+
 
               const dateDebutEvent = (startStr).split("T", 2);
               dateDebutEvent[2] = dateDebutEvent[1].split("Z").join("");
