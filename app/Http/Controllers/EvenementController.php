@@ -17,15 +17,15 @@ class EvenementController extends Controller
 
     public function listTest(){
       //$events = Evenement::all();
-      $events = DB::table('evenements')->select('title', 'start','resourceId','end')->get();
+      $events = DB::table('evenements')->select('id','title', 'start','resourceId','end')->get();
       return response(json_encode($events), 200)->header('Content-Type', 'application/json');
       }
     public function InsertEvent(Request $request){
 
-      $nom = $request->input('nom');
-      $start = $request->input('datededebut').'T'.$request->input('heurededebut').'Z';
-      $end= $request->input('datedefin').'T'.$request->input('heuredefin').'Z';
-      $resource = $request->input('salleId');
+      $nom = $request->input('event_name');
+      $start = $request->input('start_date').'T'.$request->input('start_hour').'Z';
+      $end= $request->input('end_date').'T'.$request->input('end_hour').'Z';
+      $resource = $request->input('room_id');
 
       echo "<script>alert(".$start.")</script>";
       echo "<script>alert(".$end.")</script>";
@@ -50,14 +50,17 @@ class EvenementController extends Controller
 
       public function updateEvent(Request $request, $idEvent){
 
-        $start=$request->input('start');
-        $end=$request->input('end');
-        $startTime=$request->input('startTime');
-        $endTime=$request->input('endTime');
+        $start=$request->input('start_date');
+        $end=$request->input('end_date');
+        $startTime=$request->input('start_hour');
+        $endTime=$request->input('end_hour');
 
-        $title = $request->input('title');
-        $start = $request->input('start').'T'.$request->input('startTime').'Z';
-        $end= $request->input('end').'T'.$request->input('endTime').'Z';
+        $title = $request->input('event_name');
+        //POUR SIDI VOILA LID DE L' EVENT
+        $eventID = $request->input('event_id');
+        //
+        $start = $request->input('start_date').'T'.$request->input('start_hour').'Z';
+        $end= $request->input('end_date').'T'.$request->input('end_hour').'Z';
         $resourceId = $request->input('resourceId');
 
         $data = array('title'=>$title,'start'=>$start,"end"=>$end,"resourceId"=>$resource);
