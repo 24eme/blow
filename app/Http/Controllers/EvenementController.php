@@ -76,7 +76,7 @@ class EvenementController extends Controller
       return view('frontend/home');
       }
 
-}
+
 
 
 
