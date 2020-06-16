@@ -5,6 +5,7 @@ use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class EventController extends Controller
 {
@@ -30,6 +31,12 @@ class EventController extends Controller
 
       echo "<script>alert(".$start.")</script>";
       echo "<script>alert(".$end.")</script>";
+
+      if ($start< Carbon::now()){
+        echo"<script>alert('créneau déjà passé');</script>";
+        return redirect()->to(url()->previous() . '#reserver');
+      }
+
 
       $query = DB::table('events')
           ->where('start','=',$start)
