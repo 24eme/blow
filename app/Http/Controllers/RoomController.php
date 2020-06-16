@@ -10,13 +10,13 @@ use Illuminate\Support\Facades\DB;
 
 
 
-class SalleController extends Controller
+class RoomController extends Controller
 {
     //
 
     public function listTest(){
       //$events = Evenement::all();
-      $resources = DB::table('salles')->select('id', 'title','eventColor')->get();
+      $resources = DB::table('rooms')->select('id', 'title','eventColor')->get();
       return response(json_encode($resources), 200)->header('Content-Type', 'application/json');
       }
 
