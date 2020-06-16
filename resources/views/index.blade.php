@@ -52,20 +52,7 @@
       <div class="col-sm" data-aos="fade-right" data-aos-delay="400"><img src="img/man_laptop.png"><h4>Réserver une salle</h4><p>Quapropter a natura mihi videtur potius quam ab indigentia orta amicitia, applicatione magis animi cum quodam sensu amandi quam cogitatione quantum illa res utilitatis esset habitura. Quod quidem quale sit, etiam in bestiis quibusdam animadverti potest, quae ex se natos ita amant ad quoddam tempus et ab eis ita amaappareat.</p></div>
       <div class="col-sm" data-aos="fade-right" data-aos-delay="600"><img src="img/girl_laptop.png"><h4>Plus simple, plus rapide et gratuit</h4><p>Quapropter a natura mihi videtur potius quam ab indigentia orta amicitia, applicatione magis animi cum quodam sensu amandi quam cogitatione quantum illa res utilitatis esset habitura. Quod quidem quale sit, etiam in bestiis quibusdam animadverti potest, quae eb eis ita amantur ut facile earum sensus appareat.</p></div>
 </div>
-</section>
-<!-- <div class="row">
-      <div class="">
-        <img src="phone_doodle.png">
-        <svg class="svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#FF0066" d="M27.6,-19.9C43.8,-11.4,70.4,-5.7,71.4,1C72.4,7.6,47.6,15.2,31.4,22.1C15.2,29,7.6,35.3,-0.9,36.2C-9.4,37.1,-18.9,32.7,-29.4,25.8C-39.8,18.9,-51.3,9.4,-57.8,-6.5C-64.3,-22.5,-65.9,-45,-55.4,-53.5C-45,-61.9,-22.5,-56.4,-8.4,-48C5.7,-39.7,11.4,-28.4,27.6,-19.9Z" transform="translate(100 100)" />
-        </svg>
-        <svg class="svg" viewBox="0 600 200 200" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#c4dde9" d="M35.8,-27.3C39.7,-13.9,31.6,-0.2,23.6,11.1C15.6,22.5,7.8,31.5,-3,33.2C-13.8,34.9,-27.5,29.4,-36.4,17.5C-45.3,5.6,-49.4,-12.6,-42.5,-27.8C-35.6,-42.9,-17.8,-55,-0.9,-54.5C16,-53.9,31.9,-40.8,35.8,-27.3Z" transform="translate(100 100)" />
-        </svg>
-      </div>
-      <div><p></p></div>
-
-</div> -->
+</section> 
 
 <div class="row">
     <div class="col-sm">
