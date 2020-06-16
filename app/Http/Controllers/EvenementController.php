@@ -31,8 +31,10 @@ class EvenementController extends Controller
       echo "<script>alert(".$end.")</script>";
 
       $query = DB::table('evenements')
-          ->where('start','>=',$start)
-          ->where('end','<=',$end)
+          ->where('start','=',$start)
+          ->orWhere('start','<',$start)
+          ->where('end','=',$end)
+          ->orWhere('end','>',$end)
           ->where('resourceId','=',$resource)
           ->count();
 
