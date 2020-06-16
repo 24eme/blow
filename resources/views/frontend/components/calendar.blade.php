@@ -22,8 +22,6 @@
         right: 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth'
       },
       titleFormat:{year: 'numeric', month: 'long',day:'numeric', weekday: 'long' },
-      minTime: "06:00:00",
-      maxTime: "20:00:00",
       locale:'fr',
       schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
       defaultView: 'resourceTimelineDay',
