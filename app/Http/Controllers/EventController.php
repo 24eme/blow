@@ -39,15 +39,17 @@ class EventController extends Controller
 
 
       $query = DB::table('events')
+          ->where('resourceId','=',$resource)
           ->where('start','=',$start)
           ->orWhere('start','<',$start)
           ->where('end','=',$end)
           ->orWhere('end','>',$end)
-          ->where('resourceId','=',$resource)
           ->count();
+      echo($query);
+
       if($query>0){
       echo"<script>alert('Créneau déjà réservé pour cette salle');</script>";
-        return redirect()->to(url()->previous() . '#reserver');
+         return redirect()->to(url()->previous() . '#reserver');
         }
 
       $data=array('title'=>$nom,'start'=>$start,"end"=>$end,"resourceId"=>$resource);
