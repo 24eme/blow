@@ -56,7 +56,7 @@ class EvenementController extends Controller
       //     ->count();
 
       echo "<script>alert(".$start.")</script>";
-      echo "<script>alert(".$end.")</script>"; 
+      echo "<script>alert(".$end.")</script>";
 
       $query = DB::table('evenements')
           ->where('start','>=',$start)
@@ -77,6 +77,32 @@ class EvenementController extends Controller
       }
 
 }
+
+
+
+      public function updateEvent(Request $request, $idEvent){
+        // $events = Evenement::find($idEvent);
+        // $events =
+        $start=$request->input('start');
+        $end=$request->input('end');
+        $startTime=$request->input('startTime');
+        $endTime=$request->input('endTime');
+        //
+
+        $title = $request->input('title');
+        $start = $request->input('start').'T'.$request->input('startTime').'Z';
+        $end= $request->input('end').'T'.$request->input('endTime').'Z';
+        $resourceId = $request->input('resourceId');
+
+        $data = array('title'=>$title,'start'=>$start,"end"=>$end,"resourceId"=>$resource);
+        $status =  DB::table('evenements')
+        ->where('id', $idEven)
+        ->update($data);
+        return response()->json(array('success' => $status, 'data' => $data, 'message' => 'Evenement à bien été mise ajour'));
+
+      }
+
+  }
 
 //faire la vérification que la date à laquelle on insère et bien plus grande
 //pck prob d'insertion si on bouge avant
