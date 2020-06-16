@@ -37,7 +37,6 @@ class EvenementController extends Controller
           ->orWhere('end','>',$end)
           ->where('resourceId','=',$resource)
           ->count();
-
       if($query>0){
       echo"<script>alert('Créneau déjà réservé pour cette salle');</script>";
         return redirect()->to(url()->previous() . '#reserver');
