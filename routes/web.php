@@ -23,6 +23,9 @@ Route::get('/aide', function() {
 });
 Route::post('/addEvent', 'EvenementController@InsertEvent');
 
+Route::put('/updateEvent/{id}', 'addEvent@updateEvent');
+
+
 //Honorine
 Route::get('/', 'EvenementController@list');
 Route::get('json-list-events', 'EvenementController@listTest'); //pour les evenements
