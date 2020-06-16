@@ -10,6 +10,7 @@ class Salle extends Model
 
   public function salles()
     {
-     return $this->belongsTo('App\Salle');
+     return $this->hasMany('App\Evenement');
+
     }
 }

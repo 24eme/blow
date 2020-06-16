@@ -24,8 +24,8 @@ class addEvent extends Controller{
         echo($datestart);
         echo($timestart);
 
-        $=DB::raw('substr(start, 0, 10)');
-        echo($test);
+        // $=DB::raw('substr(start, 0, 10)');
+        // echo($test);
 
 
         $query = DB::table('evenements')
@@ -48,35 +48,63 @@ class addEvent extends Controller{
         return view('frontend/reserver');
       }
 
-      public function updateEvenement($idEven, $data = array())
-      {
-        $dataToUpdate = [];
+      // public function updateEvenement($idEven, $data = array())
+      // {
+      //   $dataToUpdate = [];
+      //
+      //   if(isset($data['title']) && !empty($data['title'])){
+      //     $dataToUpdate['title'] = $data['title'];
+      //   }
+      //
+      //   if(isset($data['start']) && !empty($data['start'])){
+      //     $dataToUpdate['start'] = $data['start'];
+      //   }
+      //
+      //   if(isset($data['end']) && !empty($data['end'])){
+      //     $dataToUpdate['end'] = $data['end'];
+      //   }
+      //
+      //   if(isset($data['ressourceId']) && !empty($data['ressourceId'])){
+      //     $dataToUpdate['end'] = $data['end'];
+      //   }
+      //
+      //
+      //   $status =  DB::table('evenements')
+      //   ->where('id', $idEven)
+      //   ->update($dataToUpdate);
+      //   return response()->json(array('success' => $status, 'data' => $data, 'message' => 'User has been updated'));
+      //
+      // }
 
-        if(isset($data['title']) && !empty($data['title'])){
-          $dataToUpdate['title'] = $data['title'];
-        }
+      public function updateEvent(Request $request, $idEvent){
+        // $events = Evenement::find($idEvent);
+        // $events =
+        $start=$request->input('start');
+        $end=$request->input('end');
+        $startTime=$request->input('startTime');
+        $endTime=$request->input('endTime');
+        //
 
-        if(isset($data['start']) && !empty($data['start'])){
-          $dataToUpdate['start'] = $data['start'];
-        }
+        $title = $request->input('title');
+        $start = $request->input('start').'T'.$request->input('startTime').'Z';
+        $end= $request->input('end').'T'.$request->input('endTime').'Z';
+        $resourceId = $request->input('resourceId');
 
-        if(isset($data['end']) && !empty($data['end'])){
-          $dataToUpdate['end'] = $data['end'];
-        }
-
-        if(isset($data['ressourceId']) && !empty($data['ressourceId'])){
-          $dataToUpdate['end'] = $data['end'];
-        }
-
-
+        $data = array('title'=>$title,'start'=>$start,"end"=>$end,"resourceId"=>$resource);
         $status =  DB::table('evenements')
         ->where('id', $idEven)
-        ->update($dataToUpdate);
-        return response()->json(array('success' => $status, 'data' => $data, 'message' => 'User has been updated'));
+        ->update($data);
+        return response()->json(array('success' => $status, 'data' => $data, 'message' => 'Evenement à bien été mise ajour'));
 
       }
 
-}
+      }
+
+
+
+
+
+
 
 
 

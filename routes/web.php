@@ -21,7 +21,10 @@ Route::get('/trombinoscope', function() {
 Route::get('/aide', function() {
         return view('frontend/aide');
 });
-Route::post('/addEvent', 'addEvent@InsertEvent');
+Route::post('/EvenementController', 'EvenementController@InsertEvent');
+
+Route::put('/updateEvent/{id}', 'addEvent@updateEvent');
+
 
 //Honorine
 Route::get('/', 'EvenementController@list');
