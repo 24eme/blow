@@ -69,13 +69,15 @@
         capacite.innerHTML = "30 personnes";
         surface.innerHTML = "20m";
         popup.appendChild(br);
+        popup.appendChild(img);
+
         popup.appendChild(equipement);
         popup.appendChild(br1);
         popup.appendChild(capacite);
         popup.appendChild(br2);
         popup.appendChild(surface);
         popup.appendChild(br3);
-        popup.appendChild(img);
+
 
         info.el.appendChild(popup);
         function popupDisplay(){
@@ -118,7 +120,7 @@
               Heurefin.value = dateFin[2] ;
       },
       eventClick: function(info) {
-              var eventObj = info.event; 
+              var eventObj = info.event;
               var startStr = eventObj.start.toISOString();
               var endStr = eventObj.end.toISOString();
               var Datedebut = document.getElementById('start_date');

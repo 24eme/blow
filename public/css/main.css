@@ -169,7 +169,8 @@ tr:nth-child(even) {
 	margin-right: 0px;
 	margin-bottom: 0px;
 	margin-left: 90px;
-	text-align: center;
+  padding: 10%;
+	text-align: left;
 	z-index:1;
 }
 
