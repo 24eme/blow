@@ -12,14 +12,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/reserver', function() {
-        return view('frontend/reserver');
-});
-Route::get('/trombinoscope', function() {
-        return view('frontend/trombinoscope');
-});
-Route::get('/aide', function() {
-        return view('frontend/aide');
+Route::get('/home', function () {
+    return view('frontend/home');
 });
 Route::post('/EvenementController', 'EvenementController@InsertEvent');
 
@@ -30,3 +24,8 @@ Route::put('/updateEvent/{id}', 'addEvent@updateEvent');
 Route::get('/', 'EvenementController@list');
 Route::get('json-list-events', 'EvenementController@listTest'); //pour les evenements
 Route::get('json-list-resources', 'SalleController@listTest'); //pour les resources
+
+// //Rediriger si pas connecté
+// Route::group(['middleware' => ['auth']], function() {
+//   return view('index');
+// });
