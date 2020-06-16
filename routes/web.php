@@ -17,7 +17,7 @@ Route::get('/home', function () {
 });
 Route::post('/addEvent', 'EvenementController@InsertEvent');
 
-Route::put('/updateEvent/{id}', 'addEvent@updateEvent');
+Route::put('/updateEvent/{id}', 'EvenementController@updateEvent');
 
 
 //Honorine
