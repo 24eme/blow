@@ -8,7 +8,6 @@
   <script src='https://unpkg.com/@fullcalendar/timeline@4.4.2/main.min.js'></script>
   <script src='https://unpkg.com/@fullcalendar/resource-common@4.4.2/main.min.js'></script>
   <script src='https://unpkg.com/@fullcalendar/resource-timeline@4.4.2/main.min.js'></script>
-
   <script>
 
   document.addEventListener('DOMContentLoaded', function() {
@@ -18,23 +17,91 @@
       plugins: [ 'interaction', 'resourceTimeline' ],
       timeZone: 'UTC',
       header: {
-        left: 'today,prev,next',
+        left: 'today,prev,next calendar',
         center: 'title',
         right: 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth'
       },
+      titleFormat:{year: 'numeric', month: 'long',day:'numeric', weekday: 'long' },
       minTime: "06:00:00",
       maxTime: "20:00:00",
       locale:'fr',
       schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
       defaultView: 'resourceTimelineDay',
       aspectRatio: 1.5,
-      //editable: true,
+      lang:'fr',
+      buttonText:{
+        today:    'Aujourd\'hui',
+        month:    'mois',
+        week:     'semaine',
+        day:      'jour',
+      },
       droppable:true,
       selectable:true,
-      weekends:false,
+      navLinks:true,
       height:'auto',
+      customButtons: {
+        calendar: {
+          icon: 'fa-calendar',
+          click: function() {
+
+          }
+        }
+      },
       resourceLabelText: 'Salles',
       resources:'json-list-resources',
+      resourceRender: function(info) {
+        // var numberOfResources = 9;
+        // var imgResources = new Array(numberOfResources);
+
+        var popup = document.createElement('div');
+        var br = document.createElement('br');
+        var br1 = br.cloneNode(true);
+        var br2 = br.cloneNode(true);
+        var br3 = br.cloneNode(true);
+        var surface = document.createElement('label');
+        var capacite = document.createElement('label');
+        var equipement = document.createElement('label');
+        var img = document.createElement('img');
+
+
+        popup.className = "pop-up";
+        popup.innerHTML = info.resource.title;
+        img.src = "img/"+info.resource.id+'.jpg';
+        img.style.width = "70%";
+        img.style.height = "50%"
+        equipement.innerHTML = "Chaise,TV";
+        capacite.innerHTML = "30 personnes";
+        surface.innerHTML = "20m";
+        popup.appendChild(br);
+        popup.appendChild(equipement);
+        popup.appendChild(br1);
+        popup.appendChild(capacite);
+        popup.appendChild(br2);
+        popup.appendChild(surface);
+        popup.appendChild(br3);
+        // for (var i = 0; i <= imgResources.length; i++) {
+        //   imgArray[i] = new Image(100, 200);
+        //   imgArray[i].src = 'img/'+ info.resource.id +'.jpg';
+        //
+        // }
+        popup.appendChild(img);
+
+        info.el.appendChild(popup);
+        function popupDisplay(){
+          if (popup.style.display === "none") {
+                popup.style.display = "block";
+          }
+          else{
+            popup.style.display = "none  ";
+          }
+        };
+        function popupHide(){
+          popup.style.display ="none";
+        }
+        info.el.addEventListener("mouseover", popupDisplay);
+        info.el.addEventListener("mouseout", popupHide);
+
+      },
       eventSources:[{url:'json-list-events',textColor: 'black' }],
       select: function(info) {
               //On recupere les input à modifier dans le modal
@@ -87,7 +154,6 @@
               var Datefin = document.getElementById('datedefin');
               var Heurefin = document.getElementById('heuredefin');
 
-
               var nomdesalle = document.getElementById('nomdesalle');
               var salleID = document.getElementById('salleId');
               var capacite = document.getElementById('capacite');
@@ -106,8 +172,6 @@
               Heuredebut.value = dateDebutEvent[2] ;
               Datefin.value = dateFinEvent[0] ;
               Heurefin.value = dateFinEvent[2] ;
-
-
       }
     });
 

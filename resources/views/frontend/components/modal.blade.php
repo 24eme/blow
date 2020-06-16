@@ -15,6 +15,7 @@
         </div>
         <div class="modal-body">
           <form method="POST" action="{{url('addEvent')}}">
+            {{ csrf_field() }}
             <input type="text" id="nom" name="nom" placeholder="Nom de l'événement" value=""><br></br>
       <!-- A faire droit de réserver que 3h de suite -->
            <input name="salleId" id="salleId" style="display:none">
@@ -33,10 +34,9 @@
             avant </label>
             <br></br>
             <div class="btn-wrapper">
-                <button type="submit" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                <button type="submit" class="btn btn-primary">Confirmer</button>
+                <button type="submit" class="btn btn-secondary btn-modal" data-dismiss="modal">Annuler</button>
+                <button type="submit" class="btn btn-primary btn-modal">Confirmer</button>
             </div>
-            {{ csrf_field() }}
           </form>
         </div>
         <div class="modal-footer">

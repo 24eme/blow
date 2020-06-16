@@ -1,37 +1,89 @@
-@extends('layout')
-@section('content')
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>BLOW</title>
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
 
-<div class="background">
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+      <ul class="navbar-nav mr-auto">
+        <a class="navbar-brand nav-logo" href="/home">BL<u>O</u>W</a>
+        <li class="nav-item"><a class="nav-link" href="#accueil">Accueil</a></li>
+        <li class="nav-item"><a class="nav-link" href="#apropos">A propos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#objectif">Notre objectif</a></li>
+      </ul>
+    <button class="btn btn-light" type="submit">Se connecter</button>
+    <button class="btn btn-dark" type="submit">S'inscrire</button>
+    </nav>
+  </header>
+
+
+<section id="accueil">
+<div class="row">
+      <div class="col-sm">
+        <div class="headline_container">
+        <div class="headline"><h2>RÉSERVER VOTRE SALLE EN UN CLIC</h2><h2>FACILE, RAPIDE, ET GRATUIT.</h2>
+          <p>Une plateforme de gestion de salle gratuite et intuitive pour faciliter les espaces de co-working</p>
+        </div>
+<div><img id="girl_sitting" src="img/girl_sitting.png"></div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="left_box">
+          <img id="girl_up" src="img/girl_up.png" alt="">
+        </div>
+      </div>
+</div>
+</section>
 
 <div class="container">
+<section id="apropos">
+      <h2 style="margin: 100px;">L'outil essentiel des espaces de co-working</h2>
+<div class="row marged-row">
+      <div class="col-sm" data-aos="fade-right"><img src="img/girl_sipping.png"><h4>Créer votre compte</h4><p>Quapropter a natura mihi videtur potius quam ab indigentia orta amicitia, applicatione magis animi cum quodam sensu amandi quam cogitatione quantum illa res utilitatis esset habitura. Quod quidem quale sit, etiam in bestiis quibusdam animadverti potest, quae ex se natos ita amant ad quoddam tempus et ab eis ita amantur ut facile earum sensus appareat.</p></div>
+      <div class="col-sm" data-aos="fade-right" data-aos-delay="400"><img src="img/man_laptop.png"><h4>Réserver une salle</h4><p>Quapropter a natura mihi videtur potius quam ab indigentia orta amicitia, applicatione magis animi cum quodam sensu amandi quam cogitatione quantum illa res utilitatis esset habitura. Quod quidem quale sit, etiam in bestiis quibusdam animadverti potest, quae ex se natos ita amant ad quoddam tempus et ab eis ita amaappareat.</p></div>
+      <div class="col-sm" data-aos="fade-right" data-aos-delay="600"><img src="img/girl_laptop.png"><h4>Plus simple, plus rapide et gratuit</h4><p>Quapropter a natura mihi videtur potius quam ab indigentia orta amicitia, applicatione magis animi cum quodam sensu amandi quam cogitatione quantum illa res utilitatis esset habitura. Quod quidem quale sit, etiam in bestiis quibusdam animadverti potest, quae eb eis ita amantur ut facile earum sensus appareat.</p></div>
+</div>
+</section> 
 
-  <div class="svg_shapes one">
-    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#F1C21B" d="M50.7,-69C64.5,-59.7,73.8,-43.3,78,-26.3C82.2,-9.3,81.3,8.4,74.5,22.5C67.6,36.6,54.7,47.1,41.3,59.4C27.9,71.7,13.9,85.8,-1.7,88.2C-17.4,90.6,-34.8,81.3,-46.2,68.3C-57.6,55.3,-63,38.8,-64.7,23.4C-66.4,8,-64.4,-6.1,-60,-19.5C-55.6,-32.8,-48.8,-45.3,-38.4,-55.7C-28,-66.2,-14,-74.5,2.2,-77.6C18.4,-80.6,36.9,-78.4,50.7,-69Z" transform="translate(100 100)" />
-    </svg>
-
-  </div>
-
-  <div class="head">
-    <div class="head_title"><h1>BLOW.</h1></div>
-
-    <div class="head_subtitle">
-      <h3>LA PLATEFORME DE GESTION DE SALLE</h3>
-      <h3>RERSERVER VOTRE SALLE EN UN CLIC</h3>
-      <h3>BON PEUT-ETRE DEUX</h3>
+<div class="row">
+    <div class="col-sm">
+      <div class="calendar_box"><img src="img/calendar_doodle.png"></div>
     </div>
-  </div>
-
-  <div>
-    <img style="position:absolute;margin-left:-100px;margin-top: 100px;z-index:20;width:500px"src="/img/doodle.png" alt="">
-  </div>
-
-</div>
-<div class="svg_shapes two">
-<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-  <path fill="#ffe369" d="M44.3,-55.1C58.5,-50.8,71.7,-39.2,72.3,-26.2C72.8,-13.2,60.5,1.3,51.1,12.4C41.7,23.6,35.2,31.4,27.1,42.5C19,53.5,9.5,67.8,2.1,64.9C-5.4,62.1,-10.8,42.2,-23,32.5C-35.2,22.8,-54.1,23.3,-61.3,16.3C-68.5,9.4,-63.9,-4.9,-55.5,-14.2C-47.2,-23.4,-35.1,-27.5,-25.2,-33.3C-15.3,-39,-7.7,-46.3,3.7,-51.4C15.1,-56.6,30.2,-59.4,44.3,-55.1Z" transform="translate(100 100)" />
-</svg>
-<div>
 </div>
 
-@endsection
+<section id="objectif">
+<div class="row">
+    <div class="col-sm">
+      <div class="box_wrapper">
+        <div class="box_content">
+            <h3>Notre objectifs</h3>
+            <p>Ce projet Open-source a pour but de Quapropter a natura mihi videtur potius quam ab indigentia orta amicitia, applicatione magis animi cum quodam sensu amandi quam cogitatione quantum illa res utilitatis esset habitura. Quod quidem quale sit, etiam in bestiis quibusdam animadverti potest, quae ex se natos ita amant ad quoddam tempus et ab eis ita amantur ut facile earum sensus appareat. Quod in homine multo est evidentius, primum ex ea caritate quae est inter natos et parentes, quae dirimi nisi detestabili scelere non potest; deinde cum similis sensus exstitit amoris, si aliquem nacti sumus cuius cum moribus et natura congruamus, quod in eo quasi lumen aliquod probitatis et virtutis perspicere videamur.</p>
+        </div>
+        <img src="">
+      </div>
+    </div>
+</div>
+</section>
+
+<div class="row">
+    <div class="col-sm">
+      <div class="heart_box"><img src="img/blow_heart.png"></div>
+    </div>
+</div>
+
+
+
+</div>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({});</script>
+</body>
+</html>

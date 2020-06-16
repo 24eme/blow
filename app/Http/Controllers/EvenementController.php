@@ -5,8 +5,9 @@ use App\Evenement;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
+// use App\Http\Controllers\Controller;
 // use DB;
+
 
 
 
@@ -66,13 +67,13 @@ class EvenementController extends Controller
 
       echo($query); //pourquoi ca vaut 0 ?
       if($query>0){
-        echo"Créneau déjà réservé pour cette salle";
+        echo "<script>alert('Créneau déjà réservé pour cette salle');</script>";
         return view('frontend/reserver');
         }
 
       $data=array('title'=>$nom,'start'=>$start,"end"=>$end,"resourceId"=>$resource);
       DB::table('evenements')->insert($data);
-      echo "Inseré avec succès";
+      echo "<script>alert('Inseré avec succès');</script>";
       return view('frontend/reserver');
       }
 
