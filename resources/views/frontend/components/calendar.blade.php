@@ -95,7 +95,6 @@
       },
       eventSources:[{url:'json-list-events',textColor: 'black' }],
       select: function(info) {
-
               var Datedebut = document.getElementById('start_date');
               var Heuredebut = document.getElementById('start_hour');
               var Datefin = document.getElementById('end_date');
@@ -119,24 +118,22 @@
               Heurefin.value = dateFin[2] ;
       },
       eventClick: function(info) {
-
-              var eventObj = info.event;
+              var eventObj = info.event; 
               var startStr = eventObj.start.toISOString();
               var endStr = eventObj.end.toISOString();
               var Datedebut = document.getElementById('start_date');
               var Heuredebut = document.getElementById('start_hour');
               var Datefin = document.getElementById('end_date');
               var Heurefin = document.getElementById('end_hour');
+              var nomdesalle = document.getElementById('room_name');
+              nomdesalle.innerHTML = eventObj.getResources()[0]._resource.title;
               var eventID = document.getElementById('event_id');
               eventID.value = eventObj.id ;
               var nom_evenement = document.getElementById('event_name');
               nom_evenement.value = eventObj.title;
               var salleID = document.getElementById('room_id');
-              salleID.value = info.resourceId;
               var capacite = document.getElementById('capacity');
               var surface = document.getElementById('surface');
-
-
 
               const dateDebutEvent = (startStr).split("T", 2);
               dateDebutEvent[2] = dateDebutEvent[1].split("Z").join("");
