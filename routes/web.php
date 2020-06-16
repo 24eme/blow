@@ -15,6 +15,9 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('frontend/home');
 });
+Route::get('/home', function () {
+    return view('frontend/home');
+});
 
 Route::post('/addEvent', 'EvenementController@InsertEvent');
 
