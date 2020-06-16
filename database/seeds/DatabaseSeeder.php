@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
       DB::table("rooms")->insert(["title"=>"SALLE DE REUNION 975","eventColor"=>"#ff672b"]);
       DB::table("rooms")->insert(["title"=>"SALLE DE REUNION 325","eventColor"=>"#88f77c"]);
       DB::table("rooms")->insert(["title"=>"SALLE DE REUNION 342","eventColor"=>"#e2bfff"]);
-        // $this->call(UserSeeder::class);
+      //$this->call(DatabaseSeeder::class);
     }
 }
