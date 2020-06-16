@@ -171,10 +171,6 @@ tr:nth-child(even) {
 	z-index:1;
 }
 
-
-
-
-
 .note{
   padding: 5px 5px 2px 5px;
   background-color: #5bc0be;
@@ -183,12 +179,7 @@ tr:nth-child(even) {
     color: #3a506b;
 }
 
-
-
-
-
-
-#p1 { background-color: rgb(41,45,52); padding-top: 20px;padding-left: 10%;}
+#p1 { background-color: #fff; padding-top: 20px;padding-left: 10%;}
 #p2 {background: white;left: 200%;padding-top: 10px;}
 
 #reserver:target #p2{
@@ -199,8 +190,7 @@ tr:nth-child(even) {
   transition-delay: .2s !important;
 }
 #reserver:target #p1 {
-  background: darkslateblue;
-  margin-left: 10px;
+  background: #FAFAFA; 
 }
 #reserver:target #p1 i{
   -webkit-filter: blur(3px);
@@ -245,7 +235,7 @@ ul i:hover {
 .page  {
   position: absolute;
   width: 100%;
-  height: 90%;
+  height: 91%;
   transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
   -webkit-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
   -moz-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
@@ -329,5 +319,5 @@ ul i:hover {
 
 @font-face {
     font-family: Avenir;
-    src: url('{{asset('/fonts/AvenirLTStd-Book.otf')}}');
+    src: url('/fonts/avnir_sv/AvenirLTStd-Book.otf');
 }
