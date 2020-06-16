@@ -55,8 +55,8 @@ class EvenementController extends Controller
       //     ->where('resourceId','=',$resource)
       //     ->count();
 
-      echo($start);
-      echo ($end);
+      echo "<script>alert(".$start.")</script>";
+      echo "<script>alert(".$end.")</script>"; 
 
       $query = DB::table('evenements')
           ->where('start','>=',$start)
@@ -66,13 +66,13 @@ class EvenementController extends Controller
 
       echo($query); //pourquoi ca vaut 0 ?
       if($query>0){
-        echo"Créneau déjà réservé pour cette salle";
+        echo"<script>alert('Créneau déjà réservé pour cette salle');</script>";
         return view('frontend/home');
         }
 
       $data=array('title'=>$nom,'start'=>$start,"end"=>$end,"resourceId"=>$resource);
       DB::table('evenements')->insert($data);
-      echo "Inseré avec succès";
+      echo "<script>alert('Inseré avec succès');</script>";
       return view('frontend/home');
       }
 
