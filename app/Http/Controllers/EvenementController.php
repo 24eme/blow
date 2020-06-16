@@ -66,17 +66,15 @@ class EvenementController extends Controller
 
       echo($query); //pourquoi ca vaut 0 ?
       if($query>0){
-        echo"<script>alert('Créneau déjà réservé pour cette salle');</script>";
-        return view('frontend/home');
+      echo"<script>alert('Créneau déjà réservé pour cette salle');</script>";
+        return redirect()->to(url()->previous() . '#reserver');
         }
 
       $data=array('title'=>$nom,'start'=>$start,"end"=>$end,"resourceId"=>$resource);
       DB::table('evenements')->insert($data);
       echo "<script>alert('Inseré avec succès');</script>";
-      return view('frontend/home');
+        return redirect()->to(url()->previous() . '#reserver');
       }
-
-}
 
 
 
