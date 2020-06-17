@@ -17,6 +17,21 @@
           <div class="container">
               <section><div id="calendar" data-toggle="modal" data-target="#reservation-modal"></div></section>
               @extends('frontend.components.modal')
+              @if(session('success'))
+                   <span class="alert alert-success" role="alert">
+                       <strong>{{ session('success') }}</strong>
+                   </span>
+              @endif
+              @if(session('failPassed'))
+                   <span class="alert alert-success" role="alert">
+                       <strong>{{ session('failPassed') }}</strong>
+                   </span>
+              @endif
+              @if(session('failUnavailable'))
+                   <span class="alert alert-success" role="alert">
+                       <strong>{{ session('failUnavailable') }}</strong>
+                   </span>
+              @endif
           </div>
         </div>
   </div>

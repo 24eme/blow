@@ -47,6 +47,18 @@
       resourceLabelText: 'Salles',
       resources:'json-list-resources',
       resourceRender: function(info) {
+
+
+
+
+          var elements = document.getElementsByClassName('fc-cell-text');
+          var capacityIcon = document.createElement('i');
+          capacityIcon.className = "fas fa-male";
+
+          for (var i = 0; i < elements.length; i++) {
+            elements[i].appendChild(capacityIcon);
+          } ;
+
           var popup = document.createElement('div');
           var br = document.createElement('br');
           var br1 = br.cloneNode(true);
@@ -133,11 +145,11 @@
               Heurefin.value = dateFinEvent[2] ;
       }
     });
-    var url_string = window.location.href
-    var url = new URL(url_string);
-    var date = url.searchParams.get("date");
-
-    calendar.gotoDate(date);
+    // var url_string = window.location.href
+    // var url = new URL(url_string);
+    // var date = url.searchParams.get("date");
+    //
+    // calendar.gotoDate(date);
     calendar.render();
 
   });

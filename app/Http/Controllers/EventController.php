@@ -59,8 +59,8 @@ class EventController extends Controller
               //return redirect()->to(url()->previous() . '#reserver');
               //}
               if ($start_date < $date){
-              echo"<script>alert('créneau déjà passé');</script>";
-              return redirect()->to(url()->previous() . '#reserver');
+              return redirect()->route('home', ['id' => 1])->with('failPassed',
+              'Pour l\'instant, on ne peut pas remonter dans le temps, désolé :(');;
             }
 
 
@@ -69,14 +69,14 @@ class EventController extends Controller
 
             // echo(count($query));
             if(count($query)>0){
-            echo"<script>alert('Créneau déjà réservé pour cette salle');</script>";
-                 return redirect()->to(url()->previous() . '#reserver');
+                 return redirect()->to(url()->previous() . '#reserver')->with('failUnavailable',
+                 'Votre événement n\'a pas été ajouté car le créneau est déja réservé pour cette salle');
               }
 
             $data=array('title'=>$nom,'start'=>$start,"end"=>$end,"resourceId"=>$resource);
             DB::table('events')->insert($data);
-            echo "<script>alert('Inseré avec succès');</script>";
-              return redirect()->to(url()->previous() . '#reserver');
+              return redirect()->to(url()->previous() . '#reserver')->with('success',
+              'Votre événement a été ajouté, vous pouvez désormais envoyez un lien de partage');
 
             }
 
