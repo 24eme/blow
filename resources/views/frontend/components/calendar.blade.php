@@ -33,7 +33,7 @@
         week:     'semaine',
         day:      'jour',
       },
-
+      
       droppable:true,
       selectable:true,
       navLinks:true,
@@ -49,49 +49,37 @@
       resourceLabelText: 'Salles',
       resources:'json-list-resources',
       resourceRender: function(info) {
+          var popup = document.createElement('div');
+          var br = document.createElement('br');
+          var br1 = br.cloneNode(true);
+          var br2 = br.cloneNode(true);
+          var capacite = document.createElement('label');
+          var equipement = document.createElement('label');
+          var img = document.createElement('img');
 
-        var popup = document.createElement('div');
-        var br = document.createElement('br');
-        var br1 = br.cloneNode(true);
-        var br2 = br.cloneNode(true);
-        var br3 = br.cloneNode(true);
-        var surface = document.createElement('label');
-        var capacite = document.createElement('label');
-        var equipement = document.createElement('label');
-        var img = document.createElement('img');
+          popup.className = "pop-up";
+          popup.innerHTML = info.resource.title;
+          img.src = "img/"+info.resource.id+'.jpg';
+          img.style.width = "70%";
+          img.style.height = "50%"
+          equipement.innerHTML = "Chaise,TV";
+          capacite.innerHTML = "30 personnes";
+          popup.appendChild(br);
+          popup.appendChild(img);
+          popup.appendChild(br1);
+          popup.appendChild(equipement);
+          popup.appendChild(br2);
+          popup.appendChild(capacite);
 
 
-        popup.className = "pop-up";
-        popup.innerHTML = info.resource.title;
-        img.src = "img/"+info.resource.id+'.jpg';
-        img.style.width = "70%";
-        img.style.height = "50%"
-        equipement.innerHTML = "Chaise,TV";
-        capacite.innerHTML = "30 personnes";
-        surface.innerHTML = "20m";
-        popup.appendChild(br);
-        popup.appendChild(equipement);
-        popup.appendChild(br1);
-        popup.appendChild(capacite);
-        popup.appendChild(br2);
-        popup.appendChild(surface);
-        popup.appendChild(br3);
-        popup.appendChild(img);
-
-        info.el.appendChild(popup);
-        function popupDisplay(){
-          if (popup.style.display === "none") {
-                popup.style.display = "block";
-          }
-          else{
-            popup.style.display = "none  ";
-          }
-        };
-        function popupHide(){
-          popup.style.display ="none";
-        }
-        info.el.addEventListener("mouseover", popupDisplay);
-        info.el.addEventListener("mouseout", popupHide);
+          info.el.appendChild(popup);
+          function popupDisplay(){
+            if (popup.style.display === "none")popup.style.display = "block";
+            else popup.style.display = "none  ";
+          };
+          function popupHide(){ popup.style.display ="none";};
+          info.el.addEventListener("mouseover", popupDisplay);
+          info.el.addEventListener("mouseout", popupHide);
 
       },
       eventSources:[{url:'json-list-events',textColor: 'black' }],
@@ -103,7 +91,6 @@
               var nomdesalle = document.getElementById('room_name');
               var salleID = document.getElementById('room_id');
               var capacite = document.getElementById('capacity');
-              var surface = document.getElementById('surface');
               nomdesalle.innerHTML = info.resource.title ;
               salleID.value = info.resource.id;
 
@@ -134,11 +121,6 @@
               nom_evenement.value = eventObj.title;
               var salleID = document.getElementById('room_id');
               var capacite = document.getElementById('capacity');
-              var surface = document.getElementById('surface');
-              // -------------------- a ne pas supprimer les deux lignes ci-dessous stp
-              // var formID = document.getElementById('methode');
-              // formID.setAttribute('action', (window.location.origin+'/updateEvent/'+eventObj.id));
-
 
               const dateDebutEvent = (startStr).split("T", 2);
               dateDebutEvent[2] = dateDebutEvent[1].split("Z").join("");
@@ -152,8 +134,11 @@
               Heurefin.value = dateFinEvent[2] ;
       }
     });
-
+    // var date = GetURLParameters('date');
+    // var id = GetURLParameters('id');
+    // calendar.gotoDate(date);
     calendar.render();
+
   });
 
 </script>
