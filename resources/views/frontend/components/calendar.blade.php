@@ -34,8 +34,8 @@
         day:      'jour',
       },
       validRange: {         //Honorine //limite pour la date
-  start: new Date()
-},
+        start: new Date()
+      },
       droppable:true,
       selectable:true,
       navLinks:true,
