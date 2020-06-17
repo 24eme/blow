@@ -31,7 +31,18 @@ class EventController extends Controller
       echo "<script>alert(".$start.")</script>";
       echo "<script>alert(".$end.")</script>";
 
-      if ($start< Carbon::now()){
+      date_default_timezone_set('Europe/Paris');
+      $start_time= $request->input('start_hour');
+      $date = Carbon::now('Europe/Paris')->format('H:i:s');
+      // // $debut=Carbon::parse($start)->format('y-m-d\Th:i:s\Z');
+      //
+      //echo($start);
+      // echo($date);
+      // // $now= $date->locale('fr_FR');
+      //  echo($date);
+      //  echo($start_time);
+      // echo(date('y-m-d\Th:i:s'));
+      if ($start_time < $date){
         echo"<script>alert('créneau déjà passé');</script>";
         return redirect()->to(url()->previous() . '#reserver');
       }
@@ -39,8 +50,8 @@ class EventController extends Controller
       $query =DB::select('select * from events where resourceId =:resource and ( (start <=:start and end >=:end) or (start >=:start and end<=:end))',
       ['resource'=>$resource,'start' => $start, 'end' => $end]);
 
-
-      if(count($query)>1){
+      // echo(count($query));
+      if(count($query)>0){
       echo"<script>alert('Créneau déjà réservé pour cette salle');</script>";
           return redirect()->to(url()->previous() . '#reserver');
         }
