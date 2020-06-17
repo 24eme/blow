@@ -71,7 +71,7 @@
           popup.appendChild(br1);
           popup.appendChild(equipement);
           popup.appendChild(br2);
-          popup.appendChild(capacite); 
+          popup.appendChild(capacite);
 
 
           info.el.appendChild(popup);
@@ -86,6 +86,7 @@
       },
       eventSources:[{url:'json-list-events',textColor: 'black' }],
       select: function(info) {
+
               var Datedebut = document.getElementById('start_date');
               var Heuredebut = document.getElementById('start_hour');
               var Datefin = document.getElementById('end_date');
@@ -94,7 +95,7 @@
               var salleID = document.getElementById('room_id');
               var capacite = document.getElementById('capacity');
               nomdesalle.innerHTML = info.resource.title ;
-              salleID.value = info.resource.id;
+              salleID.value = info.resource.id; 
 
               const dateDebut = (info.startStr).split("T", 2);
               dateDebut[2] = dateDebut[1].split("Z").join("");
