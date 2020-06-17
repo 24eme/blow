@@ -18,14 +18,19 @@ Route::get('/home', function () {
 
 Route::post('/addEvent', 'EventController@insertEvent');
 
+//update
 Route::put('/updateEvent/{id}', 'EventController@updateEvent');
 
+//delete
+Route::get('/delete-event/{id}', 'EventController@deleteEvent');
 
 //Honorine
 Route::get('/', 'EventController@showEvents');
 Route::get('json-list-events', 'EventController@createEventsJson'); //pour les evenements
 
 Route::get('json-list-resources', 'RoomController@createRoomsJson'); //pour les resources
+
+
 
 // //Rediriger si pas connecté
 // Route::group(['middleware' => ['auth']], function() {
