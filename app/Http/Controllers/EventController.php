@@ -63,28 +63,77 @@ class EventController extends Controller
       }
 
 
-      public function updateEvent(Request $request, $idEvent){
+      // public function updateEvent(Request $request, $idEvent){
+      //
+      //   $start=$request->input('start_date');
+      //   $end=$request->input('end_date');
+      //   $startTime=$request->input('start_hour');
+      //   $endTime=$request->input('end_hour');
+      //
+      //   $title = $request->input('event_name');
+      //   //POUR SIDI VOILA LID DE L' EVENT
+      //   $eventID = $request->input('event_id');
+      //   //
+      //   $start = $request->input('start_date').'T'.$request->input('start_hour').'Z';
+      //   $end= $request->input('end_date').'T'.$request->input('end_hour').'Z';
+      //   $resourceId = $request->input('resourceId');
+      //
+      //   $data = array('title'=>$title,'start'=>$start,"end"=>$end,"resourceId"=>$resource);
+      //   $status =  DB::table('events')
+      //   ->where('id', $idEven)
+      //   ->update($data);
+      //   return response()->json(array('success' => $status, 'data' => $data, 'message' => 'Evenement à bien été mise ajour'));
+      //
+      // }
 
-        $start=$request->input('start_date');
-        $end=$request->input('end_date');
-        $startTime=$request->input('start_hour');
-        $endTime=$request->input('end_hour');
 
-        $title = $request->input('event_name');
-        //POUR SIDI VOILA LID DE L' EVENT
-        $eventID = $request->input('event_id');
-        //
-        $start = $request->input('start_date').'T'.$request->input('start_hour').'Z';
-        $end= $request->input('end_date').'T'.$request->input('end_hour').'Z';
-        $resourceId = $request->input('resourceId');
+      public function updateEvent(Request $request, $eventID){
 
-        $data = array('title'=>$title,'start'=>$start,"end"=>$end,"resourceId"=>$resource);
-        $status =  DB::table('events')
-        ->where('id', $idEven)
-        ->update($data);
-        return response()->json(array('success' => $status, 'data' => $data, 'message' => 'Evenement à bien été mise ajour'));
+      // $start=$request->input('start_date');
+      // $end=$request->input('end_date');
+      // $startTime=$request->input('start_hour');
+      // $endTime=$request->input('end_hour');
+
+      $title = $request->input('event_name');
+      $eventID = $request->input('event_id');
+      $start = $request->input('start_date').'T'.$request->input('start_hour').'Z';
+      $end= $request->input('end_date').'T'.$request->input('end_hour').'Z';
+
+      $resource = $request->input('room_id');
+
+      // $query = DB::select('select * from events where resourceId =:resource and ( (start <=:start and end >=:end) or (start >=:start and end<=:end))',
+      $query = DB::select('select * from events where resourceId =:resource and ( (start <=:start and end >=:end) or (start >=:start and end<=:end))'
+      ['resource' => $resource,'start' => $start, 'end' => $end]);
+
+
+      if(count($query)>1){
+          echo"<script>alert('Créneau déjà réservé pour cette salle');</script>";
+          return redirect()->to(url()->previous() . '#reserver');
 
       }
+        dd($resource);
+      // $data = array('title'=>$title,'start'=>$start,"end"=>$end,"resourceId"=>$resource);
+      $data = array('title'=>$title,'start'=>$start,'end'=>$end);
+      $status =  DB::table('events')
+      ->where('id', $eventID)
+      ->update($data);
+      // return response()->json(array('success' => $status, 'message' => 'Event has ben update'));
+       // return redirect()->route('home');
+        // echo "<script>alert('Mise a jour avec succès');</script>";
+        // return redirect()->to(url()->previous() . '#reserver');
+
+      }
+
+
+      public function deleteEvent(Request $request, $idEvent){
+
+
+      $status = Event::find($idEvent)->delete();
+
+      return response()->json(array('success' => $status, 'message' => 'Evenement has been delated'));
+
+
+     }
 
   }
 
