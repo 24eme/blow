@@ -33,9 +33,7 @@
         week:     'semaine',
         day:      'jour',
       },
-      validRange: {         //Honorine //limite pour la date
-        start: new Date()
-      },
+
       droppable:true,
       selectable:true,
       navLinks:true,
@@ -121,7 +119,7 @@
               Heurefin.value = dateFin[2] ;
       },
       eventClick: function(info) {
-              var eventObj = info.event; 
+              var eventObj = info.event;
               var startStr = eventObj.start.toISOString();
               var endStr = eventObj.end.toISOString();
               var Datedebut = document.getElementById('start_date');
@@ -137,6 +135,10 @@
               var salleID = document.getElementById('room_id');
               var capacite = document.getElementById('capacity');
               var surface = document.getElementById('surface');
+              // -------------------- a ne pas supprimer les deux lignes ci-dessous stp
+              // var formID = document.getElementById('methode');
+              // formID.setAttribute('action', (window.location.origin+'/updateEvent/'+eventObj.id));
+
 
               const dateDebutEvent = (startStr).split("T", 2);
               dateDebutEvent[2] = dateDebutEvent[1].split("Z").join("");
