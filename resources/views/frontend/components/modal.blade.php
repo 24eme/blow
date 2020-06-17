@@ -6,8 +6,12 @@
 
             <label>Organisateur : { $nomutilisateurousociete}}</label><br>
             <label>Nom de salle : </label><label id="room_name"></label><br>
+<<<<<<< HEAD
             <label>Equipements : </label><label id="equipment"></label><br>
             <label>Capacité :</label><label id="capacity"></label><br>
+=======
+            <label>Capacité : { $capacity}}</label><label id="capacity"></label><br>
+>>>>>>> d38edcaed0f4275a551f2d6558733b6833096a04
 
           </div>
           <button type="button" class="close"><i class="fas fa-share-alt"></i></button>
@@ -16,8 +20,9 @@
           </button>
         </div>
         <div class="modal-body">
-
-          <form method="POST" action="{{url('addEvent')}}">
+          <form method="POST" id="methode" action="{{url('addEvent')}}">
+            <!-- a ne pas supprimer stp la ligne ci-dessous en commentaire  -->
+               <!-- {{ method_field('PUT') }} -->
             <input type="text" id="event_name" name="event_name" placeholder="Nom de l'événement" value=""><br></br>
           <input type="text" id="event_id" name="event_id" value="" style="display:none">
            <input type="text" name="room_id" id="room_id" value="" style="display:none">
