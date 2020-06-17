@@ -25,12 +25,17 @@
             <hr>
             <br></br>
             <div class="btn-wrapper">
-                <button type="submit" class="btn btn-secondary btn-modal" data-dismiss="modal">Modifier</button>
-                <button type="submit" class="btn btn-secondary btn-modal" data-dismiss="modal">Supprimer</button>
+
+                @if ( $post->getAuthor()->getId() === Auth::user()->getId() )
+                echo '<button type="submit" class="btn btn-secondary btn-modal" data-dismiss="modal">Modifier</button>
+                <button type="submit" class="btn btn-secondary btn-modal" data-dismiss="modal">Supprimer</button>'
+
+                @endif
+
                 <button type="submit" class="btn btn-secondary btn-modal" data-dismiss="modal">Annuler</button>
                 <button type="submit" class="btn btn-primary btn-modal">Confirmer</button>
             </div>
-            
+
             {{ csrf_field() }}
           </form>
         </div>
