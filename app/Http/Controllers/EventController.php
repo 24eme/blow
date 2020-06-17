@@ -31,7 +31,13 @@ class EventController extends Controller
       echo "<script>alert(".$start.")</script>";
       echo "<script>alert(".$end.")</script>";
 
-      if ($start< Carbon::now()){
+      date_default_timezone_set('Europe/Paris');
+      $date = Carbon::now()->format('y-m-d\Th:i:s\Z');
+      // $now= $date->locale('fr_FR');
+      //  echo($date);
+      //  echo($start);
+      // echo(date('y-m-d\Th:i:s'));
+      if ($start >$date){
         echo"<script>alert('créneau déjà passé');</script>";
         return redirect()->to(url()->previous() . '#reserver');
       }
