@@ -8,9 +8,10 @@ class Room extends Model
 {
   protected $guarded = [];
 
-  public function rooms()
-    {
-     return $this->hasMany('App\Event');
 
-    }
 }
+// public function rooms()
+//   {
+//    return $this->hasMany('App\Event');
+//
+//   }

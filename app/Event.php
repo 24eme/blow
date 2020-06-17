@@ -13,8 +13,10 @@ class Event extends Model
         'end',
     ];
   protected $dateFormat = 'Y-m-dTH:i:sZ';
+
   public function events()
   {
     return $this->belongsTo('App\Room');
   }
+
 }
