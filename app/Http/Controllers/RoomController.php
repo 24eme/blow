@@ -14,7 +14,7 @@ class RoomController extends Controller
 {
     //
 
-    public function listTest(){
+    public function createRoomsJson(){
       //$events = Evenement::all();
       $resources = DB::table('rooms')->select('id', 'title','eventColor')->get();
       return response(json_encode($resources), 200)->header('Content-Type', 'application/json');

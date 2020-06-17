@@ -9,15 +9,14 @@ use Carbon\Carbon;
 
 class EventController extends Controller
 {
-    public function list(){
-      $events = Event::all();
-      return view('index', [
-          'events' => $events
-        ]);
-    }
+    // public function list(){
+    //   $events = Event::all();
+    //   return view('index', [
+    //       'events' => $events
+    //     ]);
+    // }
 
     public function listTest(){
-      //$events = Evenement::all();
       $events = DB::table('events')->select('id','title', 'start','resourceId','end')->get();
       return response(json_encode($events), 200)->header('Content-Type', 'application/json');
       }
@@ -36,23 +35,11 @@ class EventController extends Controller
         echo"<script>alert('créneau déjà passé');</script>";
         return redirect()->to(url()->previous() . '#reserver');
       }
-      // $query = DB::table('events')
-      //     ->where('resourceId','=',$resource)
-      //     ->where('start','=',$start)
-      //     ->orWhere('start','<',$start)
-      //     ->where('end','=',$end)
-      //     ->orWhere('end','>',$end)
-      //     ->count();
-
 
       $query =DB::select('select * from events where resourceId =:resource and ( (start <=:start and end >=:end) or (start >=:start and end<=:end))',
       ['resource'=>$resource,'start' => $start, 'end' => $end]);
 
 
-      // foreach ($query as $querys) {
-      //     echo $querys->title;
-      //   }
-      // echo(count($query));
       if(count($query)>1){
       echo"<script>alert('Créneau déjà réservé pour cette salle');</script>";
           return redirect()->to(url()->previous() . '#reserver');
