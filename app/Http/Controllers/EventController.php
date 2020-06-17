@@ -9,14 +9,14 @@ use Carbon\Carbon;
 
 class EventController extends Controller
 {
-    // public function list(){
-    //   $events = Event::all();
-    //   return view('index', [
-    //       'events' => $events
-    //     ]);
-    // }
+    public function showEvents(){
+      $events = Event::all();
+      return view('index', [
+          'events' => $events
+        ]);
+    }
 
-    public function listTest(){
+    public function createEventsJson(){
       $events = DB::table('events')->select('id','title', 'start','resourceId','end')->get();
       return response(json_encode($events), 200)->header('Content-Type', 'application/json');
       }
