@@ -36,26 +36,32 @@ class EventController extends Controller
         echo"<script>alert('créneau déjà passé');</script>";
         return redirect()->to(url()->previous() . '#reserver');
       }
+      // $query = DB::table('events')
+      //     ->where('resourceId','=',$resource)
+      //     ->where('start','=',$start)
+      //     ->orWhere('start','<',$start)
+      //     ->where('end','=',$end)
+      //     ->orWhere('end','>',$end)
+      //     ->count();
 
 
-      $query = DB::table('events')
-          ->where('resourceId','=',$resource)
-          ->where('start','=',$start)
-          ->orWhere('start','<',$start)
-          ->where('end','=',$end)
-          ->orWhere('end','>',$end)
-          ->count();
-      echo($query);
+      $query =DB::select('select * from events where resourceId =:resource and ( (start <=:start and end >=:end) or (start >=:start and end<=:end))',
+      ['resource'=>$resource,'start' => $start, 'end' => $end]);
 
-      if($query>0){
+
+      // foreach ($query as $querys) {
+      //     echo $querys->title;
+      //   }
+      // echo(count($query));
+      if(count($query)>1){
       echo"<script>alert('Créneau déjà réservé pour cette salle');</script>";
-         return redirect()->to(url()->previous() . '#reserver');
+          return redirect()->to(url()->previous() . '#reserver');
         }
 
       $data=array('title'=>$nom,'start'=>$start,"end"=>$end,"resourceId"=>$resource);
       DB::table('events')->insert($data);
       echo "<script>alert('Inseré avec succès');</script>";
-        return redirect()->to(url()->previous() . '#reserver');
+       return redirect()->to(url()->previous() . '#reserver');
       }
 
 
