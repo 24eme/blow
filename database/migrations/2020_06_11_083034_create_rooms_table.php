@@ -15,8 +15,7 @@ class CreateRoomsTable extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            //rajouté par mame
+            $table->string('title'); 
             $table->string('equipment');
             $table->string('capacity');
             $table->string('eventColor');

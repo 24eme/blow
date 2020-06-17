@@ -33,10 +33,8 @@
         week:     'semaine',
         day:      'jour',
       },
-      
       droppable:true,
       selectable:true,
-      navLinks:true,
       height:'auto',
       customButtons: {
         calendar: {
@@ -93,7 +91,7 @@
               var salleID = document.getElementById('room_id');
               var capacite = document.getElementById('capacity');
               nomdesalle.innerHTML = info.resource.title ;
-              salleID.value = info.resource.id; 
+              salleID.value = info.resource.id;
 
               const dateDebut = (info.startStr).split("T", 2);
               dateDebut[2] = dateDebut[1].split("Z").join("");
@@ -135,9 +133,11 @@
               Heurefin.value = dateFinEvent[2] ;
       }
     });
-    // var date = GetURLParameters('date');
-    // var id = GetURLParameters('id');
-    // calendar.gotoDate(date);
+    var url_string = window.location.href
+    var url = new URL(url_string);
+    var date = url.searchParams.get("date");
+
+    calendar.gotoDate(date);
     calendar.render();
 
   });

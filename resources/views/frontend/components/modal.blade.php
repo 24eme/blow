@@ -6,12 +6,8 @@
 
             <label>Organisateur : { $nomutilisateurousociete}}</label><br>
             <label>Nom de salle : </label><label id="room_name"></label><br>
-<<<<<<< HEAD
             <label>Equipements : </label><label id="equipment"></label><br>
-            <label>Capacité :</label><label id="capacity"></label><br>
-=======
-            <label>Capacité : { $capacity}}</label><label id="capacity"></label><br>
->>>>>>> d38edcaed0f4275a551f2d6558733b6833096a04
+            <label>Capacité :</label><label id="capacity"></label><br> 
 
           </div>
           <button type="button" class="close"><i class="fas fa-share-alt"></i></button>
