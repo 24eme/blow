@@ -19,9 +19,9 @@ class CreateEventsTable extends Migration
             $table->string('start');
             $table->string('end');
             $table->string('resourceId');
-            // $table->string('user_id');
-            $table->foreign('resourceId')->references('id')->on('rooms');
-            // $table->foreign('user_id')->references('id')->on('users');
+            $table->string('user_id');
+            //$table->foreign('resourceId')->references('id')->on('rooms');
+            //$table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
