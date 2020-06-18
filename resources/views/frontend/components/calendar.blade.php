@@ -48,7 +48,7 @@
       resources:'json-list-resources',
       resourceRender: function(info) {
 
-
+          
 
 
           var elements = document.getElementsByClassName('fc-cell-text');

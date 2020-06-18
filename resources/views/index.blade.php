@@ -1,30 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>BLOW</title>
-    <link rel="shortcut icon" href="{{ asset('favicon.png') }}" >
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="stylesheet" href="css/main.css">
-</head>
-
-<body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light ">
-      <ul class="navbar-nav mr-auto">
-        <a class="navbar-brand nav-logo" href="/home">BL<u>O</u>W</a>
-        <li class="nav-item"><a class="nav-link" href="#accueil">Accueil</a></li>
-        <li class="nav-item"><a class="nav-link" href="#apropos">A propos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#objectif">Notre objectif</a></li>
-      </ul>
-    <button class="btn btn-light" type="submit">Se connecter</button>
-    <button class="btn btn-dark" type="submit">S'inscrire</button>
-    </nav>
-  </header>
-
+@guest
+@extends('layout')
+@section('content')
 
 <section id="accueil">
 <div class="row">
@@ -149,4 +125,9 @@
     <a href="#"> Blow.fr</a>
   </div>
 </footer>
-</html>
+
+
+@endsection
+@else
+  @extends('home')
+@endguest

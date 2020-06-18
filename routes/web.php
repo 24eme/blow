@@ -36,3 +36,7 @@ Route::get('json-list-resources', 'RoomController@createRoomsJson'); //pour les 
 // Route::group(['middleware' => ['auth']], function() {
 //   return view('index');
 // });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
