@@ -96,6 +96,8 @@
               var salleID = document.getElementById('room_id');
               var capacite = document.getElementById('capacity');
               var equipment = document.getElementById('equipment');
+              var eventID = document.getElementById('event_id');
+              eventID.value = null;
               nomdesalle.innerHTML = info.resource.title ;
               salleID.value = info.resource.id;
               equipment.innerHTML = info.resource.extendedProps.equipment;

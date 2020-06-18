@@ -66,6 +66,7 @@ class EventController extends Controller
              $eventID = $request->input('event_id');
              $current_user=Auth::user()->id;
 
+            if($eventID!=null){
             //dd($current_user);
             [$user_event] = DB::select('select user_id from events where id =:id',['id'=>$eventID]);
             //dd($user_event->user_id);
@@ -96,9 +97,9 @@ class EventController extends Controller
 
 
                     // echo(count($query));
-                    if(count($query)>0){ 
+                    if(count($query)>0){
                          return redirect()->to(url()->previous() . '#reserver')->with('failUnavailable',
-                                 'Votre événement n\'a pas été ajouté car le créneau est déja réservé pour cette salle');;
+                                 'Votre événement n\'a pas été ajouté car le créneau est déja réservé pour cette salle');
                     }
 
                     $data = array('title'=>$title,'start'=>$start,'end'=>$end);
@@ -106,28 +107,31 @@ class EventController extends Controller
                     ->where('id', $eventID)
                     ->update($data);
 
-                     return redirect()->to(url()->previous() . '#reserver');
-
-
+                     return redirect()->to(url()->previous() . '#reserver')->with('failUnavailable',
+                             'Votre événement a été modifié');
+          }
+                    return redirect()->to(url()->previous() . '#reserver')->with('failUnavailable',
+                          'On ne peut pas modifié un événement inexistant');
            case 'Supprimer':
            $idEvent = $request->input('event_id');
-
+           if($idEvent!=null){
            $current_user=Auth::user()->id;
              //dd($current_user);
              [$user_event] = DB::select('select user_id from events where id =:id',['id'=>$idEvent]);
              //dd($user_event->user_id);
              $user= $user_event->user_id;
 
-
              if($current_user!=$user){
                   return redirect()->to(url()->previous() . '#reserver')->with('failUnavailable',
                   'Ce n\'est pas votre événement');
                }
 
-
                 $status = Event::find($idEvent)->delete();
                 return redirect()->to(url()->previous() . '#reserver')->with('failUnavailable',
                        'Votre événement a bien été éffacé');;
+            }
+                return redirect()->to(url()->previous() . '#reserver')->with('failUnavailable',
+                       'Vous ne pouvez pas supprimé un événement inexistant');;
 
        }
     }
