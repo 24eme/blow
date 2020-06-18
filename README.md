@@ -25,3 +25,4 @@ Developpement d'un logiciel de réservation de salle
   faites php artisan db:seed (cela va vous permettre de remplir les salles dans votre base de données automatiquement)
   et ensuite faites php artisan serve
 -Vous pouvez ensuite accéder au projet sur votre serveur local.(localhost:8000)
+-pour ajouter des images pour les salles renommez votre image avec le même id que votre salle
