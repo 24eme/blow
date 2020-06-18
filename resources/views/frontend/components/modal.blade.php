@@ -28,10 +28,10 @@
             <br></br>
             <div class="btn-wrapper">
 
-              <button type="submit" class="btn btn-secondary btn-modal">Modifier</button>
-              <button type="submit" class="btn btn-primary btn-modal">Supprimer</button>
+              <button style="display:{{ $displayed ?? ''}};" type="submit" class="btn btn-secondary btn-modal" value="modify">Modifier</button>
+              <button style="display:{{ $displayed ?? ''}};" type="submit" class="btn btn-primary btn-modal" value="delete">Supprimer</button>
+              <button style="" type="submit" class="btn btn-primary btn-modal" value="insert">Ajouter</button>
 
-                <button type="submit" class="btn btn-primary btn-modal" id="ConfirmedBtn">Confirmer</button>
             </div>
 
             {{ csrf_field() }}

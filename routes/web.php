@@ -22,7 +22,7 @@ Route::post('/addEvent', 'EventController@insertEvent');
 Route::post('/updateEvent/{id}', 'EventController@updateEvent');
 
 //delete
-Route::get('/delete-event/{id}', 'EventController@deleteEvent');
+Route::get('/deleteEvent/{id}', 'EventController@deleteEvent');
 
 //Honorine
 Route::get('/', 'EventController@showEvents');
