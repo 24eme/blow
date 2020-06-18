@@ -9,7 +9,7 @@
     </ul>
 
         <li class="nav-item">
-            <a class="btn btn-light" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
+            <a class="btn btn-dark" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
         </li>
         @if (Route::has('register'))
             <li class="nav-item">
