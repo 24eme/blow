@@ -19,7 +19,7 @@ Route::get('/home', function () {
 Route::post('/addEvent', 'EventController@insertEvent');
 
 //update
-Route::put('/updateEvent/{id}', 'EventController@updateEvent');
+Route::post('/updateEvent/{id}', 'EventController@updateEvent');
 
 //delete
 Route::get('/delete-event/{id}', 'EventController@deleteEvent');
