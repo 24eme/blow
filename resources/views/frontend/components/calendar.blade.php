@@ -64,7 +64,7 @@
           img.src = "img/"+info.resource.id+'.jpg';
           img.style.width = "70%";
           img.style.height = "50%"
-          equipement.innerHTML = "Chaise,TV";
+          equipement.innerHTML = info.resource.extendedProps.equipment;
           capacite.innerHTML = info.resource.extendedProps.capacity ;
           capacite.innerHTML +=  ' personnes';
           popup.appendChild(br);
