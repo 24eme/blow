@@ -47,7 +47,15 @@
       resourceLabelText: 'Salles',
       resources:'json-list-resources',
       resourceRender: function(info) {
-
+          <?php
+            // $roomID = "<script>document.writeln(p1);</script>";
+            // $query = 'SELECT capacity from ROOMS where id='.$roomID;
+            // $result = echo ""
+            $resource = $request->input('room_id');
+            $query =DB::select('SELECT capacity FROM rooms WHERE id=2',
+            ['capacity'=>$resource]);
+            echo $resource;
+          ?>
 
 
 
