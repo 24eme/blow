@@ -29,7 +29,9 @@
             <hr>
             <br></br>
             <div class="btn-wrapper">
-
+            
+              <button type="submit" class="btn btn-secondary btn-modal">Modifier</button>
+              <button type="submit" class="btn btn-primary btn-modal">Annuler</button>
 
                 <button type="submit" class="btn btn-secondary btn-modal" data-dismiss="modal">Annuler</button>
                 <button type="submit" class="btn btn-primary btn-modal" id="ConfirmedBtn">Confirmer</button>
