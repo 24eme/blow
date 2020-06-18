@@ -13,7 +13,7 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/home', function () {
-    return view('frontend/home');
+    return view('home');
 })->name('home');;
 
 Route::post('/addEvent', 'EventController@insertEvent');
@@ -39,4 +39,4 @@ Route::get('json-list-resources', 'RoomController@createRoomsJson'); //pour les 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+ Route::get('/home', 'HomeController@index')->name('home');

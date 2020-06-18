@@ -8,15 +8,7 @@
   <script src='https://unpkg.com/@fullcalendar/timeline@4.4.2/main.min.js'></script>
   <script src='https://unpkg.com/@fullcalendar/resource-common@4.4.2/main.min.js'></script>
   <script src='https://unpkg.com/@fullcalendar/resource-timeline@4.4.2/main.min.js'></script>
-  <script>
-  function changedDate(){
-                  Currentdate = calendar.getDate().toISOString();
-                  DateTab = (Currentdate).split("T", 2);
-                  Currentdate = DateTab[0];
-                  alert(Currentdate);
-                  window.location.replace('/home?date='+Currentdate+'#reserver');
-  }
-  </script>
+
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
@@ -43,7 +35,7 @@
       },
       droppable:true,
       selectable:true,
-      height:'auto', 
+      height:'auto',
       resourceLabelText: 'Salles',
       resources:'json-list-resources',
       resourceRender: function(info) {
@@ -155,23 +147,23 @@
       }
     });
 
-    var Currentdate = calendar.getDate().toISOString();
-    var DateTab = (Currentdate).split("T", 2);
-    Currentdate = DateTab[0];
-
-    var url_string = window.location.href
-    var url = new URL(url_string);
-    var date = url.searchParams.get("date");
-
-
-    if (date != null) {
-      window.location.replace('/home?date='+date+'#reserver');
-      calendar.gotoDate(date);
-    }
-    else{
-      window.location.replace('/home?date='+Currentdate+'#reserver');
-      calendar.gotoDate(Currentdate);
-    }
+    // var Currentdate = calendar.getDate().toISOString();
+    // var DateTab = (Currentdate).split("T", 2);
+    // Currentdate = DateTab[0];
+    //
+    // var url_string = window.location.href
+    // var url = new URL(url_string);
+    // var date = url.searchParams.get("date");
+    //
+    //
+    // if (date != null) {
+    //   window.location.replace('/home?date='+date+'#reserver');
+    //   calendar.gotoDate(date);
+    // }
+    // else{
+    //   window.location.replace('/home?date='+Currentdate+'#reserver');
+    //   calendar.gotoDate(Currentdate);
+    // }
 
     calendar.render();
 
