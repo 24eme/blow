@@ -18,10 +18,10 @@
         <div class="modal-body">
           <form method="POST" id="methode" action="{{url('addEvent')}}">
             <!-- a ne pas supprimer stp la ligne ci-dessous en commentaire  -->
-               <!-- {{ method_field('PUT') }} -->
+                <!-- {{ method_field('PUT') }}  -->
             <input type="text" id="event_name" name="event_name" placeholder="Nom de l'événement" value=""><br></br>
           <input type="text" id="event_id" name="event_id" value="" style="display:none">
-           <input type="text" name="room_id" id="room_id" value="" style="display:none">
+           <input type="text" name="room_id" id="room_id" value=""style="display:none">
             <label>Début : </label>
             <input type="date" id="start_date" name="start_date" value="2020-06-09T09:30:00Z"><input type="time" id="start_hour" name="start_hour" required><br>
             <hr>
