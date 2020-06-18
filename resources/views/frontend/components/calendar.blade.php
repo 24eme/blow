@@ -39,13 +39,18 @@
       resourceLabelText: 'Salles',
       resources:'json-list-resources',
       resourceRender: function(info) {
-          <?php [$capacity] =DB::select('select capacity from rooms where id =:identifiant',['identifiant'=>"2"]); ?>
+          <?php
+          [$capacity] =DB::select('select capacity from rooms where id =:identifiant',['identifiant'=>"2"]);?>
+
           var elements = document.getElementsByClassName('fc-cell-text');
+          var capacityNumber = document.createElement('label');
           var capacityIcon = document.createElement('i');
+          capacityNumber.innerHTML = <?php echo ($capacity->capacity); ?> ;
           capacityIcon.className = "fas fa-male";
 
           for (var i = 0; i < elements.length; i++) {
             elements[i].appendChild(capacityIcon);
+            elements[i].appendChild(capacityNumber);
           } ;
 
           var popup = document.createElement('div');
@@ -94,6 +99,9 @@
               var capacite = document.getElementById('capacity');
               nomdesalle.innerHTML = info.resource.title ;
               salleID.value = info.resource.id;
+              <?php 
+              [$capacity] =DB::select('select capacity from rooms where id =:identifiant',['identifiant'=>"2"]); ?>
+
 
               const dateDebut = (info.startStr).split("T", 2);
               dateDebut[2] = dateDebut[1].split("Z").join("");
@@ -113,6 +121,7 @@
             history.pushState(null,null, "?date="+Currentdate);
       },
       eventClick: function(info) {
+        <?php [$capacity] =DB::select('select capacity from rooms where id =:identifiant',['identifiant'=>"2"]); ?>
               var eventObj = info.event;
               var startStr = eventObj.start.toISOString();
               var endStr = eventObj.end.toISOString();
@@ -130,6 +139,7 @@
               nom_evenement.value = eventObj.title;
               var salleID = document.getElementById('room_id');
               var capacite = document.getElementById('capacity');
+              capacite.innerHTML = <?php echo ($capacity->capacity); ?> ;
               // --------------------sidi--pourDelete---------samp
               // var formID = document.getElementById('methode');
               // formID.setAttribute('action', (window.location.origin+'/updateEvent/'+eventObj.id));

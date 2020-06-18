@@ -4,10 +4,10 @@
         <div class="modal-header">
           <div class="header-box"><h5 class="modal-title">Réserver votre salle</h5>
 
-            <label>Organisateur : { $nomutilisateurousociete}}</label><br>
+            <label>Organisateur :@if(Auth::check()) {{ Auth::user()->name }}@endif</label><br>
             <label>Nom de salle : </label><label id="room_name"></label><br>
-            <label>Equipements : </label><label id="equipment"></label><br>
-            <label>Capacité :</label><label id="capacity"></label><br>
+            <!-- <label>Equipements : </label><label id="equipment"></label><br>
+            <label>Capacité :</label><label id="capacity"></label><br> -->
 
           </div>
           <button type="button" class="close"><i class="fas fa-share-alt"></i></button>

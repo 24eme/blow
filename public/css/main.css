@@ -171,6 +171,10 @@ tr:nth-child(even) {
 .fc-cell-text i{
   padding-left: 10px;
 }
+.fc-cell-text label{
+  padding-left: 5px;
+}
+
 .pop-up {
   display: none;
 	position: absolute;
