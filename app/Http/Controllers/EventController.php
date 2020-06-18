@@ -65,13 +65,23 @@ class EventController extends Controller
             DB::table('events')->insert($data);
               return redirect()->to(url()->previous() . '#reserver')->with('success',
               'Votre événement a été ajouté, vous pouvez désormais envoyez un lien de partage');
-
             }
 
             //modifier un evenement
             public function updateEvent(Request $request, $eventID){
 
+              $current_user=Auth::user()->id;
 
+              [$capacity] =DB::select('select user_id from events where id =:id',['id'=>$eventID]);
+              // dd($capacity->capacity);
+              $user_event= $capacity->capacity;
+
+
+
+              if($current_user!=$user_event){
+                   return redirect()->to(url()->previous() . '#reserver')->with('failUnavailable',
+                   'Ce n\'est pas votre événement');
+                }
                 $title = $request->input('event_name');
                 $start = $request->input('start_date').'T'.$request->input('start_hour').'Z';
                 $end= $request->input('end_date').'T'.$request->input('end_hour').'Z';
@@ -110,6 +120,16 @@ class EventController extends Controller
 
             public function deleteEvent(Request $request, $idEvent){
 
+              $current_user=Auth::user()->id;
+
+              [$capacity] =DB::select('select user_id from events where id =:id',['id'=>$eventID]);
+              // dd($capacity->capacity);
+              $user_event= $capacity->capacity;
+
+              if($current_user!=$user_event){
+                   return redirect()->to(url()->previous() . '#reserver')->with('failUnavailable',
+                   'Ce n\'est pas votre événement');
+                }
 
               $status = Event::find($idEvent)->delete();
 
