@@ -143,8 +143,7 @@
               capacite.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.capacity ;
 
 
-               var formID = document.getElementById('methode');
-               formID.setAttribute('action', (window.location.origin+'/updateEvent/'+eventObj.id));
+               document.getElementById('methode').setAttribute('action', (window.location.origin+'/ManagedEvent/'+eventObj.id));
 
 
               const dateDebutEvent = (startStr).split("T", 2);

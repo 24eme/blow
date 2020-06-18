@@ -16,7 +16,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form method="POST" id="methode" action="{{url('addEvent')}}">
+          <form method="POST" id="methode" action="{{url('ManagedEvent')}}">
             <input type="text" id="event_name" name="event_name" placeholder="Nom de l'événement" value=""><br></br>
           <input type="text" id="event_id" name="event_id" value="" style="display:none">
            <input type="text" name="room_id" id="room_id" value=""style="display:none">
@@ -28,9 +28,9 @@
             <br></br>
             <div class="btn-wrapper">
 
-              <button style="display:{{ $displayed ?? ''}};" type="submit" class="btn btn-secondary btn-modal" value="modify">Modifier</button>
-              <button style="display:{{ $displayed ?? ''}};" type="submit" class="btn btn-primary btn-modal" value="delete">Supprimer</button>
-              <button style="" type="submit" class="btn btn-primary btn-modal" value="insert">Ajouter</button>
+              <input type="submit" class="btn btn-secondary btn-modal" name="action" value="Modifier">
+              <input type="submit" class="btn btn-primary btn-modal" name="action" value="Supprimer">
+              <input type="submit" class="btn btn-primary btn-modal" name="action" value="Ajouter">
 
             </div>
 

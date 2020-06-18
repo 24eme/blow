@@ -16,13 +16,10 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');;
 
-Route::post('/addEvent', 'EventController@insertEvent');
+Route::post('/ManagedEvent', 'EventController@ManagedEvent');
 
-//update
-Route::post('/updateEvent/{id}', 'EventController@updateEvent');
+Route::post('/ManagedEvent/{id}', 'EventController@ManagedEvent');
 
-//delete
-Route::get('/deleteEvent/{id}', 'EventController@deleteEvent');
 
 //Honorine
 Route::get('/', 'EventController@showEvents');
