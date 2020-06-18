@@ -72,13 +72,13 @@ class EventController extends Controller
 
               $current_user=Auth::user()->id;
 
-              [$capacity] =DB::select('select user_id from events where id =:id',['id'=>$eventID]);
-              // dd($capacity->capacity);
-              $user_event= $capacity->capacity;
+              //dd($current_user);
+              [$user_event] = DB::select('select user_id from events where id =:id',['id'=>$eventID]);
+              //dd($user_event->user_id);
+              $user= $user_event->user_id;
 
 
-
-              if($current_user!=$user_event){
+              if($current_user!=$user){
                    return redirect()->to(url()->previous() . '#reserver')->with('failUnavailable',
                    'Ce n\'est pas votre événement');
                 }
@@ -122,15 +122,16 @@ class EventController extends Controller
 
               $current_user=Auth::user()->id;
 
-              [$capacity] =DB::select('select user_id from events where id =:id',['id'=>$eventID]);
-              // dd($capacity->capacity);
-              $user_event= $capacity->capacity;
+              //dd($current_user);
+              [$user_event] = DB::select('select user_id from events where id =:id',['id'=>$idEvent]);
+              //dd($user_event->user_id);
+              $user= $user_event->user_id;
 
-              if($current_user!=$user_event){
+
+              if($current_user!=$user){
                    return redirect()->to(url()->previous() . '#reserver')->with('failUnavailable',
                    'Ce n\'est pas votre événement');
                 }
-
               $status = Event::find($idEvent)->delete();
 
               return response()->json(array('success' => $status, 'message' => 'Evenement has been delated'));
