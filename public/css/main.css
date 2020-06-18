@@ -177,7 +177,7 @@ tr:nth-child(even) {
 
 .pop-up {
   display: none;
-	position: absolute;
+	position: relative;
 	background: #F7F7F7;
 	width: 80%;
 	height: 80%;
