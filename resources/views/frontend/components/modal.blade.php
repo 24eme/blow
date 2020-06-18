@@ -6,8 +6,8 @@
 
             <label>Organisateur :@if(Auth::check()) {{ Auth::user()->name }}@endif</label><br>
             <label>Nom de salle : </label><label id="room_name"></label><br>
-            <!-- <label>Equipements : </label><label id="equipment"></label><br>
-            <label>Capacité :</label><label id="capacity"></label><br> -->
+            <!-- <label>Equipements : </label><label id="equipment"></label><br>-->
+            <label>Capacité :</label><label id="capacity"></label><br>
 
           </div>
           <button type="button" class="close"><i class="fas fa-share-alt"></i></button>
@@ -29,7 +29,7 @@
             <hr>
             <br></br>
             <div class="btn-wrapper">
-            
+
               <button type="submit" class="btn btn-secondary btn-modal">Modifier</button>
               <button type="submit" class="btn btn-primary btn-modal">Annuler</button>
 

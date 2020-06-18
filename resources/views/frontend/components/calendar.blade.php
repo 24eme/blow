@@ -39,8 +39,9 @@
       resourceLabelText: 'Salles',
       resources:'json-list-resources',
       resourceRender: function(info) {
+
           var elements = document.getElementsByClassName('fc-cell-text');
-          var capacityNumber = document.createElement('label');
+          var capacityNumber = document.createElement('span');
           var capacityIcon = document.createElement('i');
           capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
           capacityIcon.className = "fas fa-male";
@@ -96,7 +97,7 @@
               var capacite = document.getElementById('capacity');
               nomdesalle.innerHTML = info.resource.title ;
               salleID.value = info.resource.id;
-              capacity.innerHTML = info.resource.extendedProps.capacity;
+              capacite.innerHTML = info.resource.extendedProps.capacity;
               const dateDebut = (info.startStr).split("T", 2);
               dateDebut[2] = dateDebut[1].split("Z").join("");
 
@@ -132,7 +133,7 @@
               nom_evenement.value = eventObj.title;
               var salleID = document.getElementById('room_id');
               var capacite = document.getElementById('capacity');
-              capacite.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.capacity ;
+            //  capacite.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.capacity ;
               var formID = document.getElementById('methode');
               formID.setAttribute('action', (window.location.origin+'/updateEvent/'+eventObj.id));
               const dateDebutEvent = (startStr).split("T", 2);

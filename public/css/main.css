@@ -171,7 +171,7 @@ tr:nth-child(even) {
 .fc-cell-text i{
   padding-left: 10px;
 }
-.fc-cell-text label{
+.fc-cell-text span{
   padding-left: 5px;
 }
 
