@@ -141,8 +141,10 @@
 
               equipment.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.equipment ;
               capacite.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.capacity ;
+              
               var formID = document.getElementById('methode');
               formID.setAttribute('action', (window.location.origin+'/updateEvent/'+eventObj.id));
+
               const dateDebutEvent = (startStr).split("T", 2);
               dateDebutEvent[2] = dateDebutEvent[1].split("Z").join("");
 
