@@ -38,32 +38,18 @@ class EventController extends Controller
             echo "<script>alert(".$end.")</script>";
 
             date_default_timezone_set('Europe/Paris');
-            //$start_time= $request->input('start_hour');
-            //$date = Carbon::now('Europe/Paris')->format('H:i:s');
-            // // $debut=Carbon::parse($start)->format('y-m-d\Th:i:s\Z');
-            //
-            //echo($start);
-            // echo($date);
-            // // $now= $date->locale('fr_FR');
-             //echo($date);
-            // echo($start_time);
+
              echo($date);
              echo($start_date);
 
 
-            // echo(date('y-m-d\Th:i:s'));
-            // if ($start_time < $date && ){
 
-              //if ($start_date < $dates){
-             // echo"<script>alert('créneau déjà passé2');</script>";
-              //return redirect()->to(url()->previous() . '#reserver');
-              //}
-              if ($start_date < $date){
-              return redirect()->route('home', ['id' => 1])->with('failPassed',
+              if ($start_date < $date){ //si la date et l'heure sont déjà je ne peux pas réserver
+              return redirect()->to(url()->previous() . '#reserver')->with('failPassed',
               'Pour l\'instant, on ne peut pas remonter dans le temps, désolé :(');;
             }
 
-
+            //Vérifier qu'il n'y a pas déjà un événement dans l'interval du créneau soufaité.
             $query =DB::select('select * from events where resourceId =:resource and ( (start <=:start and end >=:end) or (start >=:start and end<=:end))',
             ['resource'=>$resource,'start' => $start, 'end' => $end]);
 
@@ -80,56 +66,56 @@ class EventController extends Controller
 
             }
 
-      public function updateEvent(Request $request, $eventID){
+            //modifier un evenement
+            public function updateEvent(Request $request, $eventID){
 
 
-          $title = $request->input('event_name');
-          // $eventID = $request->input('event_id');
-          $start = $request->input('start_date').'T'.$request->input('start_hour').'Z';
-          $end= $request->input('end_date').'T'.$request->input('end_hour').'Z';
-          $resource = $request->input('room_id');
+                $title = $request->input('event_name');
+                $start = $request->input('start_date').'T'.$request->input('start_hour').'Z';
+                $end= $request->input('end_date').'T'.$request->input('end_hour').'Z';
+                $resource = $request->input('room_id');
+                 $start_date = $request->input('start_date').$request->input('start_hour');
+                 $date = Carbon::now('Europe/Paris')->format('Y-m-dH:i:s');
 
-          date_default_timezone_set('Europe/Paris');
-          $start_time= $request->input('start_hour');
-          $date = Carbon::now('Europe/Paris')->format('H:i:s');
-
-          // $query = DB::select('select * from events where resourceId =:resource and ( (start <=:start and end >=:end) or (start >=:start and end<=:end))',
-          if ($start_time < $date){
-            echo"<script>alert('créneau déjà passé');</script>";
-            return redirect()->to(url()->previous() . '#reserver');
-          }
-
-          $query =DB::select('select * from events where resourceId =:resource and ( (start <=:start and end >=:end) or (start >=:start and end<=:end))',
-          ['resource' => $resource,'start' => $start, 'end' => $end]);
+                 if ($start_date < $date){     //si la date et l'heure sont déjà je ne peux pas modifier
+                 return redirect()->to(url()->previous() . '#reserver')->with('failPassed',
+                 'Pour l\'instant, on ne peut pas remonter dans le temps, désolé :(');;
+                 }
 
 
-          if(count($query)>0) {
-          echo "<script>alert('Créneau déjà réservé pour cette salle');</script>";
-              return redirect()->to(url()->previous() . '#reserver');
-          }
-
-          // $data = array('title'=>$title,'start'=>$start,"end"=>$end,"resourceId"=>$resource);
-          $data = array('title'=>$title,'start'=>$start,'end'=>$end, 'resourceId'=>$resource);
-          $status =  DB::table('events')
-          ->where('id', $eventID)
-          ->update($data);
-
-          echo "<script>alert('Inseré avec succès');</script>";
-           return redirect()->to(url()->previous() . '#reserver');
-
-      }
-
-     //supprimer un événement
-
-      public function deleteEvent(Request $request, $idEvent){
+                 //Vérifier qu'il n'y a pas déjà un événement dans l'interval du créneau soufaité.
+                $query =DB::select('select * from events where resourceId =:resource and ( (start <=:start and end >=:end) or (start >=:start and end<=:end))',
+                ['resource'=>$resource,'start' => $start, 'end' => $end]);
 
 
-        $status = Event::find($idEvent)->delete();
+                // echo(count($query));
+                if(count($query)>0){
+                echo"<script>alert('Créneau déjà réservé pour cette salle');</script>";
+                     return redirect()->to(url()->previous() . '#reserver');
+                }
 
-        return response()->json(array('success' => $status, 'message' => 'Evenement has been delated'));
+                $data = array('title'=>$title,'start'=>$start,'end'=>$end);
+                $status =  DB::table('events')
+                ->where('id', $eventID)
+                ->update($data);
+
+                echo "<script>alert('Inseré avec succès');</script>";
+                 return redirect()->to(url()->previous() . '#reserver');
+
+            }
+
+           //supprimer un événement
+
+            public function deleteEvent(Request $request, $idEvent){
 
 
-     }
+              $status = Event::find($idEvent)->delete();
+
+              return response()->json(array('success' => $status, 'message' => 'Evenement has been delated'));
+
+
+           }
+
 
   }
 
