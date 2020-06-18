@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Auth;
+// use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -30,7 +32,7 @@ class EventController extends Controller
 
             $start_date = $request->input('start_date').$request->input('start_hour');
             $date = Carbon::now('Europe/Paris')->format('Y-m-dH:i:s');
-
+            $current_user= Auth::user()->id;
 
 
 
@@ -59,7 +61,7 @@ class EventController extends Controller
                  'Votre événement n\'a pas été ajouté car le créneau est déja réservé pour cette salle');
               }
 
-            $data=array('title'=>$nom,'start'=>$start,"end"=>$end,"resourceId"=>$resource);
+            $data=array('title'=>$nom,'start'=>$start,"end"=>$end,"resourceId"=>$resource,"user_id"=>$current_user);
             DB::table('events')->insert($data);
               return redirect()->to(url()->previous() . '#reserver')->with('success',
               'Votre événement a été ajouté, vous pouvez désormais envoyez un lien de partage');

@@ -14,9 +14,14 @@ class Event extends Model
     ];
   protected $dateFormat = 'Y-m-dTH:i:sZ';
 
-  public function events()
+  public function rooms()
   {
     return $this->belongsTo('App\Room');
+  }
+
+  public function users()
+  {
+    return $this->belongsTo('App\User');
   }
 
 }
