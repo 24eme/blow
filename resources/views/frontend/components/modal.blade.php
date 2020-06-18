@@ -6,7 +6,7 @@
 
             <label>Organisateur :@if(Auth::check()) {{ Auth::user()->name }}@endif</label><br>
             <label>Nom de salle : </label><label id="room_name"></label><br>
-            <!-- <label>Equipements : </label><label id="equipment"></label><br>-->
+            <label>Equipements : </label><label id="equipment"></label><br>
             <label>Capacité :</label><label id="capacity"></label><br>
 
           </div>

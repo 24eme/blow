@@ -95,8 +95,10 @@
               var nomdesalle = document.getElementById('room_name');
               var salleID = document.getElementById('room_id');
               var capacite = document.getElementById('capacity');
+              var equipment = document.getElementById('equipment');
               nomdesalle.innerHTML = info.resource.title ;
               salleID.value = info.resource.id;
+              equipment.innerHTML = info.resource.extendedProps.equipment;
               capacite.innerHTML = info.resource.extendedProps.capacity;
               const dateDebut = (info.startStr).split("T", 2);
               dateDebut[2] = dateDebut[1].split("Z").join("");
@@ -113,12 +115,15 @@
             Currentdate = calendar.getDate().toISOString();
             DateTab = (Currentdate).split("T", 2);
             Currentdate = DateTab[0];
-            history.pushState(null,null, "?date="+Currentdate);
+            history.pushState(null,null, "home?date="+Currentdate);
       },
       eventClick: function(info) {
               var eventObj = info.event;
               var startStr = eventObj.start.toISOString();
               var endStr = eventObj.end.toISOString();
+              var equipment = document.getElementById('equipment');
+              var capacite = document.getElementById('capacity');
+
               var Datedebut = document.getElementById('start_date');
               var Heuredebut = document.getElementById('start_hour');
               var Datefin = document.getElementById('end_date');
@@ -133,7 +138,9 @@
               nom_evenement.value = eventObj.title;
               var salleID = document.getElementById('room_id');
               var capacite = document.getElementById('capacity');
-            //  capacite.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.capacity ;
+
+              equipment.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.equipment ;
+              capacite.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.capacity ;
               var formID = document.getElementById('methode');
               formID.setAttribute('action', (window.location.origin+'/updateEvent/'+eventObj.id));
               const dateDebutEvent = (startStr).split("T", 2);
