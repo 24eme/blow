@@ -9,13 +9,21 @@
   <script src='https://unpkg.com/@fullcalendar/resource-common@4.4.2/main.min.js'></script>
   <script src='https://unpkg.com/@fullcalendar/resource-timeline@4.4.2/main.min.js'></script>
   <script>
-
+  function changedDate(){
+                  Currentdate = calendar.getDate().toISOString();
+                  DateTab = (Currentdate).split("T", 2);
+                  Currentdate = DateTab[0];
+                  alert(Currentdate);
+                  window.location.replace('/home?date='+Currentdate+'#reserver');
+  }
+  </script>
+  <script>
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
       plugins: [ 'interaction', 'resourceTimeline' ],
-      timeZone: 'UTC',
+      timeZone: 'locale',
       header: {
         left: 'today,prev,next calendar',
         center: 'title',
@@ -35,22 +43,11 @@
       },
       droppable:true,
       selectable:true,
-      height:'auto',
-      customButtons: {
-        calendar: {
-          icon: 'fa-calendar',
-          click: function() {
-
-          }
-        }
-      },
+      height:'auto', 
       resourceLabelText: 'Salles',
       resources:'json-list-resources',
       resourceRender: function(info) {
-
-          
-
-
+          <?php [$capacity] =DB::select('select capacity from rooms where id =:identifiant',['identifiant'=>"2"]); ?>
           var elements = document.getElementsByClassName('fc-cell-text');
           var capacityIcon = document.createElement('i');
           capacityIcon.className = "fas fa-male";
@@ -73,7 +70,8 @@
           img.style.width = "70%";
           img.style.height = "50%"
           equipement.innerHTML = "Chaise,TV";
-          capacite.innerHTML = "30 personnes";
+          capacite.innerHTML = <?php echo ($capacity->capacity); ?> ;
+          capacite.innerHTML +=  ' personnes';
           popup.appendChild(br);
           popup.appendChild(img);
           popup.appendChild(br1);
@@ -116,6 +114,12 @@
               Datefin.value = dateFin[0] ;
               Heurefin.value = dateFin[2] ;
       },
+      datesRender:function(info){
+            Currentdate = calendar.getDate().toISOString();
+            DateTab = (Currentdate).split("T", 2);
+            Currentdate = DateTab[0];
+            history.pushState(null,null, "?date="+Currentdate);
+      },
       eventClick: function(info) {
               var eventObj = info.event;
               var startStr = eventObj.start.toISOString();
@@ -150,12 +154,28 @@
               Heurefin.value = dateFinEvent[2] ;
       }
     });
-    // var url_string = window.location.href
-    // var url = new URL(url_string);
-    // var date = url.searchParams.get("date");
-    //
-    // calendar.gotoDate(date);
+
+    var Currentdate = calendar.getDate().toISOString();
+    var DateTab = (Currentdate).split("T", 2);
+    Currentdate = DateTab[0];
+
+    var url_string = window.location.href
+    var url = new URL(url_string);
+    var date = url.searchParams.get("date");
+
+
+    if (date != null) {
+      window.location.replace('/home?date='+date+'#reserver');
+      calendar.gotoDate(date);
+    }
+    else{
+      window.location.replace('/home?date='+Currentdate+'#reserver');
+      calendar.gotoDate(Currentdate);
+    }
+
     calendar.render();
+
+
 
   });
 

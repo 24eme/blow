@@ -8,3 +8,18 @@
     AOS.init({
     });
   </script>
+<script type="text/javascript">
+
+//A MODIFIER
+var ConfirmedBtn = document.getElementById("ConfirmedBtn");
+
+// Execute a function when the user releases a key on the keyboard
+ConfirmedBtn.addEventListener("keypress", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) { 
+    event.preventDefault();
+    document.getElementById("methode").submitForm();
+  }
+});
+
+</script>

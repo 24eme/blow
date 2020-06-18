@@ -15,20 +15,21 @@
         </div>
         <div class="page" id="p2">
           <div class="container">
-              <section><div id="calendar" data-toggle="modal" data-target="#reservation-modal"></div></section>
+              <section><div id="calendar" data-toggle="modal" data-target="#reservation-modal"></div>
+              </section>
               @extends('frontend.components.modal')
               @if(session('success'))
-                   <span class="alert alert-success" role="alert">
+                   <span class="alert alert-primary" role="alert">
                        <strong>{{ session('success') }}</strong>
                    </span>
               @endif
               @if(session('failPassed'))
-                   <span class="alert alert-success" role="alert">
+                   <span class="alert alert-warning" role="alert">
                        <strong>{{ session('failPassed') }}</strong>
                    </span>
               @endif
               @if(session('failUnavailable'))
-                   <span class="alert alert-success" role="alert">
+                   <span class="alert alert-danger" role="alert">
                        <strong>{{ session('failUnavailable') }}</strong>
                    </span>
               @endif

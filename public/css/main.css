@@ -110,6 +110,9 @@ h2{
 .marged-row div img{
    height: 20vw;
 }
+#reservation-modal{
+  display: none
+}
 .modal-header, .modal-content{
   border: none;
   border-radius: 0;

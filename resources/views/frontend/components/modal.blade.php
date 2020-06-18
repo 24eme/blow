@@ -32,7 +32,7 @@
 
 
                 <button type="submit" class="btn btn-secondary btn-modal" data-dismiss="modal">Annuler</button>
-                <button type="submit" class="btn btn-primary btn-modal">Confirmer</button>
+                <button type="submit" class="btn btn-primary btn-modal" id="ConfirmedBtn">Confirmer</button>
             </div>
 
             {{ csrf_field() }}
@@ -44,4 +44,6 @@
 
       </div>
     </div>
+
+
 </div>

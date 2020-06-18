@@ -19,6 +19,7 @@ class CreateEventsTable extends Migration
             $table->string('start');
             $table->string('end');
             $table->string('resourceId');
+  //          $table->foreign('user_id')->references('id')->on('users'); 
             $table->timestamps();
         });
     }

@@ -2,7 +2,7 @@
   @guest
   <nav class="navbar navbar-expand-lg navbar-light ">
     <ul class="navbar-nav mr-auto">
-      <a class="navbar-brand nav-logo" href="#">BL<u>O</u>W</a>
+      <a class="navbar-brand nav-logo" href="/">BL<u>O</u>W</a>
       <li class="nav-item"><a class="nav-link" href="#accueil">Accueil</a></li>
       <li class="nav-item"><a class="nav-link" href="#apropos">A propos</a></li>
       <li class="nav-item"><a class="nav-link" href="#objectif">Notre objectif</a></li>

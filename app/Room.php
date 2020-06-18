@@ -10,8 +10,8 @@ class Room extends Model
 
 
 }
-// public function rooms()
-//   {
-//    return $this->hasMany('App\Event');
-//
-//   }
+public function rooms()
+  {
+   return $this->hasMany('App\Event');
+
+  }
