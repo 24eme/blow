@@ -134,7 +134,10 @@
               nom_evenement.value = eventObj.title;
               var salleID = document.getElementById('room_id');
               var capacite = document.getElementById('capacity');
-
+              // --------------------sidi--pourDelete---------samp
+              // var formID = document.getElementById('methode');
+              // formID.setAttribute('action', (window.location.origin+'/updateEvent/'+eventObj.id));
+              // --------------------------end----------
               const dateDebutEvent = (startStr).split("T", 2);
               dateDebutEvent[2] = dateDebutEvent[1].split("Z").join("");
 
