@@ -47,15 +47,7 @@
       resourceLabelText: 'Salles',
       resources:'json-list-resources',
       resourceRender: function(info) {
-          <?php
-            // $roomID = "<script>document.writeln(p1);</script>";
-            // $query = 'SELECT capacity from ROOMS where id='.$roomID;
-            // $result = echo ""
-            $resource = $request->input('room_id');
-            $query =DB::select('SELECT capacity FROM rooms WHERE id=2',
-            ['capacity'=>$resource]);
-            echo $resource;
-          ?>
+
 
 
 
@@ -134,6 +126,8 @@
               var Heurefin = document.getElementById('end_hour');
               var nomdesalle = document.getElementById('room_name');
               nomdesalle.innerHTML = eventObj.getResources()[0]._resource.title;
+              var salleID = document.getElementById('room_id');
+              salleID.value = eventObj.getResources()[0]._resource.id;
               var eventID = document.getElementById('event_id');
               eventID.value = eventObj.id ;
               var nom_evenement = document.getElementById('event_name');
