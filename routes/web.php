@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('home');
 });
 
+//Affichage des evennements
+Route::get('showEvents', 'EventController@show');
 // Auth::routes();
 //
 // Route::get('/home', 'HomeController@index')->name('home');
