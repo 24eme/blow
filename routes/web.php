@@ -17,8 +17,22 @@ Route::get('/', function () {
     return view('home');
 });
 
-//Affichage des evennements
+//Affichage des evenements
 Route::get('showEvents', 'EventController@show');
+//Affichage des salles
+Route::get('showRooms', 'RoomController@show');
+
+
+
+
+
+
+
+
+
+
+
+
 // Auth::routes();
 //
 // Route::get('/home', 'HomeController@index')->name('home');
