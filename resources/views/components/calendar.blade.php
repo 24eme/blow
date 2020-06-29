@@ -1,14 +1,13 @@
-
-
 <link href='https://unpkg.com/@fullcalendar/core@4.4.2/main.min.css' rel='stylesheet' />
-  <link href='https://unpkg.com/@fullcalendar/timeline@4.4.2/main.min.css' rel='stylesheet' />
-  <link href='https://unpkg.com/@fullcalendar/resource-timeline@4.4.2/main.min.css' rel='stylesheet' />
+<link href='https://unpkg.com/@fullcalendar/timeline@4.4.2/main.min.css' rel='stylesheet' />
+<link href='https://unpkg.com/@fullcalendar/resource-timeline@4.4.2/main.min.css' rel='stylesheet' />
+
 <script src='https://unpkg.com/@fullcalendar/core@4.4.2/main.min.js'></script>
-  <script src='https://unpkg.com/@fullcalendar/interaction@4.4.2/main.min.js'></script>
-  <script src='https://unpkg.com/@fullcalendar/timeline@4.4.2/main.min.js'></script>
-  <script src='https://unpkg.com/@fullcalendar/resource-common@4.4.2/main.min.js'></script>
-  <script src='https://unpkg.com/@fullcalendar/resource-timeline@4.4.2/main.min.js'></script>
-  <script>
+<script src='https://unpkg.com/@fullcalendar/interaction@4.4.2/main.min.js'></script>
+<script src='https://unpkg.com/@fullcalendar/timeline@4.4.2/main.min.js'></script>
+<script src='https://unpkg.com/@fullcalendar/resource-common@4.4.2/main.min.js'></script>
+<script src='https://unpkg.com/@fullcalendar/resource-timeline@4.4.2/main.min.js'></script>
+<script>
 
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
@@ -51,8 +50,6 @@
       resourceLabelText: 'Salles',
       resources:'json-list-resources',
       resourceRender: function(info) {
-        // var numberOfResources = 9;
-        // var imgResources = new Array(numberOfResources);
 
         var popup = document.createElement('div');
         var br = document.createElement('br');
@@ -80,11 +77,6 @@
         popup.appendChild(br2);
         popup.appendChild(surface);
         popup.appendChild(br3);
-        // for (var i = 0; i <= imgResources.length; i++) {
-        //   imgArray[i] = new Image(100, 200);
-        //   imgArray[i].src = 'img/'+ info.resource.id +'.jpg';
-        //
-        // }
         popup.appendChild(img);
 
         info.el.appendChild(popup);
