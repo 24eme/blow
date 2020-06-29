@@ -14,7 +14,6 @@ class EventController extends Controller
   public function show(){
 
     $events = Event::all();
-    //return response(json_encode($events), 200)->header('Content-Type', 'application/json');
     return $events->toJson();
 
   }
