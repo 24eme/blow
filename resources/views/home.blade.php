@@ -1,4 +1,30 @@
-@extends('layouts.app')
+
+@extends('layouts.layout')
+@section('content')
+
+<div class="container">
+  <div class="ct" id="tableau">
+  <div class="ct" id="reserver">
+        <div class="page" id="p1"><section><div class=""></section></div>
+        <div class="page" id="p2">
+          <div class="container">
+              <section><div id="calendar" data-toggle="modal" data-target="#reservation-modal"></div></section>
+
+          </div>
+        </div>
+  </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+@endsection
+
+<!-- @exteds('layouts.app')
 
 @section('content')
 <div class="container">
@@ -20,4 +46,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection -->
