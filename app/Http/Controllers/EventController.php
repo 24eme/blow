@@ -75,9 +75,18 @@ class EventController extends Controller
     if ($query>0){ //s'il y plus de 0 event qui se trouve sur la plage horaire je ne le créer pas
       return('horaire déjà pris');
       }
-    $data=array('title'=>$nom,'start'=>$start,"end"=>$end,"resourceId"=>$resouce,"user_id"=>$current_user);  //pour voir ça fonctionne il faut
-    DB::table('events')->insert($data);                                                                      //donner $resource =1 et user_id=1
+    // $data=array('title'=>$nom,'start'=>$start,"end"=>$end,"resourceId"=>$resouce,"user_id"=>$current_user);  //pour voir ça fonctionne il faut
+    // DB::table('events')->insert($data);
+                                                                       //donner $resource =1 et user_id=1
+    $event = new App\Event;
+    $event->title = $nom;
+    $event->start = $start;
+    $event->end = $end;
+    $event->resourceId=$resource;
+    $event->user_id=$current_user;
+    $event->save();
     return ('événement à bien été rajouté');
+
     }
 
 
