@@ -22,11 +22,14 @@ class EventController extends Controller
 
   public function create(Request $request){
     date_default_timezone_set('Europe/Paris');
+
     //pour remplir la base de données
     $nom= $request->input('event_name');
     $start=$request->input('start_date').'T'.$request->input('start_hour').'Z';
     $end=$request->input('end_date').'T'.$request->input('end_hour').'Z';
     $resource=$request->input('room_id');
+    $current_user=Auth::user()->id;            //commenter cette ligne pour que ça fonctionne
+
     //pour faire des comparaison entre les datetimes
     $end_date=$request->input('end_date').$request->input('end_hour');
     $start_date=$request->input('start_date').$request->input('start_hour');
@@ -46,7 +49,7 @@ class EventController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
-    $current_user=Auth::user()->id;            //commenter cette ligne pour que ça fonctionne
+
 
     if($start_date>$end_date){
         return('Le début est après la fin ? ');
