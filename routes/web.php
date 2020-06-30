@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    //return view('components/testModale'); //honorine je l'ai créer pour inserer un evenement dans ma base de donéne avec un modale
+    //return view('components/TestModaleRoomHono'); //honorine je l'ai créer pour inserer un evenement dans ma base de donéne avec un modale
     return view('home');
 });
 
@@ -28,6 +28,9 @@ Route::get('deleteEvent/{id}', 'EventController@deleteEvent');
 Route::get('showRooms', 'RoomController@show');
 //Permet de créer un événement honorine
 Route::post('createEvents','EventController@create');
+//Permet de mettre à jour une salle honorine
+Route::put('updateRooms','RoomController@update');
+
 
 
 
