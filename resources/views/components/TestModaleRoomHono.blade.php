@@ -2,7 +2,7 @@
     <div class="modal-dialog " role="document">
       <div class="modal-content">
         <div class="modal-body">
-          <form method="POST" id="methode" action="{{url('createEvents')}}">
+          <form method="PUT" id="methode" action="{{url('updateRooms')}}">
           <input type="text" id="room_name" name="room_name" placeholder="Nom de la salle" value="" required><br></br>
           <input type="text" id="equipment" name="equipment" placeholder="Equipements"value=""><br></br>
           <input type="text" id="capacity" name="capacity" placeholder="Capcity"value=""><br></br>
