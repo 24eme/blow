@@ -15,10 +15,8 @@ class EventController extends Controller
 //function pour afficher les evennements
 
   public function show(){
-
     $events = Event::all();
     return $events->toJson();
-
   }
 
 
@@ -42,7 +40,7 @@ class EventController extends Controller
       //'start_hour' => 'date|date_format:H:i',
       'end_date' => 'date|date_format:Y-m-d',
       //'end_hour' => 'date|date_format:H:i'
-]);
+    ]);
 
     if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
@@ -67,17 +65,17 @@ class EventController extends Controller
           ->orWhere(function($query)use ($start,$end){
               $query->where('start', '>=', $start)
                     ->where('end', '<=',$end);
-          })
+              })
           ->count();
 
 
     if ($query>0){ //s'il y plus de 0 event qui se trouve sur la plage horaire je ne le créer pas
       return('horaire déjà pris');
-    }
+      }
     $data=array('title'=>$nom,'start'=>$start,"end"=>$end,"resourceId"=>$resouce,"user_id"=>$current_user);  //pour voir ça fonctionne il faut
     DB::table('events')->insert($data);                                                                      //donner $resource =1 et user_id=1
     return ('événement à bien été rajouté');
-  }
+    }
 
 
 
