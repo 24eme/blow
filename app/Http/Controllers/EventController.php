@@ -8,7 +8,7 @@ use App\Event;
 use Carbon\Carbon;
 use Auth;
 use Illuminate\Support\Facades\DB;
-
+use Validator;
 class EventController extends Controller
 {
 
@@ -21,26 +21,10 @@ class EventController extends Controller
 
   }
 
-  // public function validate(){
-  //
-  //   $validator = Validator::make($input, [
-  //     'event_name' => 'required',
-  //     'start_date' => 'required|date',
-  //     'end_date' => 'required|date',
-  //     'room_id' =>'required|integer'
-  //   ]);
-  //
-  //   if ($validator->fails())
-  //   {
-  //     dd('les champs ne sont pas valides');
-  //   }
-  // }
-
 
   public function create(Request $request){
     date_default_timezone_set('Europe/Paris');
     //appeller la fonction validate
-    //validate();
     //pour remplir la base de données
     $nom= $request->input('event_name');
     $start=$request->input('start_date').'T'.$request->input('start_hour').'Z';
@@ -50,6 +34,21 @@ class EventController extends Controller
     $end_date=$request->input('end_date').$request->input('end_hour');
     $start_date=$request->input('start_date').$request->input('start_hour');
     $now=Carbon::now('Europe/Paris')->format('Y-m-dH:i:s');
+
+    //echo($start);
+    $validator = Validator::make($request->all(), [
+      // 'room_id' =>'integer',
+      'event_name' => 'alpha',
+      'start_date' => 'date|date_format:Y-m-d',
+      //'start_hour' => 'date|date_format:H:i',
+      'end_date' => 'date|date_format:Y-m-d',
+      //'end_hour' => 'date|date_format:H:i'
+]);
+
+    if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
     $current_user=Auth::user()->id;            //commenter cette ligne pour que ça fonctionne
 
     if($start_date>$end_date){
