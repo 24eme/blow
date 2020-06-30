@@ -90,19 +90,39 @@ class EventController extends Controller
     }
 
 
+   //modifier un evennement
+
+
+      public function update(Request $request, $idEvent ){
+      $idEvent = $request->input('event_id');
+
+      if($idEvent!=null){
+      $title= $request->input('event_name');
+      $start=$request->input('start_date').'T'.$request->input('start_hour').'Z';
+      $end=$request->input('end_date').'T'.$request->input('end_hour').'Z';
+      $resource=$request->input('room_id');
+
+
+        $events = Event::where('id', $idEvent)
+            ->update(['title' => $title,'start'=>$start,'end'=>$end,'resourceId'=>$resource]);
+          // return ('event a été modifié');
+          return response()->json(array('succes'=> 200, 'data' =>$events, 'message' =>'Event a ete modifié'));
+        }
+
+
+   }
 
 
        //supprimer un evennement
         public function delete(Request $request, $idEvent)
       {
 
-            $idEvent = $request->input('event_id');
+              $idEvent = $request->input('event_id');
 
-            $events = Event::find($idEvent)->delete();
+              $events = Event::find($idEvent)->delete();
 
-            return response()->json(array('succes'=> 200, 'data' =>$events, 'message' =>'Event a ete supprimer'));
-
-    }
+              return response()->json(array('succes'=> 200, 'data' =>$events, 'message' =>'Event a ete supprimer'));
+        }
 
 
 

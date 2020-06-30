@@ -18,11 +18,18 @@ Route::get('/', function () {
     //return view('home');
 });
 
+Route::get('/testUpdateEvent', function () {
+    return view('components/testUpdateEvent'); //sidiTest
+});
+
+
 //Affichage des evenements
 Route::get('showEvents', 'EventController@show');
 
 //supprimer un événemment
-Route::get('delete/{id}', 'EventController@delete');
+Route::delete('delete/{id}', 'EventController@delete');
+//supprimer un événemment
+Route::put('update/{id}', 'EventController@update');
 
 //Affichage des salles
 Route::get('showRooms', 'RoomController@show');
