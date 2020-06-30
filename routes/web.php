@@ -19,6 +19,10 @@ Route::get('/', function () {
 
 //Affichage des evenements
 Route::get('showEvents', 'EventController@show');
+
+//supprimer un événemment
+Route::get('deleteEvent/{id}', 'EventController@deleteEvent');
+
 //Affichage des salles
 Route::get('showRooms', 'RoomController@show');
 
