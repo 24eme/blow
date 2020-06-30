@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // return view('components/testModale'); //honorine je l'ai créer pour inserer un evenement dans ma base de donéne avec un modale
+    //return view('components/testModale'); //honorine je l'ai créer pour inserer un evenement dans ma base de donéne avec un modale
     return view('home');
 });
 
