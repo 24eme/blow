@@ -24,7 +24,6 @@ class EventController extends Controller
 
   public function create(Request $request){
     date_default_timezone_set('Europe/Paris');
-    //appeller la fonction validate
     //pour remplir la base de données
     $nom= $request->input('event_name');
     $start=$request->input('start_date').'T'.$request->input('start_hour').'Z';
