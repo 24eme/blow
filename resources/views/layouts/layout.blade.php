@@ -2,6 +2,7 @@
 <html lang="fr">
  <head>
     @include('layouts.head')
+    @include('components.datepicker')
     @include('components.calendar')
  </head>
  <body>

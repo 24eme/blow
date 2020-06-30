@@ -2,6 +2,7 @@
 @extends('layouts.layout')
 @section('content')
 
+<p>Date: <input type="text" id="datepicker"></p>
 <div class="container">
   <div class="ct" id="tableau">
   <div class="ct" id="reserver">
