@@ -80,4 +80,19 @@ class EventController extends Controller
 
 
 
+       //supprimer un evennement
+        public function deleteEvent(Request $request, $idEvent)
+      {
+
+            $idEvent = $request->input('event_id');
+
+            $events = Event::find($idEvent)->delete();
+
+            return response()->json(array('succes'=> 200, 'data' =>$events, 'message' =>'Event a ete supprimer'));
+
+    }
+
+
+
+
 }
