@@ -14,15 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    //return view('components/TestModaleRoomHono'); //honorine je l'ai créer pour inserer un evenement dans ma base de donéne avec un modale
-    return view('home');
+    return view('components/TestModaleRoomHono'); //honorine je l'ai créer pour inserer un evenement dans ma base de donéne avec un modale
+    //return view('home');
 });
 
 //Affichage des evenements
 Route::get('showEvents', 'EventController@show');
 
 //supprimer un événemment
-Route::get('deleteEvent/{id}', 'EventController@deleteEvent');
+Route::get('delete/{id}', 'EventController@delete');
 
 //Affichage des salles
 Route::get('showRooms', 'RoomController@show');
