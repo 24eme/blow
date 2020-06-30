@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Room;
 
@@ -13,7 +14,7 @@ class RoomController extends Controller
       return $rooms->toJson();
   }
 
-  public function update(){
+  public function update(Request $request){
     $roomId = $request->input('room_id');
 
     if($roomId!=null){
@@ -23,16 +24,12 @@ class RoomController extends Controller
        $capacity=$request->input('capacity');
        $eventColor=$request->input('eventColor');
 
-       $data = array('title'=>$title,'equipement'=>$equipment,'capacity'=>$capacity,'eventColor'=>$eventColor);
-       $query =  DB::table('rooms')
-       ->where('id', $roomId)
-       ->update($data);
+       Room::where('id', $roomId)
+          ->update(['title' => $title,'equipment'=>$equipment,'capacity'=>$capacity,'eventColor'=>$eventColor]);
+        return ('la salle a été modifié');
+      }
+      
+      return ("cette salle n'existe pas");
 
-        return redirect()->to(url()->previous() . '#reserver')->with('failUnavailable',
-                'Votre événement a été modifié');
 }
-       return redirect()->to(url()->previous() . '#reserver')->with('failUnavailable',
-             'On ne peut pas modifié un événement inexistant');
-  }
-
 }
