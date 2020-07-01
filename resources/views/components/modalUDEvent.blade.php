@@ -13,7 +13,7 @@
 
       </div>
        <div class="modal-body">
-         <form class="" method="POST" id="formUDRoom" action="{{ route('createRoom')}}">
+         <form class="" method="POST" id="formUDRoom" action="{{ route('createEvent')}}">
            {{ csrf_field() }}
 
            <div class="content-head">
@@ -41,35 +41,35 @@
            <label for="society">{ User::find(Event::find($eventID)->society)}}->society</label><br> -->
 
            <div class="row">
-               <div class="col-3">
+               <div class="col-md-6">
                  <label for="StartDate">Date de début:</label>
                </div>
-               <div class="col-3">
+               <div class="col-md-6">
                  <label for="StartHour">Heure :</label>
                </div>
 
            </div>
            <div class="row">
-               <div class="col-3">
+               <div class="col-md-6">
                  <input id="inputStartDate" type="date" name="StartDate" value="">
                </div>
-               <div class="col-3">
-                 <input id="inputStartHour" type="date" name="StartHour" value="">
+               <div class="col-md-6">
+                 <input id="inputStartHour" type="time" name="StartHour" value="">
                </div>
            </div>
            <div class="row">
-               <div class="col-3">
+               <div class="col-md-6">
                  <label for="EndDate">Date de Fin :</label>
                </div>
-               <div class="col-3">
+               <div class="col-md-6">
                  <label for="EndHour">Heure :</label>
                </div>
            </div>
            <div class="row">
-               <div class="col-3">
-                 <input id="inputEndDate" type="time" name="EndDate" value="">
+               <div class="col-md-6">
+                 <input id="inputEndDate" type="date" name="EndDate" value="">
                </div>
-               <div class="col-3">
+               <div class="col-md-6">
                  <input id="inputEndHour" type="time" name="EndHour" value="">
                </div>
            </div>

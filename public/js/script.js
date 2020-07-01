@@ -11,20 +11,23 @@ var labelCapacity = document.getElementById('capacity');
 
   function modalCheckEvent(info) {
     //Essayer en utilisant MODEL LARAVEL find
-
     var eventObj = info.event;
     var startStr = eventObj.start.toISOString();
     var endStr = eventObj.end.toISOString();
+
+    startStr = startStr.substring(0,startStr.length-1);
 
     var inputEventName = document.getElementById('inputEventName');
     inputEventName.value = eventObj.title;
 
     const dateDebutEvent = (startStr).split("T", 2);
     dateDebutEvent[2] = dateDebutEvent[1].split("Z").join("");
+    dateDebutEvent[2] = dateDebutEvent[2].slice(0,-7);
 
     const dateFinEvent = (endStr).split("T", 2);
     dateFinEvent[2]= dateFinEvent[1].split("Z").join("");
-    alert(dateFinEvent[2]);
+    dateFinEvent[2] = dateFinEvent[2].slice(0,-7);
+
     inputStartDate.value = dateDebutEvent[0] ;
     inputStartHour.value = dateDebutEvent[2] ;
     inputEndDate.value = dateFinEvent[0] ;
@@ -33,46 +36,25 @@ var labelCapacity = document.getElementById('capacity');
     $('#modalUDE').modal('show');
   };
 
-//
-//   function modalAddEvent(event) {
-//
-//     inputRoomName.innerHTML = event.resource.title ;
-//     inputHiddenRoomID.value = event.resource.id;
-//
-//     const StartDateTAB = (event.startStr).split("T", 2);
-//     dateDebut[2] = dateDebut[1].split("Z").join("");
-//
-//     const EndDateTAB = (event.endStr).split("T", 2);
-//     dateFin[2]= dateFin[1].split("Z").join("");
-//
-//     inputStartDate.value = StartDateTAB[0] ;
-//     inputStartHour.value = StartDateTAB[2] ;
-//     inputEndDate.value = EndDateTAB[0] ;
-//     inputEndHour.value = EndDateTAB[2] ;
-//
-//   };
-//   function modalCheckEvent(event) {
-//     $('#modalUDE').modal('show');
-//
-//     // var eventObj = event.event;
-//     // var startStr = eventObj.start.toISOString();
-//     // var endStr = eventObj.end.toISOString();
-//     //
-//     // var inputEventName = document.getElementById('eventName');
-//     // inputEventName.value = eventObj.title;
-//     //
-//     // const dateDebutEvent = (startStr).split("T", 2);
-//     // dateDebutEvent[2] = dateDebutEvent[1].split("Z").join("");
-//     //
-//     // const dateFinEvent = (endStr).split("T", 2);
-//     // dateFinEvent[2]= dateFinEvent[1].split("Z").join("");
-//     //
-//     // Datedebut.value = dateDebutEvent[0] ;
-//     // Heuredebut.value = dateDebutEvent[2] ;
-//     // Datefin.value = dateFinEvent[0] ;
-//     // Heurefin.value = dateFinEvent[2] ;
-//   };
-//
+  // function modalAddEvent(event) {
+  //
+  //   inputRoomName.innerHTML = event.resource.title ;
+  //   inputHiddenRoomID.value = event.resource.id;
+  //
+  //   const StartDateTAB = (event.startStr).split("T", 2);
+  //   dateDebut[2] = dateDebut[1].split("Z").join("");
+  //
+  //   const EndDateTAB = (event.endStr).split("T", 2);
+  //   dateFin[2]= dateFin[1].split("Z").join("");
+  //
+  //   inputStartDate.value = StartDateTAB[0] ;
+  //   inputStartHour.value = StartDateTAB[2] ;
+  //   inputEndDate.value = EndDateTAB[0] ;
+  //   inputEndHour.value = EndDateTAB[2] ;
+  //
+  // };
+
+
 //   function ResourceModal(resource) {
 //
 //             var popup = document.createElement('div');
