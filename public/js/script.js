@@ -36,23 +36,23 @@ var labelCapacity = document.getElementById('capacity');
     $('#modalUDE').modal('show');
   };
 
-  // function modalAddEvent(event) {
-  //
-  //   inputRoomName.innerHTML = event.resource.title ;
-  //   inputHiddenRoomID.value = event.resource.id;
-  //
-  //   const StartDateTAB = (event.startStr).split("T", 2);
-  //   dateDebut[2] = dateDebut[1].split("Z").join("");
-  //
-  //   const EndDateTAB = (event.endStr).split("T", 2);
-  //   dateFin[2]= dateFin[1].split("Z").join("");
-  //
-  //   inputStartDate.value = StartDateTAB[0] ;
-  //   inputStartHour.value = StartDateTAB[2] ;
-  //   inputEndDate.value = EndDateTAB[0] ;
-  //   inputEndHour.value = EndDateTAB[2] ;
-  //
-  // };
+  function modalAddEvent(event) {
+
+    inputRoomName.innerHTML = event.resource.title ;
+    inputHiddenRoomID.value = event.resource.id;
+
+    const StartDateTAB = (event.startStr).split("T", 2);
+    dateDebut[2] = dateDebut[1].split("Z").join("");
+
+    const EndDateTAB = (event.endStr).split("T", 2);
+    dateFin[2]= dateFin[1].split("Z").join("");
+
+    inputStartDate.value = StartDateTAB[0] ;
+    inputStartHour.value = StartDateTAB[2] ;
+    inputEndDate.value = EndDateTAB[0] ;
+    inputEndHour.value = EndDateTAB[2] ;
+
+  };
 
 
 //   function ResourceModal(resource) {

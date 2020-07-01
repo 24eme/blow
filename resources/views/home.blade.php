@@ -10,6 +10,7 @@
         <div class="page" id="p1">
           <div class="container">
             @extends('components.modalCEvent')
+            @extends('components.modalUDEvent')
           </div>
           <section><div class=""></section></div>
         <div class="page" id="p2">
