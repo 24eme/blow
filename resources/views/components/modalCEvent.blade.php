@@ -36,7 +36,8 @@
                 <hr>
         <div class="modal-body">
 
-    <form method="POST" id="methode" action="">
+    <form method="POST" id="methode" action="{{url('createEvents')}}">
+      {{ csrf_field() }}
       <label for="room_title" class="">SALLE :</label>
       <input type="text" name="room_name" class="input-head" value="{Room::find(1)}}" disabled>
       <input type="text" name="room_id" id="room_id" value="" hidden>
@@ -65,7 +66,7 @@
 
     <div class="form-group col-md-6">
       <label for="start_date">Debut :</label>
-      <input type="date" class="form-control" id="start_date" name="start_date" value="2020-06-09T09:30:00Z">
+      <input type="date" class="form-control" id="start_date" name="start_date" value="">
     </div>
 
     <div class="form-group col-md-6">
@@ -79,7 +80,7 @@
 
       <!-- <input type="email" class="form-control" id="inputEmail4" placeholder="Email"> -->
       <label for="end_date">Fin :</label>
-      <input type="date" class="form-control" id="end_date" name="end_date" value="2020-06-09T09:30:00Z">
+      <input type="date" class="form-control" id="end_date" name="end_date" value="">
     </div>
     <div class="form-group col-md-6">
       <label for="end_hour">Heure de Fin :</label>
