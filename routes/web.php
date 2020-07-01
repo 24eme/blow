@@ -47,17 +47,11 @@ Route::get('/deleteRoom/{roomname}', 'RoomController@delete')->name('deleteRoom'
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 // Auth::routes();
 //
 // Route::get('/home', 'HomeController@index')->name('home');
+
+//admin honorine
+// Route::get('/admin', 'AdminController@admin')
+//     ->middleware('is_admin')
+//     ->name('admin');

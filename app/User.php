@@ -8,6 +8,8 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    const ADMIN_TYPE = 'admin';
+    const DEFAULT_TYPE = 'default';
     use Notifiable;
 
     /**
@@ -37,9 +39,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function isAdmin(){        
+        return $this->type === self::ADMIN_TYPE;
+    }
 
-    public function events()
-      {
+
+    public function events(){
         return $this->hasMany('App\Event');
       }
+
+
 }
