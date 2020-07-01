@@ -37,7 +37,15 @@
         <div class="modal-body">
 
           <form method="POST" id="methode" action="">
-            <div class="form-row">
+            <div class="form-group row">
+   <label for="event_name" class="col-sm-4 col-form-label col-form-label-sm">Nom evennement :</label>
+   <div class="col-md-8">
+     <input type="text" id="event_name" class="form-control form-control-sm" name="event_name" placeholder="Nom de l'événement" value="" required><br></br>
+     <!-- <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="col-form-label-sm"> -->
+   </div>
+ </div>
+      <div class="form-row">
+
     <div class="form-group col-md-6">
       <!-- <label for="inputEmail4">Email</label> -->
 
@@ -64,11 +72,7 @@
       <input type="time" class="form-control" id="start_hour" name="start_hour" required>
     </div>
   </div>
-          <label>Nom evennement : </label>
-          <input type="text" id="event_name" name="event_name" placeholder="Nom de l'événement" value="" required><br></br>
-          <input type="text" id="event_id" name="event_id" value="" style="display:none">
-          <input type="text" name="room_id" id="room_id" value=""style="display:none">
-    
+
             <!-- <div class="btn-wrapper">
 
               <input type="submit" class="btn btn-primary btn-modal" name="action" value="Valider">
