@@ -35,17 +35,26 @@
 
            <label for="society">{ User::find(Event::find($eventID)->society)}}->society</label>
 
-           <label for="StartDate">Date de débutv:</label>
-           <input type="date" name="" value="">
-
-           <label for="StartHour">Heure :</label>
-           <input type="date" name="" value="">
-
-           <label for="EndDate">Date de Fin :</label>
-           <input type="date" name="" value="">
-
-           <label for="EndHour">Heure :</label>
-           <input type="date" name="" value="">
+           <div class="row">
+               <div class="col-sm-6">
+                 <label for="StartDate">Date de débutv:</label>
+                 <input type="date" name="" value="">
+               </div>
+               <div class="col-sm-6">
+                 <label for="StartHour">Heure :</label>
+                 <input type="date" name="" value="">
+               </div>
+           </div>
+           <div class="row">
+               <div class="col-sm-6">
+                 <label for="EndDate">Date de Fin :</label>
+                 <input type="date" name="" value="">
+               </div>
+               <div class="col-sm-6">
+                 <label for="EndHour">Heure :</label>
+                 <input type="date" name="" value="">
+               </div>
+           </div>
                       <hr>
            <div class="btn-wrapper">
              <input type="submit" class="btn btn-secondary btn-modal" name="action" value="Modifier">
