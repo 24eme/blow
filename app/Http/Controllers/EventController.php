@@ -12,6 +12,10 @@ use Validator;
 class EventController extends Controller
 {
 
+  public function index(){
+    $events = Event::all();
+    return view('home', compact('events'));
+  }
 //function pour afficher les evennements
 
   public function show(){

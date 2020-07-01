@@ -38,6 +38,10 @@ Route::post('createEvents','EventController@create');
 Route::put('updateRooms','RoomController@update');
 
 
+
+
+Route::get('/', 'RoomController@index');
+Route::get('/', 'EventController@index');
 Route::post('/createRoom', 'RoomController@create')->name('createRoom');
 Route::get('/deleteRoom/{roomname}', 'RoomController@delete')->name('deleteRoom');
 
