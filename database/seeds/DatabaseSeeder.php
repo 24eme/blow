@@ -30,10 +30,6 @@ class DatabaseSeeder extends Seeder
       DB::table("events")->insert(["title"=>"réservation 7","start"=>"2020-06-30T08:00:00Z","end"=>"2020-06-30T10:00:00Z","resourceId"=>"7","user_id"=>"1"]);
       DB::table("events")->insert(["title"=>"réservation 8","start"=>"2020-06-30T14:00:00Z","end"=>"2020-06-30T15:00:00Z","resourceId"=>"8","user_id"=>"3"]);
 
-      DB::table("users")->insert(["name"=>"honorine","email"=>"honorine@gmail.com","email_verified_at"=>"honorine@gmail.com","password"=>"12345678"]);
-      DB::table("users")->insert(["name"=>"mame","email"=>"mame@gmail.com","email_verified_at"=>"mame@gmail.com","password"=>"12345678"]);
-      DB::table("users")->insert(["name"=>"sidi","email"=>"sidi@gmail.com","email_verified_at"=>"sidi@gmail.com","password"=>"12345678"]);
-
       // $this->call(UserSeeder::class);
 
     }

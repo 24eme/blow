@@ -25,10 +25,9 @@ Route::get('/testUpdateEvent', function () {
 
 //Affichage des evenements
 Route::get('showEvents', 'EventController@show');
-
 //supprimer un événemment
 Route::delete('delete/{id}', 'EventController@delete');
-//supprimer un événemment
+//update un événemment
 Route::put('update/{id}', 'EventController@update');
 
 //Affichage des salles
@@ -37,6 +36,10 @@ Route::get('showRooms', 'RoomController@show');
 Route::post('createEvents','EventController@create');
 //Permet de mettre à jour une salle honorine
 Route::put('updateRooms','RoomController@update');
+
+
+Route::post('/createRoom', 'RoomController@create')->name('createRoom');
+Route::get('/deleteRoom/{roomname}', 'RoomController@delete')->name('deleteRoom');
 
 
 
