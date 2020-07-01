@@ -14,7 +14,7 @@
           <section><div class=""></section></div>
         <div class="page" id="p2">
           <div class="container">
-              <section><div id="calendar" data-toggle="modal" data-target="#reservation-modal"></div></section>
+              <section><div id="calendar"></div></section>
           </div>
         </div>
   </div>
