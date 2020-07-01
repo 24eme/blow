@@ -8,7 +8,7 @@
   <div class="ct" id="tableau">
   <div class="ct" id="reserver">
         <div class="page" id="p1">
-          <div class="container"> 
+          <div class="container">
             @extends('components.modalUDEvent')
           </div>
           <section><div class=""></section></div>

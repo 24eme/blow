@@ -21,7 +21,7 @@
       titleFormat:{year: 'numeric', month: 'long',day:'numeric', weekday: 'long' },
       buttonText:{ today: 'Aujourd\'hui', month: 'mois', week: 'semaine', day: 'jour'},
       schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
-      selectable:true,
+      selectable:true, 
       events:'showEvents',
       resources:'showRooms',
 
