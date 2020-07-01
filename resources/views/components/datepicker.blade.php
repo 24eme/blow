@@ -6,6 +6,7 @@
 <script>
 $( function() {
 $( "#datepicker" ).datepicker({
+      dateFormat: 'yy-mm-dd',
       changeMonth: true,
       changeYear: true,
       dayNames: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi" ],
@@ -18,4 +19,11 @@ $( "#datepicker" ).datepicker({
       nextText: "Suiv",
     });
       });
+</script>
+<script>
+function getDate(){
+  var input = document.getElementById("datepicker").value;
+  console.log(input);
+  window.location.href="http://localhost:8000/home?date="+input;
+}
 </script>

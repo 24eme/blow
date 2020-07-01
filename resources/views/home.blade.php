@@ -2,16 +2,15 @@
 @extends('layouts.layout')
 @section('content')
 
-<!-- <p>Date: <input type="text" id="datepicker"></p> -->
-<i id="datepicker" class="far fa-calendar-alt"></i>
-<div class="container">
+
+<div style='z-index:100;position:absolute'><p>Date: <input type="text" id="datepicker"><button type="button" onclick="getDate()"> Y aller</button></p> </div><!--position à changer -->
+<div class="container"
   <div class="ct" id="tableau">
   <div class="ct" id="reserver">
         <div class="page" id="p1"><section><div class=""></section></div>
         <div class="page" id="p2">
           <div class="container">
               <section><div id="calendar" data-toggle="modal" data-target="#reservation-modal"></div></section>
-
           </div>
         </div>
   </div>
