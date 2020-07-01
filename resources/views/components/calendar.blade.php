@@ -25,6 +25,8 @@
       select: function(info){
       // $('#reservation-modal').modal('show');
       $('#modalCEvent').modal('show');
+      var salleID = document.getElementById('room_id');
+      salleID.value = info.resource.id;
 
       },
       events:'showEvents',

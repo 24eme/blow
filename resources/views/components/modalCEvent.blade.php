@@ -40,7 +40,8 @@
       {{ csrf_field() }}
       <label for="room_title" class="">SALLE :</label>
       <input type="text" name="room_name" class="input-head" value="{Room::find(1)}}" disabled>
-      <input type="text" name="room_id" id="room_id" value="" hidden>
+      <!-- <input type="text" name="room_id" id="room_id" value="" hidden> -->
+       <input type="text" name="room_id" id="room_id" value="">
 
       <label for="capacity">Capacité :</label><label id="capacity"></label><br>
       <input type="text" name="capacity" value="{Room::find()->equipment}}" disabled>
