@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div style='z-index:100;position:absolute'><p>Date: <input type="text" id="datepicker"><button type="button" onclick="getDate()"> Y aller</button></p> </div><!--position à changer -->
+<!-- <div style='z-index:100;position:absolute'><p>Date: <input type="text" id="datepicker"><button type="button" onclick="getDate()"> Y aller</button></p> </div><!--position à changer --> -->
 <div class="container"
   <div class="ct" id="tableau">
   <div class="ct" id="reserver">
