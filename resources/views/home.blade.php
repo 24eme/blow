@@ -9,7 +9,7 @@
   <div class="ct" id="reserver">
         <div class="page" id="p1">
           <div class="container">
-            @extends('components.modalUDEvent')
+            @extends('components.modalCEvent')
           </div>
           <section><div class=""></section></div>
         <div class="page" id="p2">

@@ -21,9 +21,15 @@
       buttonText:{ today: 'Aujourd\'hui', month: 'mois', week: 'semaine', day: 'jour'},
       schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
       selectable:true,
+      select: function(info){
+      // $('#reservation-modal').modal('show');
+      $('#modalCEvent').modal('show');
+      var salleID = document.getElementById('room_id');
+      salleID.value = info.resource.id
+      },
 
       eventClick: function(info){
-        modalCheckEvent(info); 
+        modalCheckEvent(info);
       },
 
 

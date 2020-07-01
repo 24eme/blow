@@ -40,18 +40,18 @@ class EventController extends Controller
     $now=Carbon::now('Europe/Paris')->format('Y-m-dH:i');
 
     //echo($start);
-    $validator = Validator::make($request->all(), [
-      // 'room_id' =>'integer',
-      'event_name' => 'alpha',
-      'start_date' => 'date|date_format:Y-m-d',
-      'start_hour' => 'date|date_format:H:i',
-      'end_date' => 'date|date_format:Y-m-d',
-      'end_hour' => 'date|date_format:H:i'
-    ]);
-
-    if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-        }
+    // $validator = Validator::make($request->all(), [
+    //   // 'room_id' =>'integer',
+    //   'event_name' => 'alpha',
+    //   'start_date' => 'date|date_format:Y-m-d',
+    //   'start_hour' => 'date|date_format:H:i',
+    //   'end_date' => 'date|date_format:Y-m-d',
+    //   'end_hour' => 'date|date_format:H:i'
+    // ]);
+    //
+    // if ($validator->fails()) {
+    //         return back()->withErrors($validator)->withInput();
+    //     }
 
 
 
@@ -82,12 +82,13 @@ class EventController extends Controller
     // $data=array('title'=>$nom,'start'=>$start,"end"=>$end,"resourceId"=>$resouce,"user_id"=>$current_user);  //pour voir ça fonctionne il faut
     // DB::table('events')->insert($data);
                                                                        //donner $resource =1 et user_id=1
-    $event = new App\Event;
+    $event = new Event;
     $event->title = $nom;
     $event->start = $start;
     $event->end = $end;
     $event->resourceId=$resource;
     $event->user_id=$current_user;
+    //$event->user_id=1; seulement pour tester
     $event->save();
     return ('événement à bien été rajouté');
 
