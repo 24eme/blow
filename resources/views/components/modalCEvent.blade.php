@@ -6,53 +6,68 @@
 
 
 <div class="container">
-  <h2>Modal Event</h2>
+  <!-- <h2>Modal Event</h2> -->
   <!-- Button to Open the Modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCEvent">
     Open modal
-  </button>
+  </button> -->
 
   <!-- The Modal -->
-  <div class="modal" id="myModal">
+  <div class="modal" id="modalCEvent">
     <div class="modal-dialog">
       <div class="modal-content">
 
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Ajouter un evennement</h4>
+          <h4 class="modal-title">Reservation de salles</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button></br>
 
         </div>
-        <div class="header-box"><h5 class="modal-title">Réserver votre salle</h5>
+        <!-- <div class="header-box"><h5 class="modal-title">Réserver votre salle</h5>
 
           <label>Organisateur :@if(Auth::check()) {{ Auth::user()->name }}@endif</label><br>
           <label>Nom de salle : </label><label id="room_name"></label><br>
           <label>Equipements : </label><label id="equipment"></label><br>
           <label>Capacité :</label><label id="capacity"></label><br>
 
-        </div>
+        </div> -->
 
         <!-- Modal body -->
                 <hr>
         <div class="modal-body">
 
-          <form method="POST" id="methode" action="">
-            <div class="form-group row">
-   <label for="event_name" class="col-sm-4 col-form-label col-form-label-sm">Nom evennement :</label>
-   <div class="col-md-8">
-     <input type="text" id="event_name" class="form-control form-control-sm" name="event_name" placeholder="Nom de l'événement" value="" required><br></br>
-     <!-- <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="col-form-label-sm"> -->
-   </div>
- </div>
+    <form method="POST" id="methode" action="">
+      <label for="room_title" class="">SALLE :</label>
+      <input type="text" name="room_name" class="input-head" value="{Room::find(1)}}" disabled>
+      <input type="text" name="room_id" id="room_id" value="" hidden>
+
+      <label for="capacity">Capacité :</label><label id="capacity"></label><br>
+      <input type="text" name="capacity" value="{Room::find()->equipment}}" disabled>
+
+      <label for="equipment">Equipements : </label><label id="equipment"></label><br>
+      <input type="text" name="equipment" value="{Room::find()->equipment}}" disabled>
+
+      <label for="event_title" class="">EVENEMENT:</label>
+      <input type="text" name="room_name" class="input-head" value="{Room::find(1)}}" disabled>
+      <input type="text" id="event_id" name="event_id" value="" style="display:none">
+
+      <label for="society">{ User::find(Event::find($eventID)->name)}}->society</label>
+
+      <label for="society">{ User::find(Event::find($eventID)->society)}}->society</label>
+        <div class="form-group row">
+            <label for="event_name" class="col-sm-4 col-form-label col-form-label-sm">Nom evennement :</label>
+              <div class="col-md-8">
+                <input type="text" id="event_name" class="form-control form-control-sm" name="event_name" placeholder="Nom de l'événement" value="" required><br></br>
+
+              </div>
+           </div>
       <div class="form-row">
 
     <div class="form-group col-md-6">
-      <!-- <label for="inputEmail4">Email</label> -->
-
-      <!-- <input type="email" class="form-control" id="inputEmail4" placeholder="Email"> -->
       <label for="start_date">Debut :</label>
       <input type="date" class="form-control" id="start_date" name="start_date" value="2020-06-09T09:30:00Z">
     </div>
+
     <div class="form-group col-md-6">
       <label for="start_hour">Heure de Debut :</label>
       <!-- <input type="password" class="form-control" id="inputPassword4" placeholder="Password"> -->
@@ -63,13 +78,13 @@
       <!-- <label for="inputEmail4">Email</label> -->
 
       <!-- <input type="email" class="form-control" id="inputEmail4" placeholder="Email"> -->
-      <label for="start_date">Fin :</label>
-      <input type="date" class="form-control" id="start_date" name="start_date" value="2020-06-09T09:30:00Z">
+      <label for="end_date">Fin :</label>
+      <input type="date" class="form-control" id="end_date" name="end_date" value="2020-06-09T09:30:00Z">
     </div>
     <div class="form-group col-md-6">
-      <label for="start_hour">Heure de Fin :</label>
+      <label for="end_hour">Heure de Fin :</label>
       <!-- <input type="password" class="form-control" id="inputPassword4" placeholder="Password"> -->
-      <input type="time" class="form-control" id="start_hour" name="start_hour" required>
+      <input type="time" class="form-control" id="end_hour" name="end_hour" required>
     </div>
   </div>
 

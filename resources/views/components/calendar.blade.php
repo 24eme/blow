@@ -23,7 +23,8 @@
       schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
       selectable:true,
       select: function(info){
-      $('#reservation-modal').modal('show');
+      // $('#reservation-modal').modal('show');
+      $('#modalCEvent').modal('show');
 
       },
       events:'showEvents',
