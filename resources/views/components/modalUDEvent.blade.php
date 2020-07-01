@@ -6,7 +6,6 @@
          <div class="header-box">
            <h5 class="modal-title">Modifier un évenement</h5>
          </div>
-         <button type="button" class="close"><i class="fas fa-share-alt"></i></button>
          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
            <span aria-hidden="true">&times;</span>
          </button>
@@ -17,48 +16,67 @@
          <form class="" method="POST" id="formUDRoom" action="{{ route('createRoom')}}">
            {{ csrf_field() }}
 
-           <label for="room_title" class="">SALLE :</label>
-           <input type="text" name="room_name" class="input-head" value="{Room::find(1)}}" disabled>
+           <div class="content-head">
+           <label class="content-title">SALLE :</label>
+           <input type="text" name="room_name" class="input-head" value="{Room::find(1)}}" disabled><br>
+           </div>
+
            <input type="text" name="room_id" id="room_id" value="" hidden>
 
-           <label for="capacity">Capacité :</label><label id="capacity"></label><br>
-           <input type="text" name="capacity" value="{Room::find()->equipment}}" disabled>
+           <label for="capacity">Capacité :</label><label id="capacity"></label>
+           <input type="text" name="capacity" value="{Room::find()->equipment}}" disabled><br>
 
-           <label for="equipment">Equipements : </label><label id="equipment"></label><br>
-           <input type="text" name="equipment" value="{Room::find()->equipment}}" disabled>
+           <label for="equipment">Equipements : </label><label id="equipment"></label>
+           <input type="text" name="equipment" value="{Room::find()->equipment}}" disabled><br>
 
-           <label for="event_title" class="">EVENEMENT:</label>
-           <input type="text" name="room_name" class="input-head" value="{Room::find(1)}}" disabled>
-           <input type="text" id="event_id" name="event_id" value="" style="display:none">
+           <div class="content-head">
+           <label class="content-title">EVENEMENT:</label>
+           <input type="text" name="room_name" class="input-head" value="{Room::find(1)}}" disabled><br>
+           </div>
 
-           <label for="society">{ User::find(Event::find($eventID)->name)}}->society</label>
+           <input type="text" id="event_id" name="event_id" value="" hidden>
 
-           <label for="society">{ User::find(Event::find($eventID)->society)}}->society</label>
+           <label for="society">{ User::find(Event::find($eventID)->name)}}->society</label><br>
+
+           <label for="society">{ User::find(Event::find($eventID)->society)}}->society</label><br>
 
            <div class="row">
-               <div class="col-sm-6">
-                 <label for="StartDate">Date de débutv:</label>
+               <div class="col-3">
+                 <label for="StartDate">Date de début:</label>
+               </div>
+               <div class="col-3">
+                 <label for="StartHour">Heure :</label>
+               </div>
+
+           </div>
+           <div class="row">
+               <div class="col-3">
                  <input type="date" name="" value="">
                </div>
-               <div class="col-sm-6">
-                 <label for="StartHour">Heure :</label>
+               <div class="col-3">
                  <input type="date" name="" value="">
                </div>
            </div>
            <div class="row">
-               <div class="col-sm-6">
+               <div class="col-3">
                  <label for="EndDate">Date de Fin :</label>
+               </div>
+               <div class="col-3">
+                 <label for="EndHour">Heure :</label>
+               </div>
+           </div>
+           <div class="row">
+               <div class="col-3">
                  <input type="date" name="" value="">
                </div>
-               <div class="col-sm-6">
-                 <label for="EndHour">Heure :</label>
+               <div class="col-3">
                  <input type="date" name="" value="">
                </div>
            </div>
                       <hr>
            <div class="btn-wrapper">
              <input type="submit" class="btn btn-secondary btn-modal" name="action" value="Modifier">
-             <a class="btn btn-secondary btn-modal" href="#" onclick="navigate(title)"></a>
+             <a class="btn btn-secondary btn-modal" href="#" onclick="navigate(title)">Supprimer</a>
            </div>
          </div>
          </form>
