@@ -1,24 +1,31 @@
 
-var inputStartDate = document.getElementById('inputStartDate');
-var inputStartHour = document.getElementById('inputStartHour');
 
-var inputEndDate = document.getElementById('inputEndDate');
-var inputEndHour = document.getElementById('inputEndHour');
-
-var inputRoomName = document.getElementById('inputRoomName');
-var inputHiddenRoomID = document.getElementById('inputHiddenRoomID');
-var labelCapacity = document.getElementById('capacity');
 
   function modalCheckEvent(info) {
-    //Essayer en utilisant MODEL LARAVEL find
+    var inputStartDate = document.getElementById('StartDate');
+    var inputStartHour = document.getElementById('StartHour');
+
+    var inputEndDate = document.getElementById('EndDate');
+    var inputEndHour = document.getElementById('EndHour');
+
+    var inputRoomName = document.getElementById('RoomName');
+    var inputEventName = document.getElementById('EventName');
+
+    var inputHiddenRoomID = document.getElementById('HiddenRoomID');
+    var equipment = document.getElementById('equipment');
+    var capacite = document.getElementById('capacity');
+
+
+
     var eventObj = info.event;
     var startStr = eventObj.start.toISOString();
     var endStr = eventObj.end.toISOString();
 
     startStr = startStr.substring(0,startStr.length-1);
-
-    var inputEventName = document.getElementById('inputEventName');
-    inputEventName.value = eventObj.title;
+    inputRoomName.value = eventObj.getResources()[0]._resource.title;
+    inputEventName.value = eventObj.title; 
+    equipment.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.equipment ;
+    capacite.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.capacity ;
 
     const dateDebutEvent = (startStr).split("T", 2);
     dateDebutEvent[2] = dateDebutEvent[1].split("Z").join("");
@@ -36,21 +43,36 @@ var labelCapacity = document.getElementById('capacity');
     $('#modalUDE').modal('show');
   };
 
-  function modalAddEvent(event) {
+  function modalAddEvent(info) {
+    var inputStartDate = document.getElementById('inputStartDate');
+    var inputStartHour = document.getElementById('inputStartHour');
 
-    inputRoomName.innerHTML = event.resource.title ;
-    inputHiddenRoomID.value = event.resource.id;
+    var inputEndDate = document.getElementById('inputEndDate');
+    var inputEndHour = document.getElementById('inputEndHour');
 
-    const StartDateTAB = (event.startStr).split("T", 2);
+    var inputRoomName = document.getElementById('inputRoomName');
+    var inputHiddenRoomID = document.getElementById('inputHiddenRoomID');
+    var labelCapacity = document.getElementById('roomCapacity');
+    var labelEquipment = document.getElementById('roomEquipment');
+
+    inputRoomName.value = info.resource.title ;
+    inputHiddenRoomID.value = info.resource.id;
+    labelCapacity.innerHTML = info.resource.extendedProps.capacity;
+    labelEquipment.innerHTML = info.resource.extendedProps.equipment;
+
+    const dateDebut = (info.startStr).split("T", 2);
     dateDebut[2] = dateDebut[1].split("Z").join("");
+    dateDebut[2] = dateDebut[2].slice(0,-3);
 
-    const EndDateTAB = (event.endStr).split("T", 2);
+    const dateFin = (info.endStr).split("T", 2);
     dateFin[2]= dateFin[1].split("Z").join("");
+    dateFin[2] = dateFin[2].slice(0,-3);
+    inputStartDate.value = dateDebut[0] ;
+    inputStartHour.value = dateDebut[2] ;
+    inputEndDate.value = dateFin[0] ;
+    inputEndHour.value = dateFin[2] ;
 
-    inputStartDate.value = StartDateTAB[0] ;
-    inputStartHour.value = StartDateTAB[2] ;
-    inputEndDate.value = EndDateTAB[0] ;
-    inputEndHour.value = EndDateTAB[2] ;
+    $('#modalCEvent').modal('show');
 
   };
 

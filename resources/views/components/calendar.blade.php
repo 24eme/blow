@@ -22,10 +22,7 @@
       schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
       selectable:true,
       select: function(info){
-
-      $('#modalCEvent').modal('show');
-      var salleID = document.getElementById('room_id');
-      salleID.value = info.resource.id
+        modalAddEvent(info);
       },
       eventClick: function(info){
         modalCheckEvent(info);

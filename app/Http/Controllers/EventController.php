@@ -32,7 +32,7 @@ class EventController extends Controller
     $start=$request->input('start_date').'T'.$request->input('start_hour').'Z';
     $end=$request->input('end_date').'T'.$request->input('end_hour').'Z';
     $resource=$request->input('room_id');
-    $current_user=Auth::user()->id;            //commenter cette ligne pour que ça fonctionne
+//    $current_user=Auth::user()->id;            //commenter cette ligne pour que ça fonctionne
 
     //pour faire des comparaison entre les datetimes
     $end_date=$request->input('end_date').$request->input('end_hour');
@@ -87,8 +87,8 @@ class EventController extends Controller
     $event->start = $start;
     $event->end = $end;
     $event->resourceId=$resource;
-    $event->user_id=$current_user;
-    //$event->user_id=1; seulement pour tester
+    //$event->user_id=$current_user;
+    $event->user_id=1;// seulement pour tester
     $event->save();
     return ('événement à bien été rajouté');
 

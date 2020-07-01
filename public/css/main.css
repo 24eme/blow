@@ -10,7 +10,7 @@ body{
   scroll-behavior: smooth;
 }
 *{
-  font-family:Avenir, Quicksand,sans-serif,Arial;
+  font-family:Avenir, Quicksand,sans-serif,Arial;color:black;
 }
 
 li{
@@ -26,12 +26,11 @@ input[type="text"]{
   border: none;
   border-bottom: 1px solid grey;
   outline: 0;
-  font-size: 10px;
   padding: 7px 0;
   margin-bottom: 10px;
   background: transparent;
   transition: border 0.2s;
-} 
+}
 label{
 }
 .content-title{
