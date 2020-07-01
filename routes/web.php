@@ -22,6 +22,12 @@ Route::get('/testUpdateEvent', function () {
     return view('components/testUpdateEvent'); //sidiTest
 });
 
+Route::get('/modalCEvent', function () {
+    return view('components/modalCEvent'); //sidiTest
+});
+
+// ----------------------------------------------------EndTest-------------------------------------------------------------
+
 
 //Affichage des evenements
 Route::get('/showEvents', 'EventController@show');
@@ -44,6 +50,9 @@ Route::get('/', 'RoomController@index');
 Route::get('/', 'EventController@index');
 Route::post('/createRoom', 'RoomController@create')->name('createRoom');
 Route::get('/deleteRoom/{roomname}', 'RoomController@delete')->name('deleteRoom');
+
+
+
 
 
 
