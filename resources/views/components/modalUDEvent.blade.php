@@ -1,5 +1,5 @@
 
-<div class="modal fade" id="reservation-modal" tabindex="-1" role="dialog" aria-labelledby="Reservation" aria-hidden="true">
+<div class="modal fade" id="modalUDE" tabindex="-1" role="dialog" aria-labelledby="Reservation" aria-hidden="true">
    <div class="modal-dialog " role="document">
      <div class="modal-content">
        <div class="modal-header">
@@ -18,27 +18,27 @@
 
            <div class="content-head">
            <label class="content-title">SALLE :</label>
-           <input type="text" name="room_name" class="input-head" value="{Room::find(1)}}" disabled><br>
+           <input id="inputRoomName" type="text" name="room_name" class="input-head" value="" disabled><br>
            </div>
 
            <input type="text" name="room_id" id="room_id" value="" hidden>
 
            <label for="capacity">Capacité :</label><label id="capacity"></label>
-           <input type="text" name="capacity" value="{Room::find()->equipment}}" disabled><br>
+           <input type="text" name="capacity" value="" disabled><br>
 
            <label for="equipment">Equipements : </label><label id="equipment"></label>
-           <input type="text" name="equipment" value="{Room::find()->equipment}}" disabled><br>
+           <input type="text" name="equipment" value="" disabled><br>
 
            <div class="content-head">
            <label class="content-title">EVENEMENT:</label>
-           <input type="text" name="room_name" class="input-head" value="{Room::find(1)}}" disabled><br>
+           <input id="inputEventName" type="text" name="room_name" class="input-head" value="" disabled><br>
            </div>
 
            <input type="text" id="event_id" name="event_id" value="" hidden>
 
-           <label for="society">{ User::find(Event::find($eventID)->name)}}->society</label><br>
+           <!-- <label for="society">{ User::find(Event::find($eventID)->name)}}->society</label><br>
 
-           <label for="society">{ User::find(Event::find($eventID)->society)}}->society</label><br>
+           <label for="society">{ User::find(Event::find($eventID)->society)}}->society</label><br> -->
 
            <div class="row">
                <div class="col-3">
@@ -51,10 +51,10 @@
            </div>
            <div class="row">
                <div class="col-3">
-                 <input type="date" name="" value="">
+                 <input id="inputStartDate" type="date" name="StartDate" value="">
                </div>
                <div class="col-3">
-                 <input type="date" name="" value="">
+                 <input id="inputStartHour" type="date" name="StartHour" value="">
                </div>
            </div>
            <div class="row">
@@ -67,10 +67,10 @@
            </div>
            <div class="row">
                <div class="col-3">
-                 <input type="date" name="" value="">
+                 <input id="inputEndDate" type="time" name="EndDate" value="">
                </div>
                <div class="col-3">
-                 <input type="date" name="" value="">
+                 <input id="inputEndHour" type="time" name="EndHour" value="">
                </div>
            </div>
                       <hr>
@@ -81,9 +81,7 @@
          </div>
          </form>
        </div>
-       <div class="modal-footer">
-         <div class="note"><span><p><strong>Note :</strong> Votre réservation ne sera effective qu'après validation de votre gestionnaire d'espace, vous serez alors notifié par mail.</p></span></div>
-       </div>
+
 
      </div>
 </div>

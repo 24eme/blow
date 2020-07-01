@@ -1,5 +1,4 @@
 <link href='https://unpkg.com/fullcalendar-scheduler@5.1.0/main.min.css' rel='stylesheet' />
-
 <script src='https://unpkg.com/fullcalendar-scheduler@5.1.0/main.min.js'></script>
 
 <script>
@@ -22,10 +21,13 @@
       buttonText:{ today: 'Aujourd\'hui', month: 'mois', week: 'semaine', day: 'jour'},
       schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
       selectable:true,
-      select: function(info){
-      $('#reservation-modal').modal('show');
 
+      eventClick: function(info){
+        modalCheckEvent(info); 
       },
+
+
+
       events:'showEvents',
       resources:'showRooms',
 
