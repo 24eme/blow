@@ -33,16 +33,16 @@ class EventController extends Controller
     //pour faire des comparaison entre les datetimes
     $end_date=$request->input('end_date').$request->input('end_hour');
     $start_date=$request->input('start_date').$request->input('start_hour');
-    $now=Carbon::now('Europe/Paris')->format('Y-m-dH:i:s');
+    $now=Carbon::now('Europe/Paris')->format('Y-m-dH:i');
 
     //echo($start);
     $validator = Validator::make($request->all(), [
       // 'room_id' =>'integer',
       'event_name' => 'alpha',
       'start_date' => 'date|date_format:Y-m-d',
-      //'start_hour' => 'date|date_format:H:i',
+      'start_hour' => 'date|date_format:H:i',
       'end_date' => 'date|date_format:Y-m-d',
-      //'end_hour' => 'date|date_format:H:i'
+      'end_hour' => 'date|date_format:H:i'
     ]);
 
     if ($validator->fails()) {

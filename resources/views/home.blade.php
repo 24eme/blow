@@ -2,7 +2,8 @@
 @extends('layouts.layout')
 @section('content')
 
-<p>Date: <input type="text" id="datepicker"></p>
+<!-- <p>Date: <input type="text" id="datepicker"></p> -->
+<i id="datepicker" class="far fa-calendar-alt"></i>
 <div class="container">
   <div class="ct" id="tableau">
   <div class="ct" id="reserver">
