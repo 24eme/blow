@@ -30,33 +30,26 @@ Route::get('/modalCEvent', function () {
 
 
 //Affichage des evenements
-Route::get('showEvents', 'EventController@show');
+Route::get('/showEvents', 'EventController@show');
 //supprimer un événemment
-Route::delete('delete/{id}', 'EventController@delete');
+Route::delete('/delete/{id}', 'EventController@delete');
 //update un événemment
-Route::put('update/{id}', 'EventController@update');
+Route::put('/update/{id}', 'EventController@update');
 
 //Affichage des salles
-Route::get('showRooms', 'RoomController@show');
+Route::get('/showRooms', 'RoomController@show');
 //Permet de créer un événement honorine
-Route::post('createEvents','EventController@create');
+Route::post('/createEvents','EventController@create');
 //Permet de mettre à jour une salle honorine
-Route::put('updateRooms','RoomController@update');
+Route::put('/updateRooms','RoomController@update');
 
 
+
+
+Route::get('/', 'RoomController@index');
+Route::get('/', 'EventController@index');
 Route::post('/createRoom', 'RoomController@create')->name('createRoom');
 Route::get('/deleteRoom/{roomname}', 'RoomController@delete')->name('deleteRoom');
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -66,3 +59,8 @@ Route::get('/deleteRoom/{roomname}', 'RoomController@delete')->name('deleteRoom'
 // Auth::routes();
 //
 // Route::get('/home', 'HomeController@index')->name('home');
+
+//admin honorine
+// Route::get('/admin', 'AdminController@admin')
+//     ->middleware('is_admin')
+//     ->name('admin');

@@ -22,6 +22,10 @@
       buttonText:{ today: 'Aujourd\'hui', month: 'mois', week: 'semaine', day: 'jour'},
       schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
       selectable:true,
+      select: function(info){
+
+
+      },
       events:'showEvents',
       resources:'showRooms',
 

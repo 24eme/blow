@@ -94,3 +94,8 @@ var labelCapacity = document.getElementById('capacite');
             info.el.addEventListener("mouseout", popupHide);
 
   };
+
+  function navigate(inputid){
+          var url = window.location.href + "/" + document.getElementById(inputid).value;
+          alert(url);
+  };
