@@ -30,8 +30,18 @@ input[type="text"]{
   margin-bottom: 10px;
   background: transparent;
   transition: border 0.2s;
-}
-label{
+} 
+.pop-up {
+  display: none;
+	position: relative;
+	background: #F7F7F7;
+	width: 80%;
+	height: 80%;
+	margin-right: 0px;
+	margin-bottom: 0px;
+  padding: 10%;
+  box-shadow:  2px 2px 2px 0px rgba(212,212,212,1);
+	text-align: left;
 }
 .content-title{
   font-size: 1.5em !important;
