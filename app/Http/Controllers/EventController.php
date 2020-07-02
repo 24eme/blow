@@ -45,6 +45,15 @@ class EventController extends Controller{
   //           return back()->withErrors($validator)->withInput();
   //   }
 
+  $request->validate([
+  'room_id' =>'integer',
+  'event_name' => 'required',
+  'start_date' => 'date|date_format:Y-m-d',
+  'end_date' => 'date|date_format:Y-m-d',
+  'capacity' => 'integer',  //ajouter la validation de l'image
+  ]);
+
+
     if($start_date>$end_date){
       // return redirect('/')->with('failPassed', 'Impossible d\'effectuer une réservation dont les heures sont incohérentes');
       return redirect('/')
