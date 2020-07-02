@@ -53,7 +53,7 @@ class EventController extends Controller{
     if($start_date<$now){
       // return redirect('/')->with('failPassed', 'Impossible d\'effectuer une réservation avant aujourd\'hui');
       return redirect('/')
-        ->with('error','Impossible d\'effectuer une réservation avant aujourd\'hui');
+        ->with('error', 'Pour l\'instant, on ne peut pas remonter dans le temps, désolé');
     }
 
 
