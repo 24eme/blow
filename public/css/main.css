@@ -30,7 +30,10 @@ input[type="text"]{
   margin-bottom: 10px;
   background: transparent;
   transition: border 0.2s;
-} 
+}
+i{
+  float: left;
+}
 .pop-up {
   display: none;
 	position: relative;
