@@ -21,7 +21,7 @@ class RoomController extends Controller
   public function create(Request $request){
 
         $request->validate([
-        'title' => 'required',
+        'room_name' => 'required',
         'capacity' => 'integer',
 
         ]);
