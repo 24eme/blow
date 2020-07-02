@@ -33,11 +33,11 @@
 
     const dateDebutEvent = (startStr).split("T", 2);
     dateDebutEvent[2] = dateDebutEvent[1].split("Z").join("");
-    dateDebutEvent[2] = dateDebutEvent[2].slice(0,-7);
+  //  dateDebutEvent[2] = dateDebutEvent[2].slice(0,-3);
 
     const dateFinEvent = (endStr).split("T", 2);
     dateFinEvent[2]= dateFinEvent[1].split("Z").join("");
-    dateFinEvent[2] = dateFinEvent[2].slice(0,-7);
+  //  dateFinEvent[2] = dateFinEvent[2].slice(0,-3);
 
     inputStartDate.value = dateDebutEvent[0] ;
     inputStartHour.value = dateDebutEvent[2] ;
@@ -71,6 +71,7 @@
     const dateFin = (info.endStr).split("T", 2);
     dateFin[2]= dateFin[1].split("Z").join("");
     dateFin[2] = dateFin[2].slice(0,-3);
+
     inputStartDate.value = dateDebut[0] ;
     inputStartHour.value = dateDebut[2] ;
     inputEndDate.value = dateFin[0] ;
@@ -80,56 +81,66 @@
 
   };
   function navigate(){
-    var url = window.location.href + 'deleteEvent/'+document.getElementById('HiddenEventID').value;
+    var url = 'deleteEvent/'+document.getElementById('HiddenEventID').value;
     window.location = url;
   };
 
-//   function ResourceModal(resource) {
-//
-//             var popup = document.createElement('div');
-//             var br = document.createElement('br');
-//             var br1 = br.cloneNode(true);
-//             var br2 = br.cloneNode(true);
-//             var br3 = br.cloneNode(true);
-//             var surface = document.createElement('label');
-//             var capacite = document.createElement('label');
-//             var equipement = document.createElement('label');
-//             var img = document.createElement('img');
-//
-//
-//             popup.className = "pop-up";
-//             popup.innerHTML = info.resource.title;
-//             img.src = "img/"+info.resource.id+'.jpg';
-//             img.style.width = "70%";
-//             img.style.height = "50%"
-//             equipement.innerHTML = "Chaise,TV";
-//             capacite.innerHTML = "30 personnes";
-//             surface.innerHTML = "20m";
-//             popup.appendChild(br);
-//             popup.appendChild(equipement);
-//             popup.appendChild(br1);
-//             popup.appendChild(capacite);
-//             popup.appendChild(br2);
-//             popup.appendChild(surface);
-//             popup.appendChild(br3);
-//             popup.appendChild(img);
-//
-//             info.el.appendChild(popup);
-//             function popupDisplay(){
-//               if (popup.style.display === "none") {
-//                     popup.style.display = "block";
-//               }
-//               else{
-//                 popup.style.display = "none  ";
-//               }
-//             };
-//             function popupHide(){
-//               popup.style.display ="none";
-//             }
-//             info.el.addEventListener("mouseover", popupDisplay);
-//             info.el.addEventListener("mouseout", popupHide);
-//
-//   };
+  function resourcePopup(info) {
+
+    var elements = document.getElementsByClassName('fc-timeline-lane');
+    var capacityNumber = document.createElement('span');
+    var capacityIcon = document.createElement('i');
+    capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
+    capacityIcon.className = "fas fa-male";
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].appendChild(capacityIcon);
+      elements[i].appendChild(capacityNumber);
+    } ;
+
+            var popup = document.createElement('div');
+            var br = document.createElement('br');
+            var br1 = br.cloneNode(true);
+            var br2 = br.cloneNode(true);
+            var br3 = br.cloneNode(true);
+            var surface = document.createElement('label');
+            var capacite = document.createElement('label');
+            var equipement = document.createElement('label');
+            var img = document.createElement('img');
+
+
+            popup.className = "pop-up";
+            popup.innerHTML = info.resource.title;
+            img.src = "img/"+info.resource.id+'.jpg';
+            img.style.width = "70%";
+            img.style.height = "50%"
+            equipement.innerHTML = "Chaise,TV";
+            capacite.innerHTML = "30 personnes";
+            surface.innerHTML = "20m";
+            popup.appendChild(br);
+            popup.appendChild(equipement);
+            popup.appendChild(br1);
+            popup.appendChild(capacite);
+            popup.appendChild(br2);
+            popup.appendChild(surface);
+            popup.appendChild(br3);
+            popup.appendChild(img);
+
+            info.el.appendChild(popup);
+            function popupDisplay(){
+              if (popup.style.display === "none") {
+                    popup.style.display = "block";
+              }
+              else{
+                popup.style.display = "none  ";
+              }
+            };
+            function popupHide(){
+              popup.style.display ="none";
+            }
+            info.el.addEventListener("mouseover", popupDisplay);
+            info.el.addEventListener("mouseout", popupHide);
+
+  };
 //
 //   function navigate(inputid){
 //           var url = window.location.href + "/" + document.getElementById(inputid).value;
