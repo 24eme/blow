@@ -76,7 +76,7 @@ class EventController extends Controller{
     $event->title = $nom;
     $event->start = $start;
     $event->end = $end;
-    $event->resourceId=$resource;
+    $event->resourceId = $resource;
     //$event->user_id=$current_user;
     $event->user_id=1;// seulement pour tester
     $event->save();
@@ -86,14 +86,15 @@ class EventController extends Controller{
     }
 
     public function update(Request $request){
+
         $EVENTID = $request->event_id;
 
         $EVENT = Event::find($EVENTID);
 
         $EVENT->title = $request->event_name;
-        $EVENT->start = $request->event_name;
-        $EVENT->end = $request->event_name;
-        $EVENT->resourceId = $request->event_name;
+        $EVENT->start = $request->start_date.'T'.$request->start_hour.'Z';
+        $EVENT->end = $request->end_date.'T'.$request->end_hour.'Z';
+        $EVENT->resourceId = $request->room_id;
         $EVENT->save();
 
       // $idEvent = $request->input('event_id');
@@ -108,7 +109,7 @@ class EventController extends Controller{
       //   $events = Event::where('id', $idEvent)
       //       ->update(['title' => $title,'start'=>$start,'end'=>$end,'resourceId'=>$resource]);
       //     // return ('event a été modifié');
-      //     return response()->json(array('succes'=> 200, 'data' =>$events, 'message' =>'Event a ete modifié'));
+      return redirect('/')->with('success', 'Votre événement a bien été modfié');
       //   }
 
 

@@ -13,6 +13,21 @@
           <section><div class=""></section></div>
         <div class="page" id="p2">
           <div class="container">
+            @if(session('success'))
+         <span class="alert alert-primary" role="alert">
+             <strong>{{ session('success') }}</strong>
+         </span>
+          @endif
+          @if(session('failPassed'))
+               <span class="alert alert-warning" role="alert">
+                   <strong>{{ session('failPassed') }}</strong>
+               </span>
+          @endif
+          @if(session('failUnavailable'))
+               <span class="alert alert-danger" role="alert">
+                   <strong>{{ session('failUnavailable') }}</strong>
+               </span>
+          @endif
               <section><div id="calendar"></div></section>
           </div>
         </div>

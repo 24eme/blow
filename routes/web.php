@@ -44,7 +44,6 @@ Route::post('/createEvent','EventController@create')->name('createEvent');
 Route::post('/updateRoom','RoomController@update')->name('UpdateRoom');
 
 
-
 Route::post('/createRoom', 'RoomController@create')->name('createRoom');
 Route::get('/deleteRoom/{id}', 'RoomController@delete')->name('deleteRoom');
 
