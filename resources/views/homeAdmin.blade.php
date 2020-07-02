@@ -13,6 +13,8 @@
   <div class="ct" id="reserver">
         <div class="page" id="p1">
             @extends('components.modalCRoom')
+            @extends('components.modalCEvent')
+            @extends('components.modalUDEvent')
         </div>
         <div class="page" id="p1">
           <div class="container">
