@@ -23,9 +23,10 @@
 
     startStr = startStr.substring(0,startStr.length-1);
     inputRoomName.value = eventObj.getResources()[0]._resource.title;
-    inputEventName.value = eventObj.title; 
+    inputEventName.value = eventObj.title;
     equipment.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.equipment ;
     capacite.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.capacity ;
+    inputHiddenRoomID.value = eventObj.getResources()[0]._resource.id ;
 
     const dateDebutEvent = (startStr).split("T", 2);
     dateDebutEvent[2] = dateDebutEvent[1].split("Z").join("");

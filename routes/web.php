@@ -41,7 +41,7 @@ Route::get('/showRooms', 'RoomController@show');
 //Permet de créer un événement honorine
 Route::post('/createEvent','EventController@create')->name('createEvent');
 //Permet de mettre à jour une salle honorine
-Route::put('/updateRooms','RoomController@update');
+Route::post('/updateRoom','RoomController@update')->name('UpdateRoom');
 
 
 

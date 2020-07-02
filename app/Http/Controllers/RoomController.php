@@ -32,7 +32,7 @@ class RoomController extends Controller
        Room::where('id', $roomId)
           ->update(['title' => $title,'equipment'=>$equipment,'capacity'=>$capacity,'eventColor'=>$eventColor]);
         return ('la salle a été modifié');
-      }
+    }
 
       return ("cette salle n'existe pas");
 

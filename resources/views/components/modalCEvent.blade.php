@@ -10,17 +10,23 @@
         <div class="modal-body">
           <form method="POST" id="" action="{{route('createEvent')}}">
           {{ csrf_field() }}
+
+          <div class="content-head">
           <label for="room_title" class="content-title">SALLE :</label>
-          <input id="inputRoomName" type="text" name="room_name" class="input-head" value="" disabled><br>
+          <input id="inputRoomName" type="text" name="room_title" class="input-head" value="" disabled><br>
           <input id="inputHiddenRoomID" type="text" name="room_id" value="" hidden>
+          </div>
 
           <label for="capacity">Capacité :</label><label id="roomCapacity"></label><br>
-
           <label for="equipment">Equipements : </label><label id="roomEquipment"></label><br>
 
+          <div class="content-head">
           <label for="event_title" class="content-title">EVENEMENT:</label>
           <input id="inputEventName" type="text" placeholder="Nom de l'événement" name="event_name" class="input-head" value="" required>
+          </div>
 
+          <label for="society"></label><br>
+          <label for="society"></label><br>
 
           <div class="form-group row">
 
