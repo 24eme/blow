@@ -7,7 +7,7 @@
                   <button type="button" class="close" data-dismiss="modal">&times;</button></br>
                 </div>
                 <div class="modal-body">
-                  <form method="POST" id="" action="{{route('createRoom')}}">
+                  <form method="POST" id="" action="{{route('createRoom')}}" enctype="multipart/form-data">
                   {{ csrf_field() }}
                   <label for="room_title" class="content-title">SALLE :</label>
                   <input id="inputRoomName" type="text" placeholder="Nom de la Salle" name="room_name" class="input" value="" required><br>
@@ -19,7 +19,7 @@
                   <input id="inputEquipment" type="text" placeholder="Equipements de la Salle" name="equipment" class="input" value="" required><br>
                   <label for="equipment">Couleur : </label><label id="roomEquipment"></label>
                   <input class="" type="color" id="eventColor" name="eventColor" value="#e66465"><span class="focus-border"></span><br>
-                  <input type='file' accept="image/png, image/jpeg" required>
+                  <input id='image'type='file' accept="image/jpeg" name="image" required>
                 </div>
                 <div class="modal-footer">
                   <div class="btn-wrapper">
