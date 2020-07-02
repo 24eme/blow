@@ -46,14 +46,10 @@ class EventController extends Controller{
   //   }
 
     if($start_date>$end_date){
-      // return redirect('/')->with('failPassed', 'Impossible d\'effectuer une réservation dont les heures sont incohérentes');
-      return redirect('/')
-        ->with('error','Impossible d\'effectuer une réservation dont les heures sont incohérentes!');
+      return redirect()->back()->with('failPassed', 'Impossible d\'effectuer une réservation dont les heures sont incohérentes');
     }
     if($start_date<$now){
-      // return redirect('/')->with('failPassed', 'Impossible d\'effectuer une réservation avant aujourd\'hui');
-      return redirect('/')
-        ->with('error', 'Pour l\'instant, on ne peut pas remonter dans le temps, désolé');
+      return redirect()->back()->with('failPassed', 'Impossible d\'effectuer une réservation avant aujourd\'hui');
     }
 
 
@@ -71,9 +67,8 @@ class EventController extends Controller{
 
 
     if ($query>0){ //s'il y plus de 0 event qui se trouve sur la plage horaire je ne le créer pas
-      // return('horaire déjà pris');
-      return redirect('/')
-        ->with('error','horaire déjà pris');
+      return('horaire déjà pris');
+      return redirect()->back()->with('failUnavailable', 'Votre événement n\'a pas pu être ajouté car l\'horaire est déjà prise');
     }
     // $data=array('title'=>$nom,'start'=>$start,"end"=>$end,"resourceId"=>$resouce,"user_id"=>$current_user);  //pour voir ça fonctionne il faut
     // DB::table('events')->insert($data);
@@ -87,7 +82,7 @@ class EventController extends Controller{
     $event->user_id=1;// seulement pour tester
     $event->save();
 
-    return redirect('/')->with('success', 'Votre événement a bien été ajouté');
+            return redirect()->back()->with('success', 'Votre événement a bien été ajouté');
 
     }
 
@@ -115,9 +110,8 @@ class EventController extends Controller{
       //   $events = Event::where('id', $idEvent)
       //       ->update(['title' => $title,'start'=>$start,'end'=>$end,'resourceId'=>$resource]);
       //     // return ('event a été modifié');
-      // return redirect('/')->with('success', 'Votre événement a bien été modfié');
-      return redirect('/')
-        ->with('success','Votre événement a bien été modfié avec succès!');
+      return redirect()->back()->with('success', 'Votre événement a bien été modfié');
+      //   }
 
 
    }
@@ -126,8 +120,7 @@ class EventController extends Controller{
    public function delete(Request $request,$id){
 
           $events = Event::find($id)->delete();
-              return redirect('/')
-                ->with('success','Votre événement a bien été supprimé');
+              return redirect()->back()->with('success', 'Votre événement a bien été supprimé');
     }
 
 

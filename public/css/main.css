@@ -31,6 +31,12 @@ input[type="text"]{
   background: transparent;
   transition: border 0.2s;
 }
+<<<<<<< HEAD
+=======
+i{
+  float: left;
+}
+>>>>>>> 6c243126eb9f15fa438ddb5ebb5f673fef7ad074
 .pop-up {
   display: none;
 	position: relative;
