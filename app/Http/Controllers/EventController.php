@@ -32,24 +32,28 @@ class EventController extends Controller{
 
     $now = Carbon::now('Europe/Paris')->format('Y-m-dH:i');
 
-    $validator = Validator::make($request->all(), [
-      'room_id' =>'integer',
-      'event_name' => 'alpha',
-      'start_date' => 'date|date_format:Y-m-d',
-  //    'start_hour' => 'date|date_format:H:i',
-      'end_date' => 'date|date_format:Y-m-d',
-  //    'end_hour' => 'date|date_format:H:i'
-    ]);
-
-    if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-    }
+  //   $validator = Validator::make($request->all(), [
+  //     'room_id' =>'integer',
+  //     'event_name' => 'alpha',
+  //     'start_date' => 'date|date_format:Y-m-d',
+  // //    'start_hour' => 'date|date_format:H:i',
+  //     'end_date' => 'date|date_format:Y-m-d',
+  // //    'end_hour' => 'date|date_format:H:i'
+  //   ]);
+  //
+  //   if ($validator->fails()) {
+  //           return back()->withErrors($validator)->withInput();
+  //   }
 
     if($start_date>$end_date){
-      return redirect('/')->with('failPassed', 'Impossible d\'effectuer une réservation dont les heures sont incohérentes');
+      // return redirect('/')->with('failPassed', 'Impossible d\'effectuer une réservation dont les heures sont incohérentes');
+      return redirect('/')
+        ->with('error','Impossible d\'effectuer une réservation dont les heures sont incohérentes!');
     }
     if($start_date<$now){
-      return redirect('/')->with('failPassed', 'Impossible d\'effectuer une réservation avant aujourd\'hui');
+      // return redirect('/')->with('failPassed', 'Impossible d\'effectuer une réservation avant aujourd\'hui');
+      return redirect('/')
+        ->with('error','Impossible d\'effectuer une réservation avant aujourd\'hui');
     }
 
 
@@ -67,7 +71,9 @@ class EventController extends Controller{
 
 
     if ($query>0){ //s'il y plus de 0 event qui se trouve sur la plage horaire je ne le créer pas
-      return('horaire déjà pris');
+      // return('horaire déjà pris');
+      return redirect('/')
+        ->with('error','horaire déjà pris');
     }
     // $data=array('title'=>$nom,'start'=>$start,"end"=>$end,"resourceId"=>$resouce,"user_id"=>$current_user);  //pour voir ça fonctionne il faut
     // DB::table('events')->insert($data);
@@ -109,8 +115,9 @@ class EventController extends Controller{
       //   $events = Event::where('id', $idEvent)
       //       ->update(['title' => $title,'start'=>$start,'end'=>$end,'resourceId'=>$resource]);
       //     // return ('event a été modifié');
-      return redirect('/')->with('success', 'Votre événement a bien été modfié');
-      //   }
+      // return redirect('/')->with('success', 'Votre événement a bien été modfié');
+      return redirect('/')
+        ->with('success','Votre événement a bien été modfié avec succès!');
 
 
    }
@@ -119,7 +126,8 @@ class EventController extends Controller{
    public function delete(Request $request,$id){
 
           $events = Event::find($id)->delete();
-              return redirect('/')->with('success', 'Votre événement a bien été supprimé');
+              return redirect('/')
+                ->with('success','Votre événement a bien été supprimé');
     }
 
 
