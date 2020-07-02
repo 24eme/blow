@@ -79,7 +79,10 @@
     $('#modalCEvent').modal('show');
 
   };
-
+  function navigate(){
+    var url = window.location.href + 'deleteEvent/'+document.getElementById('HiddenEventID').value;
+    window.location = url;
+  };
 
 //   function ResourceModal(resource) {
 //

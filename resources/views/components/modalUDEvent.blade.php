@@ -1,10 +1,5 @@
-<script type="text/javascript">
-function navigate(){
-var url = window.location.href + 'deleteEvent/'+document.getElementById('HiddenEventID').value; 
-window.location = url;
 
-};
-</script>
+
 <div class="modal fade" id="modalUDE" tabindex="-1" role="dialog" aria-labelledby="Reservation" aria-hidden="true">
    <div class="modal-dialog " role="document">
      <div class="modal-content">
