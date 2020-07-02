@@ -18,7 +18,8 @@
                   <label for="equipment">Equipements : </label><label id="roomEquipment"></label>
                   <input id="inputEquipment" type="text" placeholder="Equipements de la Salle" name="equipment" class="input" value="" required><br>
                   <label for="equipment">Couleur : </label><label id="roomEquipment"></label>
-                  <input class="" type="color" id="eventColor" name="eventColor" value="#e66465"><span class="focus-border"></span>
+                  <input class="" type="color" id="eventColor" name="eventColor" value="#e66465"><span class="focus-border"></span><br>
+                  <input type='file' accept="image/png, image/jpeg" required>
                 </div>
                 <div class="modal-footer">
                   <div class="btn-wrapper">
