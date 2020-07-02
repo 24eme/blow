@@ -18,6 +18,24 @@ class RoomController extends Controller
       $rooms = Room::all();
       return $rooms->toJson();
   }
+  public function create(Request $request){
+
+        $request->validate([
+        'title' => 'required',
+        'capacity' => 'integer',
+
+        ]);
+
+       $room = new Room;
+
+       $room->title = $request->room_name;
+       $room->equipment = $request->equipment;
+       $room->capacity = $request->capacity;
+       $room->eventColor = $request->eventColor;
+       $room->save();
+
+        return redirect('/')->with('success', 'La salle a bien été ajouté');
+  }
 
   public function update(Request $request){
 
@@ -38,38 +56,10 @@ class RoomController extends Controller
       return ("cette salle n'existe pas");
 
   }
-  public function create(Request $request){
+  public function delete(Request $request,$id){
 
-    // $request->validate([
-    // 'title' => 'required',
-    // 'capacity' => 'integer',
-    //
-    // ]);
+         $room = Room::find($id)->delete();
+             return redirect('/')->with('success', 'Votre salle a bien été supprimé');
+   }
 
-   $room = new Room;
-
-   $room->title = $request->room_name;
-   $room->equipment = $request->equipment;
-   $room->capacity = $request->capacity;
-   $room->eventColor = $request->eventColor;
-   $room->save();
-
-   Room::create($request->all());
-
-    return redirect('/')->with('success', 'La salle a bien été ajouté');
-  }
-
-  // public function delete(Request $request){
-  //        $idEvent = $request->event_id;
-  //        $events = Event::find($idEvent)->delete();
-  //
-  //            return redirect('/')->with('success', 'Votre événement a bien été supprimé');
-  //  }
-  public function delete($idEvent){
-    //$room = Room::find($request->title);
-    dd($idEvent);
-    $room->delete();
-
-    return redirect('home')->with('success', 'La salle a été supprimé !');
-  }
 }
