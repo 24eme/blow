@@ -10,11 +10,13 @@
 
     var inputRoomName = document.getElementById('RoomName');
     var inputEventName = document.getElementById('EventName');
+    var inputEventID= document.getElementById('HiddenEventID');
 
     var inputHiddenRoomID = document.getElementById('HiddenRoomID');
     var equipment = document.getElementById('equipment');
     var capacite = document.getElementById('capacity');
 
+    var btnDelete = document.getElementById('btnDEvent');
 
 
     var eventObj = info.event;
@@ -27,6 +29,7 @@
     equipment.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.equipment ;
     capacite.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.capacity ;
     inputHiddenRoomID.value = eventObj.getResources()[0]._resource.id ;
+    inputEventID.value = eventObj.id;
 
     const dateDebutEvent = (startStr).split("T", 2);
     dateDebutEvent[2] = dateDebutEvent[1].split("Z").join("");

@@ -1,4 +1,10 @@
+<script type="text/javascript">
+function navigate(){
+var url = window.location.href + 'deleteEvent/'+document.getElementById('HiddenEventID').value; 
+window.location = url;
 
+};
+</script>
 <div class="modal fade" id="modalUDE" tabindex="-1" role="dialog" aria-labelledby="Reservation" aria-hidden="true">
    <div class="modal-dialog " role="document">
      <div class="modal-content">
@@ -11,7 +17,7 @@
 
       </div>
        <div class="modal-body">
-         <form class="" method="POST" id="formUDRoom" action="{{route('UpdateRoom')}}">
+         <form class="" method="POST" id="formUDRoom" action="{{route('UpdateEvent')}}">
            {{ csrf_field() }}
 
            <div class="content-head">
@@ -20,12 +26,13 @@
            <input id="HiddenRoomID" type="text" name="room_id" class="input-head" value="" hidden><br>
            </div>
 
-           <label for="capacity">Capacité :</label><label id="capacity"></label>
-           <label for="equipment">Equipements : </label><label id="equipment"></label>
+           <label for="capacity">Capacité :</label><label id="capacity"></label><br>
+           <label for="equipment">Equipements : </label><label id="equipment"></label><br>
 
            <div class="content-head">
            <label class="content-title">EVENEMENT:</label>
-           <input id="EventName" type="text" name="room_name" class="input-head" value="" disabled><br>
+           <input id="EventName" type="text" name="event_name" class="input-head" value="" ><br>
+           <input id="HiddenEventID" type="text" name="event_id" class="input-head" value="" ><br>
            </div>
 
            <label for="society"></label><br>
@@ -55,7 +62,7 @@
           <div class="modal-footer">
            <div class="btn-wrapper">
              <input type="submit" class="btn btn-secondary btn-modal" name="action" value="Modifier">
-             <a class="btn btn-secondary btn-modal" href="#" onclick="navigate(title)">Supprimer</a>
+             <a class="btn btn-secondary btn-modal" onclick="navigate()">Supprimer</a>
            </div>
          </div>
          </form>

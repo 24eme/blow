@@ -20,6 +20,7 @@ class RoomController extends Controller
   }
 
   public function update(Request $request){
+
     $roomId = $request->input('room_id');
 
     if($roomId!=null){
@@ -39,28 +40,34 @@ class RoomController extends Controller
   }
   public function create(Request $request){
 
-
-    $request->validate([
-    'name' => 'required',
-    'detail' => 'required',
-    ]);
+    // $request->validate([
+    // 'title' => 'required',
+    // 'capacity' => 'integer',
+    //
+    // ]);
 
    $room = new Room;
 
-   $room->title = $request->title;
+   $room->title = $request->room_name;
    $room->equipment = $request->equipment;
    $room->capacity = $request->capacity;
    $room->eventColor = $request->eventColor;
    $room->save();
 
-   Romm::create($request->all());
+   Room::create($request->all());
 
     return redirect('/')->with('success', 'La salle a bien été ajouté');
   }
 
-  public function delete($roomname){
+  // public function delete(Request $request){
+  //        $idEvent = $request->event_id;
+  //        $events = Event::find($idEvent)->delete();
+  //
+  //            return redirect('/')->with('success', 'Votre événement a bien été supprimé');
+  //  }
+  public function delete($idEvent){
     //$room = Room::find($request->title);
-    dd($roomname);
+    dd($idEvent);
     $room->delete();
 
     return redirect('home')->with('success', 'La salle a été supprimé !');

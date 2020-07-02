@@ -1,5 +1,4 @@
-@extends('layouts.layout')
-@section('content')
+
   <div class="modal fade" id="modalCEvent">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -18,6 +17,7 @@
           </div>
 
           <label for="capacity">Capacité :</label><label id="roomCapacity"></label><br>
+
           <label for="equipment">Equipements : </label><label id="roomEquipment"></label><br>
 
           <div class="content-head">

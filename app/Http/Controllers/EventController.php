@@ -5,61 +5,51 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Event;
+
 use Carbon\Carbon;
 use Auth;
 use Illuminate\Support\Facades\DB;
 use Validator;
-class EventController extends Controller
-{
-
-  public function index(){
-    $events = Event::all();
-    return view('home', compact('events'));
-  }
-//function pour afficher les evennements
+class EventController extends Controller{
 
   public function show(){
-    $events = Event::all();
-    return $events->toJson();
+          $events = Event::all();
+          return $events->toJson();
   }
-
 
   public function create(Request $request){
     date_default_timezone_set('Europe/Paris');
 
-    //pour remplir la base de données
-    $nom= $request->input('event_name');
-    $start=$request->input('start_date').'T'.$request->input('start_hour').'Z';
-    $end=$request->input('end_date').'T'.$request->input('end_hour').'Z';
-    $resource=$request->input('room_id');
+    $nom= $request->event_name;
+    $start=$request->start_date.'T'.$request->start_hour.'Z';
+    $end=$request->end_date.'T'.$request->end_hour.'Z';
+    $resource=$request->room_id;
+
 //    $current_user=Auth::user()->id;            //commenter cette ligne pour que ça fonctionne
 
-    //pour faire des comparaison entre les datetimes
-    $end_date=$request->input('end_date').$request->input('end_hour');
-    $start_date=$request->input('start_date').$request->input('start_hour');
-    $now=Carbon::now('Europe/Paris')->format('Y-m-dH:i');
+    $end_date=$request->end_date.$request->end_hour;
+    $start_date=$request->start_date.$request->start_hour;
 
-    //echo($start);
-    // $validator = Validator::make($request->all(), [
-    //   // 'room_id' =>'integer',
-    //   'event_name' => 'alpha',
-    //   'start_date' => 'date|date_format:Y-m-d',
-    //   'start_hour' => 'date|date_format:H:i',
-    //   'end_date' => 'date|date_format:Y-m-d',
-    //   'end_hour' => 'date|date_format:H:i'
-    // ]);
-    //
-    // if ($validator->fails()) {
-    //         return back()->withErrors($validator)->withInput();
-    //     }
+    $now = Carbon::now('Europe/Paris')->format('Y-m-dH:i');
 
+    $validator = Validator::make($request->all(), [
+      'room_id' =>'integer',
+      'event_name' => 'alpha',
+      'start_date' => 'date|date_format:Y-m-d',
+  //    'start_hour' => 'date|date_format:H:i',
+      'end_date' => 'date|date_format:Y-m-d',
+  //    'end_hour' => 'date|date_format:H:i'
+    ]);
 
+    if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+    }
 
     if($start_date>$end_date){
-        return('Le début est après la fin ? ');
+      return redirect('/')->with('failPassed', 'Impossible d\'effectuer une réservation dont les heures sont incohérentes');
     }
     if($start_date<$now){
-      return ('Pas possible de retourner dans le temps');
+      return redirect('/')->with('failPassed', 'Impossible d\'effectuer une réservation avant aujourd\'hui');
     }
 
 
@@ -78,7 +68,7 @@ class EventController extends Controller
 
     if ($query>0){ //s'il y plus de 0 event qui se trouve sur la plage horaire je ne le créer pas
       return('horaire déjà pris');
-      }
+    }
     // $data=array('title'=>$nom,'start'=>$start,"end"=>$end,"resourceId"=>$resouce,"user_id"=>$current_user);  //pour voir ça fonctionne il faut
     // DB::table('events')->insert($data);
                                                                        //donner $resource =1 et user_id=1
@@ -90,44 +80,46 @@ class EventController extends Controller
     //$event->user_id=$current_user;
     $event->user_id=1;// seulement pour tester
     $event->save();
-    return ('événement à bien été rajouté');
+
+    return redirect('/')->with('success', 'Votre événement a bien été ajouté');
 
     }
 
+    public function update(Request $request){
+        $EVENTID = $request->event_id;
 
-   //modifier un evennement
+        $EVENT = Event::find($EVENTID);
 
+        $EVENT->title = $request->event_name;
+        $EVENT->start = $request->event_name;
+        $EVENT->end = $request->event_name;
+        $EVENT->resourceId = $request->event_name;
+        $EVENT->save();
 
-      public function update(Request $request, $idEvent ){
-      $idEvent = $request->input('event_id');
-
-      if($idEvent!=null){
-      $title= $request->input('event_name');
-      $start=$request->input('start_date').'T'.$request->input('start_hour').'Z';
-      $end=$request->input('end_date').'T'.$request->input('end_hour').'Z';
-      $resource=$request->input('room_id');
-
-
-        $events = Event::where('id', $idEvent)
-            ->update(['title' => $title,'start'=>$start,'end'=>$end,'resourceId'=>$resource]);
-          // return ('event a été modifié');
-          return response()->json(array('succes'=> 200, 'data' =>$events, 'message' =>'Event a ete modifié'));
-        }
+      // $idEvent = $request->input('event_id');
+      //
+      // if($idEvent!=null){
+      // $title= $request->input('event_name');
+      // $start=$request->input('start_date').'T'.$request->input('start_hour').'Z';
+      // $end=$request->input('end_date').'T'.$request->input('end_hour').'Z';
+      // $resource=$request->input('room_id');
+      //
+      //
+      //   $events = Event::where('id', $idEvent)
+      //       ->update(['title' => $title,'start'=>$start,'end'=>$end,'resourceId'=>$resource]);
+      //     // return ('event a été modifié');
+      //     return response()->json(array('succes'=> 200, 'data' =>$events, 'message' =>'Event a ete modifié'));
+      //   }
 
 
    }
 
 
-       //supprimer un evennement
-        public function delete(Request $request, $idEvent)
-      {
+   public function delete(Request $request,$id){
 
-              $idEvent = $request->input('event_id');
-
-              $events = Event::find($idEvent)->delete();
-
-              return response()->json(array('succes'=> 200, 'data' =>$events, 'message' =>'Event a ete supprimer'));
-        }
+          $events = Event::find($id)->delete();
+              return redirect('/')->with('success', 'Votre événement a bien été supprimé');
+    }
 
 
 

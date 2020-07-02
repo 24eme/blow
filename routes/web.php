@@ -32,9 +32,9 @@ Route::get('/modalCEvent', function () {
 //Affichage des evenements
 Route::get('/showEvents', 'EventController@show');
 //supprimer un événemment
-Route::delete('/delete/{id}', 'EventController@delete');
+Route::get('/deleteEvent/{id}', 'EventController@delete')->name('deleteEvent');
 //update un événemment
-Route::put('/update/{id}', 'EventController@update');
+Route::post('/updateEvent', 'EventController@update')->name('UpdateEvent');
 
 //Affichage des salles
 Route::get('/showRooms', 'RoomController@show');
@@ -45,12 +45,8 @@ Route::post('/updateRoom','RoomController@update')->name('UpdateRoom');
 
 
 
-
-Route::get('/', 'RoomController@index');
-Route::get('/', 'EventController@index');
-
 Route::post('/createRoom', 'RoomController@create')->name('createRoom');
-Route::get('/deleteRoom/{roomname}', 'RoomController@delete')->name('deleteRoom');
+Route::get('/deleteRoom/{id}', 'RoomController@delete')->name('deleteRoom');
 
 
 
