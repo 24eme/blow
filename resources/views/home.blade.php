@@ -11,9 +11,10 @@
             @extends('components.modalUDEvent')
           </div>
           <section><div class=""></section></div>
-        <div class="page" id="p2">
+         <div class="page" id="p2">
           <div class="container">
-            @if(session('success'))
+            @include('flash-message')
+            <!-- @if(session('success'))
          <span class="alert alert-primary" role="alert">
              <strong>{{ session('success') }}</strong>
          </span>
@@ -27,7 +28,7 @@
                <span class="alert alert-danger" role="alert">
                    <strong>{{ session('failUnavailable') }}</strong>
                </span>
-          @endif
+          @endif -->
               <section><div id="calendar"></div></section>
           </div>
         </div>
