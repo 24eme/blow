@@ -39,48 +39,17 @@ document.addEventListener('DOMContentLoaded', function() {
           DateTab = (Currentdate).split("T", 2);
           Currentdate = DateTab[0];
           var url = new URL(window.location);
-        //  alert(Currentdate);
           url.searchParams.set('date', Currentdate);
-          //window.location = url.toString();
           history.pushState(null,null, "home?date="+Currentdate);
-
-            // var url = new URL(window.location);
-            // alert(url.searchParams.get('date'));
-            //
-            // if(url.searchParams.get('date')!=null){
-            //   var date = url.searchParams.get('date');
-            //   //calendar.gotoDate(date);
-            // }
-            // else{
-            //   var Currentdate = calendar.getDate().toLocaleDateString();
-            //   url.searchParams.set('date', Currentdate);
-            //   alert('ici');
-            //   history.pushState(null,null, "home?date="+Currentdate);
-            // //  calendar.gotoDate(Currentdate);
-            // }
       },
     });
 
-     var parameters = window.location.search;
+    var parameters = window.location.search;
     const urlParams = new URLSearchParams(parameters);
-    //
-    // if(urlParams != null){
-     var date = urlParams.get('date');
-//     alert(date);
-    // //  calendar.gotoDate(date);
-    //   alert('here');
-    // }
-    // if(Currentdate !=null){
-    // }
+    var date = urlParams.get('date');
     if(date!=null){
       calendar.gotoDate(date);
     }
     calendar.render();
-    // var parameters = window.location.search;
-    // const urlParams = new URLSearchParams(parameters);
-    // if(urlParams != null){
-    //   var date = urlParams.get('date');
-    //   alert('here');
-    // }
   });
 </script>
