@@ -1,7 +1,38 @@
+function modalAddEvent(info) {
+    var inputStartDate = document.getElementById('inputStartDate');
+    var inputStartHour = document.getElementById('inputStartHour');
 
+    var inputEndDate = document.getElementById('inputEndDate');
+    var inputEndHour = document.getElementById('inputEndHour');
 
+    var inputRoomName = document.getElementById('inputRoomName');
+    var inputHiddenRoomID = document.getElementById('inputHiddenRoomID');
+    var labelCapacity = document.getElementById('roomCapacity');
+    var labelEquipment = document.getElementById('roomEquipment');
 
-  function modalCheckEvent(info) {
+    inputRoomName.value = info.resource.title ;
+    inputHiddenRoomID.value = info.resource.id;
+    labelCapacity.innerHTML = info.resource.extendedProps.capacity;
+    labelEquipment.innerHTML = info.resource.extendedProps.equipment;
+
+    const dateDebut = (info.startStr).split("T", 2);
+    dateDebut[2] = dateDebut[1].split("Z").join("");
+    dateDebut[2] = dateDebut[2].slice(0,-3);
+
+    const dateFin = (info.endStr).split("T", 2);
+    dateFin[2]= dateFin[1].split("Z").join("");
+    dateFin[2] = dateFin[2].slice(0,-3);
+
+    inputStartDate.value = dateDebut[0] ;
+    inputStartHour.value = dateDebut[2] ;
+    inputEndDate.value = dateFin[0] ;
+    inputEndHour.value = dateFin[2] ;
+
+    $('#modalCEvent').modal('show');
+
+};
+
+function modalCheckEvent(info) {
     var inputStartDate = document.getElementById('StartDate');
     var inputStartHour = document.getElementById('StartHour');
 
@@ -45,50 +76,21 @@
     inputEndHour.value = dateFinEvent[2] ;
 
     $('#modalUDEvent').modal('show');
-  };
+};
 
-  function modalAddEvent(info) {
-    var inputStartDate = document.getElementById('inputStartDate');
-    var inputStartHour = document.getElementById('inputStartHour');
-
-    var inputEndDate = document.getElementById('inputEndDate');
-    var inputEndHour = document.getElementById('inputEndHour');
-
-    var inputRoomName = document.getElementById('inputRoomName');
-    var inputHiddenRoomID = document.getElementById('inputHiddenRoomID');
-    var labelCapacity = document.getElementById('roomCapacity');
-    var labelEquipment = document.getElementById('roomEquipment');
-
-    inputRoomName.value = info.resource.title ;
-    inputHiddenRoomID.value = info.resource.id;
-    labelCapacity.innerHTML = info.resource.extendedProps.capacity;
-    labelEquipment.innerHTML = info.resource.extendedProps.equipment;
-
-    const dateDebut = (info.startStr).split("T", 2);
-    dateDebut[2] = dateDebut[1].split("Z").join("");
-    dateDebut[2] = dateDebut[2].slice(0,-3);
-
-    const dateFin = (info.endStr).split("T", 2);
-    dateFin[2]= dateFin[1].split("Z").join("");
-    dateFin[2] = dateFin[2].slice(0,-3);
-
-    inputStartDate.value = dateDebut[0] ;
-    inputStartHour.value = dateDebut[2] ;
-    inputEndDate.value = dateFin[0] ;
-    inputEndHour.value = dateFin[2] ;
-
-    $('#modalCEvent').modal('show');
-
-  };
-  function navigate(){
+function deleteEvent(){
     var url = 'deleteEvent/'+document.getElementById('HiddenEventID').value;
     window.location = url;
-  };
-  function gotoDate(){
+};
+
+function gotoDate(){
       var datepickerValue = document.getElementById("datepicker").value;
-    calendar.gotoDate(datepickerValue);
-  }
-  function resourcePopup(info) {
+      var url = new URL(window.location);
+      url.searchParams.set('date', datepickerValue);
+      window.location = url.toString();
+}
+
+function resourcePopup(info) {
 
     var elements = document.getElementsByClassName('fc-timeline-lane');
     var capacityNumber = document.createElement('span');
@@ -96,6 +98,7 @@
     capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
     capacityIcon.className = "fas fa-male";
     for (var i = 0; i < elements.length; i++) {
+      //info.el.apppendChild();
       elements[i].appendChild(capacityIcon);
       elements[i].appendChild(capacityNumber);
     } ;
@@ -143,9 +146,4 @@
             info.el.addEventListener("mouseover", popupDisplay);
             info.el.addEventListener("mouseout", popupHide);
 
-  };
-//
-//   function navigate(inputid){
-//           var url = window.location.href + "/" + document.getElementById(inputid).value;
-//           alert(url);
-//   };
+};

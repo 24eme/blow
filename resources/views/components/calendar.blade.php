@@ -1,11 +1,9 @@
 <link href='https://unpkg.com/fullcalendar-scheduler@5.1.0/main.min.css' rel='stylesheet' />
 <script src='https://unpkg.com/fullcalendar-scheduler@5.1.0/main.min.js'></script>
-
 <script>
+document.addEventListener('DOMContentLoaded', function() {
 
-  document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
-
     var calendar = new FullCalendar.Calendar(calendarEl, {
       headerToolbar: {
         left: 'today prev,next',
@@ -21,17 +19,18 @@
       buttonText:{ today: 'Aujourd\'hui', month: 'mois', week: 'semaine', day: 'jour'},
       schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
       selectable:true,
+      navLinks: true,
+      nowIndicator:true,
+
+      events:'showEvents',
+      resources:'showRooms',
+
       select: function(info){
         modalAddEvent(info);
       },
       eventClick: function(info){
         modalCheckEvent(info);
       },
-      events:'showEvents',
-      resources:'showRooms',
-      navLinks: true,
-      nowIndicator:true,
-      navLinks:true,
       resourceLabelDidMount: function(info){
         resourcePopup(info);
       },
@@ -59,8 +58,6 @@
             //   history.pushState(null,null, "home?date="+Currentdate);
             // //  calendar.gotoDate(Currentdate);
             // }
-
-
       },
     });
 
@@ -78,7 +75,7 @@
     if(date!=null){
       calendar.gotoDate(date);
     }
-calendar.render();
+    calendar.render();
     // var parameters = window.location.search;
     // const urlParams = new URLSearchParams(parameters);
     // if(urlParams != null){
@@ -86,47 +83,4 @@ calendar.render();
     //   alert('here');
     // }
   });
-  // document.addEventListener('DOMContentLoaded', function() {
-  //   var calendarEl = document.getElementById('calendar');
-  //
-  //   var calendar = new FullCalendar.Calendar(calendarEl, {
-  //     // plugins: [ 'interaction', 'resourceTimeline' ],
-  //     initialView: 'resourceTimelineDay',
-  //     // timeZone: 'UTC',
-  //     //
-  //     // header: {
-  //     //   left: 'today,prev,next calendar',
-  //     //   center: 'title',
-  //     //   right: 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth'
-  //     // },
-  //     //
-  //     // titleFormat:{year: 'numeric', month: 'long',day:'numeric', weekday: 'long' },
-  //     //
-  //     // locale:'fr',
-  //     //
-  //     // schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
-  //     // defaultView: 'resourceTimelineDay',
-  //     // aspectRatio: 1.5,
-  //     // lang:'fr',
-  //     // buttonText:{
-  //     //   today:    'Aujourd\'hui',
-  //     //   month:    'mois',
-  //     //   week:     'semaine',
-  //     //   day:      'jour',
-  //     // },
-  //     // droppable:true,
-  //     // selectable:true,
-  //     // navLinks:true,
-  //     // height:'auto',
-  //     // resourceLabelText: 'Salles',
-  //     // resources:'json-list-resources',
-  //     // eventSources:[{url:'json-list-events',textColor: 'black' }],
-  //     //
-  //     // resourceRender: function(info) { ResourceModal(info); },
-  //     // select: function(info) { modalAddEvent(info);},
-  //     // eventClick: function(info) { modalCheckEvent(info); }
-  //   });
-  //   calendar.render();
-  // });
-
 </script>
