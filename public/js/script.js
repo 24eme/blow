@@ -75,7 +75,8 @@ function modalCheckEvent(info) {
     inputEndDate.value = dateFinEvent[0] ;
     inputEndHour.value = dateFinEvent[2] ;
 
-    $('#modalUDEvent').modal('show');
+
+
 };
 
 function deleteEvent(){

@@ -30,9 +30,19 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       eventClick: function(info){
         modalCheckEvent(info);
+        var userid= <?php echo Auth::id() ?>;
+      
+        if (userid!= info.event.extendedProps.user_id) {
+           alert('Ce n\'est pas votre évenement');
+          }
+         else {
+         $('#modalUDEvent').modal('show');
+
+         }
       },
       resourceLabelDidMount: function(info){
         resourcePopup(info);
+
       },
       datesSet:function(info){
           Currentdate = calendar.getDate().toISOString();

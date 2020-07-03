@@ -5,7 +5,7 @@
               <h4 class="modal-title">Modification d'évenement</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button></br>
     </div>
-    <form method="POST" id="formUDEvent" action="{{route('UpdateEvent')}}">
+    <form class="is-readonly" method="POST" id="formUDEvent" action="{{route('UpdateEvent')}}">
     {{ csrf_field() }}
           <div class="modal-body">
           <div class="row content-head justify-content-center">
@@ -56,8 +56,12 @@
           </div>
           </div>
           <div class="modal-footer">
+
             <div class="btn-wrapper">
               <input type="submit" class="btn btn-secondary btn-modal" name="action" value="Modifier">
+              <!-- <button type="button" class="btn btn-default btn-edit js-edit">Edit</button>
+              <button type="button" class="btn btn-default btn-save js-save">Save</button> -->
+
               <a class="btn btn-secondary btn-modal" onclick="deleteEvent()">Supprimer</a>
             </div>
           </div>
