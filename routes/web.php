@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('index');
 });
 
 Route::get('/showEvents', 'EventController@show');
@@ -29,6 +29,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //admin honorine
-// Route::get('/admin', 'AdminController@admin')
-//     ->middleware('is_admin')
-//     ->name('admin');
+Route::get('/admin', 'AdminController@admin')
+    ->middleware('is_admin')
+    ->name('admin');

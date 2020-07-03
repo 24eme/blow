@@ -16,8 +16,8 @@
     <div class="ct" id="calendrier">
           <div class="page" id="p1">
           <div class="container">
-              @extends('components.modals.modalCEvent')
-              @extends('components.modals.modalUDEvent')
+              @extends('components.modals.modalCRoom')
+              @extends('components.modals.modalUDRoom')
               @extends('components.flash-message')
                 <section><div id="calendar"></div></section>
           </div>

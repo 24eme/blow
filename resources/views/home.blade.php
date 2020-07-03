@@ -1,8 +1,9 @@
 @extends('layouts.layout')
 @section('content')
 <div style='z-index:100'>
-  <input class="input-date" type="text" name="" placeholder="2020-01-01" id="datepicker">
-  <button type="button" onclick="gotoDate()"> Y aller</button>
+  <input class="input-date" type="text" name="" placeholder="date" id="datepicker">
+  <button type="button" onclick="gotoDate()"><i class="fas fa-search"></i>
+  </button>
 </div>
 
 <div class="container">

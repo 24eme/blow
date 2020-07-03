@@ -12,7 +12,6 @@ body{
 *{
   font-family:Avenir, Quicksand,sans-serif,Arial;
 }
-
 li{
   list-style-type: none;
 }
@@ -142,28 +141,6 @@ tr:nth-child(even) {
     width: 100%;
     background-color: rgb(41,45,52);
     border-radius: 0;
-  }
-  .btn-light{
-    color: black;
-  }
-  #menu{
-    position: relative;
-    width: 100%;
-    height: auto;
-  }
-  #menu i,a,li{
-    margin: 0;
-    display: inline-flex;
-  }
-  #p1{
-    padding: 0;
-  }
-  #reserver:target #p2{
-    transform: translateX(-198%);
-    -webkit-transform: translateX(-198%);
-    -moz-transform: translateX(-198%);
-    -o-transform: translateX(-198%);
-    transition-delay: .2s !important;
   }
 }
 

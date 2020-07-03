@@ -3,19 +3,15 @@
   <nav class="navbar navbar-expand-lg navbar-light ">
        <ul class="navbar-nav mr-auto">
             <span><a class="navbar-brand nav-logo" href="/">BL<u>O</u>W</a></span>
-            <li class="nav-item"><a class="nav-link" href="#accueil">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link" href="#apropos">A propos</a></li>
-            <li class="nav-item"><a class="nav-link" href="#objectif">Notre objectif</a></li>
        </ul>
-       <ul>
         <li class="nav-item"><a class="btn btn-dark" href="{{ route('login') }}">{{ __('Se connecter') }}</a></li>
         @if (Route::has('register'))
         <li class="nav-item"><a class="btn btn-dark" href="{{ route('register') }}">{{ __('S\'inscrire') }}</a></li>
         @endif
-       <ul>
+
   </nav>
 @else
-  <nav class="navbar navbar-expand-lg navbar-light home-navbar">
+  <nav class="navbar navbar-expand-lg navbar-light home-navbar bg-light">
    <div class="container-fluid">
      <div class="navbar-header">
        <span><a class="navbar-brand nav-link" href="#!">BLOW</a></span>

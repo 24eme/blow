@@ -57,12 +57,12 @@ class RoomController extends Controller{
        $room->capacity=$request->capacity;
        $room->eventColor=$request->eventColor;
        $room->image=$request->image;
-       $room->save()
+       $room->save();
 
         return redirect()->back()->with('success', 'La salle a bien été modfié');
     }
 
-      return redirect()->back()->with('failUnavailable', 'La salle n\'a pas été identiée');
+      return redirect()->back()->with('error', 'La salle n\'a pas été identifée');
 
   }
   public function delete(Request $request,$id){

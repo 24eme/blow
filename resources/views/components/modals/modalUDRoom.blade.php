@@ -1,4 +1,4 @@
-<div class="modal fade" id="modalCRoom" aria-hidden=true>
+<div class="modal fade" id="modalUDRoom" aria-hidden=true>
 <div class="modal-dialog">
 <div class="modal-content">
     <div class="modal-header">
@@ -28,6 +28,7 @@
           <div class="row">
                         <input id='image'type='file' accept="image/jpeg" name="image" required>
 
+          </div>
           </div>
           <div class="modal-footer">
                <div class="btn-wrapper">

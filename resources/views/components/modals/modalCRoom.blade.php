@@ -30,6 +30,7 @@
                         <input id='image'type='file' accept="image/jpeg" name="image" required>
 
           </div>
+          </div>
           <div class="modal-footer">
                <div class="btn-wrapper">
                <input type="submit" class="btn btn-primary btn-modal" name="action" value="Valider">

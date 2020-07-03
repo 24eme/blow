@@ -85,7 +85,9 @@ function deleteEvent(){
 
 function gotoDate(){
       var datepickerValue = document.getElementById("datepicker").value;
-      calendar.gotoDate(datepickerValue);
+      var url = new URL(window.location);
+      url.searchParams.set('date', datepickerValue);
+      window.location = url.toString();
 }
 
 function resourcePopup(info) {
@@ -96,6 +98,7 @@ function resourcePopup(info) {
     capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
     capacityIcon.className = "fas fa-male";
     for (var i = 0; i < elements.length; i++) {
+      //info.el.apppendChild();
       elements[i].appendChild(capacityIcon);
       elements[i].appendChild(capacityNumber);
     } ;

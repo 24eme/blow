@@ -23,7 +23,7 @@ class EventController extends Controller{
     $start=$request->start_date.'T'.$request->start_hour.'Z';
     $end=$request->end_date.'T'.$request->end_hour.'Z';
     $resource=$request->room_id;
-//    $current_user=Auth::user()->id;            //commenter cette ligne pour que ça fonctionne
+    $current_user=Auth::user()->id;            //commenter cette ligne pour que ça fonctionne
     $end_date=$request->end_date.$request->end_hour;
     $start_date=$request->start_date.$request->start_hour;
 
@@ -38,13 +38,13 @@ class EventController extends Controller{
     ]);
 
     if($start_date>$end_date){
-      return redirect()->back()->with('failPassed', 'Impossible d\'effectuer une réservation dont les heures sont incohérentes');
+      return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation dont les heures sont incohérentes');
     }
     if($start_date<$now){
-      return redirect()->back()->with('failPassed', 'Impossible d\'effectuer une réservation avant aujourd\'hui');
+      return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation avant aujourd\'hui');
     }
 
-    //Compte le nb d'events dans la même plage horaire séléctionnée
+    //Compte le nb d'events dans la même plage horaire séléctionnée A REVOIR CA NE MARCHE PAS
     $query= DB::table('events')
           ->where ('resourceId','=', $resource)
           ->where (function($query)use ($start,$end){
@@ -59,7 +59,7 @@ class EventController extends Controller{
 
     //Si un événement trouvé, message d'erreur
     if ($query>0){
-      return redirect()->back()->with('failUnavailable', 'Votre événement n\'a pas pu être ajouté car l\'horaire est déjà prise');
+      return redirect()->back()->with('error', 'Votre événement n\'a pas pu être ajouté car l\'horaire est déjà prise');
     }
 
     $event = new Event;
@@ -67,8 +67,7 @@ class EventController extends Controller{
     $event->start = $start;
     $event->end = $end;
     $event->resourceId = $resource;
-    //$event->user_id=$current_user;
-    $event->user_id=1;// seulement pour tester
+    $event->user_id=$current_user;
     $event->save();
 
             return redirect()->back()->with('success', 'Votre événement a bien été ajouté');
