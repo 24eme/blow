@@ -39,10 +39,10 @@ class RoomController extends Controller
 
       //ajouter dans le dossier image l'image
 
-      $image = $request->file('image');
-      //dd($image);
-      $storage=Storage::put('https://ressources.blogdumoderateur.com/2013/09/google-logo.png', 'public');
-      dd($storage);
+      // Mame : essai réussi insertion d'image
+      // $image = $request->file('image')->store('images');
+      // Storage::disk('public')->put($image, 'Contents');
+
      // $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
      //
      // $destinationPath = public_path('/thumbnail');

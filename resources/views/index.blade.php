@@ -127,7 +127,5 @@
 </footer>
 
 
-@endsection
-@else
-  @extends('home')
+@endsection 
 @endguest

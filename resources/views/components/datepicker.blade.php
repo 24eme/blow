@@ -21,10 +21,3 @@ $( "#datepicker" ).datepicker({
     });
       });
 </script>
-<script>
-function getDate(){
-  var input = document.getElementById("datepicker").value;
-  console.log(input);
-  window.location.href="http://localhost:8000/home?date="+input;
-}
-</script>

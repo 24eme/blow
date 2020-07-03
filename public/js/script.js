@@ -44,7 +44,7 @@
     inputEndDate.value = dateFinEvent[0] ;
     inputEndHour.value = dateFinEvent[2] ;
 
-    $('#modalUDE').modal('show');
+    $('#modalUDEvent').modal('show');
   };
 
   function modalAddEvent(info) {
@@ -84,7 +84,10 @@
     var url = 'deleteEvent/'+document.getElementById('HiddenEventID').value;
     window.location = url;
   };
-
+  function gotoDate(){
+      var datepickerValue = document.getElementById("datepicker").value;
+    calendar.gotoDate(datepickerValue);
+  }
   function resourcePopup(info) {
 
     var elements = document.getElementsByClassName('fc-timeline-lane');

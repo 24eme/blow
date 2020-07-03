@@ -1,5 +1,5 @@
 
-  <div class="modal fade" id="modalCEvent">
+<div class="modal fade" id="modalCEvent" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
