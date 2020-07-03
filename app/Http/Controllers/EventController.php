@@ -19,40 +19,23 @@ class EventController extends Controller{
 
   public function create(Request $request){
     date_default_timezone_set('Europe/Paris');
-
     $nom= $request->event_name;
     $start=$request->start_date.'T'.$request->start_hour.'Z';
     $end=$request->end_date.'T'.$request->end_hour.'Z';
     $resource=$request->room_id;
-
 //    $current_user=Auth::user()->id;            //commenter cette ligne pour que ça fonctionne
-
     $end_date=$request->end_date.$request->end_hour;
     $start_date=$request->start_date.$request->start_hour;
 
     $now = Carbon::now('Europe/Paris')->format('Y-m-dH:i');
 
-    $validator = Validator::make($request->all(), [
-      'room_id' =>'integer',
-      'event_name' => 'alpha',
-      'start_date' => 'date|date_format:Y-m-d',
-  //    'start_hour' => 'date|date_format:H:i',
-      'end_date' => 'date|date_format:Y-m-d',
-  //    'end_hour' => 'date|date_format:H:i'
+    $request->validate([
+    'room_id' =>'integer',
+    'event_name' => 'required',
+    'start_date' => 'date|date_format:Y-m-d',
+    'end_date' => 'date|date_format:Y-m-d',
+    'capacity' => 'integer',  //ajouter la validation de l'image
     ]);
-
-    if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-    }
-
-  $request->validate([
-  'room_id' =>'integer',
-  'event_name' => 'required',
-  'start_date' => 'date|date_format:Y-m-d',
-  'end_date' => 'date|date_format:Y-m-d',
-  'capacity' => 'integer',  //ajouter la validation de l'image
-  ]);
-
 
     if($start_date>$end_date){
       return redirect()->back()->with('failPassed', 'Impossible d\'effectuer une réservation dont les heures sont incohérentes');
@@ -61,9 +44,9 @@ class EventController extends Controller{
       return redirect()->back()->with('failPassed', 'Impossible d\'effectuer une réservation avant aujourd\'hui');
     }
 
-
-    $query= DB::table('events')                                //compte le nombre d'events dans la même plage horaire séléctionner
-          ->where ('resourceId','=', $resource)                               //changer $resource par 1 pour que ça fonctionne
+    //Compte le nb d'events dans la même plage horaire séléctionnée
+    $query= DB::table('events')
+          ->where ('resourceId','=', $resource)
           ->where (function($query)use ($start,$end){
               $query->where('start', '<=', $start)
                     ->where('end', '>=', $end);
@@ -74,14 +57,11 @@ class EventController extends Controller{
               })
           ->count();
 
-
-    if ($query>0){ //s'il y plus de 0 event qui se trouve sur la plage horaire je ne le créer pas
-      return('horaire déjà pris');
+    //Si un événement trouvé, message d'erreur
+    if ($query>0){
       return redirect()->back()->with('failUnavailable', 'Votre événement n\'a pas pu être ajouté car l\'horaire est déjà prise');
     }
-    // $data=array('title'=>$nom,'start'=>$start,"end"=>$end,"resourceId"=>$resouce,"user_id"=>$current_user);  //pour voir ça fonctionne il faut
-    // DB::table('events')->insert($data);
-                                                                       //donner $resource =1 et user_id=1
+
     $event = new Event;
     $event->title = $nom;
     $event->start = $start;
@@ -97,42 +77,22 @@ class EventController extends Controller{
 
     public function update(Request $request){
 
-        $EVENTID = $request->event_id;
+        $eventID = $request->event_id;
+        $event = Event::find($eventID);
+        $event->title = $request->event_name;
+        $event->start = $request->start_date.'T'.$request->start_hour.'Z';
+        $event->end = $request->end_date.'T'.$request->end_hour.'Z';
+        $event->resourceId = $request->room_id;
+        $event->save();
 
-        $EVENT = Event::find($EVENTID);
-
-        $EVENT->title = $request->event_name;
-        $EVENT->start = $request->start_date.'T'.$request->start_hour.'Z';
-        $EVENT->end = $request->end_date.'T'.$request->end_hour.'Z';
-        $EVENT->resourceId = $request->room_id;
-        $EVENT->save();
-
-      // $idEvent = $request->input('event_id');
-      //
-      // if($idEvent!=null){
-      // $title= $request->input('event_name');
-      // $start=$request->input('start_date').'T'.$request->input('start_hour').'Z';
-      // $end=$request->input('end_date').'T'.$request->input('end_hour').'Z';
-      // $resource=$request->input('room_id');
-      //
-      //
-      //   $events = Event::where('id', $idEvent)
-      //       ->update(['title' => $title,'start'=>$start,'end'=>$end,'resourceId'=>$resource]);
-      //     // return ('event a été modifié');
-      return redirect()->back()->with('success', 'Votre événement a bien été modfié');
-      //   }
-
-
+        return redirect()->back()->with('success', 'Votre événement a bien été modfié');
    }
 
 
    public function delete(Request $request,$id){
+        $event = Event::find($id)->delete();
 
-          $events = Event::find($id)->delete();
-              return redirect()->back()->with('success', 'Votre événement a bien été supprimé');
+        return redirect()->back()->with('success', 'Votre événement a bien été supprimé');
     }
-
-
-
 
 }

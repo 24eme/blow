@@ -20,4 +20,4 @@ $( "#datepicker" ).datepicker({
       nextText: "Suiv",
     });
       });
-</script>
+</script> 
