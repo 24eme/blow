@@ -32,18 +32,18 @@ class EventController extends Controller{
 
     $now = Carbon::now('Europe/Paris')->format('Y-m-dH:i');
 
-  //   $validator = Validator::make($request->all(), [
-  //     'room_id' =>'integer',
-  //     'event_name' => 'alpha',
-  //     'start_date' => 'date|date_format:Y-m-d',
-  // //    'start_hour' => 'date|date_format:H:i',
-  //     'end_date' => 'date|date_format:Y-m-d',
-  // //    'end_hour' => 'date|date_format:H:i'
-  //   ]);
-  //
-  //   if ($validator->fails()) {
-  //           return back()->withErrors($validator)->withInput();
-  //   }
+    $validator = Validator::make($request->all(), [
+      'room_id' =>'integer',
+      'event_name' => 'alpha',
+      'start_date' => 'date|date_format:Y-m-d',
+  //    'start_hour' => 'date|date_format:H:i',
+      'end_date' => 'date|date_format:Y-m-d',
+  //    'end_hour' => 'date|date_format:H:i'
+    ]);
+
+    if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+    }
 
     if($start_date>$end_date){
       return redirect()->back()->with('failPassed', 'Impossible d\'effectuer une réservation dont les heures sont incohérentes');
