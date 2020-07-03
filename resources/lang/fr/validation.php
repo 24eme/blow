@@ -1,151 +1,90 @@
+
 <?php
-
-return [
-
+return array(
     /*
     |--------------------------------------------------------------------------
     | Validation Language Lines
     |--------------------------------------------------------------------------
     |
-    | Le following language lines contain Le default error messages used by
-    | Le validator class. Some of Lese rules have multiple versions such
-    | as Le size rules. Feel free to tweak each of Lese messages here.
+    | The following language lines contain the default error messages used by
+    | the validator class. Some of these rules have multiple versions such
+    | such as the size rules. Feel free to tweak each of these messages.
     |
     */
-
-    'accepted' => 'Le :attribute must be accepted.',
-    'active_url' => 'Le :attribute is not a valid URL.',
-    'after' => 'Le :attribute must be a date after :date.',
-    'after_or_equal' => 'Le :attribute must be a date after or equal to :date.',
-    'alpha' => 'Le :attribute may only contain letters.',
-    'alpha_dash' => 'Le :attribute may only contain letters, numbers, dashes and underscores.',
-    'alpha_num' => 'Le :attribute may only contain letters and numbers.',
-    'array' => 'Le :attribute must be an array.',
-    'before' => 'Le :attribute must be a date before :date.',
-    'before_or_equal' => 'Le :attribute must be a date before or equal to :date.',
-    'between' => [
-        'numeric' => 'Le :attribute must be between :min and :max.',
-        'file' => 'Le :attribute must be between :min and :max kilobytes.',
-        'string' => 'Le :attribute must be between :min and :max characters.',
-        'array' => 'Le :attribute must have between :min and :max items.',
-    ],
-    'boolean' => 'Le :attribute field must be true or false.',
-    'confirmed' => 'Le :attribute confirmation does not match.',
-    'date' => 'Le :attribute is not a valid date.',
-    'date_equals' => 'Le :attribute must be a date equal to :date.',
-    'date_format' => 'Le :attribute does not match Le format :format.',
-    'different' => 'Le :attribute and :oLer must be different.',
-    'digits' => 'Le :attribute doit avoir :digits chiffres.',
-    'digits_between' => 'Le :attribute must be between :min and :max digits.',
-    'dimensions' => 'Le :attribute has invalid image dimensions.',
-    'distinct' => 'Le :attribute field has a duplicate value.',
-    'email' => 'Le :attribute must be a valid email address.',
-    'ends_with' => 'Le :attribute doit se terminer avec les valeurs suivantes: :values.',
-    'exists' => 'Le selected :attribute is invalid.',
-    'file' => 'Le :attribute must be a file.',
-    'filled' => 'Le :attribute field must have a value.',
-    'gt' => [
-        'numeric' => 'Le :attribute must be greater than :value.',
-        'file' => 'Le :attribute must be greater than :value kilobytes.',
-        'string' => 'Le :attribute must be greater than :value characters.',
-        'array' => 'Le :attribute must have more than :value items.',
-    ],
-    'gte' => [
-        'numeric' => 'Le :attribute must be greater than or equal :value.',
-        'file' => 'Le :attribute must be greater than or equal :value kilobytes.',
-        'string' => 'Le :attribute must be greater than or equal :value characters.',
-        'array' => 'Le :attribute must have :value items or more.',
-    ],
-    'image' => 'Le :attribute must be an image.',
-    'in' => 'Le selected :attribute is invalid.',
-    'in_array' => 'Le :attribute field does not exist in :oLer.',
-    'integer' => 'Le :attribute must be an integer.',
-    'ip' => 'Le :attribute must be a valid IP address.',
-    'ipv4' => 'Le :attribute must be a valid IPv4 address.',
-    'ipv6' => 'Le :attribute must be a valid IPv6 address.',
-    'json' => 'Le :attribute must be a valid JSON string.',
-    'lt' => [
-        'numeric' => 'Le :attribute must be less than :value.',
-        'file' => 'Le :attribute must be less than :value kilobytes.',
-        'string' => 'Le :attribute must be less than :value characters.',
-        'array' => 'Le :attribute must have less than :value items.',
-    ],
-    'lte' => [
-        'numeric' => 'Le :attribute must be less than or equal :value.',
-        'file' => 'Le :attribute must be less than or equal :value kilobytes.',
-        'string' => 'Le :attribute must be less than or equal :value characters.',
-        'array' => 'Le :attribute must not have more than :value items.',
-    ],
-    'max' => [
-        'numeric' => 'Le :attribute may not be greater than :max.',
-        'file' => 'Le :attribute may not be greater than :max kilobytes.',
-        'string' => 'Le :attribute may not be greater than :max characters.',
-        'array' => 'Le :attribute may not have more than :max items.',
-    ],
-    'mimes' => 'Le :attribute must be a file of type: :values.',
-    'mimetypes' => 'Le :attribute must be a file of type: :values.',
-    'min' => [
-        'numeric' => 'Le :attribute must be at least :min.',
-        'file' => 'Le :attribute must be at least :min kilobytes.',
-        'string' => 'Le :attribute must be at least :min characters.',
-        'array' => 'Le :attribute must have at least :min items.',
-    ],
-    'not_in' => 'Le selected :attribute is invalid.',
-    'not_regex' => 'Le :attribute format is invalid.',
-    'numeric' => 'Le :attribute must be a number.',
-    'password' => 'Le password is incorrect.',
-    'present' => 'Le :attribute field must be present.',
-    'regex' => 'Le :attribute format is invalid.',
-    'required' => 'Le :attribute field is required.',
-    'required_if' => 'Le :attribute field is required when :oLer is :value.',
-    'required_unless' => 'Le :attribute field is required unless :oLer is in :values.',
-    'required_with' => 'Le :attribute field is required when :values is present.',
-    'required_with_all' => 'Le :attribute field is required when :values are present.',
-    'required_without' => 'Le :attribute field is required when :values is not present.',
-    'required_without_all' => 'Le :attribute field is required when none of :values are present.',
-    'same' => 'Le :attribute and :oLer must match.',
-    'size' => [
-        'numeric' => 'Le :attribute must be :size.',
-        'file' => 'Le :attribute must be :size kilobytes.',
-        'string' => 'Le :attribute must be :size characters.',
-        'array' => 'Le :attribute must contain :size items.',
-    ],
-    'starts_with' => 'Le :attribute must start with one of Le following: :values.',
-    'string' => 'Le :attribute must be a string.',
-    'timezone' => 'Le :attribute must be a valid zone.',
-    'unique' => 'Le :attribute has already been taken.',
-    'uploaded' => 'Le :attribute failed to upload.',
-    'url' => 'Le :attribute format is invalid.',
-    'uuid' => 'Le :attribute must be a valid UUID.',
-
+    "accepted"         => "Le champ :attribute doit être accepté.",
+    "active_url"       => "Le champ :attribute n'est pas une URL valide.",
+    "after"            => "Le champ :attribute doit être une date postérieure au :date.",
+    "alpha"            => "Le champ :attribute doit seulement contenir des lettres.",
+    "alpha_dash"       => "Le champ :attribute doit seulement contenir des lettres, des chiffres et des tirets.",
+    "alpha_num"        => "Le champ :attribute doit seulement contenir des chiffres et des lettres.",
+    "before"           => "Le champ :attribute doit être une date antérieure au :date.",
+    "between"          => array(
+        "numeric" => "Le champ :attribute doit être entre :min et :max.",
+        "file"    => "Le champ :attribute doit être entre :min et :max kilobytes.",
+        "string"  => "Le champ :attribute doit être entre :min et :max caractères.",
+        "numeric" => "La valeur de :attribute doit être comprise entre :min et :max.",
+        "file"    => "Le fichier :attribute doit avoir une taille entre :min et :max kilobytes.",
+        "string"  => "Le texte :attribute doit avoir entre :min et :max caractères.",
+    ),
+    "confirmed"        => "Le champ de confirmation :attribute ne correspond pas.",
+    "date"             => "Le champ :attribute n'est pas une date valide.",
+    "date_format"      => "Le champ :attribute ne correspond pas au format :format.",
+    "different"        => "Les champ :attribute et :other doivent être différents.",
+    "different"        => "Les champs :attribute et :other doivent être différents.",
+    "digits"           => "Le champ :attribute doit avoir :digits chiffres.",
+    "digits_between"   => "Le champ :attribute doit avoir entre :min and :max chiffres.",
+    "email"            => "Le format du champ :attribute est invalide.",
+    "exists"           => "Le champ :attribute sélectionné est invalide.",
+    "image"            => "Le champ :attribute doit être une image.",
+    "in"               => "Le champ :attribute est invalide.",
+    "integer"          => "Le champ :attribute doit être un entier.",
+    "ip"               => "Le champ :attribute doit être une adresse IP valide.",
+    "max"              => array(
+        "numeric" => "La valeur de :attribute ne peut être supérieure à :max.",
+        "file"    => "Le fichier :attribute ne peut être plus gros que :max kilobytes.",
+        "string"  => "Le texte de :attribute ne peut contenir plus de :max caractères.",
+    ),
+    "mimes"            => "Le champ :attribute doit être un fichier de type : :values.",
+    "min"              => array(
+        "numeric" => "La valeur de :attribute doit être inférieure à :min.",
+        "file"    => "Le fichier :attribute doit être plus que gros que :min kilobytes.",
+        "string"  => "Le texte :attribute doit contenir au moins :min caractères.",
+    ),
+    "not_in"           => "Le champ :attribute sélectionné n'est pas valide.",
+    "numeric"          => "Le champ :attribute doit contenir un nombre.",
+    "regex"            => "Le format du champ :attribute est invalide.",
+    "required"         => "Le champ :attribute est obligatoire.",
+    "required_if"      => "Le champ :attribute est obligatoire quand la valeur de :other est :value.",
+    "required_with"    => "Le champ :attribute est obligatoire quand :values est présent.",
+    "required_without" => "Le champ :attribute est obligatoire quand :values n'est pas présent.",
+    "same"             => "Les champs :attribute et :other doivent être identiques.",
+    "size"             => array(
+        "numeric" => "La taille de la valeur de :attribute doit être :size.",
+        "file"    => "La taille du fichier de :attribute doit être de :size kilobytes.",
+        "string"  => "Le texte de :attribute doit contenir :size caractères.",
+    ),
+    "unique"           => "La valeur du champ :attribute est déjà utilisée.",
+    "url"              => "Le format de l'URL de :attribute n'est pas valide.",
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
     |--------------------------------------------------------------------------
     |
-    | Here you may specify custom validation messages for attributes using Le
-    | convention "attribute.rule" to name Le lines. This makes it quick to
+    | Here you may specify custom validation messages for attributes using the
+    | convention "attribute.rule" to name the lines. This makes it quick to
     | specify a specific custom language line for a given attribute rule.
     |
     */
-
-    'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
-        ],
-    ],
-
+    'custom' => array(),
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes
     |--------------------------------------------------------------------------
     |
-    | Le following language lines are used to swap our attribute placeholder
-    | with something more reader friendly such as "E-Mail Address" instead
-    | of "email". This simply helps us make our message more expressive.
+    | The following language lines are used to swap attribute place-holders
+    | with something more reader friendly such as E-Mail Address instead
+    | of "email". This simply helps us make messages a little cleaner.
     |
     */
-
-    'attributes' => [],
-
-];
+    'attributes' => array(),
+);
