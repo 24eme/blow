@@ -1,4 +1,4 @@
-body,html{
+/* body,html{
   height: 100%;
   width: 100%;
   margin: 0;
@@ -31,9 +31,12 @@ input[type="text"]{
   background: transparent;
   transition: border 0.2s;
 }
+<<<<<<< HEAD
+=======
 i{
   float: left;
 }
+>>>>>>> 6c243126eb9f15fa438ddb5ebb5f673fef7ad074
 .pop-up {
   display: none;
 	position: relative;
@@ -53,4 +56,346 @@ i{
 .content-wrapper{
   width: 10%;
   margin: auto;
+} */
+
+body,html{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+}
+body{
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+*{
+  font-family:Avenir, Quicksand,sans-serif,Arial;
+}
+
+li{
+  list-style-type: none;
+}
+input[type="text"]{
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: 0;
+  font-size: 1rem;
+  padding: 7px 0;
+  margin-bottom: 10px;
+  background: transparent;
+  transition: border 0.2s;
+}
+input[type="text"]:focus{
+  border-bottom: 1px solid blue;
+}
+select{
+  border: none;
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+.btn{
+  width: auto;
+  border:1px solid transparent;
+  border-radius: 100px;
+}
+.navbar{
+  padding-left: 100px;
+  z-index: 100;
+}
+.navbar a{
+  letter-spacing: 2px;
+}
+.headline_container{
+  height: 90vh;
+}
+.headline{
+  float: left;
+  margin-top: 20%;
+  margin-left: 20%;
+  width: 70%;
+}
+h2{
+  font-size: 2em;
+}
+#girl_sitting{
+  width: 36vw;
+  margin-top: -20%;
+  margin-left: 45%;
+  z-index: -100
+}
+#girl_up{
+  width: 60%;
+  margin-top: 100px;
+}
+.left_box{
+  position: absolute;
+  width: 130%;
+  height: 105vh;
+  margin-top: -15%;
+  padding: 15%;
+  background-color: rgb(41,45,52);
+  border-radius: 10%;
+  transition: ;
+  overflow: hidden;
+}
+.btn-light{
+  color: white;
+  background-color: inherit;
+}
+.btn-dark{
+  background-color: #c4dde9;
+}
+.calendar_box{
+  margin: 100px;
+}
+.heart_box img{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.calendar_box{
+  background-color: #fafafa;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.calendar_box img{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.marged-row div img{
+   height: 20vw;
+}
+#reservation-modal{
+  display: none
+}
+.modal-header, .modal-content{
+  border: none;
+  border-radius: 0;
+}
+.modal-header{
+  height: auto;
+  background-color: #ffc063;
+}
+.modal-content{
+  font-size: .8em;
+}
+.header-box{
+  height: 120px;
+  display: block;
+}
+.btn-modal{
+  width: 30%;
+  border: none;
+  border-radius: 0;
+}
+.btn-primary{
+  background-color: #c4dde9;
+  border-color: inherit;
+}
+.btn-primary:hover{
+  background-color: #ff5d3d;
+  border-color: inherit;
+}
+#calendar{
+  margin-right: 10%;
+  font-size: 0.7em;
+}
+tr:nth-child(even) {
+    background-color: #FAFAFA !important;
+}
+.fc-button {
+  background-color: #66615b !important;
+  border: 1px solid transparent !important;
+}
+/* <?php
+  // $roomID = "<script>document.writeln(p1);</script>";
+  // $query = 'SELECT capacity from ROOMS where id='.$roomID;
+  // $result = echo ""
+  $resource = $request->input('room_id');
+  $query =DB::select('SELECT capacity FROM rooms WHERE id=2',
+  ['capacity'=>$resource]);
+  echo $resource;
+?> */
+.fc-button:hover {
+  background-color: #423f3c !important;
+}
+.fc-cell-text{
+  font-family: Avenir !important;
+  cursor: pointer !important;
+}
+.fc-cell-text i{
+  padding-left: 10px;
+}
+.fc-cell-text span{
+  padding-left: 5px;
+}
+
+.pop-up {
+  display: none;
+	position: relative;
+	background: #F7F7F7;
+	width: 80%;
+	height: 80%;
+	margin-right: 0px;
+	margin-bottom: 0px;
+  padding: 10%;
+  box-shadow:  2px 2px 2px 0px rgba(212,212,212,1);
+	text-align: left;
+}
+
+.note{
+  padding: 5px 5px 2px 5px;
+  background-color: #c4dde9;
+}
+.nav-link a:hover{
+    color: #3a506b;
+}
+
+#p1 { background-color: #fff; padding-top: 20px;padding-left: 10%;}
+#p2 {background: white;left: 200%;padding-top: 10px;}
+
+#reserver:target #p2{
+  transform: translateX(-190%);
+  -webkit-transform: translateX(-190%);
+  -moz-transform: translateX(-190%);
+  -o-transform: translateX(-190%);
+  transition-delay: .2s !important;
+}
+#reserver:target #p1 {
+  background: #FAFAFA;
+}
+#reserver:target #p1 i{
+  -webkit-filter: blur(3px);
+}
+#menu i {
+  color: #FFF;
+  font-size: 30px;
+  display: block;
+}
+#menu i:hover li{
+  display: block;
+}
+ul i:hover {
+  opacity: 0.5;
+}
+.page i .title {
+  line-height: 2;
+}
+
+#reserver:target ul .icon{
+  transform: scale(.6);
+  -webkit-transform: scale(.6);
+  -moz-transform: scale(.6);
+  -o-transform: scale(.6);
+  transition-delay: .25s;
+}
+
+#reserver:target #deux{
+  transform: scale(1.2) !important;
+  -webkit-transform: scale(1.2) !important;
+  -moz-transform: scale(1.2) !important;
+  -o-transform: scale(1.2) !important;
+}
+
+
+.home-navbar{
+  width: 100%;
+  z-index: 100;
+  padding-left: 0;
+  background-color: #c4dde9;
+}
+.page  {
+  position: absolute;
+  width: 100%;
+  height: 91%;
+  transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  -webkit-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  -moz-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  -o-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  color: #000;
+  overflow: hidden;
+}
+
+#menu {
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 10%;
+  height: 100%;
+  padding: 0;
+  padding-top: 10%;
+  text-align: center;
+
+  background-color: rgb(41,45,52);
+
+ }
+#menu i {
+  margin: 30px 0;
+  transition: all .5s ease-out !important;
+  -webkit-transition: all .5s ease-out;
+  -moz-transition: all .5s ease-out;
+  -o-transition: all .5s ease-out;
+}
+#menu a{
+  text-decoration: none;
+}
+#menu li{
+  color: #FFF;
+  opacity:0;
+}
+#menu i:hover ~ li{
+  opacity: 1;
+}
+
+
+
+
+
+
+@media screen and (max-width: 1280px){
+  .headline_container{
+    display: block;
+  }
+  .left_box{
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 100%;
+    background-color: rgb(41,45,52);
+    border-radius: 0;
+  }
+  .btn-light{
+    color: black;
+  }
+  #menu{
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  #menu i,a,li{
+    margin: 0;
+    display: inline-flex;
+  }
+  #p1{
+    padding: 0;
+  }
+  #reserver:target #p2{
+    transform: translateX(-198%);
+    -webkit-transform: translateX(-198%);
+    -moz-transform: translateX(-198%);
+    -o-transform: translateX(-198%);
+    transition-delay: .2s !important;
+  }
+}
+
+@font-face {
+    font-family: Avenir;
+    src: url('/fonts/avnir_sv/AvenirLTStd-Book.otf');
 }

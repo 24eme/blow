@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
+// Route::get('/', function () {
+//     //return view('components/TestModaleRoomHono'); //honorine je l'ai créer pour inserer un evenement dans ma base de donéne avec un modale
+//     return view('home');
+// });
+
+Route::get('/', function () {
     //return view('components/TestModaleRoomHono'); //honorine je l'ai créer pour inserer un evenement dans ma base de donéne avec un modale
-    return view('home');
+    return view('index');
 });
 
 Route::get('/testUpdateEvent', function () {
@@ -52,9 +57,9 @@ Route::get('/deleteRoom/{id}', 'RoomController@delete')->name('deleteRoom');
 
 
 
-// Auth::routes();
+Auth::routes();
 //
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 //admin honorine
 // Route::get('/admin', 'AdminController@admin')

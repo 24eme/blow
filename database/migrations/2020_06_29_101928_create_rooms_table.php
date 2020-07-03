@@ -19,6 +19,7 @@ class CreateRoomsTable extends Migration
             $table->string('equipment');
             $table->string('capacity');
             $table->string('eventColor');
+            $table->string('image');
             $table->timestamps();
         });
     }
