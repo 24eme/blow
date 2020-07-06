@@ -43,7 +43,7 @@ class RoomController extends Controller{
      // /*After Resize Add this Code to Upload Image*/
      // $destinationPath = public_path('/');
      // $image->move($destinationPath, $input['imagename']);
-      return redirect('/')->with('success', 'La salle a bien été ajouté');
+      return redirect()->back()->with('success', 'La salle a bien été ajouté');
   }
 
   public function update(Request $request){
@@ -67,7 +67,7 @@ class RoomController extends Controller{
   }
   public function delete(Request $request,$id){
          $room = Room::find($id)->delete();
-             return redirect('/')->with('success', 'Votre salle a bien été supprimé');
+             return redirect()->back()->with('success', 'Votre salle a bien été supprimé');
    }
 
 }

@@ -64,23 +64,44 @@ function modalCheckEvent(info) {
 
     const dateDebutEvent = (startStr).split("T", 2);
     dateDebutEvent[2] = dateDebutEvent[1].split("Z").join("");
-  //  dateDebutEvent[2] = dateDebutEvent[2].slice(0,-3);
+    dateDebutEvent[2] = dateDebutEvent[2].slice(0,-7);
 
     const dateFinEvent = (endStr).split("T", 2);
     dateFinEvent[2]= dateFinEvent[1].split("Z").join("");
-  //  dateFinEvent[2] = dateFinEvent[2].slice(0,-3);
+    dateFinEvent[2] = dateFinEvent[2].slice(0,-7);
 
     inputStartDate.value = dateDebutEvent[0] ;
     inputStartHour.value = dateDebutEvent[2] ;
     inputEndDate.value = dateFinEvent[0] ;
     inputEndHour.value = dateFinEvent[2] ;
 
+    $('#modalUDEvent').modal('show');
 
+};
+function modalCheckRoom(room) {
+    var inputRoomID = document.getElementById('HiddenroomID');
+    var inputRoomName = document.getElementById('roomName');
+    var capacity = document.getElementById('Capacity');
+    var equipment = document.getElementById('Equipment');
+    var img = document.getElementById('imgRoom');
+    var inputEventID= document.getElementById('eventColor');
+
+    inputRoomID.value = room.id;
+    inputRoomName.value = room.title;
+    capacity.value = room.capacity;
+    equipment.value = room.equipment;
+    img.src = "img/"+room.image;
+
+    $('#modalUDRoom').modal('show');
 
 };
 
 function deleteEvent(){
     var url = 'deleteEvent/'+document.getElementById('HiddenEventID').value;
+    window.location = url;
+};
+function deleteRoom(RoomID){ 
+    var url = 'deleteRoom/'+ RoomID;
     window.location = url;
 };
 
@@ -89,7 +110,7 @@ function gotoDate(){
       var url = new URL(window.location);
       url.searchParams.set('date', datepickerValue);
       window.location = url.toString();
-}
+};
 
 function resourcePopup(info) {
 
@@ -147,4 +168,41 @@ function resourcePopup(info) {
             info.el.addEventListener("mouseover", popupDisplay);
             info.el.addEventListener("mouseout", popupHide);
 
+  };
+  // function scrollTime(){
+  //
+  //   var scrollTime = document.getElementById('inputStartHour');
+  //   calendar.scrollToTime(scrollTime.value);
+  // };
+  // function edit(){
+  //
+  //     var bool = true;
+  //   	var modal = document.getElementById('formUDEvent');
+  //     var inputs = modal.getElementsByClassName('editable');
+  //
+  //     if (modal.classList.contains('is-readonly')){
+  //         modal.className = 'is-editing';
+  //         bool = false;
+  //     }
+  //     else {
+  //         modal.className = 'is-readonly';
+  //         bool=true;
+  //
+  //     }
+  //     for (var i = 0; i < inputs.length; i++) {
+  //       inputs[i].disabled = bool;
+  //     } ;
+  // };
+  function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
 };

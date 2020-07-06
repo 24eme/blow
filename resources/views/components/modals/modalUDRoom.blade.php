@@ -9,23 +9,26 @@
     {{ csrf_field() }}
           <div class="modal-body">
           <div class="row content-head ">
+                                    <img class="modalUDImg" id="imgRoom" src="">
                         <label for="room_title" class="content-title">SALLE :</label>
-                        <input id="CHANGERIDSINONCONFLIT" type="text" placeholder="Nom de la Salle" name="room_name" class="input" value="" required>
-                        <input id="inputHiddenRoomID" type="text" name="room_id" value="" hidden>
+                        <input id="roomName" type="text" placeholder="Nom de la Salle" name="room_name" class="input editable" value="" required>
+                        <input id="HiddenroomID" type="text" name="room_id" value="" hidden>
+
           </div>
           <div class="row">
                         <label for="capacity">Capacité :</label><label id="roomCapacity"></label>
-                        <input id="inputCapacity" type="text" placeholder="Capacité de la Salle" name="capacity" class="input" value="" required>
+                        <input id="Capacity" type="text" placeholder="Capacité de la Salle" name="capacity" class="input editable" value="" required>
           </div>
           <div class="row">
                         <label for="equipment">Equipements : </label><label id="roomEquipment"></label>
-                        <input id="inputEquipment" type="text" placeholder="Equipements de la Salle" name="equipment" class="input" value="" required>
+                        <input id="Equipment" type="text" placeholder="Equipements de la Salle" name="equipment" class="input editable" value="" required>
           </div>
           <div class="row">
-                        <label for="equipment">Couleur : </label><label id="roomEquipment"></label>
-                        <input class="" type="color" id="eventColor" name="eventColor" value="#e66465"><span class="focus-border"></span>
+                        <label for="equipment">Couleur : </label><label id="roomColor"></label>
+                        <input class="input editable" type="color" id="eventColor" name="eventColor" value="#e66465"><span class="focus-border"></span>
           </div>
           <div class="row">
+                        <!-- Changer id en inputImage -->
                         <input id='image'type='file' accept="image/jpeg" name="image" required>
 
           </div>

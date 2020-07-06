@@ -34,11 +34,58 @@ select{
   appearance: button;
   outline: none;
 }
-.btn{
-  width: auto;
-  border:1px solid transparent;
-  border-radius: 100px;
+
+
+/* form.is-readonly .btn-save {
+  display: none;
 }
+form.is-readonly .editable{
+  cursor: text;
+  background-color: #fff;
+  border-color: transparent;
+  outline-color: transparent;
+  box-shadow: none;
+}
+form.is-editing .btn-edit {
+  display: none;
+} */
+ .modalUDImg{
+   width: 40%;
+   height: 40%;
+   box-shadow: 1px 1px 0px 0px black;
+ }
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+
+
 .navbar{
   padding-left: 100px;
   z-index: 100;

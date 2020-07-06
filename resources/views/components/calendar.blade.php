@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
       headerToolbar: {
         left: 'today prev,next',
         center: 'title',
-        right: 'resourceTimelineDay,resourceTimelineWeek'
+        right: 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth'
       },
       timeZone: 'Europe/Paris',
       locale: 'fr',
@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
       selectable:true,
       navLinks: true,
       nowIndicator:true,
-
       events:'showEvents',
       resources:'showRooms',
 
@@ -31,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
       eventClick: function(info){
         modalCheckEvent(info);
         var userid= <?php echo Auth::id() ?>;
-      
+
         if (userid!= info.event.extendedProps.user_id) {
            alert('Ce n\'est pas votre évenement');
           }
@@ -50,7 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
           Currentdate = DateTab[0];
           var url = new URL(window.location);
           url.searchParams.set('date', Currentdate);
-          history.pushState(null,null, "home?date="+Currentdate);
+          if(window.location.href.includes('home')){
+            history.pushState(null,null, "home?date="+Currentdate);
+          };
       },
     });
 

@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('index');
 });
 
+
 Route::get('/showEvents', 'EventController@show');
 Route::post('/createEvent','EventController@create')->name('createEvent');
 Route::post('/updateEvent', 'EventController@update')->name('UpdateEvent');
@@ -26,9 +27,12 @@ Route::post('/updateRoom','RoomController@update')->name('UpdateRoom');
 Route::get('/deleteRoom/{id}', 'RoomController@delete')->name('deleteRoom');
 
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 //admin honorine
-Route::get('/admin', 'AdminController@admin')
-    ->middleware('is_admin')
-    ->name('admin');
+Route::get('/admin', 'AdminController@admin')->middleware('is_admin')->name('admin');
+
+
+
+Route::get('/admin', 'AdminController@index'); 

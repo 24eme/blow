@@ -57,7 +57,7 @@
           </div>
           <div class="modal-footer">
                 <div class="btn-wrapper">
-                <input type="submit" class="btn btn-primary btn-modal" name="action" value="Valider">
+                <input type="submit" class="btn btn-primary btn-modal"  name="action"  onclick="scrollTime()" value="Valider">
             </div>
           </div>
       </form>
