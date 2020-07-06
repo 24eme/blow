@@ -71,4 +71,12 @@ class RegisterController extends Controller
           'type' => User::DEFAULT_TYPE,
         ]);
     }
+
+    public function destroy(User $user)
+    {
+       $user->delete();
+       Event::where('user_id', $user->id)->delete();
+       return redirect('/')->with('success', 'L\'utilisateur a été supprimé');
+
+     }
 }
