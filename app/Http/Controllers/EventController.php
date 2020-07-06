@@ -8,7 +8,6 @@ use App\Event;
 
 use Carbon\Carbon;
 use Auth;
-use Illuminate\Support\Facades\DB;
 use Validator;
 class EventController extends Controller{
 
@@ -45,16 +44,24 @@ class EventController extends Controller{
     }
 
     //Compte le nb d'events dans la même plage horaire séléctionnée A REVOIR CA NE MARCHE PAS
-    $query= DB::table('events')
-          ->where ('resourceId','=', $resource)
+    $query= Event::where ('resourceId','=', $resource)
           ->where (function($query)use ($start,$end){
               $query->where('start', '<=', $start)
-                    ->where('end', '>=', $end);
+                    ->where('end', '>=', $end)
+                    ->orWhere(function($query)use ($start,$end){
+                        $query->where('start', '>=', $start)
+                              ->where('end', '<=',$end)
+                              ->orWhere(function($query)use ($start,$end){
+                                $query->where('end','>',$start)
+                                      ->where('start','<',$start)
+                                      ->orWhere(function($query)use ($start,$end){
+                                        $query->where('start','<',$end)
+                                              ->where('end','>',$end);
+                                      });
+                              });
+                        });
               })
-          ->orWhere(function($query)use ($start,$end){
-              $query->where('start', '>=', $start)
-                    ->where('end', '<=',$end);
-              })
+
           ->count();
 
     //Si un événement trouvé, message d'erreur

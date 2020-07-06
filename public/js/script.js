@@ -138,7 +138,8 @@ function resourcePopup(info) {
 
             popup.className = "pop-up";
             popup.innerHTML = info.resource.title;
-            img.src = "img/"+info.resource.id+'.jpg';
+            img.src = "img/"+info.resource.extendedProps.image;
+            
             img.style.width = "70%";
             img.style.height = "50%"
             equipement.innerHTML = "Chaise,TV";
