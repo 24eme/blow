@@ -1,9 +1,9 @@
 @extends('layouts.layout')
 @guest
   @extends('index')
-@else 
+@else
 @section('content')
-<div style='z-index:100'>
+<div style='position: absolute;z-index:100'>
   <input class="input-date" type="text" name="" placeholder="date" id="datepicker">
   <button type="button" onclick="gotoDate()"><i class="fas fa-search"></i>
   </button>
