@@ -20,6 +20,7 @@ class CreateEventsTable extends Migration
             $table->string('end');
             $table->string('resourceId');
             $table->string('user_id');
+            $table->boolean('confirmed');
             $table->timestamps();
         });
     }

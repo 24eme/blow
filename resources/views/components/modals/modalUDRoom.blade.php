@@ -29,13 +29,13 @@
           </div>
           <div class="row">
                         <!-- Changer id en inputImage -->
-                        <input id='image'type='file' accept="image/jpeg" name="image" required>
+                        <input id='image'type='file' accept="image/jpeg" name="image" >
 
           </div>
           </div>
           <div class="modal-footer">
                <div class="btn-wrapper">
-               <input type="submit" class="btn btn-primary btn-modal" name="action" value="Valider">
+               <input type="submit" class="btn btn-primary btn-modal" value="Modifier">
                </div>
           </div>
     </form>

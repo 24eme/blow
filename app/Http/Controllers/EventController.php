@@ -75,6 +75,7 @@ class EventController extends Controller{
     $event->end = $end;
     $event->resourceId = $resource;
     $event->user_id=$current_user;
+    $event->confirmed=false;
     $event->save();
 
             return redirect()->back()->with('success', 'Votre événement a bien été ajouté');
@@ -89,6 +90,7 @@ class EventController extends Controller{
         $event->start = $request->start_date.'T'.$request->start_hour.'Z';
         $event->end = $request->end_date.'T'.$request->end_hour.'Z';
         $event->resourceId = $request->room_id;
+        $event->confirmed = false;
         $event->save();
 
         return redirect()->back()->with('success', 'Votre événement a bien été modfié');

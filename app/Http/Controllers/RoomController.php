@@ -51,12 +51,14 @@ class RoomController extends Controller{
     $roomId = $request->room_id;
 
     if($roomId!=null){
-       $room = Room::find($room_id);
+       $room = Room::find($roomId);
        $room->title = $request->room_name;
        $room->equipment=$request->equipment;
        $room->capacity=$request->capacity;
        $room->eventColor=$request->eventColor;
-       $room->image=$request->image;
+       if ($request->image != null) {
+         $room->image=$request->image;
+       }
        $room->save();
 
         return redirect()->back()->with('success', 'La salle a bien été modfié');

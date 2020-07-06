@@ -42,7 +42,7 @@ function modalCheckEvent(info) {
     var inputRoomName = document.getElementById('RoomName');
     var inputEventName = document.getElementById('EventName');
     var inputEventID= document.getElementById('HiddenEventID');
-
+    alert(info.event.extendedProps.confirmed);
     var inputHiddenRoomID = document.getElementById('HiddenRoomID');
     var equipment = document.getElementById('equipment');
     var capacite = document.getElementById('capacity');
@@ -100,7 +100,7 @@ function deleteEvent(){
     var url = 'deleteEvent/'+document.getElementById('HiddenEventID').value;
     window.location = url;
 };
-function deleteRoom(RoomID){ 
+function deleteRoom(RoomID){
     var url = 'deleteRoom/'+ RoomID;
     window.location = url;
 };
@@ -114,15 +114,18 @@ function gotoDate(){
 
 function resourcePopup(info) {
 
-    var elements = document.getElementsByClassName('fc-timeline-lane');
+    var elements = document.getElementsByClassName('fc-datagrid-cell');
     var capacityNumber = document.createElement('span');
     var capacityIcon = document.createElement('i');
     capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
     capacityIcon.className = "fas fa-male";
+    capacityIcon.style.position="absolute";
+    capacityNumber.style.position="absolute";
+   console.log(elements);
     for (var i = 0; i < elements.length; i++) {
       //info.el.apppendChild();
-      elements[i].appendChild(capacityIcon);
-      elements[i].appendChild(capacityNumber);
+      info.el.appendChild(capacityIcon);
+      info.el.appendChild(capacityNumber);
     } ;
 
             var popup = document.createElement('div');
@@ -139,7 +142,7 @@ function resourcePopup(info) {
             popup.className = "pop-up";
             popup.innerHTML = info.resource.title;
             img.src = "img/"+info.resource.extendedProps.image;
-            
+
             img.style.width = "70%";
             img.style.height = "50%"
             equipement.innerHTML = "Chaise,TV";
@@ -160,11 +163,14 @@ function resourcePopup(info) {
                     popup.style.display = "block";
               }
               else{
+                popup.style.position ="absolute";
                 popup.style.display = "none  ";
               }
             };
             function popupHide(){
+              popup.style.position ="absolute";
               popup.style.display ="none";
+
             }
             info.el.addEventListener("mouseover", popupDisplay);
             info.el.addEventListener("mouseout", popupHide);
@@ -194,16 +200,23 @@ function resourcePopup(info) {
   //       inputs[i].disabled = bool;
   //     } ;
   // };
-  function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
+  function openCity(evt, tab) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tab).style.display = "block";
+    evt.currentTarget.className += " active";
+  };
+
+function validateEvent(event) {
+
+  //this event->confirmed ==true;
+
+
 };

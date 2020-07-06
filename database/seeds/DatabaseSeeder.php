@@ -21,14 +21,14 @@ class DatabaseSeeder extends Seeder
       DB::table("rooms")->insert(["title"=>"SALLE DE REUNION 325","equipment"=>"TV","capacity"=>"12","eventColor"=>"#88f77c","image"=>'8.jpg']);
       DB::table("rooms")->insert(["title"=>"SALLE DE REUNION 342","equipment"=>"TV","capacity"=>"32","eventColor"=>"#e2bfff","image"=>'1.jpg']);
 
-      DB::table("events")->insert(["title"=>"réservation 1","start"=>"2020-07-01T08:00:00Z","end"=>"2020-07-01T10:00:00Z","resourceId"=>"1","user_id"=>"1"]);
-      DB::table("events")->insert(["title"=>"réservation 2","start"=>"2020-06-29T08:00:00Z","end"=>"2020-06-29T10:00:00Z","resourceId"=>"2","user_id"=>"2"]);
-      DB::table("events")->insert(["title"=>"réservation 3","start"=>"2020-06-30T18:00:00Z","end"=>"2020-06-30T20:00:00Z","resourceId"=>"3","user_id"=>"1"]);
-      DB::table("events")->insert(["title"=>"réservation 4","start"=>"2020-07-01T08:00:00Z","end"=>"2020-07-01T10:00:00Z","resourceId"=>"4","user_id"=>"2"]);
-      DB::table("events")->insert(["title"=>"réservation 5","start"=>"2020-07-02T14:00:00Z","end"=>"2020-07-02T15:00:00Z","resourceId"=>"5","user_id"=>"3"]);
-      DB::table("events")->insert(["title"=>"réservation 6","start"=>"2020-06-29T14:00:00Z","end"=>"2020-06-29T15:00:00Z","resourceId"=>"6","user_id"=>"2"]);
-      DB::table("events")->insert(["title"=>"réservation 7","start"=>"2020-06-30T08:00:00Z","end"=>"2020-06-30T10:00:00Z","resourceId"=>"7","user_id"=>"1"]);
-      DB::table("events")->insert(["title"=>"réservation 8","start"=>"2020-06-30T14:00:00Z","end"=>"2020-06-30T15:00:00Z","resourceId"=>"8","user_id"=>"3"]);
+      DB::table("events")->insert(["title"=>"réservation 1","start"=>"2020-07-01T08:00:00Z","end"=>"2020-07-01T10:00:00Z","resourceId"=>"1","user_id"=>"1","confirmed"=>false]);
+      DB::table("events")->insert(["title"=>"réservation 2","start"=>"2020-06-29T08:00:00Z","end"=>"2020-06-29T10:00:00Z","resourceId"=>"2","user_id"=>"2","confirmed"=>false]);
+      DB::table("events")->insert(["title"=>"réservation 3","start"=>"2020-06-30T18:00:00Z","end"=>"2020-06-30T20:00:00Z","resourceId"=>"3","user_id"=>"1","confirmed"=>false]);
+      DB::table("events")->insert(["title"=>"réservation 4","start"=>"2020-07-01T08:00:00Z","end"=>"2020-07-01T10:00:00Z","resourceId"=>"4","user_id"=>"2","confirmed"=>false]);
+      DB::table("events")->insert(["title"=>"réservation 5","start"=>"2020-07-02T14:00:00Z","end"=>"2020-07-02T15:00:00Z","resourceId"=>"5","user_id"=>"3","confirmed"=>false]);
+      DB::table("events")->insert(["title"=>"réservation 6","start"=>"2020-06-29T14:00:00Z","end"=>"2020-06-29T15:00:00Z","resourceId"=>"6","user_id"=>"2","confirmed"=>false]);
+      DB::table("events")->insert(["title"=>"réservation 7","start"=>"2020-06-30T08:00:00Z","end"=>"2020-06-30T10:00:00Z","resourceId"=>"7","user_id"=>"1","confirmed"=>false]);
+      DB::table("events")->insert(["title"=>"réservation 8","start"=>"2020-06-30T14:00:00Z","end"=>"2020-06-30T15:00:00Z","resourceId"=>"8","user_id"=>"3","confirmed"=>false]);
 
       // $this->call(UserSeeder::class);
 

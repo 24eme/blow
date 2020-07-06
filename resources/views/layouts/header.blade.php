@@ -11,7 +11,7 @@
 
   </nav>
 @else
-  <nav class="navbar navbar-expand-lg navbar-light home-navbar bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light home-navbar ">
    <div class="container-fluid">
      <div class="navbar-header">
        <span><a class="navbar-brand nav-link" href="#!">BLOW</a></span>

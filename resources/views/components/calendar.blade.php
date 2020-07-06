@@ -28,14 +28,14 @@ document.addEventListener('DOMContentLoaded', function() {
         modalAddEvent(info);
       },
       eventClick: function(info){
-        modalCheckEvent(info);
+
         var userid= <?php echo Auth::id() ?>;
 
         if (userid!= info.event.extendedProps.user_id) {
            alert('Ce n\'est pas votre évenement');
           }
          else {
-         $('#modalUDEvent').modal('show');
+               modalCheckEvent(info);
 
          }
       },
