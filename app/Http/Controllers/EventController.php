@@ -50,12 +50,20 @@ class EventController extends Controller{
                     ->where('end', '>=', $end)
                     ->orWhere(function($query)use ($start,$end){
                         $query->where('start', '>=', $start)
-                              ->where('end', '<=',$end);
+                              ->where('end', '<=',$end)
+                              ->orWhere(function($query)use ($start,$end){
+                                $query->where('end','>',$start)
+                                      ->where('start','<',$start)
+                                      ->orWhere(function($query)use ($start,$end){
+                                        $query->where('start','<',$end)
+                                              ->where('end','>',$end);
+                                      });
+                              });
                         });
               })
 
           ->count();
-          
+
     //Si un événement trouvé, message d'erreur
     if ($query>0){
       return redirect()->back()->with('error', 'Votre événement n\'a pas pu être ajouté car l\'horaire est déjà prise');
