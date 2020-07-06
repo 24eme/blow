@@ -1,4 +1,7 @@
 @extends('layouts.layout')
+@guest
+  @extends('index')
+@else 
 @section('content')
 <div style='z-index:100'>
   <input class="input-date" type="text" name="" placeholder="date" id="datepicker">
@@ -25,3 +28,4 @@
   </div>
 </div>
 @endsection
+@endguest

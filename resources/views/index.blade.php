@@ -1,5 +1,3 @@
-@guest
-@extends('layouts.layout')
 @section('content')
 
 <section id="accueil">
@@ -127,5 +125,4 @@
 </footer>
 
 
-@endsection 
-@endguest
+@endsection
