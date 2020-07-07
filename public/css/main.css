@@ -88,6 +88,13 @@ form.is-editing .btn-edit {
   text-align: center;
 }
 
+.inputR{
+  margin-left: 20PX;
+}
+
+.espace{
+  margin-bottom: 10px;
+}
 .btn-primary{
   background-color: #2C3E50;
   border-color: #2C3E50;
