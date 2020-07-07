@@ -18,7 +18,7 @@ class EventController extends Controller{
   }
 
   public function validateEvent($eventID){
-       $event = Event::find($eventID);  
+       $event = Event::find($eventID);
        $event->confirmed=false;
        $event->save();
 
@@ -61,6 +61,24 @@ class EventController extends Controller{
       return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation sur plus de 3 heures');
     }
 
+
+  //Honorine
+  // A revoir problème pour comparer seulement la date:
+  // Ce qu on doit faire : comparer l id user dans la meme journé le nombre de reservation si plus 1 faire l addition des heures
+  // et voir si inférieur à 3 si inférieur à 3 c est bon sinon retourner 'Impossible d\'effectuer une réservation sur plus de 3 heures par jour'
+    // dd((date_diff($start_date, $end_date)->format('%d')));
+    // $query=Event::where('user_id','==',$current_user)
+    //       ->where('start'.date('Y-m-d'),'=',$start.date('Y-m-d'))
+    //       // ->where((date_diff('start',$start_date)->format('Y-m-d'))=="0")
+    //       // ->where((date_diff('end',$end_date)->format('Y-m-d'))=="0")
+    //       ->count();
+    //
+    // dd($query);
+    // if($query>0){
+    //   return redirect()->back()->with('error', 'Votre événement n\'a pas pu être ajouté car l\'horaire est déjà prise');
+    // }
+
+    
     //Compte le nb d'events dans la même plage horaire séléctionnée A REVOIR CA NE MARCHE PAS
     $query= Event::where ('resourceId','=', $resource)
           ->where (function($query)use ($start,$end){
@@ -127,7 +145,6 @@ class EventController extends Controller{
      $end=$request->end_date.'T'.$request->end_hour.'Z';
      $resource=$request->room_id;
      $now = Carbon::now('Europe/Paris')->format('Y-m-dH:i');
-             //commenter cette ligne pour que ça fonctionne
 
 
      if($start_date>$end_date){
