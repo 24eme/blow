@@ -105,6 +105,11 @@ function deleteRoom(RoomID){
     window.location = url;
 };
 
+function deleteUser(UserID){
+    var url = 'deleteUser/'+ UserID;
+    window.location = url;
+};
+
 function gotoDate(){
       var datepickerValue = document.getElementById("datepicker").value;
       var url = new URL(window.location);
