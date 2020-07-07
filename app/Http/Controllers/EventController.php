@@ -9,6 +9,7 @@ use DB;
 use Carbon\Carbon;
 use Auth;
 use Validator;
+use DateTime;
 class EventController extends Controller{
 
   public function show(){
@@ -40,7 +41,15 @@ class EventController extends Controller{
       return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation dont les heures sont incohérentes');
     }
     if($start_date<$now){
-      return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation avant aujourd\'hui');
+      return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation dans le passé');
+    }
+
+    //limitation de l'intervalle de temps à réserver ici max 3h par jours.
+    $start_date = new DateTime($start_date);
+    $end_date = new DateTime($end_date);
+
+    if((date_diff($start_date, $end_date)->format('%h'))>"3"){
+      return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation sur plus de 3 heures');
     }
 
     //Compte le nb d'events dans la même plage horaire séléctionnée A REVOIR CA NE MARCHE PAS
@@ -117,6 +126,14 @@ class EventController extends Controller{
      }
      if($start_date<$now){
        return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation avant aujourd\'hui');
+     }
+
+     //limitation de l'intervalle de temps à réserver ici max 3h par jours.
+     $start_date = new DateTime($start_date);
+     $end_date = new DateTime($end_date);
+
+     if((date_diff($start_date, $end_date)->format('%h'))>"3"){
+       return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation sur plus de 3 heures');
      }
 
      $query= Event::where ('resourceId','=', $resource)
