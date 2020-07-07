@@ -50,11 +50,7 @@ form.is-editing .btn-edit {
   display: none;
 } */
 
- .modalUDImg{
-   width: 40%;
-   height: 40%;
-   box-shadow: 1px 1px 0px 0px black;
- }
+
  /* honorine */
 
  .modal-header{
@@ -94,6 +90,15 @@ form.is-editing .btn-edit {
 
 .espace{
   margin-bottom: 10px;
+}
+
+.modalUDImg{
+  width: 80%;
+  height: 100%;
+  box-shadow: 1px 1px 0px 0px black;
+}
+.alinea{
+  margin-left: 15px;
 }
 .btn-primary{
   background-color: #2C3E50;
