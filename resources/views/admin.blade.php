@@ -1,5 +1,6 @@
 @extends('layouts.layout')
 @section('content')
+
 <nav class="navbar navbar-expand-lg navbar-light home-navbar secondnav">
  <div class="container-fluid">
    <ul class="nav navbar-nav ">
@@ -45,8 +46,8 @@
               </div>
               @foreach($users as $user)
               <div class="user-li-wrapper">
-              <li>{{$user->name}}</li>
-                  <button type="button" data-toggle="modal" data-target="#modalUDUser" class="btn">Supprimer</button>
+              <li>{{$user->id}} {{$user->name}}  {{$user->email}}  </li>
+                  <button type="button" class="btn" onclick= "deleteUser({{$user->id}})" >Supprimer</button>
               </div>
               @endforeach
 
@@ -72,7 +73,7 @@
               @foreach($rooms as $room)
               <div class="user-li-wrapper">
               <li>{{$room->title}}</li>
-                  <button type="button" class="btn" onclick="modalCheckRoom({{$room}})"><i class="fas fa-pen"></i>eokd</button>
+                  <button type="button" class="btn" onclick="modalCheckRoom({{$room}})"><i class="fas fa-pen"></i>Modifier</button>
                   <button type="button" class="btn" onclick="deleteRoom({{$room->id}})" type="button">Supprimer</button>
               @endforeach
               </div>
