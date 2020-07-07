@@ -31,7 +31,7 @@
               @foreach ($events as $event)
               @if($event->confirmed == "0")
               <li>{{$event->title}}</li>
-                  <button type="button" class="btn btn-validate" onclick="this;disabled=true;validateEvent({{$event}})">Valider</button>
+                  <button type="button" class="btn btn-validate" onclick="this.disabled=true;validateEvent({{$event}})">Valider</button>
                   <button type="button" class="btn" onclick="cancelEvent({{$event->id}})">Annuler</button>
               @endif
               @endforeach

@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+// class User extends Authenticatable implements MustVerifyEmail
+
 class User extends Authenticatable
 {
     const ADMIN_TYPE = 'admin';
@@ -39,7 +41,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function isAdmin(){        
+    public function isAdmin(){
         return $this->type === self::ADMIN_TYPE;
     }
 

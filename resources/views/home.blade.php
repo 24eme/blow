@@ -13,16 +13,18 @@
   <div class="ct" id="accueil">
   <div class="ct" id="calendrier">
         <div class="page" id="p1">
+          @include('components.flash-message')
         <div class="container">
             @extends('components.modals.modalCEvent')
             @extends('components.modals.modalUDEvent')
-            @extends('components.flash-message')
               <section><div id="calendar"></div></section>
         </div>
         </div>
         <div class="page" id="p2">
         <div class="container">
         </div>
+
+
         </div>
   </div>
   </div>

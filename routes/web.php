@@ -27,6 +27,9 @@ Route::post('/updateRoom','RoomController@update')->name('UpdateRoom');
 Route::get('/deleteRoom/{id}', 'RoomController@delete')->name('deleteRoom');
 
 Auth::routes();
+//Vérification d'email
+// Auth::routes(['verify' => true]);
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
