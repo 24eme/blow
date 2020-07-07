@@ -26,7 +26,7 @@
                         <input class='inputR' type="color" id="eventColor" name="eventColor" value="#e66465"><span class="focus-border"></span><br>
           </div>
           <div class="row espace">
-                        <input  id='image'type='file' accept="image/jpeg" name="image" required>
+                        <input id='image'type='file' accept="image/jpeg" name="image" required>
 
           </div>
           </div>
