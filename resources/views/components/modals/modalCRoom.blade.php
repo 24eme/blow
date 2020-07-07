@@ -5,29 +5,28 @@
               <h4 class="modal-title">Création de Salle</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button></br>
     </div>
-    <form method="POST" id="" action="{{route('createRoom')}}" enctype="multipart/form-data">
+    <form style='padding-left:20PX;' method="POST" id="" action="{{route('createRoom')}}" enctype="multipart/form-data">
     {{ csrf_field() }}
           <div class="modal-body">
-          <div class="row content-head ">
+          <div class="row content-head espace">
                         <label for="room_title" class="content-title">SALLE :</label>
-
-                        <input id="inputRoomName" type="text" placeholder="Nom de la Salle" name="room_name" class="input" value="" required>
-                        <input id="inputHiddenRoomID" type="text" name="room_id" value="" hidden>
+                        <input class='inputR'id="inputRoomN" type="text" placeholder="Nom de la Salle" name="room_name" class="input" value="" required>
+                        <input class='inputR'id="inputHiddenRoomID" type="text" name="room_id" value="" hidden>
           </div>
-          <div class="row">
+          <div class="row espace">
                         <label for="capacity">Capacité :</label><label id="roomCapacity"></label>
-                        <input id="inputCapacity" type="text" placeholder="Capacité de la Salle" name="capacity" class="input" value="" required>
+                        <input class='inputR'id="inputCapacity" type="text" placeholder="Capacité de la Salle" name="capacity" class="input" value="" required>
           </div>
-          <div class="row">
+          <div class="row espace">
                         <label for="equipment">Equipements : </label><label id="roomEquipment"></label>
-                        <input id="inputEquipment" type="text" placeholder="Equipements de la Salle" name="equipment" class="input" value="" required>
+                        <input class='inputR'id="inputEquipment" type="text" placeholder="Equipements de la Salle" name="equipment" class="input" value="" required>
           </div>
-          <div class="row">
+          <div class="row espace">
                         <label for="equipment">Couleur : </label><label id="roomEquipment"></label>
-                        <input class="" type="color" id="eventColor" name="eventColor" value="#e66465"><span class="focus-border"></span>
+                        <input class='inputR' type="color" id="eventColor" name="eventColor" value="#e66465"><span class="focus-border"></span><br>
           </div>
-          <div class="row">
-                        <input id='image'type='file' accept="image/jpeg" name="image" required>
+          <div class="row espace">
+                        <input  id='image'type='file' accept="image/jpeg" name="image" required>
 
           </div>
           </div>
