@@ -55,6 +55,43 @@ form.is-editing .btn-edit {
    height: 40%;
    box-shadow: 1px 1px 0px 0px black;
  }
+ /* honorine */
+
+ .modal-header{
+   background-color:#9498cb;
+ }
+
+.content-title{
+   font-weight: bold;
+   font-size:19px;
+ }
+
+#inputRoomName{
+  background-color:#9498cb;
+  color:black;
+  margin-left:20px;
+  border-radius:5px;
+  text-align: center;
+}
+#RoomName{
+  background-color:#9498cb;
+  color:black;
+  margin-left:20px;
+  border-radius:5px;
+  text-align: center;
+}
+
+#inputEventName{
+  color:black;
+  margin-left:10px;
+  border-radius:5px;
+  text-align: center;
+}
+
+.btn-primary{
+  background-color: #2C3E50;
+  border-color: #2C3E50;
+}
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
