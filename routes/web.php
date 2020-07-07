@@ -26,6 +26,9 @@ Route::post('/createRoom', 'RoomController@create')->name('createRoom');
 Route::post('/updateRoom','RoomController@update')->name('UpdateRoom');
 Route::get('/deleteRoom/{id}', 'RoomController@delete')->name('deleteRoom');
 
+
+Route::get('/deleteUser/{id}', 'Auth\RegisterController@delete')->name('deleteUser');
+
 Auth::routes();
 //Vérification d'email
 // Auth::routes(['verify' => true]);
