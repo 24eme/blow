@@ -17,6 +17,15 @@ class EventController extends Controller{
           return $events->toJson();
   }
 
+  public function validateEvent($eventID){
+       $event = Event::find($eventID);  
+       $event->confirmed=false;
+       $event->save();
+
+       return redirect()->back()->with('success', 'Votre événement a bien été ajouté');
+
+  }
+
   public function create(Request $request){
     date_default_timezone_set('Europe/Paris');
     $nom= $request->event_name;

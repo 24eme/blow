@@ -119,66 +119,100 @@ function gotoDate(){
 
 function resourcePopup(info) {
 
-    var elements = document.getElementsByClassName('fc-datagrid-cell');
-    var capacityNumber = document.createElement('span');
-    var capacityIcon = document.createElement('i');
-    capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
-    capacityIcon.className = "fas fa-male";
-    capacityIcon.style.position="absolute";
-    capacityNumber.style.position="absolute";
-   console.log(elements);
-    for (var i = 0; i < elements.length; i++) {
-      //info.el.apppendChild();
-      info.el.appendChild(capacityIcon);
-      info.el.appendChild(capacityNumber);
-    } ;
+    // var elements = document.getElementsByClassName('fc-datagrid-cell');
+    // var capacityNumber = document.createElement('span');
+    // var capacityIcon = document.createElement('i');
+    // capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
+    // capacityIcon.className = "fas fa-male";
+    // capacityIcon.style.position="absolute";
+    // capacityNumber.style.position="absolute";
+    // console.log(elements);
 
-            var popup = document.createElement('div');
-            var br = document.createElement('br');
-            var br1 = br.cloneNode(true);
-            var br2 = br.cloneNode(true);
-            var br3 = br.cloneNode(true);
-            var surface = document.createElement('label');
-            var capacite = document.createElement('label');
-            var equipement = document.createElement('label');
-            var img = document.createElement('img');
+    var resourceEquipment = info.resource.extendedProps.equipment;
+    const equipments = resourceEquipment.split(',');
+    for (var i = 0; i < equipments.length; i++) {
+      var equipmentIcon = document.createElement('i');
+      alert(equipments[i]);
+      switch (equipments[i]) {
 
+        case 'Projecteur':
+            equipmentIcon.className = "fas fa-projector";
+        break;
+        case 'Chaise':
+            equipmentIcon.className = "fas fa-chair";
+            equipmentIcon.innerHTML = "14";
+        break;
+        case 'TV':
+            equipmentIcon.className = "fas fa-tv";
+        break;
+        case 'Micro':
+            equipmentIcon.className = "fas fa-chair";
+        break;
+        case 'Tableau':
+            equipmentIcon.className = "fas fa-dashboard";
+        break;
+        case 'Adapté':
+            equipmentIcon.className = "fas fa-wheelchair";
+        break;
+        default: console.log('here');
 
-            popup.className = "pop-up";
-            popup.innerHTML = info.resource.title;
-            img.src = "img/"+info.resource.extendedProps.image;
+      }
+      info.el.appendChild(equipmentIcon);
 
-            img.style.width = "70%";
-            img.style.height = "50%"
-            equipement.innerHTML = "Chaise,TV";
-            capacite.innerHTML = "30 personnes";
-            surface.innerHTML = "20m";
-            popup.appendChild(br);
-            popup.appendChild(equipement);
-            popup.appendChild(br1);
-            popup.appendChild(capacite);
-            popup.appendChild(br2);
-            popup.appendChild(surface);
-            popup.appendChild(br3);
-            popup.appendChild(img);
+    };
 
-            info.el.appendChild(popup);
-            function popupDisplay(){
-              if (popup.style.display === "none") {
-                    popup.style.display = "block";
-              }
-              else{
-                popup.style.position ="absolute";
-                popup.style.display = "none  ";
-              }
-            };
-            function popupHide(){
-              popup.style.position ="absolute";
-              popup.style.display ="none";
-
-            }
-            info.el.addEventListener("mouseover", popupDisplay);
-            info.el.addEventListener("mouseout", popupHide);
+    // for (var i = 0; i < elements.length; i++) {
+    //   //info.el.apppendChild();
+    //   info.el.appendChild(capacityIcon);
+    //   info.el.appendChild(capacityNumber);
+    // } ;
+    //
+    //         var popup = document.createElement('div');
+    //         var br = document.createElement('br');
+    //         var br1 = br.cloneNode(true);
+    //         var br2 = br.cloneNode(true);
+    //         var br3 = br.cloneNode(true);
+    //         var surface = document.createElement('label');
+    //         var capacite = document.createElement('label');
+    //         var equipement = document.createElement('label');
+    //         var img = document.createElement('img');
+    //
+    //
+    //         popup.className = "pop-up";
+    //         popup.innerHTML = info.resource.title;
+    //         img.src = "img/"+info.resource.extendedProps.image;
+    //
+    //         img.style.width = "70%";
+    //         img.style.height = "50%"
+    //         equipement.innerHTML = "Chaise,TV";
+    //         capacite.innerHTML = "30 personnes";
+    //         surface.innerHTML = "20m";
+    //         popup.appendChild(br);
+    //         popup.appendChild(equipement);
+    //         popup.appendChild(br1);
+    //         popup.appendChild(capacite);
+    //         popup.appendChild(br2);
+    //         popup.appendChild(surface);
+    //         popup.appendChild(br3);
+    //         popup.appendChild(img);
+    //
+    //         info.el.appendChild(popup);
+    //         function popupDisplay(){
+    //           if (popup.style.display === "none") {
+    //                 popup.style.display = "block";
+    //           }
+    //           else{
+    //             popup.style.position ="absolute";
+    //             popup.style.display = "none  ";
+    //           }
+    //         };
+    //         function popupHide(){
+    //           popup.style.position ="absolute";
+    //           popup.style.display ="none";
+    //
+    //         }
+    //         info.el.addEventListener("mouseover", popupDisplay);
+    //         info.el.addEventListener("mouseout", popupHide);
 
   };
   // function scrollTime(){
@@ -219,9 +253,9 @@ function resourcePopup(info) {
     evt.currentTarget.className += " active";
   };
 
-function validateEvent(event) {
+  function validateEvent(event) {
 
-  //this event->confirmed ==true;
+    //this event->confirmed ==true;
 
 
-};
+  };

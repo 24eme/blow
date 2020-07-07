@@ -30,6 +30,9 @@ Route::get('/deleteRoom/{id}', 'RoomController@delete')->name('deleteRoom');
 Route::get('/deleteUser/{id}', 'Auth\RegisterController@delete')->name('deleteUser');
 
 Auth::routes();
+//Vérification d'email
+// Auth::routes(['verify' => true]);
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 

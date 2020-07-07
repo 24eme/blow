@@ -32,6 +32,14 @@ return [
     |            "postmark", "log", "array"
     |
     */
+    // Configuration de mail::Mame
+
+    'mailgun' => [
+    'domain' => 'your-mailgun-domain',
+    'secret' => 'your-mailgun-key',
+    'endpoint' => 'api.eu.mailgun.fr',
+    ],
+
 
     'mailers' => [
         'smtp' => [
