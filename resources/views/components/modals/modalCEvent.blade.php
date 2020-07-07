@@ -24,7 +24,7 @@
                         <label id="roomEquipment" class="col-md-6"></label><br>
           </div>
           <div class="row content-head justify-content-center">
-          <div class="col-9">
+          <div style='padding-top: 50px' class="col-9">
                         <label for="event_title" class="content-title">EVENEMENT:</label>
                         <input id="inputEventName" type="text" placeholder="Nom de l'événement" name="event_name" class="input-head" value="" required>
           </div>

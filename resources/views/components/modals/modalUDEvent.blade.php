@@ -17,12 +17,12 @@
           </div>
           <div class="row">
             <div class="col-sm">
-                        <label for="capacity">Capacité :</label><label id="capacity"></label><br>
-                        <label for="equipment">Equipements : </label><label id="equipment"></label><br>
+                        <label for="capacity" class="col-md-6">Capacité :</label><label id="capacity" class="col-md-6"></label><br>
+                        <label for="equipment" class="col-md-6">Equipements : </label><label id="equipment" class="col-md-6"></label><br>
             </div>
           </div>
           <div class="row content-head justify-content-center">
-          <div class="col-9">
+          <div style='padding-top: 50px' class="col-9">
                         <label class="content-title">EVENEMENT:</label>
                         <input id="EventName" type="text" name="event_name" class="input-head" value=""required ><br>
                         <input id="HiddenEventID" type="text" name="event_id" class="input-head" value="" hidden><br>
@@ -58,11 +58,11 @@
           <div class="modal-footer">
 
             <div class="btn-wrapper">
-              <input type="submit" class="btn btn-secondary btn-modal" name="action" value="Modifier">
+              <input type="submit" class="btn btn-secondary btn-modal btn-primary" name="action" value="Modifier">
               <!-- <button type="button" class="btn btn-default btn-edit js-edit">Edit</button>
               <button type="button" class="btn btn-default btn-save js-save">Save</button> -->
 
-              <a class="btn btn-secondary btn-modal" onclick="deleteEvent()">Supprimer</a>
+              <a style='color:white'class="btn btn-secondary btn-modal btn-primary" onclick="deleteEvent()">Supprimer</a>
             </div>
           </div>
     </form>
