@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Event;
-
+use DB;
 use Carbon\Carbon;
 use Auth;
 use Validator;
