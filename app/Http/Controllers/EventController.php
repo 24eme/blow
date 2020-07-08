@@ -31,10 +31,10 @@ class EventController extends Controller{
   public function validateEvent($eventID){
 
        $event = Event::find($eventID);
-       $event->confirmed=false;
+       $event->confirmed=true;
        $event->save();
 
-       return redirect()->back()->with('success', 'Votre événement a bien été ajouté');
+       return redirect()->back()->with('success', 'Votre événement a bien été validé');
 
   }
 

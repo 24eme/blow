@@ -41,7 +41,18 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       resourceLabelDidMount: function(info){
         resourcePopup(info);
-
+      },
+      resourceLabelContent: function(info){
+        var elements = document.getElementsByClassName('fc-datagrid-cell-main');
+        var capacityNumber = document.createElement('span');
+        var capacityIcon = document.createElement('i');
+        capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
+        capacityIcon.className = "fas fa-male room-icon";
+        for (var i = 0; i < elements.length; i++) {
+          console.log(elements[i]);
+          elements[i].appendChild(capacityIcon);
+          elements[i].appendChild(capacityNumber);
+        } ;
       },
       datesSet:function(info){
           Currentdate = calendar.getDate().toISOString();
