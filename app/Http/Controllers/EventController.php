@@ -195,7 +195,7 @@ class EventController extends Controller{
      // return $this->eventUpdate->doUpdate($request);
 
 
-     }
+  
 
 
    public function delete(Request $request,$id){
