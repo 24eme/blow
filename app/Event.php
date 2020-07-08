@@ -26,66 +26,39 @@ class Event extends Model
 
    }
 
-  public function isReserve(Request $request){
+  public function setDate($date, $time){
+    return ($date.$time);
+  }
 
-    $request->validate([
-    'room_id' =>'integer',
-    'event_name' => 'required',
-    'start_date' => 'date|date_format:Y-m-d',
-    'end_date' => 'date|date_format:Y-m-d',
-    'capacity' => 'integer',  //ajouter la validation de l'image
-    ]);
+  public function setDateTZ($date,$time){
+    return ($date.'T'.$time.'Z');
+  }
 
-    $nom= $request->event_name;
-    $start=$request->start_date.'T'.$request->start_hour.'Z';
-    $end=$request->end_date.'T'.$request->end_hour.'Z';
-    $end_date=$request->end_date.$request->end_hour;
-    $start_date=$request->start_date.$request->start_hour;
-    $resource=$request->room_id;
-    $current_user=Auth::user()->id;
+  public function moreThan3hour($start,$end){
+    $start= new DateTime($start);
+    $end = new DateTime($end);
+    if((date_diff($start, $end)->format('%h'))>"3"){
+      return True;
+    }
+    return False;
+  }
+
+  public function datesCoherent($start,$end){
+    if($start<$end){
+      return True;
+    }
+    return False;
+  }
+
+  public function isPassed($start){
     $now = Carbon::now('Europe/Paris')->format('Y-m-dH:i');
-
-    if($start_date>$end_date){
-      return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation dont les heures sont incohérentes');
+    if($start<$now){
+      return True;
     }
-    if($start_date<$now){
-      return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation dans le passé');
-    }
+    return False;
+  }
 
-    //limitation de l'intervalle de temps à réserver ici max 3h par jours.
-    $start_date = new DateTime($start_date);
-    $end_date = new DateTime($end_date);
-
-    if((date_diff($start_date, $end_date)->format('%h'))>"3"){
-      return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation sur plus de 3 heures');
-    }
-
-    //Compte le nb d'events dans la même plage horaire séléctionnée A REVOIR CA NE MARCHE PAS
-    $query= Event::where ('resourceId','=', $resource)
-          ->where (function($query)use ($start,$end){
-              $query->where('start', '<=', $start)
-                    ->where('end', '>=', $end)
-                    ->orWhere(function($query)use ($start,$end){
-                        $query->where('start', '>=', $start)
-                              ->where('end', '<=',$end)
-                              ->orWhere(function($query)use ($start,$end){
-                                $query->where('end','>',$start)
-                                      ->where('start','<',$start)
-                                      ->orWhere(function($query)use ($start,$end){
-                                        $query->where('start','<',$end)
-                                              ->where('end','>',$end);
-                                      });
-                              });
-                        });
-              })
-
-          ->count();
-
-    //Si un événement trouvé, message d'erreur
-    if ($query>0){
-      return redirect()->back()->with('error', 'Votre événement n\'a pas pu être ajouté car l\'horaire est déjà prise');
-    }
-
+  public function saveEvent($nom,$start,$end,$resource,$current_user){
     $event = new Event;
     $event->title = $nom;
     $event->start = $start;
@@ -94,16 +67,9 @@ class Event extends Model
     $event->user_id=$current_user;
     $event->confirmed=false;
     $event->save();
-
-            return redirect()->back()->with('success', 'Votre événement a bien été ajouté');
-
-
-
   }
 
-
-
-  public function doUpdate ($request ){
+  public function doUpdate ($request){
 
     date_default_timezone_set('Europe/Paris');
     $eventID = $request->input('event_id');
@@ -113,7 +79,7 @@ class Event extends Model
 
    if($eventID!=null){
 
-   [$user_event] = DB::select('select user_id from events where id =:id',['id'=>$eventID]);
+   [$user_event] = DB::select('select user_id from events where id =:id',['id'=>$eventID]);//sidi  à revoir
 
    $user= $user_event->user_id;
 
