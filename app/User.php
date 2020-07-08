@@ -42,12 +42,19 @@ class User extends Authenticatable
     ];
 
     public function isAdmin(){
-        return $this->type === self::ADMIN_TYPE;
+        if ($this->type === self::ADMIN_TYPE) {
+          return true;
+        }
     }
 
 
     public function events(){
         return $this->hasMany('App\Event');
+      }
+
+      public function users() {
+
+          return $this->belongsToMany('App\User');
       }
 
 

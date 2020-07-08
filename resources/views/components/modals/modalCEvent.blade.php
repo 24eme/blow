@@ -29,26 +29,29 @@
                         <input id="inputEventName" type="text" placeholder="Nom de l'événement" name="event_name" class="input-head" value="" required>
           </div>
           </div>
-          <div class="row">
-
-                        <label for="organisateur"></label><br>
-                        <label for="society"></label><br>
-          </div>
           <div class="form-group row">
-                      <div class="form-group col-md-6">
+<!-- //ne pas mettre les memes id que l'autre modal -->
+                        <label for="organisateur"></label id="user"><br>
+                        <label for="society"></label id="societe"><br>
+          </div>
+          <div class="form-group row justify-content-center">
+                      <div class="form-group col-4">
                         <label for="start_date">Date de Debut :</label>
+                      </div>
+                      <div class="form-group col-5">
                         <input id="inputStartDate" type="date" class="form-control" id="start_date" name="start_date" value="">
                       </div>
-
+          </div>
+          <div class=" row">
                       <div class="form-group col-md-6">
                         <label for="start_hour">Heure :</label>
                         <input id="inputStartHour" type="time" class="form-control" name="start_hour" required>
                       </div>
 
-                      <div class="form-group col-md-6">
+                      <!-- <div class="form-group col-md-6">
                         <label for="end_date">Date de Fin :</label>
                         <input id="inputEndDate" type="date" class="form-control" name="end_date" value="" required>
-                      </div>
+                      </div> -->
                       <div class="form-group col-md-6">
                         <label for="end_hour">Heure :</label>
                         <input id="inputEndHour" type="time" class="form-control" name="end_hour" value="" required>

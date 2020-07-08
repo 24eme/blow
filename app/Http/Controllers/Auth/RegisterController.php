@@ -72,13 +72,6 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function delete(Request $request,$id)
-    {
-       //alert('hello');
-       $user= User::find($id)->delete();
-       Event::where('user_id', $id)->delete();
-       return redirect('/')->with('success', 'L\'utilisateur a été supprimé');
 
-     }
 
 }

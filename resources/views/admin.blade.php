@@ -1,23 +1,12 @@
 @extends('layouts.layout')
 @section('content')
+@extends('components.modals.modalUDEvent')
+@extends('components.modals.modalCRoom')
+@extends('components.modals.modalUDRoom')
 
-<nav class="navbar navbar-expand-lg navbar-light home-navbar secondnav">
- <div class="container-fluid">
-   <ul class="nav navbar-nav ">
-     <li class="nav-item"><a class="custom-link" href="#"><i class="fas fa-chart-line"></i>Tableau de bord</a></li>
-     <li class="nav-item"><a class="custom-link" href="#"><i class="fas fa-users"></i></i>Utilisateurs</a></li>
-     <li class="nav-item"><a class="custom-link" href="#"><i class="fas fa-dice-d6"></i>Salles</a></li>
-     <li class="nav-item"><a class="custom-link" href="#"><i class="far fa-calendar-check"></i>Evenements</a></li>
-     <li class="nav-item"><a class="custom-link" href="#"><i class="far fa-calendar-alt"></i>Calendrier</a></li>
-   </ul>
- </div>
-</nav>
-
-
-
-<div class="container">
-            <h1>Tableau de bord</h1>
-            <div class="tab">
+<div class="calendar-container">
+  @include('components.flash-message')
+            <div class="tab-navbar">
               <button class="tablinks" onclick="openTab(event, 'event-tab')">Evènements</button>
               <button class="tablinks" onclick="openTab(event, 'user-tab')">Utilisateurs</button>
               <button class="tablinks" onclick="openTab(event, 'room-tab')">Salles</button>
@@ -26,55 +15,51 @@
 
             <div id="event-tab" class="tabcontent">
               <div class="wrapper">
-                  <h3>Evenements en attente de validation</h3>
-                  <p>London is the capital city of England.</p>
+                  <h3>EVENEMENTS : en attente de validation</h3>
               </div>
+              <ul>
               @foreach ($events as $event)
               @if($event->confirmed == "0")
-              <li>{{$event->title}}</li>
-                  <button type="button" class="btn btn-validate" onclick="this.disabled=true;validateEvent({{$event->id}})">Valider</button>
-                  <button type="button" class="btn" onclick="cancelEvent({{$event->id}})">Annuler</button>
+              <li>{{$event->title}}
+                  <button type="button" class="btn custom-btn" onclick="modalCheckEvent({{$event}});"><i class="fas fa-eye"></i></button>
+                  <button type="button" class="btn custom-btn btn-validate" onclick="validateEvent({{$event->id}})">Valider</button>
+                  <button type="button" class="btn custom-btn" onclick="cancelEvent({{$event->id}})">Annuler</button></li>
               @endif
               @endforeach
-
+              </ul>
             </div>
 
             <div id="user-tab" class="tabcontent">
               <div class="wrapper">
-                  <h3>Utilisateurs</h3>
-                  <p>Paris is the capital of France.</p>
+                  <h3>UTILISATEURS</h3>
               </div>
-              @foreach($users as $user)
-              <div class="user-li-wrapper">
-              <li>{{$user->name}}</li>
-                  <button type="button" class="btn" onclick="deleteUser({{$user->id}})">Supprimer</button>
-              </div>
-              @endforeach
-
+              <ul>
+                  @foreach($users as $user)
+                  <li>{{$user->name}}<button type="button" class="btn custom-btn" onclick="deleteUser({{$user->id}})"><i class="fas fa-trash-alt"></i></button></li>
+                  @endforeach
+              </ul>
             </div>
             <div id="calendar-tab" class="tabcontent ">
-              @extends('components.modals.modalCRoom')
-              @extends('components.modals.modalUDRoom')
-              @extends('components.flash-message')
+              <h3>VISUALISATION DE L'INTERFACE</h3>
               <div class="datepicker-wrapper">
               <input placeholder="Selectionner une date" type="text" name="datepicker" id="datepicker" value="" class="calendar">
               <i class="fas fa-calendar-check icon"></i>
               </div>
-                  <div id="calendar"></div>
+                  <div id="calendar" class="calendar-admin"></div>
             </div>
-
             <div id="room-tab" class="tabcontent">
-              <div class="room-li-wrapper">
-                  <h3>Salles</h3>
-                  <p>Tokyo is the capital of Japan.</p>
-                  <button type="button" class="btn" data-toggle="modal" data-target="#modalCRoom" class="btn"><i class="fas fa-plus"></i></button>
+              <div class="wrapper">
+                  <h3><button type="button" class="btn custom-btn" data-toggle="modal" data-target="#modalCRoom" class="btn"><i class="fas fa-plus"></i></button>
+                  SALLES</h3>
               </div>
+              <ul>
               @foreach($rooms as $room)
-              <div class="user-li-wrapper">
-              <li>{{$room->title}}</li>
-                  <button type="button" class="btn" onclick="modalCheckRoom({{$room}})"><i class="fas fa-pen"></i>Modifier</button>
-                  <button type="button" class="btn" onclick="deleteRoom({{$room->id}})" type="button">Supprimer</button>
+              <li>{{$room->title}}
+                  <button type="button" class="btn custom-btn" onclick="modalCheckRoom({{$room}})"><i class="fas fa-pencil-alt"></i></button>
+                  <button type="button" class="btn custom-btn" onclick="deleteRoom({{$room->id}})" type="button"><i class="fas fa-trash-alt"></i></button></li>
+
               @endforeach
+              </ul>
               </div>
             </div>
 

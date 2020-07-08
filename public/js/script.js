@@ -1,8 +1,12 @@
+window.addEventListener("load", () => {
+ document.querySelector("body").classList.add("loaded");
+});
+
 function modalAddEvent(info) {
     var inputStartDate = document.getElementById('inputStartDate');
     var inputStartHour = document.getElementById('inputStartHour');
 
-    var inputEndDate = document.getElementById('inputEndDate');
+  //  var inputEndDate = document.getElementById('inputEndDate');
     var inputEndHour = document.getElementById('inputEndHour');
 
     var inputRoomName = document.getElementById('inputRoomName');
@@ -25,7 +29,7 @@ function modalAddEvent(info) {
 
     inputStartDate.value = dateDebut[0] ;
     inputStartHour.value = dateDebut[2] ;
-    inputEndDate.value = dateFin[0] ;
+//    inputEndDate.value = dateFin[0] ;
     inputEndHour.value = dateFin[2] ;
 
     $('#modalCEvent').modal('show');
@@ -33,47 +37,73 @@ function modalAddEvent(info) {
 };
 
 function modalCheckEvent(info) {
+
     var inputStartDate = document.getElementById('StartDate');
     var inputStartHour = document.getElementById('StartHour');
 
-    var inputEndDate = document.getElementById('EndDate');
+  //  var inputEndDate = document.getElementById('EndDate');
     var inputEndHour = document.getElementById('EndHour');
 
     var inputRoomName = document.getElementById('RoomName');
     var inputEventName = document.getElementById('EventName');
     var inputEventID= document.getElementById('HiddenEventID');
-    alert(info.event.extendedProps.confirmed);
     var inputHiddenRoomID = document.getElementById('HiddenRoomID');
     var equipment = document.getElementById('equipment');
     var capacite = document.getElementById('capacity');
-
     var btnDelete = document.getElementById('btnDEvent');
+      console.log(info);
 
+    if (info.el == null) {
+      var eventObj = info;
 
-    var eventObj = info.event;
-    var startStr = eventObj.start.toISOString();
-    var endStr = eventObj.end.toISOString();
+      inputRoomName.value = eventObj.resourceId;
+      equipment.innerHTML = 'Information non disponible';
+      capacite.innerHTML =  'Information non disponible';
 
-    startStr = startStr.substring(0,startStr.length-1);
-    inputRoomName.value = eventObj.getResources()[0]._resource.title;
-    inputEventName.value = eventObj.title;
-    equipment.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.equipment ;
-    capacite.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.capacity ;
-    inputHiddenRoomID.value = eventObj.getResources()[0]._resource.id ;
-    inputEventID.value = eventObj.id;
+      var eventObj = info;
 
-    const dateDebutEvent = (startStr).split("T", 2);
-    dateDebutEvent[2] = dateDebutEvent[1].split("Z").join("");
-    dateDebutEvent[2] = dateDebutEvent[2].slice(0,-7);
+      inputEventName.value = eventObj.title;
+      var startStr = eventObj.start;
+      var endStr = eventObj.end;
+      inputEventID.value = eventObj.id;
 
-    const dateFinEvent = (endStr).split("T", 2);
-    dateFinEvent[2]= dateFinEvent[1].split("Z").join("");
-    dateFinEvent[2] = dateFinEvent[2].slice(0,-7);
+      const dateDebutEvent = (startStr).split("T", 2);
+      dateDebutEvent[2] = dateDebutEvent[1].split("Z").join("");
 
-    inputStartDate.value = dateDebutEvent[0] ;
-    inputStartHour.value = dateDebutEvent[2] ;
-    inputEndDate.value = dateFinEvent[0] ;
-    inputEndHour.value = dateFinEvent[2] ;
+      const dateFinEvent = (endStr).split("T", 2);
+      dateFinEvent[2]= dateFinEvent[1].split("Z").join("");
+
+      inputStartDate.value = dateDebutEvent[0] ;
+      inputStartHour.value = dateDebutEvent[2] ;
+//      inputEndDate.value = dateFinEvent[0] ;
+      inputEndHour.value = dateFinEvent[2] ;
+    }
+    else{
+      var eventObj = info.event;
+      var startStr = eventObj.start.toISOString();
+      var endStr = eventObj.end.toISOString();
+
+      startStr = startStr.substring(0,startStr.length-1);
+      inputRoomName.value = eventObj.getResources()[0]._resource.title;
+      inputEventName.value = eventObj.title;
+      equipment.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.equipment ;
+      capacite.innerHTML =  eventObj.getResources()[0]._resource.extendedProps.capacity ;
+      inputHiddenRoomID.value = eventObj.getResources()[0]._resource.id ;
+      inputEventID.value = eventObj.id;
+
+      const dateDebutEvent = (startStr).split("T", 2);
+      dateDebutEvent[2] = dateDebutEvent[1].split("Z").join("");
+      dateDebutEvent[2] = dateDebutEvent[2].slice(0,-7);
+
+      const dateFinEvent = (endStr).split("T", 2);
+      dateFinEvent[2]= dateFinEvent[1].split("Z").join("");
+      dateFinEvent[2] = dateFinEvent[2].slice(0,-7);
+
+      inputStartDate.value = dateDebutEvent[0] ;
+      inputStartHour.value = dateDebutEvent[2] ;
+      inputEndDate.value = dateFinEvent[0] ;
+      inputEndHour.value = dateFinEvent[2] ;
+    }
 
     $('#modalUDEvent').modal('show');
 
@@ -95,7 +125,9 @@ function modalCheckRoom(room) {
     $('#modalUDRoom').modal('show');
 
 };
-
+function NotYourEvent(){
+  $('#modalNotYourEvent').modal('show');
+}
 function deleteEvent(){
     var url = 'deleteEvent/'+document.getElementById('HiddenEventID').value;
     window.location = url;
@@ -107,8 +139,8 @@ function deleteRoom(RoomID){
 
 function deleteUser(UserID){
     var url = 'deleteUser/'+ UserID;
-    alert(url);
     window.location = url;
+
 };
 
 function gotoDate(){
@@ -199,6 +231,7 @@ function resourcePopup(info) {
     };
 
   };
+
   // function scrollTime(){
   //
   //   var scrollTime = document.getElementById('inputStartHour');

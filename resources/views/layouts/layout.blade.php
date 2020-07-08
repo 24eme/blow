@@ -7,6 +7,7 @@
  </head>
  <body>
     @include('layouts.header')
+    @include('components.loading')
       @yield('content')
     @include('layouts.footer')
     @include('layouts.footer-scripts')

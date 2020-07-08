@@ -18,6 +18,9 @@ class CreateEventsTable extends Migration
             $table->string('title');
             $table->string('start');
             $table->string('end');
+            // $table->string('startDate');
+            // $table->string('startHour');
+            // $table->string('endHour');
             $table->string('resourceId');
             $table->string('user_id');
             $table->boolean('confirmed');

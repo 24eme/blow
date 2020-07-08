@@ -10,11 +10,6 @@
 <div><img id="girl_sitting" src="img/girl_sitting.png"></div>
         </div>
       </div>
-      <div class="col-sm">
-        <div class="left_box">
-          <img id="girl_up" src="img/girl_up.png" alt="">
-        </div>
-      </div>
 </div>
 </section>
 
@@ -28,25 +23,7 @@
 </div>
 </section>
 
-<div class="row">
-    <div class="col-sm">
-      <div class="calendar_box"><img src="img/calendar_doodle.png"></div>
-    </div>
-</div>
-
-<section id="objectif">
-<div class="row">
-    <div class="col-sm">
-      <div class="box_wrapper">
-        <div class="box_content">
-            <h3>Notre objectifs</h3>
-            <p>Ce projet Open-source a pour but de Quapropter a natura mihi videtur potius quam ab indigentia orta amicitia, applicatione magis animi cum quodam sensu amandi quam cogitatione quantum illa res utilitatis esset habitura. Quod quidem quale sit, etiam in bestiis quibusdam animadverti potest, quae ex se natos ita amant ad quoddam tempus et ab eis ita amantur ut facile earum sensus appareat. Quod in homine multo est evidentius, primum ex ea caritate quae est inter natos et parentes, quae dirimi nisi detestabili scelere non potest; deinde cum similis sensus exstitit amoris, si aliquem nacti sumus cuius cum moribus et natura congruamus, quod in eo quasi lumen aliquod probitatis et virtutis perspicere videamur.</p>
-        </div>
-        <img src="">
-      </div>
-    </div>
-</div>
-</section>
+ 
 
 <div class="row">
     <div class="col-sm">

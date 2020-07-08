@@ -32,11 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
         var userid= <?php echo Auth::id() ?>;
 
         if (userid!= info.event.extendedProps.user_id) {
-           alert('Ce n\'est pas votre évenement');
+           NotYourEvent();
           }
          else {
-               modalCheckEvent(info);
-
+            modalCheckEvent(info);
          }
       },
       resourceLabelDidMount: function(info){

@@ -27,19 +27,11 @@ Route::post('/createRoom', 'RoomController@create')->name('createRoom');
 Route::post('/updateRoom','RoomController@update')->name('UpdateRoom');
 Route::get('/deleteRoom/{id}', 'RoomController@delete')->name('deleteRoom');
 
-
-Route::get('/deleteUser/{id}', 'Auth\RegisterController@delete')->name('deleteUser');
+Route::get('/deleteUser/{id}', 'AdminController@delete')->name('deleteUser');
 
 Auth::routes();
-//Vérification d'email
- //Auth::routes(['verify' => true]);
-
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-//admin honorine
-Route::get('/admin', 'AdminController@admin')->middleware('is_admin')->name('admin');
-
-
-
-Route::get('/admin', 'AdminController@index');
+Route::get('/admin', 'AdminController@admin')->middleware('is_admin')->name('admin'); 
+Route::get('/admin', 'AdminController@index')->middleware('is_admin');
