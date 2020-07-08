@@ -23,31 +23,49 @@ class Event extends Model
   }
 
 
-  public function setDate($date, $time){
-    return ($date.$time);
+
+
+  // public function formDate($date, $time){
+  //   return ($date.$time);
+  // }
+  //
+  // public function formDateTZ($date,$time){
+  //   return ($date.'T'.$time.'Z');
+  // }
+
+  public function setDate($se,$date,$time){
+      return $this->$se=($date.'T'.$time.'Z');
+      //return $this->event;
   }
 
-  public function setDateTZ($date,$time){
-    return ($date.'T'.$time.'Z');
+  public function convertDate($date){
+    $date=str_replace('T', '', $date);
+    $date=str_replace('Z','',$date);
+    return $date;
   }
 
-  public function moreThan3hour($start,$end){
-    $start= new DateTime($start);
-    $end = new DateTime($end);
+
+  public function moreThan3hour(){
+    $start= new DateTime($this->convertDate($this->start));
+    $end = new DateTime($this->convertDate($this->end));
     if((date_diff($start, $end)->format('%h'))>"3"){
       return True;
     }
     return False;
   }
 
-  public function datesCoherent($start,$end){
+
+  public function datesCoherent(){
+    $start=$this->convertDate($this->start);
+    $end=$this->convertDate($this->end);
     if($start<$end){
       return True;
     }
     return False;
   }
 
-  public function isPassed($start){
+  public function isPassed(){
+    $start=$this->convertDate($this->start);
     $now = Carbon::now('Europe/Paris')->format('Y-m-dH:i');
     if($start<$now){
       return True;
@@ -55,24 +73,69 @@ class Event extends Model
     return False;
   }
 
-  public function saveEvent($nom,$start,$end,$resource,$current_user){
-    $event = new Event;
-    $event->title = $nom;
-    $event->start = $start;
-    $event->end = $end;
-    $event->resourceId = $resource;
-    $event->user_id=$current_user;
-    $event->confirmed=false;
-    $event->save();
+//Compte le nb d'events dans la même plage horaire séléctionnée
+  public function isReserved(){
+    $start=$this->start;
+    $end=$this->end;
+    $resource=$this->resourceId;
+
+    $query= Event::where ('resourceId','=', $resource)
+          ->where (function($query)use ($start,$end){
+              $query->where('start', '<=', $start)
+                    ->where('end', '>=', $end)
+                    ->orWhere(function($query)use ($start,$end){
+                        $query->where('start', '>=', $start)
+                              ->where('end', '<=',$end)
+                              ->orWhere(function($query)use ($start,$end){
+                                $query->where('end','>',$start)
+                                      ->where('start','<',$start)
+                                      ->orWhere(function($query)use ($start,$end){
+                                        $query->where('start','<',$end)
+                                              ->where('end','>',$end);
+                                      });
+                              });
+                        });
+              })
+
+          ->count();
+    if($query>0){
+      return True;
+    }
+    return False;
   }
 
-  public function saveUpdateEvent($nom,$start,$end,$resource,$eventID){
-    $event = Event::find($eventID);
-    $event->title = $nom;
-    $event->start = $start;
-    $event->end = $end;
-    $event->resourceId = $resource;
-    $event->save();
+  public function isReservedUpdate(){
+    $start=$this->start;
+    $end=$this->end;
+    $resource=$this->resourceId;
+    $eventID=$this->id;
+
+    $query= Event::where ('resourceId','=', $resource)
+          ->where ('id','!=',$eventID)
+          ->where (function($query)use ($start,$end){
+              $query->where('start', '<=', $start)
+                    ->where('end', '>=', $end)
+                    ->orWhere(function($query)use ($start,$end){
+                        $query->where('start', '>=', $start)
+                              ->where('end', '<=',$end)
+                              ->orWhere(function($query)use ($start,$end){
+                                $query->where('end','>',$start)
+                                      ->where('start','<',$start)
+                                      ->orWhere(function($query)use ($start,$end){
+                                        $query->where('start','<',$end)
+                                              ->where('end','>',$end);
+                                      });
+                              });
+                        });
+              })
+
+
+
+           ->count();
+    if($query>0){
+         return True;
+       }
+         return False;
   }
 
 }
