@@ -107,6 +107,7 @@ function deleteRoom(RoomID){
 
 function deleteUser(UserID){
     var url = 'deleteUser/'+ UserID;
+    alert(url);
     window.location = url;
 };
 
@@ -236,7 +237,7 @@ function resourcePopup(info) {
     evt.currentTarget.className += " active";
   };
 
-  function validateEvent(eventID) { 
+  function validateEvent(eventID) {
     var url = 'validateEvent/'+ eventID;
     window.location = url;
   };

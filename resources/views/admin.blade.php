@@ -4,11 +4,11 @@
 <nav class="navbar navbar-expand-lg navbar-light home-navbar secondnav">
  <div class="container-fluid">
    <ul class="nav navbar-nav ">
-     <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-chart-line"></i>Tableau de bord</a></li>
-     <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-users"></i></i>Utilisateurs</a></li>
-     <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-dice-d6"></i>Salles</a></li>
-     <li class="nav-item"><a class="nav-link" href="#"><i class="far fa-calendar-check"></i>Evenements</a></li>
-     <li class="nav-item"><a class="nav-link" href="#"><i class="far fa-calendar-alt"></i>Calendrier</a></li>
+     <li class="nav-item"><a class="custom-link" href="#"><i class="fas fa-chart-line"></i>Tableau de bord</a></li>
+     <li class="nav-item"><a class="custom-link" href="#"><i class="fas fa-users"></i></i>Utilisateurs</a></li>
+     <li class="nav-item"><a class="custom-link" href="#"><i class="fas fa-dice-d6"></i>Salles</a></li>
+     <li class="nav-item"><a class="custom-link" href="#"><i class="far fa-calendar-check"></i>Evenements</a></li>
+     <li class="nav-item"><a class="custom-link" href="#"><i class="far fa-calendar-alt"></i>Calendrier</a></li>
    </ul>
  </div>
 </nav>
@@ -47,7 +47,7 @@
               @foreach($users as $user)
               <div class="user-li-wrapper">
               <li>{{$user->name}}</li>
-                  <button type="button" class="btn" onclick= "deleteUser({{$user->id}})" >Supprimer</button>
+                  <button type="button" class="btn" onclick="deleteUser({{$user->id}})">Supprimer</button>
               </div>
               @endforeach
 
