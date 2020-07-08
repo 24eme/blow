@@ -34,17 +34,17 @@ return [
     */
     // Configuration de mail::Mame
 
-    'mailgun' => [
-    'domain' => 'your-mailgun-domain',
-    'secret' => 'your-mailgun-key',
-    'endpoint' => 'api.eu.mailgun.fr',
-    ],
+    // 'mailgun' => [
+    // 'domain' => 'your-mailgun-domain',
+    // 'secret' => 'your-mailgun-key',
+    // 'endpoint' => 'api.eu.mailgun.fr',
+    // ],
 
 
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+            'host' => env('MAIL_HOST', 'smtp.24eme.fr'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
@@ -90,12 +90,11 @@ return [
     | used globally for all e-mails that are sent by your application.
     |
     */
-
+    //Mame
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'blowapplication@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'BLOW'),
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings

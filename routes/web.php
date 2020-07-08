@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->middleware('verified');;
 
 
 Route::get('/showEvents', 'EventController@show');
@@ -31,10 +31,10 @@ Route::get('/deleteUser/{id}', 'Auth\RegisterController@delete')->name('deleteUs
 
 Auth::routes();
 //Vérification d'email
-// Auth::routes(['verify' => true]);
+ Auth::routes(['verify' => true]);
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->middleware('verified')->name('home');
 
 //admin honorine
 Route::get('/admin', 'AdminController@admin')->middleware('is_admin')->name('admin');
