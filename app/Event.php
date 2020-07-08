@@ -22,9 +22,6 @@ class Event extends Model
       return $this->belongsTo('App\User');
   }
 
-   public function isValide(){
-
-   }
 
   public function isReserve(Request $request){
 

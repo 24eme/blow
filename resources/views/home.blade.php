@@ -3,10 +3,10 @@
   @extends('index')
 @else
 @section('content')
-<div style='position: absolute;z-index:100'>
-  <input class="input-date" type="text" name="" placeholder="date" id="datepicker">
-  <button type="button" onclick="gotoDate()"><i class="fas fa-search"></i>
-  </button>
+
+<div class="datepicker-wrapper">
+<input placeholder="Selectionner une date" type="text" name="datepicker" id="datepicker" value="" class="calendar">
+<i class="fas fa-calendar-check icon"></i>
 </div>
 
 <div class="container">

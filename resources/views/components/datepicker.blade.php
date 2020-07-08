@@ -7,6 +7,9 @@
 <script>
 $( function() {
 $( "#datepicker" ).datepicker({
+      onSelect: function(){
+        gotoDate();
+      },
       dateFormat: 'yy-mm-dd',
       changeMonth: true,
       changeYear: true,
@@ -19,5 +22,8 @@ $( "#datepicker" ).datepicker({
       prevText: "Préc",
       nextText: "Suiv",
     });
+    $('.fa-calendar').click(function() {
+      $("#datepicker").focus();
+    });
       });
-</script> 
+</script>

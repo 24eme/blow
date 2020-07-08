@@ -35,7 +35,13 @@ select{
   outline: none;
 }
 
-
+.room-icon{
+  margin-left: :500px;
+  margin-top: -20px;
+}
+.user-li-wrapper li,button{
+  display: inline-block;
+}
 /* form.is-readonly .btn-save {
   display: none;
 }
@@ -50,7 +56,16 @@ form.is-editing .btn-edit {
   display: none;
 } */
 
-
+.datepicker-wrapper{
+ margin: auto;
+ width: 10%;
+}
+.icon {
+  margin-left: 210px;
+  margin-top: -30px;
+  color: #E8E8E8;
+  font-size:20px;
+}
  /* honorine */
 
  .modal-header{
@@ -61,7 +76,6 @@ form.is-editing .btn-edit {
    font-weight: bold;
    font-size:19px;
  }
-
 #inputRoomName{
   background-color:#9498cb;
   color:black;
@@ -76,7 +90,6 @@ form.is-editing .btn-edit {
   border-radius:5px;
   text-align: center;
 }
-
 #inputEventName{
   color:black;
   margin-left:10px;
@@ -87,7 +100,6 @@ form.is-editing .btn-edit {
 .inputR{
   margin-left: 20PX;
 }
-
 .espace{
   margin-bottom: 10px;
 }

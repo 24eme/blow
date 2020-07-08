@@ -10,16 +10,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//verification désactiver car on est en local
+
 
 Route::get('/', function () {
     return view('home');
-})->middleware('verified');;
-
-
+});
 Route::get('/showEvents', 'EventController@show');
 Route::post('/createEvent','EventController@create')->name('createEvent');
 Route::post('/updateEvent', 'EventController@update')->name('UpdateEvent');
 Route::get('/deleteEvent/{id}', 'EventController@delete')->name('deleteEvent');
+Route::get('/validateEvent/{id}','EventController@validateEvent')->name('validateEvent');
 
 Route::get('/showRooms', 'RoomController@show');
 Route::post('/createRoom', 'RoomController@create')->name('createRoom');
@@ -31,10 +32,10 @@ Route::get('/deleteUser/{id}', 'Auth\RegisterController@delete')->name('deleteUs
 
 Auth::routes();
 //Vérification d'email
- Auth::routes(['verify' => true]);
+ //Auth::routes(['verify' => true]);
 
 
-Route::get('/home', 'HomeController@index')->middleware('verified')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 //admin honorine
 Route::get('/admin', 'AdminController@admin')->middleware('is_admin')->name('admin');
