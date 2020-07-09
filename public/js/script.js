@@ -157,7 +157,7 @@ function resourceCapacity(info){
   capacityIcon.className = "fas fa-male room-icon";
   // alert(info.resource.extendedProps.capacity);    //ici le premier vaut 5
   for (var i =0; i <elements.length; i++) {
-    alert(info.resource.extendedProps.capacity);     //ici le premier vaut 12 pourquoi il y a un changement des que l'on rentre dans le for
+    // alert(info.resource.extendedProps.capacity);     //ici le premier vaut 12 pourquoi il y a un changement des que l'on rentre dans le for
     elements[i].appendChild(capacityIcon);
       // alert(info.resource.extendedProps.capacity);
     elements[i].appendChild(capacityNumber);
