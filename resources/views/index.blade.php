@@ -1,16 +1,16 @@
 @section('content')
 <!-- <section id="accueil"> -->
 <section>
-<div class="row m-auto d-flex text-center justify-content-center ">
+<div class="row m-auto  text-center">
 
         <!-- <div class="headline_container"> -->
         <!-- <div class="headline"> -->
-        <div class="col-sm">
+        <div class="col-sm-6 align-self-center">
           <h2>RÉSERVER VOTRE SALLE EN UN CLIC</h2>
           <h2>FACILE, RAPIDE ET GRATUIT.</h2>
           <p>Une plateforme de gestion de salle gratuite et intuitive pour faciliter les espaces de co-working</p>
         </div>
-          <div class="col-sm">
+          <div class="col-sm-6">
             <img  class="col-sm" src="img/girl_sitting.png">
           </div>
         <!-- </div> -->
@@ -33,7 +33,7 @@
 </div>
 </section>
 
-<!-- <div class="container">
+<div class="container">
 <section id="apropos">
 <div class="d-flex text-center justify-content-center">
       <h2>L'outil essentiel des espaces de co-working</h2>
@@ -78,7 +78,7 @@
 
 
 
-</div> -->
+</div>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({});</script>
 </body>
