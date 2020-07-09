@@ -55,7 +55,7 @@ class Event extends Model
   }
 
 
-  public function datesCoherent(){ 
+  public function datesCoherent(){
     $start=$this->convertDate($this->start);
     $end=$this->convertDate($this->end);
     if($start<=$end){
