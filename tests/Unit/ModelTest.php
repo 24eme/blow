@@ -58,11 +58,15 @@ class ModelTest extends TestCase
       $this->event->start='2020-06-08T07:00Z';
       $this->event->end='2020-06-08T09:00Z';
       $this->event->resourceId='1';
-      $this->assertEquals($this->event->isReserved(),False);
+      $this->assertEquals($this->event->isReserved(),True);
     }
-    isReservedUpdate()
+    public function testIsReservedUpdate()
     {
-      
+      $this->event=new Event();
+      $this->event->start='2020-06-08T07:00Z';
+      $this->event->end='2020-06-08T09:00Z';
+      $this->event->resourceId='1';
+      $this->assertEquals($this->event->isReservedUpdate(),True);
     }
 
 }
