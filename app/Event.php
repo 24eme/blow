@@ -22,17 +22,6 @@ class Event extends Model
       return $this->belongsTo('App\User');
   }
 
-
-
-
-  // public function formDate($date, $time){
-  //   return ($date.$time);
-  // }
-  //
-  // public function formDateTZ($date,$time){
-  //   return ($date.'T'.$time.'Z');
-  // }
-
   public function setDate($se,$date,$time){
       return $this->$se=($date.'T'.$time.'Z');
       //return $this->event;
