@@ -9,7 +9,8 @@
     {{ csrf_field() }}
           <div class="modal-body">
           <div class="row content-head justify-content-center">
-          <div class="col-8">
+            <!-- class="col-8" -->
+          <div style='padding-bottom: 20px'>
                         <label for="room_title" class="content-title">SALLE :</label>
                         <input id="RoomName" type="text" name="room_name" class="input-head" value="" disabled>
                         <input id="HiddenRoomID" type="text" name="room_id" class="input-head" value="" hidden>
@@ -22,7 +23,8 @@
             </div>
           </div>
           <div class="row content-head justify-content-center">
-          <div style='padding-top: 50px' class="col-9">
+             <!-- class="col-9" -->
+          <div style='padding-top: 50px'>
                         <label class="content-title">EVENEMENT:</label>
                         <input id="EventName" type="text" name="event_name" class="input-head" value=""required ><br>
                         <input id="HiddenEventID" type="text" name="event_id" class="input-head" value="" hidden><br>
