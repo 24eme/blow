@@ -38,15 +38,20 @@ class Event extends Model
     return $date;
   }
 
-  public function sameDate($date){
+
+  public function alreadyReserved(){
+    $date=$this->start;
     $user_id=$this->user_id;
     $date=$this->convertDateTimetoDate($date);
     $query= Event::whereDate('start', $date)
           ->where('user_id','=',$user_id)
           ->count();
-
-    return $query;
+    if($query>0){
+      return True;
+    }
+    return False;
   }
+
 
   public function moreThan3hour(){
     $start= new DateTime($this->convertDate($this->start));

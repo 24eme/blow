@@ -68,7 +68,7 @@ class EventController extends Controller{
     $event->confirmed=false;
 
     //dd($event->convertDateTimetoDate('2020-10-06T-08:00:00'));
-    //dd($event->sameDate('2020-07-09T-16:30:00'));
+    //dd($event->alreadyReserved('2020-07-09T-16:30:00'));
     if ($this->event->isPassed()){
       return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation dans le passé');
     }
@@ -81,6 +81,9 @@ class EventController extends Controller{
       return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation sur plus de 3 heures');
     }
 
+    if($event->alreadyReserved()){
+      return redirect()->back()->with('error', 'Vous avez déjà réservé dans la journée');
+    }
     //Si un événement trouvé, message d'erreur
     if ($event->isReserved()){
       return redirect()->back()->with('error', 'Votre événement n\'a pas pu être ajouté car l\'horaire est déjà prise');
