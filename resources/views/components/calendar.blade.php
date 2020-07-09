@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
       selectable:true,
       navLinks: true,
       nowIndicator:true,
+      scrollTime:time,
       events:'showEvents',
 
       resources:'showRooms',
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
 
 
-      scrollTime:time,
+
 
       select: function(info){
         modalAddEvent(info);
