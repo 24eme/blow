@@ -6,7 +6,7 @@ function modalAddEvent(info) {
     var inputStartDate = document.getElementById('inputStartDate');
     var inputStartHour = document.getElementById('inputStartHour');
 
-  //  var inputEndDate = document.getElementById('inputEndDate');
+    var inputEndDate = document.getElementById('inputEndDate');
     var inputEndHour = document.getElementById('inputEndHour');
 
     var inputRoomName = document.getElementById('inputRoomName');
@@ -29,7 +29,7 @@ function modalAddEvent(info) {
 
     inputStartDate.value = dateDebut[0] ;
     inputStartHour.value = dateDebut[2] ;
-//    inputEndDate.value = dateFin[0] ;
+    inputEndDate.value = dateFin[0] ;
     inputEndHour.value = dateFin[2] ;
 
     $('#modalCEvent').modal('show');
@@ -41,7 +41,7 @@ function modalCheckEvent(info) {
     var inputStartDate = document.getElementById('StartDate');
     var inputStartHour = document.getElementById('StartHour');
 
-  //  var inputEndDate = document.getElementById('EndDate');
+    var inputEndDate = document.getElementById('EndDate');
     var inputEndHour = document.getElementById('EndHour');
 
     var inputRoomName = document.getElementById('RoomName');
@@ -74,7 +74,7 @@ function modalCheckEvent(info) {
 
       inputStartDate.value = dateDebutEvent[0] ;
       inputStartHour.value = dateDebutEvent[2] ;
-//      inputEndDate.value = dateFinEvent[0] ;
+      inputEndDate.value = dateFinEvent[0] ;
       inputEndHour.value = dateFinEvent[2] ;
     }
     else{
