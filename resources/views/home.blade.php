@@ -13,7 +13,8 @@
             @include('components.flash-message')
             @extends('components.modals.modalCEvent')
             @extends('components.modals.modalUDEvent')
-              <div id="calendar"></div>
+              <div class="col-xs-6 col-sm-10 col-md-10 col-lg-10" id="calendar">
+              </div>
 
         </div>
 

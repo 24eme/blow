@@ -225,15 +225,15 @@ form.is-editing .btn-edit {
 .tab-navbar{
   overflow: hidden;
   width: 85%;
-  margin:auto;
+  /* margin:auto; */
 
 }
 .tab-navbar button {
   border: none;
-  margin: 20px;
-  padding: 20px;
-  padding-left: 50px;
-  padding-right: 50px;
+  /* margin: 20px;*/
+   padding: 20px;
+  */adding-left: 50px; */
+  /* padding-right: 50px; */
   transition: 0.3s;
   color: #FFF;
   font-size: 1.2em;
