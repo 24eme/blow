@@ -49,10 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
         resourcePopup(info);
       },
       resourceLabelContent: function(info){
-<<<<<<< HEAD
         var elements = document.getElementsByClassName('fc-scrollgrid-sync-inner');
         var capacityNumber = document.createElement('span');
-        var capacityIcon = document.createElement('i'); 
+        var capacityIcon = document.createElement('i');
         capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
         capacityIcon.className = "fas fa-male";
         for (var i = 0; i < elements.length; i++) {
@@ -60,10 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
           elements[i].appendChild(capacityNumber);
           elements[elements.length-1].classList.add('lol');
         } ;
-=======
-        resourceCapacity(info);
+        //resourceCapacity(info);
 
->>>>>>> c03a493b0843399d2d39b527c59bf011e2b2faf0
       },
       datesSet:function(info){
           Currentdate = calendar.getDate().toISOString();
