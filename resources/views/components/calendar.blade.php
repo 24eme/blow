@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
       initialView: 'resourceTimelineDay',
       resourceAreaColumns: [{ headerContent: 'Salles'},],
       titleFormat:{year: 'numeric', month: 'long',day:'numeric', weekday: 'long' },
-      buttonText:{ today: 'Aujourd\'hui', month: 'mois', week: 'semaine', day: 'jour'},
+      buttonText:{ today: 'AUJOURD\'HUI', month: 'MOIS', week: 'SEMAINE', day: 'JOUR'},
       schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
       selectable:true,
       navLinks: true,
@@ -49,15 +49,15 @@ document.addEventListener('DOMContentLoaded', function() {
         resourcePopup(info);
       },
       resourceLabelContent: function(info){
-        var elements = document.getElementsByClassName('fc-datagrid-cell-main');
+        var elements = document.getElementsByClassName('fc-scrollgrid-sync-inner');
         var capacityNumber = document.createElement('span');
-        var capacityIcon = document.createElement('i');
+        var capacityIcon = document.createElement('i'); 
         capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
-        capacityIcon.className = "fas fa-male room-icon";
+        capacityIcon.className = "fas fa-male";
         for (var i = 0; i < elements.length; i++) {
-          console.log(elements[i]);
           elements[i].appendChild(capacityIcon);
           elements[i].appendChild(capacityNumber);
+          elements[elements.length-1].classList.add('lol');
         } ;
       },
       datesSet:function(info){

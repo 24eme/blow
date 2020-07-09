@@ -10,7 +10,7 @@ body{
   background-color: rgba(250, 250, 250, 0.5);
 }
 *{
-  font-family:Open Sans, Quicksand,sans-serif,Arial;
+  font-family:Montserrat,Open Sans, Quicksand,sans-serif,Arial;
   font-size: 15px;
 }
 a{
@@ -60,6 +60,7 @@ h3{
   padding-top: 10px;
   color: grey !important;
   font-weight: bold;
+  font-family: Quicksand;
   letter-spacing: 10px;
 }
 .calendar-container{
@@ -68,16 +69,73 @@ h3{
 }
 .calendar-admin{
   width: 100%;
+  height: 30%;
+  background-color: red;
+}
+.datepicker-wrapper{
+  margin-bottom: 30px;
 }
 #datepicker{
   border:none;
-  border-bottom: 0.5px solid grey;
+  border: 0.5px solid grey;
   background-color: inherit;
 }
+.icon {
+  margin-left: -40px;
+  color: #E8E8E8;
+  font-size:1em;
+}
+.ui-widget-header{
+  border:none !important ;
+}
+.ui-datepicker-header {
+  background-color: inherit !important;
+}
+.ui-datepicker-title,.ui-datepicker-year, .ui-datepicker-month{
+  color: #8ec3de !important;
+  background-color: inherit !important;
+}
+.ui-datepicker-prev, .ui-datepicker-next{
+  border: none !important;
+}
+.ui-state-default, .ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default, .ui-button,
+html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active{
+  background-color: inherit !important;
+  border: none !important;
+  color: #a6a6a6 !important;
+    font-family: Josefin!important;
+}
+.fc-datagrid-cell-main{
+  font-weight: 400;
+}
+.fc-datagrid-cell-main{
+  font-weight: 400;
+}
+.lol{
+  background-color: blue !important;
+}
 .fc-timeline-event{
-  -webkit-box-shadow: 0px 5px 15px 2px rgba(237,237,237,1);
--moz-box-shadow: 0px 5px 15px 2px rgba(237,237,237,1);
-box-shadow: 0px 5px 15px 2px rgba(237,237,237,1);
+  -webkit-box-shadow: 10px 10px 5px -5px  rgba(250,250,250,0.5);
+  -moz-box-shadow: 10px 10px 5px -5px  rgba(250,250,250,0.5);
+  box-shadow: 10px 10px 5px -5px  rgba(250,250,250,0.5);
+}
+.fc-header-toolbar button{
+  color: grey !important;
+  background-color: inherit !important;
+  border: none !important;
+}
+.fc-button{
+  color:grey !important;
+  border:none;
+}
+.fa-chevron-left,.fa-chevron-right{
+  color: grey !important;
+}
+.fc-button span{
+  color:white !important;
+  border:none;
+  background-color: inherit !important;
 }
 .input-modal{
   border: none;
@@ -85,7 +143,6 @@ box-shadow: 0px 5px 15px 2px rgba(237,237,237,1);
   outline: 0;
   font-size: 1rem;
   padding: 7px 0;
-
   margin-bottom: 10px;
   background: transparent;
   transition: border 0.2s;
@@ -114,16 +171,7 @@ form.is-editing .btn-edit {
   display: none;
 } */
 
-.datepicker-wrapper{
- margin: auto;
- width: 10%;
-}
-.icon {
-  margin-left: 210px;
-  margin-top: -30px;
-  color: #E8E8E8;
-  font-size:20px;
-}
+
  /* honorine */
 
  .modal-header{
@@ -227,22 +275,7 @@ tbody{
 tr:nth-child(even) {
     background-color: #FFF;
 }
-.fc-button{
-  color:blue !important;
-  border:none;
-  background-color: blue !important;
-}
-.fa-chevron-left{
-  color: blue !important;
-}
-.fc-button span{
-  color:white !important;
-  border:none;
-  background-color: inherit !important;
-}
-.fc-datagrid-cell-main{
-  font-family: Josefin !important;
-}
+
 .pop-up {
   display: none;
 	position: relative;
@@ -402,4 +435,8 @@ h2{
 @font-face {
     font-family: Josefin;
     src: url('/fonts/Josefin_Sans/static/JosefinSans-ExtraLight.ttf');
+}
+@font-face {
+    font-family: Montserrat;
+    src: url('/fonts/Montserrat/Montserrat-Regular.ttf');
 }

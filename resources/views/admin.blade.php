@@ -45,7 +45,7 @@
               <input placeholder="Selectionner une date" type="text" name="datepicker" id="datepicker" value="" class="calendar">
               <i class="fas fa-calendar-check icon"></i>
               </div>
-                  <div id="calendar" class="calendar-admin"></div>
+                  <div id="calendar"></div>
             </div>
             <div id="room-tab" class="tabcontent">
               <div class="wrapper">
