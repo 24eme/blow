@@ -23,7 +23,14 @@ document.addEventListener('DOMContentLoaded', function() {
       nowIndicator:true,
       events:'showEvents',
       resources:'showRooms',
-
+      themeSystem: 'bootstrap',
+      bootstrapFontAwesome:{
+        close: 'fa-times',
+        prev: 'fa-chevron-left',
+        next: 'fa-chevron-right',
+        prevYear: 'fa-angle-double-left',
+        nextYear: 'fa-angle-double-right'
+        },
       select: function(info){
         modalAddEvent(info);
       },

@@ -34,21 +34,19 @@
                         <label for="society"></label id="user_society"><br>
           </div>
           </div>
-          <div class="form-group row justify-content-center">
-                      <div class="form-group col-5">
+          <div class="form-group row">
+                      <div class="form-group col-md-6">
                         <label for="start_date">Date de Debut :</label>
                         <input id="StartDate" type="date" class="form-control" id="start_date" name="start_date" value="">
                       </div>
-          </div>
-          <div class="form-group row">
                       <div class="form-group col-md-6">
                         <label for="start_hour">Heure :</label>
                         <input id="StartHour" type="time" class="form-control" name="start_hour" required>
                       </div>
-                      <!-- <div class="form-group col-md-6">
+                      <div class="form-group col-md-6">
                         <label for="end_date">Date de Fin :</label>
                         <input id="EndDate" type="date" class="form-control" name="end_date" value="" required>
-                      </div> -->
+                      </div>
                       <div class="form-group col-md-6">
                         <label for="end_hour">Heure :</label>
                         <input id="EndHour" type="time" class="form-control" name="end_hour" value="" required>

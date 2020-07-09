@@ -51,7 +51,6 @@ function modalCheckEvent(info) {
     var equipment = document.getElementById('equipment');
     var capacite = document.getElementById('capacity');
     var btnDelete = document.getElementById('btnDEvent');
-      console.log(info);
 
     if (info.el == null) {
       var eventObj = info;
@@ -151,7 +150,7 @@ function gotoDate(){
 };
 
 function resourcePopup(info) {
-        var elements = document.getElementsByClassName('fc-datagrid-cell-cushion');
+        var elements = document.getElementsByClassName('fc-datagrid-cell-cushion-main');
         var capacityNumber = document.createElement('span');
         var capacityIcon = document.createElement('i');
         capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
@@ -169,7 +168,7 @@ function resourcePopup(info) {
         var img = document.createElement('img');
         popup.className = "pop-up";
         popup.innerHTML = info.resource.title;
-        img.src = "img/"+info.resource.id+'.jpg';
+        img.src = "img/"+info.resource.extendedProps.image;
         img.style.width = "70%";
         img.style.height = "50%"
         equipement.innerHTML = info.resource.extendedProps.equipment;
@@ -183,8 +182,13 @@ function resourcePopup(info) {
         popup.appendChild(capacite);
         info.el.appendChild(popup);
         function popupDisplay(){
-          if (popup.style.display === "none")popup.style.display = "block";
-          else popup.style.display = "none  ";
+          if (popup.style.display === "none") {
+                popup.style.display = "block";
+          }
+          else{
+            popup.style.position ="absolute";
+            popup.style.display = "none  ";
+          }
         };
         function popupHide(){ popup.style.display ="none";};
         info.el.addEventListener("mouseover", popupDisplay);
