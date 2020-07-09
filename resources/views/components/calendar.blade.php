@@ -49,17 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         resourcePopup(info);
       },
       resourceLabelContent: function(info){
-        var elements = document.getElementsByClassName('fc-scrollgrid-sync-inner');
-        var capacityNumber = document.createElement('span');
-        var capacityIcon = document.createElement('i');
-        capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
-        capacityIcon.className = "fas fa-male";
-        for (var i = 0; i < elements.length; i++) {
-          elements[i].appendChild(capacityIcon);
-          elements[i].appendChild(capacityNumber);
-          elements[elements.length-1].classList.add('lol');
-        } ;
-        //resourceCapacity(info);
+        // resourceCapacity(info);  //ne fonctionne pas
 
       },
       datesSet:function(info){
