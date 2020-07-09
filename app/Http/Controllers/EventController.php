@@ -67,7 +67,8 @@ class EventController extends Controller{
     $event->user_id=$current_user;
     $event->confirmed=false;
 
-
+    //dd($event->convertDateTimetoDate('2020-10-06T-08:00:00'));
+    //dd($event->sameDate('2020-07-09T-16:30:00'));
     if ($this->event->isPassed()){
       return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation dans le passé');
     }
