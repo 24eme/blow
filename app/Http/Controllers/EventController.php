@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Event;
-// use DB;
 use Carbon\Carbon;
 use Auth;
 use Validator;
@@ -67,8 +66,6 @@ class EventController extends Controller{
     $event->user_id=$current_user;
     $event->confirmed=false;
 
-    //dd($event->convertDateTimetoDate('2020-10-06T-08:00:00'));
-    //dd($event->alreadyReserved('2020-07-09T-16:30:00'));
     if ($this->event->isPassed()){
       return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation dans le passé');
     }
@@ -76,14 +73,16 @@ class EventController extends Controller{
     if($this->event->datesCoherent()==False){
       return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation dont les heures sont incohérentes');
     }
-    //dd($this->event->resourceId);
+
     if($this->event->moreThan3hour()){
       return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation sur plus de 3 heures');
     }
 
-    if($event->alreadyReserved()){
-      return redirect()->back()->with('error', 'Vous avez déjà réservé dans la journée');
+    if($event->alreadyReserved() && $event->alreadyMoreThan3hour()){
+      return redirect()->back()->with('error', 'Vous avez déjà réservé plus de 3 heures dans la journée');
+
     }
+
     //Si un événement trouvé, message d'erreur
     if ($event->isReserved()){
       return redirect()->back()->with('error', 'Votre événement n\'a pas pu être ajouté car l\'horaire est déjà prise');

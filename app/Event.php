@@ -52,6 +52,25 @@ class Event extends Model
     return False;
   }
 
+  public function alreadyMoreThan3hour(){
+    $start=$this->start;
+    $user_id=$this->user_id;
+    $start=$this->convertDateTimetoDate($start);
+    $query= Event::whereDate('start', $start)
+          ->where('user_id','=',$user_id)
+          ->get();
+
+    $heure=0;
+    for($i=0;$i<count($query);$i++){
+      $s=new DateTime($query[$i]['start']);
+      $e=new DateTime($query[$i]['end']);
+      $heure=$heure+intval((date_diff($s,$e)->format('%h')));
+    }
+    if($heure>3){
+      return $heure;
+    }
+    return $heure;
+}
 
   public function moreThan3hour(){
     $start= new DateTime($this->convertDate($this->start));
