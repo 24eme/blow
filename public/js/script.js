@@ -148,18 +148,25 @@ function gotoDate(){
       url.searchParams.set('date', datepickerValue);
       window.location = url.toString();
 };
+function resourceCapacity(info){
+  var elements = document.getElementsByClassName('fc-datagrid-cell fc-resource'); //fc-datagrid-cell-cushion-main
+  var capacityNumber = document.createElement('span');
+  var capacityIcon = document.createElement('i');
+  capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
+
+  capacityIcon.className = "fas fa-male room-icon";
+  // alert(info.resource.extendedProps.capacity);    //ici le premier vaut 5
+  for (var i =0; i <elements.length; i++) {
+    alert(info.resource.extendedProps.capacity);     //ici le premier vaut 12 pourquoi il y a un changement des que l'on rentre dans le for
+    elements[i].appendChild(capacityIcon);
+      // alert(info.resource.extendedProps.capacity);
+    elements[i].appendChild(capacityNumber);
+  } ;
+}
 
 function resourcePopup(info) {
-        var elements = document.getElementsByClassName('fc-datagrid-cell-cushion-main');
-        var capacityNumber = document.createElement('span');
-        var capacityIcon = document.createElement('i');
-        capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
-        capacityIcon.className = "fas fa-male room-icon";
-        for (var i = 0; i < elements.length; i++) {
-          elements[i].appendChild(capacityIcon);
-          elements[i].appendChild(capacityNumber);
-        } ;
-        var popup = document.createElement('div');
+
+      var popup = document.createElement('div');
         var br = document.createElement('br');
         var br1 = br.cloneNode(true);
         var br2 = br.cloneNode(true);
