@@ -33,6 +33,20 @@ class Event extends Model
     return $date;
   }
 
+  protected function convertDateTimetoDate($date){
+    $date=substr($date,0,10);
+    return $date;
+  }
+
+  public function sameDate($date){
+    $user_id=$this->user_id;
+    $date=$this->convertDateTimetoDate($date);
+    $query= Event::whereDate('start', $date)
+          ->where('user_id','=',$user_id)
+          ->count();
+
+    return $query;
+  }
 
   public function moreThan3hour(){
     $start= new DateTime($this->convertDate($this->start));
