@@ -149,7 +149,7 @@ function gotoDate(){
       window.location = url.toString();
 };
 function resourceCapacity(info){
-  var elements = document.getElementsByClassName('fc-datagrid-cell-main'); // //fc-datagrid-cell fc-resource
+  var elements = document.getElementsByClassName('fc-datagrid-cell-main'); // //fc-datagrid-cell fc-resource fc-datagrid-cell-main
   var capacityNumber = document.createElement('span');
   var capacityIcon = document.createElement('i');
   capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
