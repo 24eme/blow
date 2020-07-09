@@ -9,7 +9,8 @@
     {{ csrf_field() }}
           <div class="modal-body">
           <div class="row content-head justify-content-center">
-          <div class="col-8">
+            <!-- class="col-8" -->
+          <div style='padding-bottom: 20px'>
                         <label for="room_title" class="content-title">SALLE :</label>
                         <input id="RoomName" type="text" name="room_name" class="input-head" value="" disabled>
                         <input id="HiddenRoomID" type="text" name="room_id" class="input-head" value="" hidden>
@@ -22,7 +23,8 @@
             </div>
           </div>
           <div class="row content-head justify-content-center">
-          <div style='padding-top: 50px' class="col-9">
+             <!-- class="col-9" -->
+          <div style='padding-top: 50px'>
                         <label class="content-title">EVENEMENT:</label>
                         <input id="EventName" type="text" name="event_name" class="input-head" value=""required ><br>
                         <input id="HiddenEventID" type="text" name="event_id" class="input-head" value="" hidden><br>
@@ -34,21 +36,19 @@
                         <label for="society"></label id="user_society"><br>
           </div>
           </div>
-          <div class="form-group row justify-content-center">
-                      <div class="form-group col-5">
+          <div class="form-group row">
+                      <div class="form-group col-md-6">
                         <label for="start_date">Date de Debut :</label>
                         <input id="StartDate" type="date" class="form-control" id="start_date" name="start_date" value="">
                       </div>
-          </div>
-          <div class="form-group row">
                       <div class="form-group col-md-6">
                         <label for="start_hour">Heure :</label>
                         <input id="StartHour" type="time" class="form-control" name="start_hour" required>
                       </div>
-                      <!-- <div class="form-group col-md-6">
+                      <div class="form-group col-md-6">
                         <label for="end_date">Date de Fin :</label>
                         <input id="EndDate" type="date" class="form-control" name="end_date" value="" required>
-                      </div> -->
+                      </div>
                       <div class="form-group col-md-6">
                         <label for="end_hour">Heure :</label>
                         <input id="EndHour" type="time" class="form-control" name="end_hour" value="" required>

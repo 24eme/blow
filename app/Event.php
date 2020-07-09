@@ -38,7 +38,7 @@ class Event extends Model
       //return $this->event;
   }
 
-  public function convertDate($date){
+  protected function convertDate($date){
     $date=str_replace('T', '', $date);
     $date=str_replace('Z','',$date);
     return $date;
@@ -58,7 +58,7 @@ class Event extends Model
   public function datesCoherent(){
     $start=$this->convertDate($this->start);
     $end=$this->convertDate($this->end);
-    if($start<$end){
+    if($start<=$end){
       return True;
     }
     return False;

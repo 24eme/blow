@@ -16,14 +16,21 @@ document.addEventListener('DOMContentLoaded', function() {
       initialView: 'resourceTimelineDay',
       resourceAreaColumns: [{ headerContent: 'Salles'},],
       titleFormat:{year: 'numeric', month: 'long',day:'numeric', weekday: 'long' },
-      buttonText:{ today: 'Aujourd\'hui', month: 'mois', week: 'semaine', day: 'jour'},
+      buttonText:{ today: 'AUJOURD\'HUI', month: 'MOIS', week: 'SEMAINE', day: 'JOUR'},
       schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
       selectable:true,
       navLinks: true,
       nowIndicator:true,
       events:'showEvents',
       resources:'showRooms',
-
+      themeSystem: 'bootstrap',
+      bootstrapFontAwesome:{
+        close: 'fa-times',
+        prev: 'fa-chevron-left',
+        next: 'fa-chevron-right',
+        prevYear: 'fa-angle-double-left',
+        nextYear: 'fa-angle-double-right'
+        },
       select: function(info){
         modalAddEvent(info);
       },
@@ -42,16 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
         resourcePopup(info);
       },
       resourceLabelContent: function(info){
-        var elements = document.getElementsByClassName('fc-datagrid-cell-main');
-        var capacityNumber = document.createElement('span');
-        var capacityIcon = document.createElement('i');
-        capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
-        capacityIcon.className = "fas fa-male room-icon";
-        for (var i = 0; i < elements.length; i++) {
-          console.log(elements[i]);
-          elements[i].appendChild(capacityIcon);
-          elements[i].appendChild(capacityNumber);
-        } ;
+        // resourceCapacity(info);  //ne fonctionne pas
+
       },
       datesSet:function(info){
           Currentdate = calendar.getDate().toISOString();

@@ -6,7 +6,7 @@ function modalAddEvent(info) {
     var inputStartDate = document.getElementById('inputStartDate');
     var inputStartHour = document.getElementById('inputStartHour');
 
-  //  var inputEndDate = document.getElementById('inputEndDate');
+    var inputEndDate = document.getElementById('inputEndDate');
     var inputEndHour = document.getElementById('inputEndHour');
 
     var inputRoomName = document.getElementById('inputRoomName');
@@ -29,7 +29,7 @@ function modalAddEvent(info) {
 
     inputStartDate.value = dateDebut[0] ;
     inputStartHour.value = dateDebut[2] ;
-//    inputEndDate.value = dateFin[0] ;
+    inputEndDate.value = dateFin[0] ;
     inputEndHour.value = dateFin[2] ;
 
     $('#modalCEvent').modal('show');
@@ -41,7 +41,7 @@ function modalCheckEvent(info) {
     var inputStartDate = document.getElementById('StartDate');
     var inputStartHour = document.getElementById('StartHour');
 
-  //  var inputEndDate = document.getElementById('EndDate');
+    var inputEndDate = document.getElementById('EndDate');
     var inputEndHour = document.getElementById('EndHour');
 
     var inputRoomName = document.getElementById('RoomName');
@@ -51,7 +51,6 @@ function modalCheckEvent(info) {
     var equipment = document.getElementById('equipment');
     var capacite = document.getElementById('capacity');
     var btnDelete = document.getElementById('btnDEvent');
-      console.log(info);
 
     if (info.el == null) {
       var eventObj = info;
@@ -75,7 +74,7 @@ function modalCheckEvent(info) {
 
       inputStartDate.value = dateDebutEvent[0] ;
       inputStartHour.value = dateDebutEvent[2] ;
-//      inputEndDate.value = dateFinEvent[0] ;
+      inputEndDate.value = dateFinEvent[0] ;
       inputEndHour.value = dateFinEvent[2] ;
     }
     else{
@@ -149,17 +148,33 @@ function gotoDate(){
       url.searchParams.set('date', datepickerValue);
       window.location = url.toString();
 };
+function resourceCapacity(info){ //ne fonctionne pas
+  // var elements = document.getElementsByClassName('fc-datagrid-cell-main'); // //fc-datagrid-cell fc-resource fc-datagrid-cell-main
+  // var capacityNumber = document.createElement('span');
+  // var capacityIcon = document.createElement('i');
+  // capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
+  //
+  // capacityIcon.className = "fas fa-male room-icon";
+  // // alert(info.resource.extendedProps.capacity);    //ici le premier vaut 5
+  // for (var i =1; i <elements.length; i++) {
+  //   // alert(info.resource.extendedProps.capacity);     //ici le premier vaut 12 pourquoi il y a un changement des que l'on rentre dans le for
+  //   elements[i].appendChild(capacityIcon);
+  //     // alert(info.resource.extendedProps.capacity);
+  //   elements[i].appendChild(capacityNumber);
+  // } ;
+  var elements = document.getElementsByClassName('fc-scrollgrid-sync-inner');
+  var capacityNumber = document.createElement('span');
+  var capacityIcon = document.createElement('i');
+  capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
+  capacityIcon.className = "fas fa-male";
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].appendChild(capacityIcon);
+    elements[i].appendChild(capacityNumber);
+    elements[elements.length-1].classList.add('lol');
+  } ;
+}
 
 function resourcePopup(info) {
-        var elements = document.getElementsByClassName('fc-datagrid-cell-cushion');
-        var capacityNumber = document.createElement('span');
-        var capacityIcon = document.createElement('i');
-        capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
-        capacityIcon.className = "fas fa-male room-icon";
-        for (var i = 0; i < elements.length; i++) {
-          elements[i].appendChild(capacityIcon);
-          elements[i].appendChild(capacityNumber);
-        } ;
         var popup = document.createElement('div');
         var br = document.createElement('br');
         var br1 = br.cloneNode(true);
@@ -169,7 +184,7 @@ function resourcePopup(info) {
         var img = document.createElement('img');
         popup.className = "pop-up";
         popup.innerHTML = info.resource.title;
-        img.src = "img/"+info.resource.id+'.jpg';
+        img.src = "img/"+info.resource.extendedProps.image;
         img.style.width = "70%";
         img.style.height = "50%"
         equipement.innerHTML = info.resource.extendedProps.equipment;
@@ -183,8 +198,13 @@ function resourcePopup(info) {
         popup.appendChild(capacite);
         info.el.appendChild(popup);
         function popupDisplay(){
-          if (popup.style.display === "none")popup.style.display = "block";
-          else popup.style.display = "none  ";
+          if (popup.style.display === "none") {
+                popup.style.display = "block";
+          }
+          else{
+            popup.style.position ="absolute";
+            popup.style.display = "none  ";
+          }
         };
         function popupHide(){ popup.style.display ="none";};
         info.el.addEventListener("mouseover", popupDisplay);
