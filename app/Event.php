@@ -38,7 +38,7 @@ class Event extends Model
       //return $this->event;
   }
 
-  public function convertDate($date){
+  protected function convertDate($date){
     $date=str_replace('T', '', $date);
     $date=str_replace('Z','',$date);
     return $date;
