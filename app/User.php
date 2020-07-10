@@ -6,9 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
- //class User extends Authenticatable implements MustVerifyEmail
+ class User extends Authenticatable implements MustVerifyEmail
 
-class User extends Authenticatable
+//class User extends Authenticatable
 {
     const ADMIN_TYPE = 'admin';
     const DEFAULT_TYPE = 'default';
