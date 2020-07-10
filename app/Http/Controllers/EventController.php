@@ -130,6 +130,11 @@ class EventController extends Controller{
          return redirect()->back()->with('error', 'Votre événement n\'a pas pu être modifié  car l\'horaire est déjà prise');
        }
 
+       if($event->alreadyReserved() && $event->alreadyMoreThan3hour()){
+         return redirect()->back()->with('error', 'Vous avez déjà réservé plus de 3 heures dans la journée');
+
+       }
+
        $event->save();
        return redirect()->back()->with('success', 'Votre événement a bien été modfié');
 
