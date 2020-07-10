@@ -230,30 +230,7 @@ function resourcePopup(info) {
 
   };
 
-  // function scrollTime(){
-  //
-  //   var scrollTime = document.getElementById('inputStartHour');
-  //   calendar.scrollToTime(scrollTime.value);
-  // };
-  // function edit(){
-  //
-  //     var bool = true;
-  //   	var modal = document.getElementById('formUDEvent');
-  //     var inputs = modal.getElementsByClassName('editable');
-  //
-  //     if (modal.classList.contains('is-readonly')){
-  //         modal.className = 'is-editing';
-  //         bool = false;
-  //     }
-  //     else {
-  //         modal.className = 'is-readonly';
-  //         bool=true;
-  //
-  //     }
-  //     for (var i = 0; i < inputs.length; i++) {
-  //       inputs[i].disabled = bool;
-  //     } ;
-  // };
+
   function openTab(evt, tab) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
