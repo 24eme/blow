@@ -1,38 +1,26 @@
 @section('content')
+<section>
+<div class="row m-auto  text-center">
 
-<section id="accueil">
-<div class="row">
-      <div class="col-sm">
-        <div class="headline_container">
-        <div class="headline"><h2>RÉSERVER VOTRE SALLE EN UN CLIC</h2><h2>FACILE, RAPIDE ET GRATUIT.</h2>
+        <div class="col-sm-6 align-self-center">
+          <h2>RÉSERVER VOTRE SALLE EN UN CLIC</h2>
+          <h2>FACILE, RAPIDE ET GRATUIT.</h2>
           <p>Une plateforme de gestion de salle gratuite et intuitive pour faciliter les espaces de co-working</p>
         </div>
-<div><img id="girl_sitting" src="img/girl_sitting.png"></div>
-        </div>
-      </div>
+          <div class="col-sm-6">
+            <img  class="col-sm" src="img/girl_sitting.png">
+          </div>
+
+
+
 </div>
 </section>
 
 <div class="container">
-<section id="apropos">
-      <h2 style="margin: 100px;">L'outil essentiel des espaces de co-working</h2>
-<div class="row marged-row">
-      <div class="col-sm" data-aos="fade-right"><img src="img/girl_sipping.png"><h4>Créer votre compte</h4><p>Quapropter a natura mihi videtur potius quam ab indigentia orta amicitia, applicatione magis animi cum quodam sensu amandi quam cogitatione quantum illa res utilitatis esset habitura. Quod quidem quale sit, etiam in bestiis quibusdam animadverti potest, quae ex se natos ita amant ad quoddam tempus et ab eis ita amantur ut facile earum sensus appareat.</p></div>
-      <div class="col-sm" data-aos="fade-right" data-aos-delay="400"><img src="img/man_laptop.png"><h4>Réserver une salle</h4><p>Quapropter a natura mihi videtur potius quam ab indigentia orta amicitia, applicatione magis animi cum quodam sensu amandi quam cogitatione quantum illa res utilitatis esset habitura. Quod quidem quale sit, etiam in bestiis quibusdam animadverti potest, quae ex se natos ita amant ad quoddam tempus et ab eis ita amaappareat.</p></div>
-      <div class="col-sm" data-aos="fade-right" data-aos-delay="600"><img src="img/girl_laptop.png"><h4>Plus simple, plus rapide et gratuit</h4><p>Quapropter a natura mihi videtur potius quam ab indigentia orta amicitia, applicatione magis animi cum quodam sensu amandi quam cogitatione quantum illa res utilitatis esset habitura. Quod quidem quale sit, etiam in bestiis quibusdam animadverti potest, quae eb eis ita amantur ut facile earum sensus appareat.</p></div>
-</div>
-</section>
 
- 
-
-<div class="row">
-    <div class="col-sm">
-      <div class="heart_box"><img src="img/blow_heart.png"></div>
+    <div class="row">
+      <div class="m-auto"><img class="col-xs-6 col-sm col-md col-lg "src="img/blow_heart.png"></div>
     </div>
-</div>
-
-
-
 </div>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({});</script>

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Event;
-// use DB;
 use Carbon\Carbon;
 use Auth;
 use Validator;
@@ -67,7 +66,6 @@ class EventController extends Controller{
     $event->user_id=$current_user;
     $event->confirmed=false;
 
-
     if ($this->event->isPassed()){
       return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation dans le passé');
     }
@@ -75,9 +73,14 @@ class EventController extends Controller{
     if($this->event->datesCoherent()==False){
       return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation dont les heures sont incohérentes');
     }
-    //dd($this->event->resourceId);
+
     if($this->event->moreThan3hour()){
       return redirect()->back()->with('error', 'Impossible d\'effectuer une réservation sur plus de 3 heures');
+    }
+
+    if($event->alreadyReserved() && $event->alreadyMoreThan3hour()){
+      return redirect()->back()->with('error', 'Vous avez déjà réservé plus de 3 heures dans la journée');
+
     }
 
     //Si un événement trouvé, message d'erreur

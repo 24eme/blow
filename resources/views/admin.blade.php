@@ -6,11 +6,23 @@
 
 <div class="calendar-container">
   @include('components.flash-message')
-            <div class="tab-navbar">
-              <button class="tablinks" onclick="openTab(event, 'event-tab')">Evènements</button>
-              <button class="tablinks" onclick="openTab(event, 'user-tab')">Utilisateurs</button>
-              <button class="tablinks" onclick="openTab(event, 'room-tab')">Salles</button>
-              <button class="tablinks" onclick="openTab(event, 'calendar-tab')">Calendrier</button>
+            <div class="row m-auto tab-navbar ">
+              <div class="col-sm-3 mb-3">
+                <button class="tablinks" onclick="openTab(event, 'event-tab')">Evènements</button>
+              </div>
+
+               <div class="col-sm-3 mb-3">
+                <button class="tablinks" onclick="openTab(event, 'user-tab')">Utilisateurs</button>
+               </div>
+
+                <div class="col-sm-3 mb-3">
+                <button class="tablinks" onclick="openTab(event, 'room-tab')">Salles</button>
+               </div>
+
+                <div class="col-sm-3 mb-3 mr-0">
+                <button class="tablinks" onclick="openTab(event, 'calendar-tab')">Calendrier</button>
+                </diV
+            </div>
             </div>
 
             <div id="event-tab" class="tabcontent">

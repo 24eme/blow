@@ -49,7 +49,7 @@ h3{
   margin-left: 0;
   width: 100%;
 }
-.navbar-brand{
+/* .navbar-brand{
   font-size: 3em;
   width: 100%;
   padding: 30px;
@@ -60,9 +60,12 @@ h3{
   font-family: Quicksand;
   letter-spacing: 10px;
 } */
+<<<<<<< HEAD
 .nav-item{
   margin: 20px;
 }
+=======
+>>>>>>> 6e4520c03f78053678255bee6ebf677ef36c4a06
 .calendar-container{
   margin: auto;
   width: 90%;
@@ -232,22 +235,22 @@ form.is-editing .btn-edit {
 .alinea{
   margin-left: 15px;
 }
-.btn-primary{
+/* .btn-primary{
   background-color: #2C3E50;
   border-color: #2C3E50;
-}
+} */
 .tab-navbar{
   overflow: hidden;
   width: 85%;
-  margin:auto;
+  /* margin:auto; */
 
 }
 .tab-navbar button {
   border: none;
-  margin: 20px;
-  padding: 20px;
-  padding-left: 50px;
-  padding-right: 50px;
+  /* margin: 20px;*/
+   padding: 20px;
+  */adding-left: 50px; */
+  /* padding-right: 50px; */
   transition: 0.3s;
   color: #FFF;
   font-size: 1.2em;
@@ -368,7 +371,7 @@ h1 {
     color: #222222;
 }
 .navbar{
-  height: 80px;
+  /* height: 80px; */
   z-index: 100;
 
 }
@@ -386,8 +389,9 @@ h2{
 }
 #girl_sitting{
   width: 36vw;
+  height: 20vw;
   margin-top: -20%;
-  margin-left: 45%;
+  /* margin-left: 45%; */
   z-index: -100
 }
 .left_box{
@@ -402,11 +406,11 @@ h2{
 .calendar_box{
   margin: 100px;
 }
-.heart_box img{
+/* .heart_box img{
   margin-left: auto;
   margin-right: auto;
   display: block;
-}
+} */
 .calendar_box{
   background-color: #fafafa;
   border-radius: 20px;
@@ -440,9 +444,9 @@ h2{
 
 
 @media screen and (max-width: 1280px){
-  .headline_container{
+  /* .headline_container{
     display: block;
-  }
+  } */
   .left_box{
     position: relative;
     display: block;

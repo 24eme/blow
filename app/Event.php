@@ -22,28 +22,55 @@ class Event extends Model
       return $this->belongsTo('App\User');
   }
 
-
-
-
-  // public function formDate($date, $time){
-  //   return ($date.$time);
-  // }
-  //
-  // public function formDateTZ($date,$time){
-  //   return ($date.'T'.$time.'Z');
-  // }
-
   public function setDate($se,$date,$time){
       return $this->$se=($date.'T'.$time.'Z');
       //return $this->event;
   }
 
-  public function convertDate($date){
+  protected function convertDate($date){
     $date=str_replace('T', '', $date);
     $date=str_replace('Z','',$date);
     return $date;
   }
 
+  protected function convertDateTimetoDate($date){
+    $date=substr($date,0,10);
+    return $date;
+  }
+
+
+  public function alreadyReserved(){
+    $date=$this->start;
+    $user_id=$this->user_id;
+    $date=$this->convertDateTimetoDate($date);
+    $query= Event::whereDate('start', $date)
+          ->where('user_id','=',$user_id)
+          ->count();
+    if($query>0){
+      return True;
+    }
+    return False;
+  }
+
+  public function alreadyMoreThan3hour(){
+    $start=$this->start;
+    $user_id=$this->user_id;
+    $start=$this->convertDateTimetoDate($start);
+    $query= Event::whereDate('start', $start)
+          ->where('user_id','=',$user_id)
+          ->get();
+
+    $heure=0;
+    for($i=0;$i<count($query);$i++){
+      $s=new DateTime($query[$i]['start']);
+      $e=new DateTime($query[$i]['end']);
+      $heure=$heure+intval((date_diff($s,$e)->format('%h')));
+    }
+    if($heure>3){
+      return $heure;
+    }
+    return $heure;
+}
 
   public function moreThan3hour(){
     $start= new DateTime($this->convertDate($this->start));
@@ -55,7 +82,7 @@ class Event extends Model
   }
 
 
-  public function datesCoherent(){ 
+  public function datesCoherent(){
     $start=$this->convertDate($this->start);
     $end=$this->convertDate($this->end);
     if($start<=$end){

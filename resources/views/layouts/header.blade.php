@@ -1,14 +1,23 @@
 <header>
   @guest
-<nav class="navbar navbar-expand-lg navbar-light ">
-<div class="container-fluid">
-    <span><a class="navbar-brand nav-logo" href="/">BLOW</a></span>
-        <ul class="nav navbar-nav navbar-right">
-        <li class="nav-item"><a class="btn" href="{{ route('login') }}">{{ __('Se connecter') }}</a></li>
-        @if (Route::has('register'))<li class="nav-item"><a class="btn" href="{{ route('register') }}">{{ __('S\'inscrire') }}</a></li>@endif
-        </ul>
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+<!-- <div class="container-fluid"> -->
+    <!-- <span> -->
+      <a class="navbar-brand " href="/">BLOW</a>
+    <!-- </span> -->
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul class="navbar-nav ml-auto ">
+          <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a></li>
+          @if (Route::has('register'))<li class="nav-item"><a class="nav-link" href="{{ route('register') }}">{{ __('S\'inscrire') }}</a></li>@endif
+          </ul>
+      </div>
+<!-- </div> -->
 </nav>
+<div></div>
+  <div></div>
 @else
 <nav class="navbar navbar-expand-lg navbar-light">
  <div class="container-fluid">

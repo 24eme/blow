@@ -2,6 +2,9 @@
 <script src='https://unpkg.com/fullcalendar-scheduler@5.1.0/main.min.js'></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  
+    var currentdate = new Date();
+    var time =""+currentdate.getHours() + ":"+ currentdate.getMinutes() + ":"+ currentdate.getSeconds()+"";
 
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -21,7 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
       selectable:true,
       navLinks: true,
       nowIndicator:true,
+      scrollTime:time,
       events:'showEvents',
+
       resources:'showRooms',
       themeSystem: 'bootstrap',
       bootstrapFontAwesome:{
@@ -31,6 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
         prevYear: 'fa-angle-double-left',
         nextYear: 'fa-angle-double-right'
         },
+
+
+
+
       select: function(info){
         modalAddEvent(info);
       },
@@ -47,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       resourceLabelDidMount: function(info){
         resourcePopup(info);
+<<<<<<< HEAD
         var elements = document.getElementsByClassName('fc-resource');
         var capacityNumber = document.createElement('span');
         var capacityIcon = document.createElement('i');
@@ -64,6 +74,11 @@ document.addEventListener('DOMContentLoaded', function() {
         } ;
         //resourceCapacity(info);
         //https://stackoverflow.com/questions/9404685/import-ical-ics-with-fullcalendar ICS
+=======
+      },
+      resourceLabelContent: function(info){
+        // resourceCapacity(info);  //ne fonctionne pas
+>>>>>>> 6e4520c03f78053678255bee6ebf677ef36c4a06
 
       },
       datesSet:function(info){
