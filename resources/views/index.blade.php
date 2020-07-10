@@ -1,10 +1,7 @@
 @section('content')
-<!-- <section id="accueil"> -->
 <section>
 <div class="row m-auto  text-center">
 
-        <!-- <div class="headline_container"> -->
-        <!-- <div class="headline"> -->
         <div class="col-sm-6 align-self-center">
           <h2>RÉSERVER VOTRE SALLE EN UN CLIC</h2>
           <h2>FACILE, RAPIDE ET GRATUIT.</h2>
@@ -13,71 +10,17 @@
           <div class="col-sm-6">
             <img  class="col-sm" src="img/girl_sitting.png">
           </div>
-        <!-- </div> -->
-        <!-- </div> -->
 
-        <!-- <div class="headline_container">
-        <div class="headline">
-        <div class="col-xs-6 col-sm col-md col-lg">
-          <h2>RÉSERVER VOTRE SALLE EN UN CLIC</h2>
-          <h2>FACILE, RAPIDE ET GRATUIT.</h2>
-          <p>Une plateforme de gestion de salle gratuite et intuitive pour faciliter les espaces de co-working</p>
-        </div>
-          <div class="col-xs-6 col-sm col-md col-lg">
-            <img id="girl_sitting" class="col-xs-6 col-sm col-md col-lg" src="img/girl_sitting.png">
-          </div>
-        </div>
-        </div> -->
 
 
 </div>
 </section>
 
 <div class="container">
-<section id="apropos">
-<div class="d-flex text-center justify-content-center">
-      <h2>L'outil essentiel des espaces de co-working</h2>
-</div>
-<div class="row marged-row d-flex text-center justify-content-center">
-      <div class="col-sm-4 align-items-center" data-aos="fade-right">
-          <img  class="col-xs- col-sm col-md col-lg " src="img/girl_sipping.png">
-          <h4>Créer votre compte</h4>
-          <p>Quapropter a natura mihi videtur potius quam ab indigentia orta amicitia, applicatione magis animi
-            cum quodam sensu amandi quam cogitatione quantum illa res utilitatis esset habitura. Quod quidem
-            quale sit, etiam in bestiis quibusdam animadverti potest, quae ex se natos ita amant ad quoddam
-            tempus et ab eis ita amantur ut facile earum sensus appareat.
-        </p>
-     </div>
-      <div class="col-sm-4" data-aos="fade-right" data-aos-delay="400">
-          <img class="col-xs- col-sm col-md col-lg " src="img/man_laptop.png">
-          <h4 class="col-sm">Réserver une salle</h4>
-          <p >Quapropter a natura mihi videtur potius quam ab indigentia orta amicitia, applicatione magis animi
-              cum quodam sensu amandi quam cogitatione quantum illa res utilitatis esset habitura. Quod quidem quale sit,
-              etiam in bestiis quibusdam animadverti potest, quae ex se natos ita amant ad quoddam tempus et ab
-              eis ita amaappareat.
-         </p>
-       </div>
-      <div class="col-sm-4" data-aos="fade-right" data-aos-delay="600">
-        <img class="col-xs-6 col-sm col-md col-lg " src="img/girl_laptop.png">
-        <h4>Plus simple, plus rapide et gratuit</h4>
-        <p>Quapropter a natura mihi videtur potius quam ab indigentia orta amicitia, applicatione magis animi
-          cum quodam sensu amandi quam cogitatione quantum illa res utilitatis esset habitura. Quod quidem
-          quale sit, etiam in bestiis quibusdam animadverti potest, quae eb eis ita amantur ut facile earum
-          sensus appareat.
-        </p>
-      </div>
-</div>
-</section>
-
-
-
 
     <div class="row">
       <div class="m-auto"><img class="col-xs-6 col-sm col-md col-lg "src="img/blow_heart.png"></div>
     </div>
-
-
-
 </div>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({});</script>
