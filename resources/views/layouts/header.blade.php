@@ -22,7 +22,7 @@
 <nav class="navbar navbar-expand-lg navbar-light">
  <div class="container-fluid">
    <div class="navbar-header">
-     <img src="{{ asset('favicon.jpg') }}" style="width:50px;height:50px;margin-left:35%;margin-top:10%;margin-bottom:10%;"alt="logo">
+     <a href="/"><img src="{{ asset('favicon.jpg') }}" style="width:50px;height:50px;margin-left:35%;margin-top:10%;margin-bottom:10%;"alt="logo"></a>
    </div>
    <ul class="nav navbar-nav navbar-right">
      <li class="nav-item"><a class="custom-link" href="#"><i class="fas fa-user-circle"></i>{{ Auth::user()->name }}</a></li>

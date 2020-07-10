@@ -18,6 +18,8 @@ a{
 }
 li{
   list-style-type: none;
+
+  z-index: 100;
 }
 h3{
   text-align: center;
@@ -256,6 +258,8 @@ form.is-editing .btn-edit {
   -webkit-box-shadow: 10px 10px 14px -6px rgba(240,240,240,1);
 -moz-box-shadow: 10px 10px 14px -6px rgba(240,240,240,1);
 box-shadow: 10px 10px 14px -6px rgba(240,240,240,1);
+z-index: -100;
+position: relative;
 }
 
 .tab-navbar button:hover {
@@ -270,7 +274,7 @@ box-shadow: 10px 10px 14px -6px rgba(240,240,240,1);
   margin: 10px;
   padding: 10px;
   border: 1px solid #E8E8E8;
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 .tabcontent li{
   font-size: 1em;
