@@ -24,7 +24,12 @@
    <div class="navbar-header">
      <a href="/"><img src="{{ asset('favicon.jpg') }}" style="width:50px;height:50px;margin-left:35%;margin-top:10%;margin-bottom:10%;"alt="logo"></a>
    </div>
-   <ul class="nav navbar-nav navbar-right">
+   <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenuAd">
+       <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarMenuAd">
+   <!-- <ul class="nav navbar-nav navbar-right"> -->
+      <ul class="nav navbar-nav m-auto">
      <li class="nav-item"><a class="custom-link" href="#"><i class="fas fa-user-circle"></i>{{ Auth::user()->name }}</a></li>
      @if(Auth::check())
              @if (Auth::user()->isAdmin())
@@ -40,6 +45,7 @@
              @endif
      @endif
    </ul>
+  </div>
  </div>
 </nav>
 @endguest
