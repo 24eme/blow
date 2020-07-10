@@ -6,8 +6,7 @@
 
 <div class="calendar-container container">
   <div class="datepicker-wrapper">
-  <input placeholder="Selectionner une date" type="text" name="datepicker" id="datepicker" value="" class="calendar">
-  <i class="fas fa-calendar-check icon"></i>
+  <input placeholder="Selectionner une date" type="text" name="datepicker" id="datepicker" value="" class="calendar"> 
   </div>
         <div class="page" >
             @include('components.flash-message')

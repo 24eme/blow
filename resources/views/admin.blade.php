@@ -42,8 +42,7 @@
             <div id="calendar-tab" class="tabcontent ">
               <h3>VISUALISATION DE L'INTERFACE</h3>
               <div class="datepicker-wrapper">
-              <input placeholder="Selectionner une date" type="text" name="datepicker" id="datepicker" value="" class="calendar">
-              <i class="fas fa-calendar-check icon"></i>
+              <input placeholder="Selectionner une date" type="text" name="datepicker" id="datepicker" value="" class="calendar"> 
               </div>
                   <div id="calendar"></div>
             </div>

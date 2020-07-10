@@ -47,19 +47,23 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       resourceLabelDidMount: function(info){
         resourcePopup(info);
-      },
-      resourceLabelContent: function(info){
-        var elements = document.getElementsByClassName('fc-scrollgrid-sync-inner');
+        var elements = document.getElementsByClassName('fc-resource');
         var capacityNumber = document.createElement('span');
         var capacityIcon = document.createElement('i');
         capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
         capacityIcon.className = "fas fa-male";
+        capacityIcon.style.position = "absolute";
+        capacityIcon.style.marginTop = "-20px";
+        capacityIcon.style.marginLeft ="300px";
+        capacityNumber.style.position = "absolute";
+        capacityNumber.style.marginTop = "-20px";
+        capacityNumber.style.marginLeft = "280px";
         for (var i = 0; i < elements.length; i++) {
-          elements[i].appendChild(capacityIcon);
-          elements[i].appendChild(capacityNumber);
-          elements[elements.length-1].classList.add('lol');
+          info.el.appendChild(capacityIcon);
+          info.el.appendChild(capacityNumber);
         } ;
         //resourceCapacity(info);
+        //https://stackoverflow.com/questions/9404685/import-ical-ics-with-fullcalendar ICS
 
       },
       datesSet:function(info){
