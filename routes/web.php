@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('home')->middleware('verified');
+    return view('home');
 });
 Route::get('/showEvents', 'EventController@show');
 Route::post('/createEvent','EventController@create')->name('createEvent');
