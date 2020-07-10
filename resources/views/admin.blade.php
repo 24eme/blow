@@ -7,27 +7,23 @@
 <div class="calendar-container">
   @include('components.flash-message')
             <div class="row m-auto tab-navbar ">
-              <div class="col-sm-3 mb-3">
+              <div class="col-sm-4 mb-4">
                 <button class="tablinks" onclick="openTab(event, 'event-tab')">Evènements</button>
               </div>
 
-               <div class="col-sm-3 mb-3">
+               <div class="col-sm-4 mb-4">
                 <button class="tablinks" onclick="openTab(event, 'user-tab')">Utilisateurs</button>
                </div>
 
-                <div class="col-sm-3 mb-3">
+                <div class="col-sm-4 mb-4">
                 <button class="tablinks" onclick="openTab(event, 'room-tab')">Salles</button>
                </div>
-
-                <div class="col-sm-3 mb-3 mr-0">
-                <button class="tablinks" onclick="openTab(event, 'calendar-tab')">Calendrier</button>
-              </div>
             </div>
 
 
             <div id="event-tab" class="tabcontent">
               <div class="wrapper">
-                  <h3>EVENEMENTS : en attente de validation</h3>
+                  <h3>EVENEMENTS EN ATTENTE DE VALIDATION</h3>
               </div>
               <ul>
               @foreach ($events as $event)
@@ -51,17 +47,10 @@
                   @endforeach
               </ul>
             </div>
-            <div id="calendar-tab" class="tabcontent ">
-              <h3>VISUALISATION DE L'INTERFACE</h3>
-              <div class="datepicker-wrapper">
-              <input placeholder="Selectionner une date" type="text" name="datepicker" id="datepicker" value="" class="calendar">
-              </div>
-                  <div id="calendar"></div>
-            </div>
             <div id="room-tab" class="tabcontent">
               <div class="wrapper">
-                  <h3><button type="button" class="btn custom-btn" data-toggle="modal" data-target="#modalCRoom" class="btn"><i class="fas fa-plus"></i></button>
-                  SALLES</h3>
+                <button type="button" class="btn custom-btn" data-toggle="modal" data-target="#modalCRoom" class="btn"><i class="fas fa-plus"></i><p> Ajouter une salle </p></button>
+                  <h3>SALLES</h3>
               </div>
               <ul>
               @foreach($rooms as $room)
