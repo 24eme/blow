@@ -43,23 +43,7 @@ h3{
   background-color: rgba(228, 234, 237, 0.5);
   z-index: 0 !important;
 }
-/*
-.navbar-primary ul > li {
-  font-size: 2em;
-  margin-left: 0;
-  width: 100%;
-}
-/* .navbar-brand{
-  font-size: 3em;
-  width: 100%;
-  padding: 30px;
-  padding-left: 10px;
-  padding-top: 10px;
-  color: grey !important;
-  font-weight: bold;
-  font-family: Quicksand;
-  letter-spacing: 10px;
-} */
+
 .nav-item{
   margin: 20px;
 }
@@ -171,21 +155,6 @@ select{
   outline: none;
 }
 
-/* form.is-readonly .btn-save {
-  display: none;
-}
-form.is-readonly .editable{
-  cursor: text;
-  background-color: #fff;
-  border-color: transparent;
-  outline-color: transparent;
-  box-shadow: none;
-}
-form.is-editing .btn-edit {
-  display: none;
-} */
-
-
  /* honorine */
 
  .modal-header{
@@ -232,10 +201,6 @@ form.is-editing .btn-edit {
 .alinea{
   margin-left: 15px;
 }
-/* .btn-primary{
-  background-color: #2C3E50;
-  border-color: #2C3E50;
-} */
 
 .col-sm-4 {
   margin-top: 30px;
@@ -248,11 +213,8 @@ form.is-editing .btn-edit {
 }
 .tab-navbar button {
   border: none;
-  /* margin: 20px;*/
    padding: 20px;
    width: 70%;
-  /*padding-left: 50px; */
-  /* padding-right: 50px; */
   transition: 0.3s;
   color: #FFF;
   font-size: 1.2em;
@@ -304,18 +266,14 @@ tbody{
 .pop-up {
   display: none;
   position: absolute;
-  padding: 10%;
+  /* padding: 10%; */
   background: #F4F4F4;
-  margin-left: 20px;
-  padding-top: 0;
-  box-shadow:  2px 2px 2px 0px rgba(212,212,212,1);
+  /* margin-left: 20px; */
+  /* padding-top: 0; */
+    box-shadow:  2px 2px 2px 0px rgba(212,212,212,1);
 	text-align: center;
-  z-index: 100;
-}
 
-/*.fc-scroller,.fc-scroller-harness{
-  overflow: visible !important;
-} */
+}
 
 #loader-wrapper .loader-section {
     position: fixed;
@@ -392,7 +350,6 @@ h2{
   width: 36vw;
   height: 20vw;
   margin-top: -20%;
-  /* margin-left: 45%; */
   z-index: -100
 }
 .left_box{
@@ -407,11 +364,7 @@ h2{
 .calendar_box{
   margin: 100px;
 }
-/* .heart_box img{
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-} */
+
 .calendar_box{
   background-color: #fafafa;
   border-radius: 20px;
@@ -428,26 +381,7 @@ h2{
    height: 20vw;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media screen and (max-width: 1280px){
-  /* .headline_container{
-    display: block;
-  } */
   .left_box{
     position: relative;
     display: block;
