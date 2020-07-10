@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
       nowIndicator:true,
       scrollTime:time,
       events:'showEvents',
-
       resources:'showRooms',
       themeSystem: 'bootstrap',
       bootstrapFontAwesome:{
@@ -36,30 +35,31 @@ document.addEventListener('DOMContentLoaded', function() {
         prevYear: 'fa-angle-double-left',
         nextYear: 'fa-angle-double-right'
         },
-
-
-
-
       select: function(info){
         modalAddEvent(info);
       },
       eventClick: function(info){
-
         var userid= <?php echo Auth::id() ?>;
-
-        if (userid!= info.event.extendedProps.user_id) {
-           NotYourEvent();
-          }
-         else {
-            modalCheckEvent(info);
-         }
+        if (userid!= info.event.extendedProps.user_id) {NotYourEvent();}
+        else { modalCheckEvent(info);}
       },
       resourceLabelDidMount: function(info){
         resourcePopup(info);
-      },
-      resourceLabelContent: function(info){
-        // resourceCapacity(info);  //ne fonctionne pas
-
+        var elements = document.getElementsByClassName('fc-resource');
+        var capacityNumber = document.createElement('span');
+        var capacityIcon = document.createElement('i');
+        capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
+        capacityIcon.className = "fas fa-male";
+        capacityIcon.style.position = "absolute";
+        capacityIcon.style.marginTop = "-20px";
+        capacityIcon.style.marginLeft ="300px";
+        capacityNumber.style.position = "absolute";
+        capacityNumber.style.marginTop = "-20px";
+        capacityNumber.style.marginLeft = "280px";
+        for (var i = 0; i < elements.length; i++) {
+          info.el.appendChild(capacityIcon);
+          info.el.appendChild(capacityNumber);
+        } ;
       },
       datesSet:function(info){
           Currentdate = calendar.getDate().toISOString();

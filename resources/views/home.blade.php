@@ -4,11 +4,9 @@
 @else
 @section('content')
 
-<div class="calendar-container container" style="padding-right:60px;">
-  <div class="col-lg-8 datepicker-wrapper">
+<div class="calendar-container container">
+  <div class="datepicker-wrapper">
   <input placeholder="Selectionner une date" type="text" name="datepicker" id="datepicker" value="" class="calendar">
-  <i class="fas fa-calendar-check icon"></i>
-  </div>
         <div class="page" >
             @include('components.flash-message')
             @extends('components.modals.modalCEvent')

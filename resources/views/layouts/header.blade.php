@@ -19,25 +19,29 @@
 <div></div>
   <div></div>
 @else
-<nav class="navbar-primary navbar-expand-lg navbar-light">
-    <div class="navbar-header"><span><a class="navbar-brand" href="/">BLOW</a></span></div>
-    <div class="container-fluid">
-      <ul class="nav ">
-        <li class="nav-item"><a class="custom-link" href="#"><i class="fas fa-user-circle"></i>{{ Auth::user()->name }}</a></li>
-        <li class="nav-item"><a class="custom-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>{{ __('Logout') }}</a></li><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form></li>
-@if(Auth::check())
-        @if (Auth::user()->isAdmin())
-        <li class="nav-item"><a class="custom-link" href="/admin"><i class="fas fa-chart-line"></i>Tableau de bord</a></li>
-        <li class="nav-item"><a class="custom-link" href="#" onclick="openTab(event, 'user-tab')"><i class="fas fa-users"></i></i>Utilisateurs</a></li>
-        <li class="nav-item"><a class="custom-link" href="#" onclick="openTab(event, 'room-tab')"><i class="fas fa-list"></i>Salles</a></li>
-        <li class="nav-item"><a class="custom-link" href="#" onclick="openTab(event, 'event-tab')"><i class="far fa-calendar-check"></i>Evenements</a></li>
-        <li class="nav-item"><a class="custom-link" href="#" onclick="openTab(event, 'calendar-tab')"><i class="far fa-calendar-alt"></i>Calendrier</a></li>
-        @endif
-@endif
-      </ul>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-light">
+ <div class="container-fluid">
+   <div class="navbar-header">
+     <img src="{{ asset('favicon.jpg') }}" style="width:50px;height:50px;margin-left:35%;margin-top:10%;margin-bottom:10%;"alt="logo">
+   </div>
+   <ul class="nav navbar-nav navbar-right">
+     <li class="nav-item"><a class="custom-link" href="#"><i class="fas fa-user-circle"></i>{{ Auth::user()->name }}</a></li>
+     @if(Auth::check())
+             @if (Auth::user()->isAdmin())
+             <li class="nav-item dropdown"><a class="custom-link dropdown-toggle" data-toggle="dropdown" href="/admin"><i class="fas fa-chart-line"></i>Tableau de bord</a>
+             <ul class="dropdown-menu">
+                 <li class="dropdown-item"><a class="custom-link" href="/admin" onclick="openTab(event, 'user-tab')"><i class="fas fa-users"></i></i>Utilisateurs</a></li>
+                 <li class="dropdown-item"><a class="custom-link" href="/admin" onclick="openTab(event, 'room-tab')"><i class="fas fa-list"></i>Salles</a></li>
+                 <li class="dropdown-item"><a class="custom-link" href="/admin" onclick="openTab(event, 'event-tab')"><i class="far fa-calendar-check"></i>Evenements</a></li>
+                 <li class="dropdown-item"><a class="custom-link" href="/admin" onclick="openTab(event, 'calendar-tab')"><i class="far fa-calendar-alt"></i>Calendrier</a></li>
+             </ul>
+             </li>
+             <li class="nav-item"><a class="custom-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>{{ __('Déconnexion') }}</a></li><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form></li>
+             @endif
+     @endif
+   </ul>
+ </div>
 </nav>
-
 @endguest
 
 </header>

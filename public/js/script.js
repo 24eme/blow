@@ -148,48 +148,28 @@ function gotoDate(){
       url.searchParams.set('date', datepickerValue);
       window.location = url.toString();
 };
-function resourceCapacity(info){ //ne fonctionne pas
-  // var elements = document.getElementsByClassName('fc-datagrid-cell-main'); // //fc-datagrid-cell fc-resource fc-datagrid-cell-main
-  // var capacityNumber = document.createElement('span');
-  // var capacityIcon = document.createElement('i');
-  // capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
-  //
-  // capacityIcon.className = "fas fa-male room-icon";
-  // // alert(info.resource.extendedProps.capacity);    //ici le premier vaut 5
-  // for (var i =1; i <elements.length; i++) {
-  //   // alert(info.resource.extendedProps.capacity);     //ici le premier vaut 12 pourquoi il y a un changement des que l'on rentre dans le for
-  //   elements[i].appendChild(capacityIcon);
-  //     // alert(info.resource.extendedProps.capacity);
-  //   elements[i].appendChild(capacityNumber);
-  // } ;
-  var elements = document.getElementsByClassName('fc-scrollgrid-sync-inner');
-  var capacityNumber = document.createElement('span');
-  var capacityIcon = document.createElement('i');
-  capacityNumber.innerHTML = info.resource.extendedProps.capacity ;
-  capacityIcon.className = "fas fa-male";
-  for (var i = 0; i < elements.length; i++) {
-    elements[i].appendChild(capacityIcon);
-    elements[i].appendChild(capacityNumber);
-    elements[elements.length-1].classList.add('lol');
-  } ;
-}
 
 function resourcePopup(info) {
+
         var popup = document.createElement('div');
         var br = document.createElement('br');
         var br1 = br.cloneNode(true);
         var br2 = br.cloneNode(true);
-        var capacite = document.createElement('label');
-        var equipement = document.createElement('label');
+        var title = document.createElement('h3');
+        var capacite = document.createElement('p');
+        var equipement = document.createElement('p');
         var img = document.createElement('img');
         popup.className = "pop-up";
-        popup.innerHTML = info.resource.title;
+        title.innerHTML = info.resource.title;
+        title.style.fontSize = "10px";
         img.src = "img/"+info.resource.extendedProps.image;
         img.style.width = "70%";
         img.style.height = "50%"
+        img.style.margin = "auto";
         equipement.innerHTML = info.resource.extendedProps.equipment;
         capacite.innerHTML = info.resource.extendedProps.capacity ;
         capacite.innerHTML +=  ' personnes';
+        popup.appendChild(title);
         popup.appendChild(br);
         popup.appendChild(img);
         popup.appendChild(br1);
@@ -202,11 +182,10 @@ function resourcePopup(info) {
                 popup.style.display = "block";
           }
           else{
-            popup.style.position ="absolute";
             popup.style.display = "none  ";
           }
         };
-        function popupHide(){ popup.style.display ="none";};
+    function popupHide(){ popup.style.display ="none";};
         info.el.addEventListener("mouseover", popupDisplay);
         info.el.addEventListener("mouseout", popupHide);
 
@@ -214,8 +193,7 @@ function resourcePopup(info) {
     const equipments = resourceEquipment.split(',');
     for (var i = 0; i < equipments.length; i++) {
       var equipmentIcon = document.createElement('i');
-      equipmentIcon.style.marginLeft = "200px";
-      equipmentIcon.style.marginTop= "-28px";
+
       switch (equipments[i]) {
 
         case 'Video-projecteur':
@@ -246,7 +224,7 @@ function resourcePopup(info) {
         default: ;
 
       }
-  //    info.el.appendChild(equipmentIcon);
+      popup.appendChild(equipmentIcon);
 
     };
 

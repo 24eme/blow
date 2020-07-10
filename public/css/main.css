@@ -11,7 +11,7 @@ body{
 }
 *{
   font-family:Montserrat,Open Sans, Quicksand,sans-serif,Arial;
-  font-size: 15px;
+  font-size: 12px;
 }
 a{
   color: grey;
@@ -38,15 +38,12 @@ h3{
 .custom-btn:hover{
   box-shadow: 0 0 40px 40px #cce4eb inset;
 }
-.navbar-primary{
-  position: fixed;
-  top:0;
-  left: 0;
-  height: 100%;
-  width: 15%;
+ .navbar{
+  width: 100%;
   background-color: rgba(228, 234, 237, 0.5);
   z-index: 0 !important;
 }
+/*
 .navbar-primary ul > li {
   font-size: 2em;
   margin-left: 0;
@@ -63,9 +60,12 @@ h3{
   font-family: Quicksand;
   letter-spacing: 10px;
 } */
+.nav-item{
+  margin: 20px;
+}
 .calendar-container{
-  margin-top: 50px;
-  margin-left: 15%;
+  margin: auto;
+  width: 90%;
 }
 .calendar-admin{
   width: 100%;
@@ -76,9 +76,25 @@ h3{
   margin-bottom: 30px;
 }
 #datepicker{
-  border:none;
-  border: 0.5px solid grey;
+  border: 0.5px solid #E8E8E8;
+  border-radius: 10px;
   background-color: inherit;
+  margin: auto;
+  z-index: 200 ;
+  width: 200px;
+}
+.fc table {
+  border-spacing: 20px !important;
+}
+.fc-timeline-slot-cushion{
+  margin-left: 10px;
+  padding: 15px !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+.fc-datagrid-cell-main span{
+  margin-left: 10px;
+  padding: 20px !important;
 }
 .icon {
   margin-left: -40px;
@@ -103,7 +119,7 @@ h3{
 html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active{
   background-color: inherit !important;
   border: none !important;
-  color: #a6a6a6 !important;
+  color: #5c5c5c !important;
     font-family: Josefin!important;
 }
 .fc-datagrid-cell-main{
@@ -111,9 +127,6 @@ html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:activ
 }
 .fc-datagrid-cell-main{
   font-weight: 400;
-}
-.lol{
-  background-color: blue !important;
 }
 .fc-timeline-event{
   -webkit-box-shadow: 10px 10px 5px -5px  rgba(250,250,250,0.5);
@@ -123,7 +136,8 @@ html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:activ
 .fc-header-toolbar button{
   color: grey !important;
   background-color: inherit !important;
-  border: none !important;
+  border: 1px solid #E8E8E8 !important;
+  padding: 10px;
 }
 .fc-button{
   color:grey !important;
@@ -224,15 +238,16 @@ form.is-editing .btn-edit {
 } */
 .tab-navbar{
   overflow: hidden;
-  width: 85%;
-  /* margin:auto; */
+  width: 80%;
+  margin:auto;
 
 }
 .tab-navbar button {
   border: none;
   /* margin: 20px;*/
    padding: 20px;
-  */adding-left: 50px; */
+   width: 70%;
+  /*padding-left: 50px; */
   /* padding-right: 50px; */
   transition: 0.3s;
   color: #FFF;
@@ -255,8 +270,7 @@ box-shadow: 10px 10px 14px -6px rgba(240,240,240,1);
   margin: 10px;
   padding: 10px;
   border: 1px solid #E8E8E8;
-  border-radius: 10px;
-  background-color:#fafafa;
+  border-radius: 10px; 
 }
 .tabcontent li{
   font-size: 1em;
@@ -267,28 +281,37 @@ box-shadow: 10px 10px 14px -6px rgba(240,240,240,1);
   display: inline-block;
 }
 
-
+.dropdown-menu{
+  background-color: rgba(228, 234, 237, 0.5);
+  margin:0 ;
+  border: none;
+}
+.dropdown-item{
+  background-color: inherit !important;
+  margin:0 !important;
+}
 tbody{
   background-color: rgba(255,255,255,0.5);
 }
 
-tr:nth-child(even) {
-    background-color: #FFF;
+.fc-datagrid-body tr:nth-child(even),.fc-scrollgrid-sync-table  tr:nth-child(even) {
+    background-color: rgba(186, 206, 209,0.5) ;
 }
-
 .pop-up {
   display: none;
-	position: absolute;
-	background: #F7F7F7;
-	width: 70%;
-	height: 50%;
-	margin-right: 0px;
-	margin-bottom: 0px;
+  position: absolute;
   padding: 10%;
+  background: #F4F4F4;
+  margin-left: 20px;
+  padding-top: 0;
   box-shadow:  2px 2px 2px 0px rgba(212,212,212,1);
-	text-align: left;
+	text-align: center;
+  z-index: 100;
 }
 
+/*.fc-scroller,.fc-scroller-harness{
+  overflow: visible !important;
+} */
 
 #loader-wrapper .loader-section {
     position: fixed;
@@ -376,8 +399,6 @@ h2{
   padding: 15%;
   background-color: rgb(41,45,52);
   border-radius: 10%;
-  transition: ;
-  overflow: hidden;
 }
 .calendar_box{
   margin: 100px;
