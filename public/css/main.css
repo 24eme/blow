@@ -60,12 +60,9 @@ h3{
   font-family: Quicksand;
   letter-spacing: 10px;
 } */
-<<<<<<< HEAD
 .nav-item{
   margin: 20px;
 }
-=======
->>>>>>> 6e4520c03f78053678255bee6ebf677ef36c4a06
 .calendar-container{
   margin: auto;
   width: 90%;
@@ -241,15 +238,16 @@ form.is-editing .btn-edit {
 } */
 .tab-navbar{
   overflow: hidden;
-  width: 85%;
-  /* margin:auto; */
+  width: 80%;
+  margin:auto;
 
 }
 .tab-navbar button {
   border: none;
   /* margin: 20px;*/
    padding: 20px;
-  */adding-left: 50px; */
+   width: 70%;
+  /*padding-left: 50px; */
   /* padding-right: 50px; */
   transition: 0.3s;
   color: #FFF;
@@ -272,8 +270,7 @@ box-shadow: 10px 10px 14px -6px rgba(240,240,240,1);
   margin: 10px;
   padding: 10px;
   border: 1px solid #E8E8E8;
-  border-radius: 10px;
-  background-color:#fafafa;
+  border-radius: 10px; 
 }
 .tabcontent li{
   font-size: 1em;

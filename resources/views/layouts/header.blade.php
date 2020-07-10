@@ -30,10 +30,10 @@
              @if (Auth::user()->isAdmin())
              <li class="nav-item dropdown"><a class="custom-link dropdown-toggle" data-toggle="dropdown" href="/admin"><i class="fas fa-chart-line"></i>Tableau de bord</a>
              <ul class="dropdown-menu">
-                 <li class="dropdown-item"><a class="custom-link" href="#" onclick="openTab(event, 'user-tab')"><i class="fas fa-users"></i></i>Utilisateurs</a></li>
-                 <li class="dropdown-item"><a class="custom-link" href="#" onclick="openTab(event, 'room-tab')"><i class="fas fa-list"></i>Salles</a></li>
-                 <li class="dropdown-item"><a class="custom-link" href="#" onclick="openTab(event, 'event-tab')"><i class="far fa-calendar-check"></i>Evenements</a></li>
-                 <li class="dropdown-item"><a class="custom-link" href="#" onclick="openTab(event, 'calendar-tab')"><i class="far fa-calendar-alt"></i>Calendrier</a></li>
+                 <li class="dropdown-item"><a class="custom-link" href="/admin" onclick="openTab(event, 'user-tab')"><i class="fas fa-users"></i></i>Utilisateurs</a></li>
+                 <li class="dropdown-item"><a class="custom-link" href="/admin" onclick="openTab(event, 'room-tab')"><i class="fas fa-list"></i>Salles</a></li>
+                 <li class="dropdown-item"><a class="custom-link" href="/admin" onclick="openTab(event, 'event-tab')"><i class="far fa-calendar-check"></i>Evenements</a></li>
+                 <li class="dropdown-item"><a class="custom-link" href="/admin" onclick="openTab(event, 'calendar-tab')"><i class="far fa-calendar-alt"></i>Calendrier</a></li>
              </ul>
              </li>
              <li class="nav-item"><a class="custom-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>{{ __('Déconnexion') }}</a></li><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form></li>

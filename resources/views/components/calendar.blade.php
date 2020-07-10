@@ -2,7 +2,7 @@
 <script src='https://unpkg.com/fullcalendar-scheduler@5.1.0/main.min.js'></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  
+
     var currentdate = new Date();
     var time =""+currentdate.getHours() + ":"+ currentdate.getMinutes() + ":"+ currentdate.getSeconds()+"";
 
@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
       nowIndicator:true,
       scrollTime:time,
       events:'showEvents',
-
       resources:'showRooms',
       themeSystem: 'bootstrap',
       bootstrapFontAwesome:{
@@ -36,27 +35,16 @@ document.addEventListener('DOMContentLoaded', function() {
         prevYear: 'fa-angle-double-left',
         nextYear: 'fa-angle-double-right'
         },
-
-
-
-
       select: function(info){
         modalAddEvent(info);
       },
       eventClick: function(info){
-
         var userid= <?php echo Auth::id() ?>;
-
-        if (userid!= info.event.extendedProps.user_id) {
-           NotYourEvent();
-          }
-         else {
-            modalCheckEvent(info);
-         }
+        if (userid!= info.event.extendedProps.user_id) {NotYourEvent();}
+        else { modalCheckEvent(info);}
       },
       resourceLabelDidMount: function(info){
         resourcePopup(info);
-<<<<<<< HEAD
         var elements = document.getElementsByClassName('fc-resource');
         var capacityNumber = document.createElement('span');
         var capacityIcon = document.createElement('i');
@@ -72,14 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
           info.el.appendChild(capacityIcon);
           info.el.appendChild(capacityNumber);
         } ;
-        //resourceCapacity(info);
-        //https://stackoverflow.com/questions/9404685/import-ical-ics-with-fullcalendar ICS
-=======
-      },
-      resourceLabelContent: function(info){
-        // resourceCapacity(info);  //ne fonctionne pas
->>>>>>> 6e4520c03f78053678255bee6ebf677ef36c4a06
-
       },
       datesSet:function(info){
           Currentdate = calendar.getDate().toISOString();

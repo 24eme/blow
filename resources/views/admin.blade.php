@@ -21,9 +21,9 @@
 
                 <div class="col-sm-3 mb-3 mr-0">
                 <button class="tablinks" onclick="openTab(event, 'calendar-tab')">Calendrier</button>
-                </diV
+              </div>
             </div>
-            </div>
+
 
             <div id="event-tab" class="tabcontent">
               <div class="wrapper">
@@ -54,7 +54,7 @@
             <div id="calendar-tab" class="tabcontent ">
               <h3>VISUALISATION DE L'INTERFACE</h3>
               <div class="datepicker-wrapper">
-              <input placeholder="Selectionner une date" type="text" name="datepicker" id="datepicker" value="" class="calendar"> 
+              <input placeholder="Selectionner une date" type="text" name="datepicker" id="datepicker" value="" class="calendar">
               </div>
                   <div id="calendar"></div>
             </div>
