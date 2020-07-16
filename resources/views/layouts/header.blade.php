@@ -29,13 +29,14 @@
    </button>
    <div class="collapse navbar-collapse" id="navbarMenuAd">
       <ul class="nav navbar-nav m-auto">
-     <li class="nav-item"><i class="fas fa-user-circle"></i>{{ Auth::user()->name }}</a></li>
+
 
      @if(Auth::check())
              @if (Auth::user()->isAdmin())
                   <li class="nav-item"><a class="custom-link" href="/home"><i class="fas fa-calendar-alt"></i>Calendrier</a></li>
-             <li class="nav-item dropdown"><a class="custom-link" href="/admin"><i class="fas fa-chart-line"></i>Tableau de bord</a></li>
-                        @endif
+                  <li class="nav-item"><a class="custom-link" href="/admin"><i class="fas fa-chart-line"></i>Tableau de bord</a></li>
+            @endif
+             <li class="nav-item"><i class="fas fa-user-circle"></i>{{ Auth::user()->name }}</a></li>
              <li class="nav-item"><a class="custom-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>{{ __('Déconnexion') }}</a></li><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form></li>
 
      @endif
