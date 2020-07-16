@@ -6,8 +6,9 @@
 
 <div class="calendar-container container">
   <div class="datepicker-wrapper">
-    <div style='margin:10 10 10 0;'>
+    <div style='margin:10 10 10 450;'>
   <input style='position:absolute;'placeholder="Selectionner une date" type="text" name="datepicker" id="datepicker" value="" class="calendar"><br>
+</div>
 </div>
         <div class="page" >
             @include('components.flash-message')
